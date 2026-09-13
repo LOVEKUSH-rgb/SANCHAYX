@@ -1,0 +1,3823 @@
+[
+  {
+    "plan_id": "LIC-001",
+    "plan_name": "LIC's Single Premium Endowment Plan",
+    "plan_number": "717",
+    "uin": "512N283V03",
+    "category": "Endowment",
+    "active_status": "active",
+    "short_description": "A single premium, non-linked, participating individual life assurance savings plan offering financial protection against death along with a lump-sum maturity benefit.",
+    "main_purpose": "One-time lump-sum investment with financial protection and guaranteed bonus participation.",
+    "detailed_description": "LIC's Single Premium Endowment Plan (Plan No. 717, UIN: 512N283V03) is an individual, participating, non-linked life assurance plan where the premium is paid in a lump sum at the outset of the policy. The plan provides financial protection against death during the policy term with the provision of payment of a lump sum amount at the time of maturity for surviving policyholders.",
+    "eligibility_rules": {
+      "min_entry_age": 0.08,
+      "max_entry_age": 65,
+      "min_maturity_age": 18,
+      "max_maturity_age": 75,
+      "allowed_genders": ["Male", "Female", "Other", "All"],
+      "allowed_professions": ["All", "Salaried", "Self-Employed", "Business", "Homemaker", "Professional", "Farmer", "Student"],
+      "special_conditions": "Minimum entry age is 30 days (completed). Risk commences immediately if entry age is 8 years or older, or after 2 years / 8th birthday."
+    },
+    "age_rules": {
+      "min_entry_age_years": 0.08,
+      "max_entry_age_years": 65,
+      "min_maturity_age_years": 18,
+      "max_maturity_age_years": 75,
+      "entry_age_text": "30 days (completed) to 65 years (nearer birthday)"
+    },
+    "gender_rules": {
+      "allowed": "All",
+      "female_concession": "Standard rates apply",
+      "notes": "Available to all genders."
+    },
+    "child_age_rules": {
+      "is_child_plan": true,
+      "min_child_age": 0.08,
+      "max_child_age": 17,
+      "risk_commencement_rule": "If child is under 8 years, risk commences after 2 years from commencement or policy anniversary coinciding with or following completion of 8 years of age.",
+      "proposer_pwb_available": false
+    },
+    "premium_rules": {
+      "premium_payment_modes": ["Single Premium"],
+      "min_sum_assured": 100000,
+      "max_sum_assured": null,
+      "min_sum_assured_text": "₹1,00,000",
+      "max_sum_assured_text": "No upper limit (subject to underwriting)",
+      "sum_assured_multiples": "₹10,000 up to ₹2.5 Lakhs; ₹25,000 above ₹2.5 Lakhs",
+      "high_sum_assured_rebate": "Rebates applicable on sum assured ₹2,00,000 and above."
+    },
+    "policy_term": {
+      "min_term_years": 10,
+      "max_term_years": 25,
+      "available_terms": "10 to 25 years",
+      "rule_description": "Policyholder can select any term between 10 and 25 years."
+    },
+    "premium_payment_term": {
+      "options": ["Single Premium (1 Year)"],
+      "rule_description": "One-time single payment at commencement."
+    },
+    "benefits": {
+      "death_benefit_summary": "On death during the policy term before date of maturity: Sum Assured on Death plus vested Simple Reversionary Bonuses and Final Additional Bonus (if any).",
+      "maturity_benefit_summary": "On survival to end of policy term: Basic Sum Assured along with vested Simple Reversionary Bonuses and Final Additional Bonus (if any).",
+      "survival_benefits": null,
+      "guaranteed_additions": null,
+      "bonus_type": "Simple Reversionary Bonus + Final Additional Bonus",
+      "loyalty_additions": null
+    },
+    "death_benefit": "Basic Sum Assured + Vested Simple Reversionary Bonuses + Final Additional Bonus (if any).",
+    "maturity_benefit": "Basic Sum Assured + Vested Simple Reversionary Bonuses + Final Additional Bonus (if any).",
+    "loan_availability": {
+      "allowed": true,
+      "waiting_period_months": 3,
+      "max_loan_percentage": "Up to 90% of Surrender Value."
+    },
+    "surrender_rules": {
+      "allowed_after_years": 0.08,
+      "guaranteed_surrender_value_rule": "Surrender permitted anytime during the policy term. Guaranteed surrender value depends on duration completed."
+    },
+    "revival_rules": {
+      "within_years": null,
+      "notes": "Not applicable as it is a Single Premium plan."
+    },
+    "grace_period": {
+      "yearly_half_quarterly_days": 0,
+      "monthly_days": 0,
+      "notes": "Not applicable (Single Premium)."
+    },
+    "riders": ["LIC's Accidental Death and Disability Benefit Rider", "LIC's New Term Assurance Rider"],
+    "goals": ["Wealth Creation", "Long Term Savings", "Children Education", "Capital Preservation"],
+    "suitable_for": ["Individuals with lump-sum surplus capital", "Parents saving for child's future under single payment", "Investors wanting capital growth without recurring premium dues"],
+    "retirement_relevance": "High",
+    "protection_relevance": "Moderate",
+    "investment_preference": ["Low Risk", "Guaranteed + Bonus", "Single Investment"],
+    "budget_category": "HNI / Lump Sum",
+    "official_lic_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_document_url": "https://www.licindia.in/en/web/guest/single-premium-endowment-plan-717",
+    "official_brochure_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_category_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "source": "LIC Official Website",
+    "last_verified": "2026-08-31",
+    "verification_required": false
+  },
+  {
+    "plan_id": "LIC-002",
+    "plan_name": "LIC's New Endowment Plan",
+    "plan_number": "714",
+    "uin": "512N277V03",
+    "category": "Endowment",
+    "active_status": "active",
+    "short_description": "A popular participating, non-linked, individual life assurance savings plan combining disciplined savings with full family financial protection.",
+    "main_purpose": "Disciplined long-term wealth accumulation along with comprehensive life insurance protection.",
+    "detailed_description": "LIC's New Endowment Plan (Plan No. 714, UIN: 512N277V03) is a conventional participating life insurance plan. It provides financial support for the family in case of unfortunate demise of the policyholder before maturity and a lump sum amount at the time of maturity for surviving policyholders.",
+    "eligibility_rules": {
+      "min_entry_age": 8,
+      "max_entry_age": 50,
+      "min_maturity_age": 20,
+      "max_maturity_age": 75,
+      "allowed_genders": ["Male", "Female", "Other", "All"],
+      "allowed_professions": ["All", "Salaried", "Self-Employed", "Business", "Homemaker", "Professional", "Farmer", "Student"],
+      "special_conditions": "Minimum entry age is 8 years (completed). Maximum maturity age is 75 years."
+    },
+    "age_rules": {
+      "min_entry_age_years": 8,
+      "max_entry_age_years": 50,
+      "min_maturity_age_years": 20,
+      "max_maturity_age_years": 75,
+      "entry_age_text": "8 years (completed) to 50 years (nearer birthday)"
+    },
+    "gender_rules": {
+      "allowed": "All",
+      "female_concession": "Standard participating rates",
+      "notes": "Available to all individuals."
+    },
+    "child_age_rules": {
+      "is_child_plan": true,
+      "min_child_age": 8,
+      "max_child_age": 17,
+      "risk_commencement_rule": "Risk commences immediately as minimum entry age is 8 years.",
+      "proposer_pwb_available": true
+    },
+    "premium_rules": {
+      "premium_payment_modes": ["Yearly", "Half-Yearly", "Quarterly", "Monthly (NACH)"],
+      "min_sum_assured": 200000,
+      "max_sum_assured": null,
+      "min_sum_assured_text": "₹2,00,000",
+      "max_sum_assured_text": "No upper limit",
+      "sum_assured_multiples": "₹5,000 / ₹25,000",
+      "high_sum_assured_rebate": "Rebates for sum assured above ₹5 Lakhs."
+    },
+    "policy_term": {
+      "min_term_years": 12,
+      "max_term_years": 35,
+      "available_terms": "12 to 35 years",
+      "rule_description": "Choice of term from 12 to 35 years."
+    },
+    "premium_payment_term": {
+      "options": ["Equal to Policy Term (12 to 35 years)"],
+      "rule_description": "Regular premium paying term equal to policy term."
+    },
+    "benefits": {
+      "death_benefit_summary": "Sum Assured on Death (higher of Basic Sum Assured or 7 times annualized premium) plus vested Simple Reversionary Bonuses and Final Additional Bonus.",
+      "maturity_benefit_summary": "Basic Sum Assured plus vested Simple Reversionary Bonuses and Final Additional Bonus (if any).",
+      "survival_benefits": null,
+      "guaranteed_additions": null,
+      "bonus_type": "Simple Reversionary Bonus + Final Additional Bonus",
+      "loyalty_additions": null
+    },
+    "death_benefit": "Sum Assured on Death + Vested Simple Reversionary Bonuses + Final Additional Bonus.",
+    "maturity_benefit": "Basic Sum Assured + Vested Simple Reversionary Bonuses + Final Additional Bonus.",
+    "loan_availability": {
+      "allowed": true,
+      "waiting_period_months": 12,
+      "max_loan_percentage": "Up to 90% for in-force policies, 80% for paid-up policies."
+    },
+    "surrender_rules": {
+      "allowed_after_years": 1,
+      "guaranteed_surrender_value_rule": "Policy acquires surrender value after 1 full year's premiums are paid."
+    },
+    "revival_rules": {
+      "within_years": 5,
+      "notes": "Revival allowed within 5 consecutive years from first unpaid premium."
+    },
+    "grace_period": {
+      "yearly_half_quarterly_days": 30,
+      "monthly_days": 15,
+      "notes": "30 days for yearly/half-yearly/quarterly modes; 15 days for monthly mode."
+    },
+    "riders": ["LIC's Accidental Death and Disability Benefit Rider", "LIC's Accident Benefit Rider", "LIC's New Term Assurance Rider", "LIC's Premium Waiver Benefit Rider"],
+    "goals": ["Family Protection", "Long Term Savings", "Children Education", "Retirement Corpus"],
+    "suitable_for": ["Salaried professionals seeking steady savings", "Breadwinners desiring guaranteed death and maturity benefits", "Parents planning child education milestones"],
+    "retirement_relevance": "High",
+    "protection_relevance": "High",
+    "investment_preference": ["Low Risk", "Guaranteed + Bonus", "Regular Savings"],
+    "budget_category": "Moderate (₹2000-₹5000/mo)",
+    "official_lic_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_document_url": "https://www.licindia.in/en/web/guest/new-endowment-plan-714",
+    "official_brochure_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_category_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "source": "LIC Official Website",
+    "last_verified": "2026-08-31",
+    "verification_required": false
+  },
+  {
+    "plan_id": "LIC-003",
+    "plan_name": "LIC's New Jeevan Anand",
+    "plan_number": "715",
+    "uin": "512N279V03",
+    "category": "Endowment",
+    "active_status": "active",
+    "short_description": "A double-benefit participating life insurance plan offering lump-sum maturity payout plus lifelong 100% sum assured life cover till age 100.",
+    "main_purpose": "Double benefit: Maturity payout during lifetime plus permanent life cover up to age 100 without additional premiums.",
+    "detailed_description": "LIC's New Jeevan Anand (Plan No. 715, UIN: 512N279V03) is a combination of Endowment and Whole Life insurance. It provides the dual benefit of a lump-sum maturity payment upon surviving the chosen policy term, and an additional Basic Sum Assured life coverage that continues for the entire lifetime (up to age 100) without paying any more premiums after maturity.",
+    "eligibility_rules": {
+      "min_entry_age": 18,
+      "max_entry_age": 50,
+      "min_maturity_age": 33,
+      "max_maturity_age": 75,
+      "allowed_genders": ["Male", "Female", "Other", "All"],
+      "allowed_professions": ["All", "Salaried", "Self-Employed", "Business", "Professional", "Farmer"],
+      "special_conditions": "Minimum entry age 18 years. Lifelong life cover continues after maturity until death or age 100."
+    },
+    "age_rules": {
+      "min_entry_age_years": 18,
+      "max_entry_age_years": 50,
+      "min_maturity_age_years": 33,
+      "max_maturity_age_years": 75,
+      "entry_age_text": "18 years (completed) to 50 years (nearer birthday)"
+    },
+    "gender_rules": {
+      "allowed": "All",
+      "female_concession": "Standard participating terms",
+      "notes": "Available to all adult lives."
+    },
+    "child_age_rules": {
+      "is_child_plan": false,
+      "min_child_age": null,
+      "max_child_age": null,
+      "risk_commencement_rule": "Not applicable (Min age 18 years).",
+      "proposer_pwb_available": false
+    },
+    "premium_rules": {
+      "premium_payment_modes": ["Yearly", "Half-Yearly", "Quarterly", "Monthly (NACH)"],
+      "min_sum_assured": 200000,
+      "max_sum_assured": null,
+      "min_sum_assured_text": "₹2,00,000",
+      "max_sum_assured_text": "No upper limit",
+      "sum_assured_multiples": "₹5,000 / ₹50,000 / ₹1,00,000",
+      "high_sum_assured_rebate": "Rebates for sum assured ₹5 Lakhs and above."
+    },
+    "policy_term": {
+      "min_term_years": 15,
+      "max_term_years": 35,
+      "available_terms": "15 to 35 years",
+      "rule_description": "Policyholder chooses term from 15 to 35 years."
+    },
+    "premium_payment_term": {
+      "options": ["Equal to Policy Term (15 to 35 years)"],
+      "rule_description": "Regular premium payment matching policy term."
+    },
+    "benefits": {
+      "death_benefit_summary": "Death during policy term: 125% of Basic Sum Assured + vested Bonuses + FAB. Death after policy term (post-maturity): 100% of Basic Sum Assured paid whenever death occurs.",
+      "maturity_benefit_summary": "On survival to end of policy term: Basic Sum Assured + vested Simple Reversionary Bonuses + Final Additional Bonus.",
+      "survival_benefits": null,
+      "guaranteed_additions": null,
+      "bonus_type": "Simple Reversionary Bonus + Final Additional Bonus",
+      "loyalty_additions": null
+    },
+    "death_benefit": "During term: 125% of Basic Sum Assured + Vested Bonuses + FAB. Post-maturity: Additional 100% Basic Sum Assured upon death.",
+    "maturity_benefit": "Basic Sum Assured + Vested Simple Reversionary Bonuses + Final Additional Bonus.",
+    "loan_availability": {
+      "allowed": true,
+      "waiting_period_months": 12,
+      "max_loan_percentage": "Up to 90% of surrender value for in-force policies."
+    },
+    "surrender_rules": {
+      "allowed_after_years": 1,
+      "guaranteed_surrender_value_rule": "Policy acquires surrender value after 1 full year's premiums are paid."
+    },
+    "revival_rules": {
+      "within_years": 5,
+      "notes": "Revival allowed within 5 consecutive years."
+    },
+    "grace_period": {
+      "yearly_half_quarterly_days": 30,
+      "monthly_days": 15,
+      "notes": "30 days for yearly/half-yearly/quarterly; 15 days for monthly."
+    },
+    "riders": ["LIC's Accidental Death and Disability Benefit Rider", "LIC's Accident Benefit Rider", "LIC's New Term Assurance Rider", "LIC's New Critical Illness Benefit Rider"],
+    "goals": ["Family Protection", "Lifelong Security", "Legacy Planning", "Retirement Security"],
+    "suitable_for": ["Primary family breadwinners wanting dual benefit", "Individuals seeking lifelong insurance cover alongside lump-sum maturity", "Estate and legacy planning for heirs"],
+    "retirement_relevance": "High",
+    "protection_relevance": "Very High",
+    "investment_preference": ["Low Risk", "Guaranteed + Bonus", "Lifelong Cover"],
+    "budget_category": "Moderate (₹2000-₹5000/mo)",
+    "official_lic_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_document_url": "https://www.licindia.in/en/web/guest/new-jeevan-anand-715",
+    "official_brochure_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_category_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "source": "LIC Official Website",
+    "last_verified": "2026-08-31",
+    "verification_required": false
+  },
+  {
+    "plan_id": "LIC-004",
+    "plan_name": "LIC's Jeevan Lakshya",
+    "plan_number": "733",
+    "uin": "512N297V03",
+    "category": "Endowment",
+    "active_status": "active",
+    "short_description": "A participating endowment plan specially designed for children's future and family security with annual income support upon unfortunate demise of parent.",
+    "main_purpose": "Guarantees annual income support (10% sum assured annually) for children plus full maturity lump-sum on parent's untimely death.",
+    "detailed_description": "LIC's Jeevan Lakshya (Plan No. 733, UIN: 512N297V03) is an individual, participating life insurance savings plan designed to provide annual income benefit upon untimely demise of the life assured to help fulfill educational and living needs of children, plus an assured lump sum amount at the time of maturity regardless of survival.",
+    "eligibility_rules": {
+      "min_entry_age": 18,
+      "max_entry_age": 50,
+      "min_maturity_age": 31,
+      "max_maturity_age": 65,
+      "allowed_genders": ["Male", "Female", "Other", "All"],
+      "allowed_professions": ["All", "Salaried", "Self-Employed", "Business", "Professional"],
+      "special_conditions": "Policy Term minus 3 years is the premium payment term."
+    },
+    "age_rules": {
+      "min_entry_age_years": 18,
+      "max_entry_age_years": 50,
+      "min_maturity_age_years": 31,
+      "max_maturity_age_years": 65,
+      "entry_age_text": "18 years (completed) to 50 years (nearer birthday)"
+    },
+    "gender_rules": {
+      "allowed": "All",
+      "female_concession": "Standard rates",
+      "notes": "Available to all parents and breadwinners."
+    },
+    "child_age_rules": {
+      "is_child_plan": true,
+      "min_child_age": 0,
+      "max_child_age": 18,
+      "risk_commencement_rule": "Parent is the Life Assured; child is the nominee and beneficiary.",
+      "proposer_pwb_available": false
+    },
+    "premium_rules": {
+      "premium_payment_modes": ["Yearly", "Half-Yearly", "Quarterly", "Monthly (NACH)"],
+      "min_sum_assured": 200000,
+      "max_sum_assured": null,
+      "min_sum_assured_text": "₹2,00,000",
+      "max_sum_assured_text": "No upper limit",
+      "sum_assured_multiples": "₹10,000",
+      "high_sum_assured_rebate": "Rebates for sum assured above ₹5 Lakhs."
+    },
+    "policy_term": {
+      "min_term_years": 13,
+      "max_term_years": 25,
+      "available_terms": "13 to 25 years",
+      "rule_description": "Choice of term between 13 and 25 years."
+    },
+    "premium_payment_term": {
+      "options": ["Policy Term minus 3 years (10 to 22 years)"],
+      "rule_description": "Premium paying term is 3 years less than the policy term."
+    },
+    "benefits": {
+      "death_benefit_summary": "Annual Income Benefit equal to 10% of Basic Sum Assured paid every year from next policy anniversary till one year before maturity date. On maturity date, 110% of Basic Sum Assured + vested bonuses + FAB is paid to nominee. All future premiums waived upon death.",
+      "maturity_benefit_summary": "On survival: Basic Sum Assured + vested Simple Reversionary Bonuses + Final Additional Bonus.",
+      "survival_benefits": null,
+      "guaranteed_additions": null,
+      "bonus_type": "Simple Reversionary Bonus + Final Additional Bonus",
+      "loyalty_additions": null
+    },
+    "death_benefit": "10% of Sum Assured every year till maturity + 110% of Sum Assured + Vested Bonuses + FAB at maturity. All future premiums waived.",
+    "maturity_benefit": "Basic Sum Assured + Vested Simple Reversionary Bonuses + Final Additional Bonus.",
+    "loan_availability": {
+      "allowed": true,
+      "waiting_period_months": 12,
+      "max_loan_percentage": "Up to 90% of surrender value."
+    },
+    "surrender_rules": {
+      "allowed_after_years": 1,
+      "guaranteed_surrender_value_rule": "Policy acquires surrender value after 1 full year's premiums are paid."
+    },
+    "revival_rules": {
+      "within_years": 5,
+      "notes": "Revival allowed within 5 consecutive years."
+    },
+    "grace_period": {
+      "yearly_half_quarterly_days": 30,
+      "monthly_days": 15,
+      "notes": "30 days for yearly/half/quarterly; 15 days for monthly."
+    },
+    "riders": ["LIC's Accidental Death and Disability Benefit Rider", "LIC's New Term Assurance Rider"],
+    "goals": ["Children Education", "Child Marriage", "Family Financial Support", "Income Security"],
+    "suitable_for": ["Parents wanting uninterrupted financial support for child's school/college fees even in parent's absence", "Breadwinners desiring regular family income on death alongside maturity corpus"],
+    "retirement_relevance": "Moderate",
+    "protection_relevance": "Very High",
+    "investment_preference": ["Low Risk", "Guaranteed Income + Bonus", "Child Education"],
+    "budget_category": "Moderate (₹2000-₹5000/mo)",
+    "official_lic_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_document_url": "https://www.licindia.in/en/web/guest/jeevan-lakshya-733",
+    "official_brochure_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_category_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "source": "LIC Official Website",
+    "last_verified": "2026-08-31",
+    "verification_required": false
+  },
+  {
+    "plan_id": "LIC-005",
+    "plan_name": "LIC's Jeevan Labh Plan",
+    "plan_number": "736",
+    "uin": "512N304V03",
+    "category": "Endowment",
+    "active_status": "active",
+    "short_description": "A limited premium paying, non-linked, participating life assurance savings plan that offers high returns and financial cushion with shorter premium payment durations.",
+    "main_purpose": "High wealth accumulation with shorter premium paying duration (10, 15, or 16 years).",
+    "detailed_description": "LIC's Jeevan Labh (Plan No. 736, UIN: 512N304V03) is a limited premium paying, non-linked, participating individual life assurance savings plan. It offers a combination of protection and savings, providing financial support for the family in case of unfortunate death of the policyholder before maturity and a lump sum amount at maturity.",
+    "eligibility_rules": {
+      "min_entry_age": 8,
+      "max_entry_age": 59,
+      "min_maturity_age": 24,
+      "max_maturity_age": 75,
+      "allowed_genders": ["Male", "Female", "Other", "All"],
+      "allowed_professions": ["All", "Salaried", "Self-Employed", "Business", "Professional", "Farmer"],
+      "special_conditions": "Max entry age: 59 yrs for 16-yr term (PPT 10), 54 yrs for 21-yr term (PPT 15), 50 yrs for 25-yr term (PPT 16)."
+    },
+    "age_rules": {
+      "min_entry_age_years": 8,
+      "max_entry_age_years": 59,
+      "min_maturity_age_years": 24,
+      "max_maturity_age_years": 75,
+      "entry_age_text": "8 years (completed) to 59 years (nearer birthday)"
+    },
+    "gender_rules": {
+      "allowed": "All",
+      "female_concession": "Standard rates",
+      "notes": "Available to all."
+    },
+    "child_age_rules": {
+      "is_child_plan": true,
+      "min_child_age": 8,
+      "max_child_age": 17,
+      "risk_commencement_rule": "Risk commences immediately for children aged 8 and above.",
+      "proposer_pwb_available": true
+    },
+    "premium_rules": {
+      "premium_payment_modes": ["Yearly", "Half-Yearly", "Quarterly", "Monthly (NACH)"],
+      "min_sum_assured": 200000,
+      "max_sum_assured": null,
+      "min_sum_assured_text": "₹2,00,000",
+      "max_sum_assured_text": "No upper limit",
+      "sum_assured_multiples": "₹10,000",
+      "high_sum_assured_rebate": "Rebates for sum assured above ₹5 Lakhs."
+    },
+    "policy_term": {
+      "min_term_years": 16,
+      "max_term_years": 25,
+      "available_terms": "16, 21, or 25 years",
+      "rule_description": "3 predefined combinations: Term 16 yrs (PPT 10 yrs), Term 21 yrs (PPT 15 yrs), Term 25 yrs (PPT 16 yrs)."
+    },
+    "premium_payment_term": {
+      "options": ["10 years (for 16-yr term)", "15 years (for 21-yr term)", "16 years (for 25-yr term)"],
+      "rule_description": "Limited premium payment terms (10, 15, 16 years)."
+    },
+    "benefits": {
+      "death_benefit_summary": "Sum Assured on Death (higher of Basic Sum Assured or 7 times annualized premium) plus vested Simple Reversionary Bonuses and Final Additional Bonus.",
+      "maturity_benefit_summary": "Basic Sum Assured plus vested Simple Reversionary Bonuses and Final Additional Bonus.",
+      "survival_benefits": null,
+      "guaranteed_additions": null,
+      "bonus_type": "Simple Reversionary Bonus + Final Additional Bonus",
+      "loyalty_additions": null
+    },
+    "death_benefit": "Sum Assured on Death + Vested Simple Reversionary Bonuses + Final Additional Bonus.",
+    "maturity_benefit": "Basic Sum Assured + Vested Simple Reversionary Bonuses + Final Additional Bonus.",
+    "loan_availability": {
+      "allowed": true,
+      "waiting_period_months": 12,
+      "max_loan_percentage": "Up to 90% of surrender value for in-force policies."
+    },
+    "surrender_rules": {
+      "allowed_after_years": 1,
+      "guaranteed_surrender_value_rule": "Policy acquires surrender value after 1 full year's premiums are paid."
+    },
+    "revival_rules": {
+      "within_years": 5,
+      "notes": "Revival allowed within 5 consecutive years."
+    },
+    "grace_period": {
+      "yearly_half_quarterly_days": 30,
+      "monthly_days": 15,
+      "notes": "30 days for yearly/half/quarterly; 15 days for monthly."
+    },
+    "riders": ["LIC's Accidental Death and Disability Benefit Rider", "LIC's New Term Assurance Rider", "LIC's Premium Waiver Benefit Rider"],
+    "goals": ["High Savings", "Children Education", "Retirement Corpus", "Wealth Building"],
+    "suitable_for": ["Individuals who prefer paying premiums for a limited number of years while enjoying long-term coverage", "High bonus yield seekers", "Salaried professionals wanting early premium payment completion"],
+    "retirement_relevance": "High",
+    "protection_relevance": "High",
+    "investment_preference": ["Low Risk", "High Bonus Endowment", "Limited Premium"],
+    "budget_category": "Moderate (₹2000-₹5000/mo)",
+    "official_lic_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_document_url": "https://www.licindia.in/en/web/guest/jeevan-labh-736",
+    "official_brochure_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_category_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "source": "LIC Official Website",
+    "last_verified": "2026-08-31",
+    "verification_required": false
+  },
+  {
+    "plan_id": "LIC-006",
+    "plan_name": "LIC's Amritbaal",
+    "plan_number": "774",
+    "uin": "512N365V02",
+    "category": "Child / Endowment",
+    "active_status": "active",
+    "short_description": "A dedicated non-linked child savings plan with high guaranteed additions of ₹80 per thousand sum assured per year to build a substantial corpus for higher education.",
+    "main_purpose": "Guaranteed corpus building for child's higher education with high fixed additions (₹80 per ₹1,000 Sum Assured yearly).",
+    "detailed_description": "LIC's Amritbaal (Plan No. 774, UIN: 512N365V02) is an individual, non-linked, non-participating life insurance savings plan specially designed to meet the higher education and other life milestone needs of children through high Guaranteed Additions of ₹80 per ₹1,000 Basic Sum Assured at the end of each policy year.",
+    "eligibility_rules": {
+      "min_entry_age": 0.08,
+      "max_entry_age": 13,
+      "min_maturity_age": 18,
+      "max_maturity_age": 25,
+      "allowed_genders": ["Male", "Female", "Other", "All"],
+      "allowed_professions": ["Student", "Child"],
+      "special_conditions": "Exclusively for children aged 30 days to 13 years. Maturity age must be between 18 and 25 years."
+    },
+    "age_rules": {
+      "min_entry_age_years": 0.08,
+      "max_entry_age_years": 13,
+      "min_maturity_age_years": 18,
+      "max_maturity_age_years": 25,
+      "entry_age_text": "30 days (completed) to 13 years (last birthday)"
+    },
+    "gender_rules": {
+      "allowed": "All",
+      "female_concession": "Standard rates",
+      "notes": "Available for male and female children."
+    },
+    "child_age_rules": {
+      "is_child_plan": true,
+      "min_child_age": 0.08,
+      "max_child_age": 13,
+      "risk_commencement_rule": "Risk commences immediately if child is 8 years or older, or after 2 years / on 8th birthday.",
+      "proposer_pwb_available": true
+    },
+    "premium_rules": {
+      "premium_payment_modes": ["Single Premium", "Limited Premium (Yearly, Half-Yearly, Quarterly, Monthly)"],
+      "min_sum_assured": 200000,
+      "max_sum_assured": null,
+      "min_sum_assured_text": "₹2,00,000",
+      "max_sum_assured_text": "No upper limit",
+      "sum_assured_multiples": "₹25,000",
+      "high_sum_assured_rebate": "Rebates applicable for sum assured ₹5 Lakhs and above."
+    },
+    "policy_term": {
+      "min_term_years": 10,
+      "max_term_years": 25,
+      "available_terms": "Limited Premium: 10 to 25 yrs; Single Premium: 5 to 25 yrs",
+      "rule_description": "Maturity age must fall between 18 and 25 years."
+    },
+    "premium_payment_term": {
+      "options": ["Single Premium", "5 years", "6 years", "7 years"],
+      "rule_description": "Short premium payment options of Single, 5, 6, or 7 years."
+    },
+    "benefits": {
+      "death_benefit_summary": "Sum Assured on Death plus accrued Guaranteed Additions. Premium waiver rider on proposer ensures policy continues without further payment upon parent's demise.",
+      "maturity_benefit_summary": "Basic Sum Assured along with accrued Guaranteed Additions (₹80 per ₹1,000 Sum Assured for each completed policy year).",
+      "survival_benefits": null,
+      "guaranteed_additions": "₹80 per ₹1,000 Basic Sum Assured per policy year",
+      "bonus_type": "Guaranteed Additions",
+      "loyalty_additions": null
+    },
+    "death_benefit": "Sum Assured on Death + Accrued Guaranteed Additions.",
+    "maturity_benefit": "Basic Sum Assured + Accrued Guaranteed Additions (₹80 per ₹1,000 BSA per year).",
+    "loan_availability": {
+      "allowed": true,
+      "waiting_period_months": 12,
+      "max_loan_percentage": "Available under both single and limited premium options."
+    },
+    "surrender_rules": {
+      "allowed_after_years": 1,
+      "guaranteed_surrender_value_rule": "Surrender permitted after 1 full year (limited premium) or anytime (single premium)."
+    },
+    "revival_rules": {
+      "within_years": 5,
+      "notes": "Revival allowed within 5 consecutive years."
+    },
+    "grace_period": {
+      "yearly_half_quarterly_days": 30,
+      "monthly_days": 15,
+      "notes": "30 days for yearly/half/quarterly; 15 days for monthly."
+    },
+    "riders": ["LIC's Premium Waiver Benefit Rider", "LIC's Accidental Death and Disability Benefit Rider"],
+    "goals": ["Child Higher Education", "Child Career Launch", "Child Marriage"],
+    "suitable_for": ["Parents with young children (0-13 years) seeking guaranteed high-yield savings for university education", "Short premium payment preference with guaranteed predictable payouts"],
+    "retirement_relevance": "Low",
+    "protection_relevance": "High",
+    "investment_preference": ["Guaranteed Return", "Child Savings", "High Fixed Yield"],
+    "budget_category": "Moderate (₹2000-₹5000/mo)",
+    "official_lic_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_document_url": "https://www.licindia.in/en/web/guest/amritbaal-774",
+    "official_brochure_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_category_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "source": "LIC Official Website",
+    "last_verified": "2026-08-31",
+    "verification_required": false
+  },
+  {
+    "plan_id": "LIC-007",
+    "plan_name": "LIC's New Bima Jyoti",
+    "plan_number": "890",
+    "uin": "512N395V01",
+    "category": "Endowment",
+    "active_status": "active",
+    "short_description": "A non-linked individual savings life insurance plan offering guaranteed additions of ₹50 per thousand sum assured throughout the policy term.",
+    "main_purpose": "Guaranteed wealth creation with fixed additions (₹50 per ₹1,000 Sum Assured per year) and limited premium payments.",
+    "detailed_description": "LIC's New Bima Jyoti (Plan No. 890, UIN: 512N395V01) is a non-linked, non-participating, individual life assurance savings plan. It provides guaranteed financial protection for the family against untimely demise of the life assured and an attractive guaranteed addition of ₹50 per ₹1,000 Basic Sum Assured at the end of each policy year.",
+    "eligibility_rules": {
+      "min_entry_age": 0.25,
+      "max_entry_age": 60,
+      "min_maturity_age": 18,
+      "max_maturity_age": 75,
+      "allowed_genders": ["Male", "Female", "Other", "All"],
+      "allowed_professions": ["All", "Salaried", "Self-Employed", "Business", "Homemaker", "Professional", "Farmer", "Student"],
+      "special_conditions": "Premium Payment Term is Policy Term minus 5 years."
+    },
+    "age_rules": {
+      "min_entry_age_years": 0.25,
+      "max_entry_age_years": 60,
+      "min_maturity_age_years": 18,
+      "max_maturity_age_years": 75,
+      "entry_age_text": "90 days (completed) to 60 years (nearer birthday)"
+    },
+    "gender_rules": {
+      "allowed": "All",
+      "female_concession": "Standard guaranteed terms",
+      "notes": "Available to all."
+    },
+    "child_age_rules": {
+      "is_child_plan": true,
+      "min_child_age": 0.25,
+      "max_child_age": 17,
+      "risk_commencement_rule": "Risk commences immediately if child is 8+ yrs, or after 2 yrs / 8th birthday.",
+      "proposer_pwb_available": true
+    },
+    "premium_rules": {
+      "premium_payment_modes": ["Yearly", "Half-Yearly", "Quarterly", "Monthly (NACH)"],
+      "min_sum_assured": 125000,
+      "max_sum_assured": null,
+      "min_sum_assured_text": "₹1,25,000",
+      "max_sum_assured_text": "No upper limit",
+      "sum_assured_multiples": "₹5,000 / ₹25,000",
+      "high_sum_assured_rebate": "Rebates for sum assured ₹3 Lakhs and above."
+    },
+    "policy_term": {
+      "min_term_years": 15,
+      "max_term_years": 20,
+      "available_terms": "15 to 20 years",
+      "rule_description": "Choice of term from 15 to 20 years."
+    },
+    "premium_payment_term": {
+      "options": ["Policy Term minus 5 years (10 to 15 years)"],
+      "rule_description": "PPT is 5 years less than policy term (10 to 15 years)."
+    },
+    "benefits": {
+      "death_benefit_summary": "Sum Assured on Death (125% of Basic Sum Assured or 7 times annualized premium) plus accrued Guaranteed Additions.",
+      "maturity_benefit_summary": "Basic Sum Assured plus accrued Guaranteed Additions (₹50 per ₹1,000 BSA per policy year).",
+      "survival_benefits": null,
+      "guaranteed_additions": "₹50 per ₹1,000 Basic Sum Assured per policy year",
+      "bonus_type": "Guaranteed Additions",
+      "loyalty_additions": null
+    },
+    "death_benefit": "125% of Basic Sum Assured + Accrued Guaranteed Additions (₹50/₹1,000/yr).",
+    "maturity_benefit": "Basic Sum Assured + Accrued Guaranteed Additions (₹50/₹1,000/yr).",
+    "loan_availability": {
+      "allowed": true,
+      "waiting_period_months": 12,
+      "max_loan_percentage": "Up to 90% of surrender value."
+    },
+    "surrender_rules": {
+      "allowed_after_years": 1,
+      "guaranteed_surrender_value_rule": "Policy acquires surrender value after 1 full year's premiums are paid."
+    },
+    "revival_rules": {
+      "within_years": 5,
+      "notes": "Revival allowed within 5 consecutive years."
+    },
+    "grace_period": {
+      "yearly_half_quarterly_days": 30,
+      "monthly_days": 15,
+      "notes": "30 days for yearly/half/quarterly; 15 days for monthly."
+    },
+    "riders": ["LIC's Accidental Death and Disability Benefit Rider", "LIC's New Term Assurance Rider", "LIC's Premium Waiver Benefit Rider", "LIC's Critical Illness Benefit Rider"],
+    "goals": ["Guaranteed Wealth Growth", "Family Security", "Milestone Savings"],
+    "suitable_for": ["Risk-averse individuals who want 100% guaranteed returns without market fluctuation", "Conservative savers planning future life goals"],
+    "retirement_relevance": "Moderate",
+    "protection_relevance": "High",
+    "investment_preference": ["Guaranteed Return", "Low Risk", "Fixed Additions"],
+    "budget_category": "Moderate (₹2000-₹5000/mo)",
+    "official_lic_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_document_url": "https://www.licindia.in/en/web/guest/bima-jyoti-890",
+    "official_brochure_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_category_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "source": "LIC Official Website",
+    "last_verified": "2026-08-31",
+    "verification_required": false
+  },
+  {
+    "plan_id": "LIC-008",
+    "plan_name": "LIC’s Nav Jeevan Shree",
+    "plan_number": "912",
+    "uin": "512N387V02",
+    "category": "Endowment",
+    "active_status": "active",
+    "short_description": "A high-protection guaranteed addition life assurance plan designed for substantial family coverage and capital preservation.",
+    "main_purpose": "High-value financial protection with guaranteed additions for affluent families.",
+    "detailed_description": "LIC's Nav Jeevan Shree (Plan No. 912, UIN: 512N387V02) is a non-linked, non-participating, individual life assurance savings plan combining substantial life cover and guaranteed capital growth through yearly guaranteed additions.",
+    "eligibility_rules": {
+      "min_entry_age": 0.25,
+      "max_entry_age": 60,
+      "min_maturity_age": 18,
+      "max_maturity_age": 75,
+      "allowed_genders": ["Male", "Female", "Other", "All"],
+      "allowed_professions": ["All", "Salaried", "Self-Employed", "Business", "Professional"],
+      "special_conditions": "Minimum Sum Assured is ₹5,00,000."
+    },
+    "age_rules": {
+      "min_entry_age_years": 0.25,
+      "max_entry_age_years": 60,
+      "min_maturity_age_years": 18,
+      "max_maturity_age_years": 75,
+      "entry_age_text": "90 days to 60 years"
+    },
+    "gender_rules": {
+      "allowed": "All",
+      "female_concession": "Standard rates",
+      "notes": "Available to all."
+    },
+    "child_age_rules": {
+      "is_child_plan": true,
+      "min_child_age": 0.25,
+      "max_child_age": 17,
+      "risk_commencement_rule": "Standard LIC child risk commencement rules apply.",
+      "proposer_pwb_available": true
+    },
+    "premium_rules": {
+      "premium_payment_modes": ["Yearly", "Half-Yearly", "Quarterly", "Monthly (NACH)"],
+      "min_sum_assured": 500000,
+      "max_sum_assured": null,
+      "min_sum_assured_text": "₹5,00,000",
+      "max_sum_assured_text": "No limit",
+      "sum_assured_multiples": "₹25,000",
+      "high_sum_assured_rebate": "Rebates applicable on higher sum assured tiers."
+    },
+    "policy_term": {
+      "min_term_years": 10,
+      "max_term_years": 20,
+      "available_terms": "10 to 20 years",
+      "rule_description": "Terms from 10 to 20 years."
+    },
+    "premium_payment_term": {
+      "options": ["5, 8, 10, or 12 years"],
+      "rule_description": "Limited premium payment terms."
+    },
+    "benefits": {
+      "death_benefit_summary": "Sum Assured on Death plus accrued Guaranteed Additions.",
+      "maturity_benefit_summary": "Basic Sum Assured plus accrued Guaranteed Additions.",
+      "survival_benefits": null,
+      "guaranteed_additions": "Guaranteed additions credited at the end of each policy year",
+      "bonus_type": "Guaranteed Additions",
+      "loyalty_additions": null
+    },
+    "death_benefit": "Sum Assured on Death + Accrued Guaranteed Additions.",
+    "maturity_benefit": "Basic Sum Assured + Accrued Guaranteed Additions.",
+    "loan_availability": {
+      "allowed": true,
+      "waiting_period_months": 12,
+      "max_loan_percentage": "Available after policy acquires surrender value."
+    },
+    "surrender_rules": {
+      "allowed_after_years": 1,
+      "guaranteed_surrender_value_rule": "Surrender permitted after 1 full year's premiums paid."
+    },
+    "revival_rules": {
+      "within_years": 5,
+      "notes": "Revival allowed within 5 years."
+    },
+    "grace_period": {
+      "yearly_half_quarterly_days": 30,
+      "monthly_days": 15,
+      "notes": "30 days standard; 15 days monthly."
+    },
+    "riders": ["LIC's Accidental Death and Disability Benefit Rider", "LIC's New Term Assurance Rider"],
+    "goals": ["Wealth Creation", "Capital Preservation", "Family Security"],
+    "suitable_for": ["Affluent individuals and business owners wanting guaranteed additions on higher sum assured"],
+    "retirement_relevance": "High",
+    "protection_relevance": "High",
+    "investment_preference": ["Guaranteed Return", "High Sum Assured", "Capital Safety"],
+    "budget_category": "High (₹5000-₹15000/mo)",
+    "official_lic_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_document_url": null,
+    "official_brochure_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_category_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "source": "LIC Official Website",
+    "last_verified": "2026-08-31",
+    "verification_required": false
+  },
+  {
+    "plan_id": "LIC-009",
+    "plan_name": "LIC's Bima Lakshmi",
+    "plan_number": "881",
+    "uin": "512N389V01",
+    "category": "Endowment",
+    "active_status": "active",
+    "short_description": "A customized savings and protection life insurance plan specially designed for female lives to support financial self-reliance and health security.",
+    "main_purpose": "Women-centric financial empowerment, guaranteed savings, and health/life protection.",
+    "detailed_description": "LIC's Bima Lakshmi (Plan No. 881, UIN: 512N389V01) is an individual, non-linked, non-participating savings life insurance plan designed exclusively for female lives. It offers guaranteed additions, specialized female-oriented riders, and financial security to ensure long-term self-reliance.",
+    "eligibility_rules": {
+      "min_entry_age": 18,
+      "max_entry_age": 55,
+      "min_maturity_age": 28,
+      "max_maturity_age": 70,
+      "allowed_genders": ["Female"],
+      "allowed_professions": ["All", "Salaried", "Self-Employed", "Business", "Homemaker", "Professional"],
+      "special_conditions": "Available exclusively to female lives (women)."
+    },
+    "age_rules": {
+      "min_entry_age_years": 18,
+      "max_entry_age_years": 55,
+      "min_maturity_age_years": 28,
+      "max_maturity_age_years": 70,
+      "entry_age_text": "18 years (completed) to 55 years (nearer birthday)"
+    },
+    "gender_rules": {
+      "allowed": "Female Only",
+      "female_concession": "Dedicated female plan with customized terms",
+      "notes": "Exclusively for women."
+    },
+    "child_age_rules": {
+      "is_child_plan": false,
+      "min_child_age": null,
+      "max_child_age": null,
+      "risk_commencement_rule": "Not applicable.",
+      "proposer_pwb_available": false
+    },
+    "premium_rules": {
+      "premium_payment_modes": ["Yearly", "Half-Yearly", "Quarterly", "Monthly (NACH)"],
+      "min_sum_assured": 150000,
+      "max_sum_assured": null,
+      "min_sum_assured_text": "₹1,50,000",
+      "max_sum_assured_text": "No upper limit",
+      "sum_assured_multiples": "₹10,000",
+      "high_sum_assured_rebate": "Rebates for higher sum assured tiers."
+    },
+    "policy_term": {
+      "min_term_years": 10,
+      "max_term_years": 25,
+      "available_terms": "10 to 25 years",
+      "rule_description": "Terms from 10 to 25 years."
+    },
+    "premium_payment_term": {
+      "options": ["5 to 15 years"],
+      "rule_description": "Limited premium paying terms."
+    },
+    "benefits": {
+      "death_benefit_summary": "Sum Assured on Death plus accrued Guaranteed Additions.",
+      "maturity_benefit_summary": "Basic Sum Assured plus accrued Guaranteed Additions.",
+      "survival_benefits": null,
+      "guaranteed_additions": "Guaranteed additions accrued annually",
+      "bonus_type": "Guaranteed Additions",
+      "loyalty_additions": null
+    },
+    "death_benefit": "Sum Assured on Death + Accrued Guaranteed Additions.",
+    "maturity_benefit": "Basic Sum Assured + Accrued Guaranteed Additions.",
+    "loan_availability": {
+      "allowed": true,
+      "waiting_period_months": 12,
+      "max_loan_percentage": "Available after 1 year."
+    },
+    "surrender_rules": {
+      "allowed_after_years": 1,
+      "guaranteed_surrender_value_rule": "Acquires surrender value after 1 full year."
+    },
+    "revival_rules": {
+      "within_years": 5,
+      "notes": "Revival allowed within 5 years."
+    },
+    "grace_period": {
+      "yearly_half_quarterly_days": 30,
+      "monthly_days": 15,
+      "notes": "30 days standard; 15 days monthly."
+    },
+    "riders": ["LIC's Accidental Death and Disability Benefit Rider", "LIC's Critical Illness Benefit Rider"],
+    "goals": ["Women Financial Independence", "Daughter Security", "Retirement for Women"],
+    "suitable_for": ["Working women and homemakers seeking dedicated guaranteed savings and health cushion"],
+    "retirement_relevance": "High",
+    "protection_relevance": "High",
+    "investment_preference": ["Women Exclusive", "Guaranteed Return", "Low Risk"],
+    "budget_category": "Moderate (₹2000-₹5000/mo)",
+    "official_lic_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_document_url": null,
+    "official_brochure_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_category_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "source": "LIC Official Website",
+    "last_verified": "2026-08-31",
+    "verification_required": false
+  },
+  {
+    "plan_id": "LIC-010",
+    "plan_name": "LIC’s New Jeevan Sathi - Single Premium",
+    "plan_number": "888",
+    "uin": "512N393V01",
+    "category": "Joint Life / Endowment",
+    "active_status": "active",
+    "short_description": "A single premium joint life assurance plan covering both husband and wife under a single policy with dual life protection and maturity payout.",
+    "main_purpose": "Couple financial protection and joint savings under a one-time single investment.",
+    "detailed_description": "LIC's New Jeevan Sathi - Single Premium (Plan No. 888, UIN: 512N393V01) is a non-linked, participating joint life endowment plan. Both spouses are covered under a single one-time premium. In case of death of one spouse, death benefit is paid immediately while the policy continues with full maturity benefit payable at term end.",
+    "eligibility_rules": {
+      "min_entry_age": 18,
+      "max_entry_age": 65,
+      "min_maturity_age": 28,
+      "max_maturity_age": 75,
+      "allowed_genders": ["All", "Joint Spouses"],
+      "allowed_professions": ["All", "Salaried", "Self-Employed", "Business", "Homemaker", "Professional"],
+      "special_conditions": "Both lives (husband and wife) are covered simultaneously under a single policy."
+    },
+    "age_rules": {
+      "min_entry_age_years": 18,
+      "max_entry_age_years": 65,
+      "min_maturity_age_years": 28,
+      "max_maturity_age_years": 75,
+      "entry_age_text": "18 years to 65 years (both spouses)"
+    },
+    "gender_rules": {
+      "allowed": "Joint Life (Married Couples)",
+      "female_concession": "Joint life pricing",
+      "notes": "Covers husband and wife."
+    },
+    "child_age_rules": {
+      "is_child_plan": false,
+      "min_child_age": null,
+      "max_child_age": null,
+      "risk_commencement_rule": "Not applicable.",
+      "proposer_pwb_available": false
+    },
+    "premium_rules": {
+      "premium_payment_modes": ["Single Premium"],
+      "min_sum_assured": 200000,
+      "max_sum_assured": null,
+      "min_sum_assured_text": "₹2,00,000",
+      "max_sum_assured_text": "No limit",
+      "sum_assured_multiples": "₹25,000",
+      "high_sum_assured_rebate": "Rebates for higher sum assured."
+    },
+    "policy_term": {
+      "min_term_years": 10,
+      "max_term_years": 25,
+      "available_terms": "10 to 25 years",
+      "rule_description": "Terms from 10 to 25 years."
+    },
+    "premium_payment_term": {
+      "options": ["Single Premium (1 Year)"],
+      "rule_description": "One-time single payment."
+    },
+    "benefits": {
+      "death_benefit_summary": "On first death of either spouse: Sum Assured on Death is paid immediately and policy continues for surviving spouse. On second death or at maturity: Full maturity benefit paid.",
+      "maturity_benefit_summary": "Basic Sum Assured + vested Simple Reversionary Bonuses + Final Additional Bonus.",
+      "survival_benefits": null,
+      "guaranteed_additions": null,
+      "bonus_type": "Simple Reversionary Bonus + Final Additional Bonus",
+      "loyalty_additions": null
+    },
+    "death_benefit": "Death of first spouse: Immediate Sum Assured on Death; policy continues for surviving spouse without extra payment.",
+    "maturity_benefit": "Basic Sum Assured + Vested Bonuses + Final Additional Bonus.",
+    "loan_availability": {
+      "allowed": true,
+      "waiting_period_months": 3,
+      "max_loan_percentage": "Up to 90% of surrender value."
+    },
+    "surrender_rules": {
+      "allowed_after_years": 0.08,
+      "guaranteed_surrender_value_rule": "Surrender allowed anytime."
+    },
+    "revival_rules": {
+      "within_years": null,
+      "notes": "Not applicable (Single Premium)."
+    },
+    "grace_period": {
+      "yearly_half_quarterly_days": 0,
+      "monthly_days": 0,
+      "notes": "Not applicable."
+    },
+    "riders": ["LIC's Accidental Death and Disability Benefit Rider"],
+    "goals": ["Joint Couple Security", "Wealth Creation", "Long Term Savings"],
+    "suitable_for": ["Married couples looking for joint life coverage with single lump-sum investment"],
+    "retirement_relevance": "High",
+    "protection_relevance": "Very High",
+    "investment_preference": ["Joint Life", "Single Premium", "Low Risk"],
+    "budget_category": "HNI / Lump Sum",
+    "official_lic_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_document_url": null,
+    "official_brochure_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_category_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "source": "LIC Official Website",
+    "last_verified": "2026-08-31",
+    "verification_required": false
+  },
+  {
+    "plan_id": "LIC-011",
+    "plan_name": "LIC’s New Jeevan Sathi - Limited Premium",
+    "plan_number": "889",
+    "uin": "512N394V01",
+    "category": "Joint Life / Endowment",
+    "active_status": "active",
+    "short_description": "A limited premium paying joint life participating endowment plan covering both husband and wife with premium waiver upon first death.",
+    "main_purpose": "Joint life protection with limited premium payment terms for married couples.",
+    "detailed_description": "LIC's New Jeevan Sathi - Limited Premium (Plan No. 889, UIN: 512N394V01) is a participating joint life assurance plan. It covers both lives with limited premium paying terms. On death of the first spouse, the death sum assured is paid immediately, all future premiums are waived, and the policy continues for the surviving partner.",
+    "eligibility_rules": {
+      "min_entry_age": 18,
+      "max_entry_age": 55,
+      "min_maturity_age": 30,
+      "max_maturity_age": 70,
+      "allowed_genders": ["All", "Joint Spouses"],
+      "allowed_professions": ["All", "Salaried", "Self-Employed", "Business", "Homemaker", "Professional"],
+      "special_conditions": "Both lives covered. Future premiums waived on first death."
+    },
+    "age_rules": {
+      "min_entry_age_years": 18,
+      "max_entry_age_years": 55,
+      "min_maturity_age_years": 30,
+      "max_maturity_age_years": 70,
+      "entry_age_text": "18 years to 55 years (both spouses)"
+    },
+    "gender_rules": {
+      "allowed": "Joint Life (Couples)",
+      "female_concession": "Joint life rates",
+      "notes": "Covers husband and wife."
+    },
+    "child_age_rules": {
+      "is_child_plan": false,
+      "min_child_age": null,
+      "max_child_age": null,
+      "risk_commencement_rule": "Not applicable.",
+      "proposer_pwb_available": false
+    },
+    "premium_rules": {
+      "premium_payment_modes": ["Yearly", "Half-Yearly", "Quarterly", "Monthly (NACH)"],
+      "min_sum_assured": 200000,
+      "max_sum_assured": null,
+      "min_sum_assured_text": "₹2,00,000",
+      "max_sum_assured_text": "No limit",
+      "sum_assured_multiples": "₹25,000",
+      "high_sum_assured_rebate": "Rebates for sum assured above ₹5 Lakhs."
+    },
+    "policy_term": {
+      "min_term_years": 12,
+      "max_term_years": 25,
+      "available_terms": "12 to 25 years",
+      "rule_description": "Terms from 12 to 25 years."
+    },
+    "premium_payment_term": {
+      "options": ["5 to 15 years"],
+      "rule_description": "Limited premium payment terms."
+    },
+    "benefits": {
+      "death_benefit_summary": "On first death: Sum Assured on Death is paid immediately, all remaining premiums are waived, and surviving spouse continues to be covered till maturity for full maturity payout.",
+      "maturity_benefit_summary": "Basic Sum Assured + vested Simple Reversionary Bonuses + Final Additional Bonus.",
+      "survival_benefits": null,
+      "guaranteed_additions": null,
+      "bonus_type": "Simple Reversionary Bonus + Final Additional Bonus",
+      "loyalty_additions": null
+    },
+    "death_benefit": "Immediate Sum Assured on Death + future premiums waived + surviving spouse covered till maturity.",
+    "maturity_benefit": "Basic Sum Assured + Vested Bonuses + Final Additional Bonus.",
+    "loan_availability": {
+      "allowed": true,
+      "waiting_period_months": 12,
+      "max_loan_percentage": "Up to 90% of surrender value."
+    },
+    "surrender_rules": {
+      "allowed_after_years": 1,
+      "guaranteed_surrender_value_rule": "Surrender permitted after 1 full year."
+    },
+    "revival_rules": {
+      "within_years": 5,
+      "notes": "Revival allowed within 5 years."
+    },
+    "grace_period": {
+      "yearly_half_quarterly_days": 30,
+      "monthly_days": 15,
+      "notes": "30 days standard; 15 days monthly."
+    },
+    "riders": ["LIC's Accidental Death and Disability Benefit Rider"],
+    "goals": ["Couple Security", "Family Safety", "Retirement Corpus"],
+    "suitable_for": ["Married couples wanting joint life insurance with limited premium payment commitment"],
+    "retirement_relevance": "High",
+    "protection_relevance": "Very High",
+    "investment_preference": ["Joint Life", "Limited Premium", "Regular Savings"],
+    "budget_category": "Moderate (₹2000-₹5000/mo)",
+    "official_lic_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_document_url": null,
+    "official_brochure_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_category_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "source": "LIC Official Website",
+    "last_verified": "2026-08-31",
+    "verification_required": false
+  },
+  {
+    "plan_id": "LIC-012",
+    "plan_name": "LIC's Jeevan Umang",
+    "plan_number": "745",
+    "uin": "512N312V03",
+    "category": "Whole Life",
+    "active_status": "active",
+    "short_description": "A whole life assurance plan providing annual survival benefits of 8% of the Basic Sum Assured every year after premium paying term until age 99, plus lump-sum payout at age 100 or death.",
+    "main_purpose": "Lifelong 8% guaranteed annual income + whole life insurance cover up to age 100.",
+    "detailed_description": "LIC's Jeevan Umang (Plan No. 745, UIN: 512N312V03) is a non-linked, participating whole life insurance plan. It provides annual survival benefits of 8% of the Basic Sum Assured from the end of the premium payment term till age 99, and a lump sum payment at maturity (age 100) or on demise during the policy term.",
+    "eligibility_rules": {
+      "min_entry_age": 0.25,
+      "max_entry_age": 55,
+      "min_maturity_age": 100,
+      "max_maturity_age": 100,
+      "allowed_genders": ["Male", "Female", "Other", "All"],
+      "allowed_professions": ["All", "Salaried", "Self-Employed", "Business", "Homemaker", "Professional", "Farmer", "Student"],
+      "special_conditions": "Max entry age: 55 yrs (for 15-yr PPT), 50 yrs (for 20-yr PPT), 45 yrs (for 25-yr PPT), 40 yrs (for 30-yr PPT). Whole life coverage till age 100."
+    },
+    "age_rules": {
+      "min_entry_age_years": 0.25,
+      "max_entry_age_years": 55,
+      "min_maturity_age_years": 100,
+      "max_maturity_age_years": 100,
+      "entry_age_text": "90 days (completed) to 55 years (nearer birthday)"
+    },
+    "gender_rules": {
+      "allowed": "All",
+      "female_concession": "Standard participating rates",
+      "notes": "Available to all."
+    },
+    "child_age_rules": {
+      "is_child_plan": true,
+      "min_child_age": 0.25,
+      "max_child_age": 17,
+      "risk_commencement_rule": "Standard LIC child risk commencement rules apply.",
+      "proposer_pwb_available": true
+    },
+    "premium_rules": {
+      "premium_payment_modes": ["Yearly", "Half-Yearly", "Quarterly", "Monthly (NACH)"],
+      "min_sum_assured": 200000,
+      "max_sum_assured": null,
+      "min_sum_assured_text": "₹2,00,000",
+      "max_sum_assured_text": "No upper limit",
+      "sum_assured_multiples": "₹25,000",
+      "high_sum_assured_rebate": "Rebates for sum assured ₹5 Lakhs and above."
+    },
+    "policy_term": {
+      "min_term_years": 45,
+      "max_term_years": 100,
+      "available_terms": "100 minus Entry Age",
+      "rule_description": "Policy term equals 100 minus age at entry."
+    },
+    "premium_payment_term": {
+      "options": ["15 years", "20 years", "25 years", "30 years"],
+      "rule_description": "Choice of 15, 20, 25, or 30 years."
+    },
+    "benefits": {
+      "death_benefit_summary": "Death during PPT: Sum Assured on Death + vested Simple Reversionary Bonuses + FAB. Death after PPT: Sum Assured on Death + Simple Reversionary Bonuses + FAB.",
+      "maturity_benefit_summary": "On survival to age 100: Basic Sum Assured + vested Simple Reversionary Bonuses + Final Additional Bonus.",
+      "survival_benefits": "8% of Basic Sum Assured paid every year starting from end of PPT till age 99",
+      "guaranteed_additions": null,
+      "bonus_type": "Simple Reversionary Bonus + Final Additional Bonus",
+      "loyalty_additions": null
+    },
+    "death_benefit": "Sum Assured on Death + Vested Simple Reversionary Bonuses + Final Additional Bonus.",
+    "maturity_benefit": "Basic Sum Assured + Vested Bonuses + FAB at age 100.",
+    "survival_benefit": "8% of Basic Sum Assured paid annually from end of PPT until age 99.",
+    "loan_availability": {
+      "allowed": true,
+      "waiting_period_months": 12,
+      "max_loan_percentage": "Up to 90% of surrender value."
+    },
+    "surrender_rules": {
+      "allowed_after_years": 1,
+      "guaranteed_surrender_value_rule": "Acquires surrender value after 1 full year's premiums are paid."
+    },
+    "revival_rules": {
+      "within_years": 5,
+      "notes": "Revival allowed within 5 consecutive years."
+    },
+    "grace_period": {
+      "yearly_half_quarterly_days": 30,
+      "monthly_days": 15,
+      "notes": "30 days for yearly/half/quarterly; 15 days for monthly."
+    },
+    "riders": ["LIC's Accidental Death and Disability Benefit Rider", "LIC's New Term Assurance Rider", "LIC's Premium Waiver Benefit Rider", "LIC's Critical Illness Benefit Rider"],
+    "goals": ["Lifelong Pension / Income", "Retirement Security", "Generational Legacy", "Child Lifetime Support"],
+    "suitable_for": ["Individuals seeking a guaranteed 8% annual income stream for post-retirement life", "Parents creating lifetime annual income for a child", "Legacy creators wanting whole life cover till 100 years"],
+    "retirement_relevance": "Very High",
+    "protection_relevance": "Very High",
+    "investment_preference": ["Guaranteed Regular Income", "Lifelong Security", "Low Risk"],
+    "budget_category": "Moderate (₹2000-₹5000/mo)",
+    "official_lic_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_document_url": "https://www.licindia.in/en/web/guest/jeevan-umang-745",
+    "official_brochure_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_category_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "source": "LIC Official Website",
+    "last_verified": "2026-08-31",
+    "verification_required": false
+  },
+  {
+    "plan_id": "LIC-013",
+    "plan_name": "LIC's Jeevan Utsav",
+    "plan_number": "771",
+    "uin": "512N363V02",
+    "category": "Whole Life",
+    "active_status": "active",
+    "short_description": "A whole life non-participating insurance plan offering guaranteed lifelong annual income of 10% of Basic Sum Assured after a limited premium payment term.",
+    "main_purpose": "10% guaranteed lifelong annual income payout or flexi-income option with 100-year whole life cover.",
+    "detailed_description": "LIC's Jeevan Utsav (Plan No. 771, UIN: 512N363V02) is an individual, non-linked, non-participating whole life insurance plan. It provides life cover throughout the lifetime and guaranteed lifelong income of 10% of the Basic Sum Assured every year after the chosen deferment period under Regular Income Benefit or Flexi Income Benefit.",
+    "eligibility_rules": {
+      "min_entry_age": 0.25,
+      "max_entry_age": 65,
+      "min_maturity_age": 100,
+      "max_maturity_age": 100,
+      "allowed_genders": ["Male", "Female", "Other", "All"],
+      "allowed_professions": ["All", "Salaried", "Self-Employed", "Business", "Homemaker", "Professional", "Farmer", "Student"],
+      "special_conditions": "Entry age: 90 days to 65 yrs (65 for PPT 5, down to 50 for PPT 16). Whole life cover till age 100."
+    },
+    "age_rules": {
+      "min_entry_age_years": 0.25,
+      "max_entry_age_years": 65,
+      "min_maturity_age_years": 100,
+      "max_maturity_age_years": 100,
+      "entry_age_text": "90 days (completed) to 65 years (nearer birthday)"
+    },
+    "gender_rules": {
+      "allowed": "All",
+      "female_concession": "Standard guaranteed terms",
+      "notes": "Available to all."
+    },
+    "child_age_rules": {
+      "is_child_plan": true,
+      "min_child_age": 0.25,
+      "max_child_age": 17,
+      "risk_commencement_rule": "Standard LIC child risk rules apply.",
+      "proposer_pwb_available": true
+    },
+    "premium_rules": {
+      "premium_payment_modes": ["Yearly", "Half-Yearly", "Quarterly", "Monthly (NACH)"],
+      "min_sum_assured": 500000,
+      "max_sum_assured": null,
+      "min_sum_assured_text": "₹5,00,000",
+      "max_sum_assured_text": "No upper limit",
+      "sum_assured_multiples": "₹25,000",
+      "high_sum_assured_rebate": "Rebates for sum assured ₹10 Lakhs and above."
+    },
+    "policy_term": {
+      "min_term_years": 35,
+      "max_term_years": 100,
+      "available_terms": "100 minus Entry Age",
+      "rule_description": "Whole life term up to age 100."
+    },
+    "premium_payment_term": {
+      "options": ["5 to 16 years"],
+      "rule_description": "Limited premium payment terms from 5 to 16 years."
+    },
+    "benefits": {
+      "death_benefit_summary": "Sum Assured on Death (higher of Basic Sum Assured or 7 times annualized premium, minimum 105% of premiums paid) payable to nominee.",
+      "maturity_benefit_summary": "Policy runs till age 100 with continuing 10% guaranteed annual income + basic sum assured on death / reaching age 100.",
+      "survival_benefits": "Guaranteed 10% of Basic Sum Assured paid annually for life (Option I: Regular Income, Option II: Flexi Income accumulating at 5.5% p.a.)",
+      "guaranteed_additions": "Guaranteed Additions of ₹40 per ₹1,000 BSA per year accrued during premium paying term",
+      "bonus_type": "Guaranteed Additions + Guaranteed 10% Income",
+      "loyalty_additions": null
+    },
+    "death_benefit": "Sum Assured on Death (higher of Basic Sum Assured or 7x annualized premium).",
+    "maturity_benefit": "Guaranteed 10% of Sum Assured annually for life + Sum Assured on death / age 100.",
+    "survival_benefit": "10% of Basic Sum Assured paid every year for life after premium payment deferment.",
+    "loan_availability": {
+      "allowed": true,
+      "waiting_period_months": 12,
+      "max_loan_percentage": "Up to 90% of surrender value."
+    },
+    "surrender_rules": {
+      "allowed_after_years": 1,
+      "guaranteed_surrender_value_rule": "Acquires surrender value after 1 full year's premiums are paid."
+    },
+    "revival_rules": {
+      "within_years": 5,
+      "notes": "Revival allowed within 5 consecutive years."
+    },
+    "grace_period": {
+      "yearly_half_quarterly_days": 30,
+      "monthly_days": 15,
+      "notes": "30 days for yearly/half/quarterly; 15 days for monthly."
+    },
+    "riders": ["LIC's Accidental Death and Disability Benefit Rider", "LIC's New Term Assurance Rider", "LIC's Premium Waiver Benefit Rider", "LIC's Critical Illness Benefit Rider"],
+    "goals": ["Guaranteed Retirement Income", "Lifelong Cash Flow", "Wealth Preservation", "Legacy Planning"],
+    "suitable_for": ["Individuals seeking a 10% guaranteed annual income for life with short premium commitments (as low as 5 years)", "Retirees and pre-retirees locking in fixed lifelong cash flows"],
+    "retirement_relevance": "Very High",
+    "protection_relevance": "Very High",
+    "investment_preference": ["Guaranteed 10% Annual Payout", "Whole Life", "Capital Safety"],
+    "budget_category": "High (₹5000-₹15000/mo)",
+    "official_lic_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_document_url": "https://www.licindia.in/en/web/guest/jeevan-utsav-771",
+    "official_brochure_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_category_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "source": "LIC Official Website",
+    "last_verified": "2026-08-31",
+    "verification_required": false
+  },
+  {
+    "plan_id": "LIC-014",
+    "plan_name": "LIC's Jeevan Utsav Single Premium",
+    "plan_number": "883",
+    "uin": "512N392V01",
+    "category": "Whole Life",
+    "active_status": "active",
+    "short_description": "A single premium whole life insurance plan offering 10% guaranteed annual income for life starting after a chosen deferment period under a one-time investment.",
+    "main_purpose": "One-time lump sum converting into lifelong 10% guaranteed annual payouts and whole life insurance cover.",
+    "detailed_description": "LIC's Jeevan Utsav Single Premium (Plan No. 883, UIN: 512N392V01) is a single premium, non-linked, non-participating whole life insurance plan. It provides a guaranteed 10% annual income stream for life under Option I (Regular Income) or Option II (Flexi Income), alongside death benefit protection.",
+    "eligibility_rules": {
+      "min_entry_age": 0.25,
+      "max_entry_age": 65,
+      "min_maturity_age": 100,
+      "max_maturity_age": 100,
+      "allowed_genders": ["Male", "Female", "Other", "All"],
+      "allowed_professions": ["All", "Salaried", "Self-Employed", "Business", "Homemaker", "Professional", "Farmer", "Retired"],
+      "special_conditions": "Single premium payment. Lifelong 10% guaranteed payout after deferment period."
+    },
+    "age_rules": {
+      "min_entry_age_years": 0.25,
+      "max_entry_age_years": 65,
+      "min_maturity_age_years": 100,
+      "max_maturity_age_years": 100,
+      "entry_age_text": "90 days to 65 years"
+    },
+    "gender_rules": {
+      "allowed": "All",
+      "female_concession": "Standard rates",
+      "notes": "Available to all."
+    },
+    "child_age_rules": {
+      "is_child_plan": true,
+      "min_child_age": 0.25,
+      "max_child_age": 17,
+      "risk_commencement_rule": "Standard LIC child rules apply.",
+      "proposer_pwb_available": false
+    },
+    "premium_rules": {
+      "premium_payment_modes": ["Single Premium"],
+      "min_sum_assured": 500000,
+      "max_sum_assured": null,
+      "min_sum_assured_text": "₹5,00,000",
+      "max_sum_assured_text": "No limit",
+      "sum_assured_multiples": "₹25,000",
+      "high_sum_assured_rebate": "Rebates applicable on higher single premiums."
+    },
+    "policy_term": {
+      "min_term_years": 35,
+      "max_term_years": 100,
+      "available_terms": "100 minus Entry Age",
+      "rule_description": "Whole life coverage till age 100."
+    },
+    "premium_payment_term": {
+      "options": ["Single Premium (1 Year)"],
+      "rule_description": "One-time single payment."
+    },
+    "benefits": {
+      "death_benefit_summary": "Sum Assured on Death (1.25x or 10x single premium based on option chosen) payable to nominee.",
+      "maturity_benefit_summary": "10% guaranteed income paid every year for life + sum assured payable at death / age 100.",
+      "survival_benefits": "10% of Basic Sum Assured paid annually for life after deferment period",
+      "guaranteed_additions": "Accrued during deferment period",
+      "bonus_type": "Guaranteed Additions + 10% Guaranteed Income",
+      "loyalty_additions": null
+    },
+    "death_benefit": "Sum Assured on Death (1.25x or 10x Single Premium depending on option).",
+    "maturity_benefit": "10% Basic Sum Assured paid annually for life.",
+    "survival_benefit": "10% of Basic Sum Assured paid every year for life after chosen deferment.",
+    "loan_availability": {
+      "allowed": true,
+      "waiting_period_months": 3,
+      "max_loan_percentage": "Up to 90% of surrender value."
+    },
+    "surrender_rules": {
+      "allowed_after_years": 0.08,
+      "guaranteed_surrender_value_rule": "Surrender allowed anytime after policy commencement."
+    },
+    "revival_rules": {
+      "within_years": null,
+      "notes": "Not applicable (Single Premium)."
+    },
+    "grace_period": {
+      "yearly_half_quarterly_days": 0,
+      "monthly_days": 0,
+      "notes": "Not applicable."
+    },
+    "riders": ["LIC's Accidental Death and Disability Benefit Rider"],
+    "goals": ["Single Investment Pension", "Lifelong Guaranteed Cash Flow", "Legacy Creation"],
+    "suitable_for": ["High net-worth or retired individuals with surplus funds seeking 10% guaranteed lifelong income under single payment"],
+    "retirement_relevance": "Very High",
+    "protection_relevance": "High",
+    "investment_preference": ["Single Premium", "10% Guaranteed Income", "Whole Life"],
+    "budget_category": "HNI / Lump Sum",
+    "official_lic_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_document_url": null,
+    "official_brochure_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_category_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "source": "LIC Official Website",
+    "last_verified": "2026-08-31",
+    "verification_required": false
+  },
+  {
+    "plan_id": "LIC-015",
+    "plan_name": "LIC’s Bima Shree",
+    "plan_number": "748",
+    "uin": "512N316V03",
+    "category": "Money Back",
+    "active_status": "active",
+    "short_description": "A premium money-back plan for High Net-worth Individuals (HNIs) with guaranteed additions, periodic survival payouts, and critical illness protection.",
+    "main_purpose": "High-value life coverage with guaranteed additions and periodic milestone liquidity for HNIs.",
+    "detailed_description": "LIC's Bima Shree (Plan No. 748, UIN: 512N316V03) is a non-linked, participating, limited premium paying money-back plan specially tailored for HNIs. It offers guaranteed additions of ₹50 to ₹55 per ₹1,000 Sum Assured, periodic survival payouts, and built-in critical illness benefit coverage.",
+    "eligibility_rules": {
+      "min_entry_age": 8,
+      "max_entry_age": 55,
+      "min_maturity_age": 22,
+      "max_maturity_age": 69,
+      "allowed_genders": ["Male", "Female", "Other", "All"],
+      "allowed_professions": ["All", "Salaried", "Self-Employed", "Business", "Professional"],
+      "special_conditions": "Minimum Sum Assured is ₹10,00,000 (HNI threshold)."
+    },
+    "age_rules": {
+      "min_entry_age_years": 8,
+      "max_entry_age_years": 55,
+      "min_maturity_age_years": 22,
+      "max_maturity_age_years": 69,
+      "entry_age_text": "8 years (completed) to 55 years (nearer birthday)"
+    },
+    "gender_rules": {
+      "allowed": "All",
+      "female_concession": "Standard HNI rates",
+      "notes": "Available to all."
+    },
+    "child_age_rules": {
+      "is_child_plan": true,
+      "min_child_age": 8,
+      "max_child_age": 17,
+      "risk_commencement_rule": "Immediate risk commencement for children 8+ years.",
+      "proposer_pwb_available": true
+    },
+    "premium_rules": {
+      "premium_payment_modes": ["Yearly", "Half-Yearly", "Quarterly", "Monthly (NACH)"],
+      "min_sum_assured": 1000000,
+      "max_sum_assured": null,
+      "min_sum_assured_text": "₹10,00,000",
+      "max_sum_assured_text": "No upper limit",
+      "sum_assured_multiples": "₹1,00,000",
+      "high_sum_assured_rebate": "High sum assured rebates applicable."
+    },
+    "policy_term": {
+      "min_term_years": 14,
+      "max_term_years": 20,
+      "available_terms": "14, 16, 18, or 20 years",
+      "rule_description": "4 terms available: 14, 16, 18, 20 years."
+    },
+    "premium_payment_term": {
+      "options": ["10 years (for 14-yr term)", "12 years (for 16-yr term)", "14 years (for 18-yr term)", "16 years (for 20-yr term)"],
+      "rule_description": "Limited premium payment terms (10, 12, 14, 16 years)."
+    },
+    "benefits": {
+      "death_benefit_summary": "Death during first 5 yrs: Sum Assured on Death + accrued Guaranteed Additions. Death after 5 yrs: Sum Assured on Death + Guaranteed Additions + Loyalty Addition.",
+      "maturity_benefit_summary": "Remaining Basic Sum Assured (after deducting paid survival benefits) + accrued Guaranteed Additions + Loyalty Addition.",
+      "survival_benefits": "Periodic survival payouts: 30% to 45% of BSA paid at specified intervals depending on term",
+      "guaranteed_additions": "₹50 per ₹1,000 BSA (first 5 yrs) and ₹55 per ₹1,000 BSA (remaining PPT)",
+      "bonus_type": "Guaranteed Additions + Loyalty Addition",
+      "loyalty_additions": "Payable after 5 policy years"
+    },
+    "death_benefit": "Sum Assured on Death + Accrued Guaranteed Additions + Loyalty Addition (if death after 5 yrs).",
+    "maturity_benefit": "Balance Sum Assured + Accrued Guaranteed Additions + Loyalty Addition.",
+    "survival_benefit": "Periodic payouts of 30% to 45% of Basic Sum Assured across policy tenure.",
+    "loan_availability": {
+      "allowed": true,
+      "waiting_period_months": 12,
+      "max_loan_percentage": "Up to 90% of surrender value."
+    },
+    "surrender_rules": {
+      "allowed_after_years": 1,
+      "guaranteed_surrender_value_rule": "Acquires surrender value after 1 full year."
+    },
+    "revival_rules": {
+      "within_years": 5,
+      "notes": "Revival allowed within 5 consecutive years."
+    },
+    "grace_period": {
+      "yearly_half_quarterly_days": 30,
+      "monthly_days": 15,
+      "notes": "30 days standard; 15 days monthly."
+    },
+    "riders": ["LIC's Accidental Death and Disability Benefit Rider", "LIC's New Term Assurance Rider", "LIC's Critical Illness Benefit Rider (Built-in + Optional)"],
+    "goals": ["HNI Wealth Protection", "Periodic Liquidity", "High-Value Family Security"],
+    "suitable_for": ["High net-worth individuals and business owners requiring high sum assured coverage (₹10 Lakhs+) with periodic liquidity and guaranteed additions"],
+    "retirement_relevance": "Moderate",
+    "protection_relevance": "Very High",
+    "investment_preference": ["HNI Money Back", "Guaranteed Additions", "High Liquidity"],
+    "budget_category": "High (₹5000-₹15000/mo)",
+    "official_lic_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_document_url": "https://www.licindia.in/en/web/guest/bima-shree-748",
+    "official_brochure_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_category_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "source": "LIC Official Website",
+    "last_verified": "2026-08-31",
+    "verification_required": false
+  },
+  {
+    "plan_id": "LIC-016",
+    "plan_name": "LIC's New Money Back Plan - 20 Years",
+    "plan_number": "720",
+    "uin": "512N280V03",
+    "category": "Money Back",
+    "active_status": "active",
+    "short_description": "A participating money-back plan providing survival benefits of 20% of Sum Assured at the 5th, 10th, and 15th policy years, and 40% + bonuses at 20 years.",
+    "main_purpose": "Regular liquidity every 5 years with 100% life insurance protection throughout the 20-year term.",
+    "detailed_description": "LIC's New Money Back Plan - 20 Years (Plan No. 720, UIN: 512N280V03) is a participating, non-linked life assurance plan that provides periodic payments of 20% of the Basic Sum Assured at the end of the 5th, 10th, and 15th policy years and the balance 40% plus bonuses upon completion of 20 years.",
+    "eligibility_rules": {
+      "min_entry_age": 13,
+      "max_entry_age": 50,
+      "min_maturity_age": 33,
+      "max_maturity_age": 70,
+      "allowed_genders": ["Male", "Female", "Other", "All"],
+      "allowed_professions": ["All", "Salaried", "Self-Employed", "Business", "Homemaker", "Professional", "Farmer", "Student"],
+      "special_conditions": "Fixed 20-year term with 15-year premium paying term."
+    },
+    "age_rules": {
+      "min_entry_age_years": 13,
+      "max_entry_age_years": 50,
+      "min_maturity_age_years": 33,
+      "max_maturity_age_years": 70,
+      "entry_age_text": "13 years (completed) to 50 years (nearer birthday)"
+    },
+    "gender_rules": {
+      "allowed": "All",
+      "female_concession": "Standard participating rates",
+      "notes": "Available to all."
+    },
+    "child_age_rules": {
+      "is_child_plan": true,
+      "min_child_age": 13,
+      "max_child_age": 17,
+      "risk_commencement_rule": "Immediate risk cover from age 13.",
+      "proposer_pwb_available": true
+    },
+    "premium_rules": {
+      "premium_payment_modes": ["Yearly", "Half-Yearly", "Quarterly", "Monthly (NACH)"],
+      "min_sum_assured": 200000,
+      "max_sum_assured": null,
+      "min_sum_assured_text": "₹2,00,000",
+      "max_sum_assured_text": "No upper limit",
+      "sum_assured_multiples": "₹5,000 / ₹25,000",
+      "high_sum_assured_rebate": "Rebates for sum assured above ₹5 Lakhs."
+    },
+    "policy_term": {
+      "min_term_years": 20,
+      "max_term_years": 20,
+      "available_terms": "20 years",
+      "rule_description": "Fixed 20-year policy term."
+    },
+    "premium_payment_term": {
+      "options": ["15 years"],
+      "rule_description": "Fixed 15-year premium payment term."
+    },
+    "benefits": {
+      "death_benefit_summary": "125% of Basic Sum Assured + Simple Reversionary Bonuses + Final Additional Bonus paid without deducting any previously paid survival benefits.",
+      "maturity_benefit_summary": "40% of Basic Sum Assured + vested Simple Reversionary Bonuses + Final Additional Bonus.",
+      "survival_benefits": "20% of Basic Sum Assured paid at end of 5th, 10th, and 15th policy year (total 60%)",
+      "guaranteed_additions": null,
+      "bonus_type": "Simple Reversionary Bonus + Final Additional Bonus",
+      "loyalty_additions": null
+    },
+    "death_benefit": "125% of Basic Sum Assured + Vested Bonuses + FAB (no deduction of past survival payouts).",
+    "maturity_benefit": "40% of Basic Sum Assured + Vested Simple Reversionary Bonuses + Final Additional Bonus.",
+    "survival_benefit": "20% of Basic Sum Assured at 5th, 10th, and 15th year.",
+    "loan_availability": {
+      "allowed": true,
+      "waiting_period_months": 12,
+      "max_loan_percentage": "Up to 90% of surrender value."
+    },
+    "surrender_rules": {
+      "allowed_after_years": 1,
+      "guaranteed_surrender_value_rule": "Acquires surrender value after 1 full year's premiums are paid."
+    },
+    "revival_rules": {
+      "within_years": 5,
+      "notes": "Revival allowed within 5 consecutive years."
+    },
+    "grace_period": {
+      "yearly_half_quarterly_days": 30,
+      "monthly_days": 15,
+      "notes": "30 days for yearly/half/quarterly; 15 days for monthly."
+    },
+    "riders": ["LIC's Accidental Death and Disability Benefit Rider", "LIC's New Term Assurance Rider", "LIC's Premium Waiver Benefit Rider", "LIC's Critical Illness Benefit Rider"],
+    "goals": ["Periodic Milestone Needs", "Child Education Milestones", "Family Security"],
+    "suitable_for": ["Individuals seeking cash payouts every 5 years for major lifecycle milestones while retaining full life insurance cover"],
+    "retirement_relevance": "Moderate",
+    "protection_relevance": "High",
+    "investment_preference": ["Money Back", "Periodic Liquidity", "Low Risk"],
+    "budget_category": "Moderate (₹2000-₹5000/mo)",
+    "official_lic_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_document_url": "https://www.licindia.in/en/web/guest/new-money-back-plan-20-years-720",
+    "official_brochure_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_category_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "source": "LIC Official Website",
+    "last_verified": "2026-08-31",
+    "verification_required": false
+  },
+  {
+    "plan_id": "LIC-017",
+    "plan_name": "LIC's New Money Back Plan - 25 Years",
+    "plan_number": "721",
+    "uin": "512N278V03",
+    "category": "Money Back",
+    "active_status": "active",
+    "short_description": "A 25-year participating money-back plan paying 15% of Sum Assured at 5th, 10th, 15th, and 20th years, and 40% + bonuses at maturity.",
+    "main_purpose": "Long-term periodic liquidity every 5 years with 25-year financial protection.",
+    "detailed_description": "LIC's New Money Back Plan - 25 Years (Plan No. 721, UIN: 512N278V03) is a non-linked, participating life insurance plan that offers financial protection against death throughout the 25-year term with periodic payments of 15% of Sum Assured at the 5th, 10th, 15th, and 20th years and 40% plus bonuses at 25 years.",
+    "eligibility_rules": {
+      "min_entry_age": 13,
+      "max_entry_age": 45,
+      "min_maturity_age": 38,
+      "max_maturity_age": 70,
+      "allowed_genders": ["Male", "Female", "Other", "All"],
+      "allowed_professions": ["All", "Salaried", "Self-Employed", "Business", "Homemaker", "Professional", "Farmer", "Student"],
+      "special_conditions": "Fixed 25-year policy term with 20-year premium payment term."
+    },
+    "age_rules": {
+      "min_entry_age_years": 13,
+      "max_entry_age_years": 45,
+      "min_maturity_age_years": 38,
+      "max_maturity_age_years": 70,
+      "entry_age_text": "13 years (completed) to 45 years (nearer birthday)"
+    },
+    "gender_rules": {
+      "allowed": "All",
+      "female_concession": "Standard rates",
+      "notes": "Available to all."
+    },
+    "child_age_rules": {
+      "is_child_plan": true,
+      "min_child_age": 13,
+      "max_child_age": 17,
+      "risk_commencement_rule": "Immediate risk commencement from age 13.",
+      "proposer_pwb_available": true
+    },
+    "premium_rules": {
+      "premium_payment_modes": ["Yearly", "Half-Yearly", "Quarterly", "Monthly (NACH)"],
+      "min_sum_assured": 200000,
+      "max_sum_assured": null,
+      "min_sum_assured_text": "₹2,00,000",
+      "max_sum_assured_text": "No upper limit",
+      "sum_assured_multiples": "₹5,000 / ₹25,000",
+      "high_sum_assured_rebate": "Rebates for sum assured above ₹5 Lakhs."
+    },
+    "policy_term": {
+      "min_term_years": 25,
+      "max_term_years": 25,
+      "available_terms": "25 years",
+      "rule_description": "Fixed 25-year policy term."
+    },
+    "premium_payment_term": {
+      "options": ["20 years"],
+      "rule_description": "Fixed 20-year premium paying term."
+    },
+    "benefits": {
+      "death_benefit_summary": "125% of Basic Sum Assured + Simple Reversionary Bonuses + Final Additional Bonus without deducting previously paid survival benefits.",
+      "maturity_benefit_summary": "40% of Basic Sum Assured + vested Simple Reversionary Bonuses + Final Additional Bonus.",
+      "survival_benefits": "15% of Basic Sum Assured paid at end of 5th, 10th, 15th, and 20th year (total 60%)",
+      "guaranteed_additions": null,
+      "bonus_type": "Simple Reversionary Bonus + Final Additional Bonus",
+      "loyalty_additions": null
+    },
+    "death_benefit": "125% of Basic Sum Assured + Vested Bonuses + FAB (no deduction of past survival payouts).",
+    "maturity_benefit": "40% of Basic Sum Assured + Vested Simple Reversionary Bonuses + Final Additional Bonus.",
+    "survival_benefit": "15% of Basic Sum Assured at 5th, 10th, 15th, and 20th year.",
+    "loan_availability": {
+      "allowed": true,
+      "waiting_period_months": 12,
+      "max_loan_percentage": "Up to 90% of surrender value."
+    },
+    "surrender_rules": {
+      "allowed_after_years": 1,
+      "guaranteed_surrender_value_rule": "Acquires surrender value after 1 full year's premiums are paid."
+    },
+    "revival_rules": {
+      "within_years": 5,
+      "notes": "Revival allowed within 5 consecutive years."
+    },
+    "grace_period": {
+      "yearly_half_quarterly_days": 30,
+      "monthly_days": 15,
+      "notes": "30 days for yearly/half/quarterly; 15 days for monthly."
+    },
+    "riders": ["LIC's Accidental Death and Disability Benefit Rider", "LIC's New Term Assurance Rider", "LIC's Premium Waiver Benefit Rider", "LIC's Critical Illness Benefit Rider"],
+    "goals": ["Long-term Periodic Liquidity", "Milestone Savings", "Family Security"],
+    "suitable_for": ["Individuals planning for multi-decade life goals with cash liquidity every 5 years up to 25 years"],
+    "retirement_relevance": "High",
+    "protection_relevance": "High",
+    "investment_preference": ["Money Back", "Periodic Liquidity", "Low Risk"],
+    "budget_category": "Moderate (₹2000-₹5000/mo)",
+    "official_lic_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_document_url": "https://www.licindia.in/en/web/guest/new-money-back-plan-25-years-721",
+    "official_brochure_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_category_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "source": "LIC Official Website",
+    "last_verified": "2026-08-31",
+    "verification_required": false
+  },
+  {
+    "plan_id": "LIC-018",
+    "plan_name": "LIC's New Children's Money Back Plan",
+    "plan_number": "732",
+    "uin": "512N296V03",
+    "category": "Child / Money Back",
+    "active_status": "active",
+    "short_description": "A participating child money-back plan providing survival payouts of 20% of Sum Assured at ages 18, 20, and 22, and 40% + bonuses at age 25.",
+    "main_purpose": "Structured milestone funding for child's college admission, degree completion, and career launch.",
+    "detailed_description": "LIC's New Children's Money Back Plan (Plan No. 732, UIN: 512N296V03) is an individual, participating, non-linked child money back plan. It meets the educational, career, and marriage financial requirements of growing children through periodic survival benefits at ages 18, 20, and 22, with maturity payout at age 25.",
+    "eligibility_rules": {
+      "min_entry_age": 0,
+      "max_entry_age": 12,
+      "min_maturity_age": 25,
+      "max_maturity_age": 25,
+      "allowed_genders": ["Male", "Female", "Other", "All"],
+      "allowed_professions": ["Child", "Student"],
+      "special_conditions": "Exclusively for children aged 0 to 12 years. Policy matures at child's age 25."
+    },
+    "age_rules": {
+      "min_entry_age_years": 0,
+      "max_entry_age_years": 12,
+      "min_maturity_age_years": 25,
+      "max_maturity_age_years": 25,
+      "entry_age_text": "0 years (90 days completed) to 12 years (last birthday)"
+    },
+    "gender_rules": {
+      "allowed": "All",
+      "female_concession": "Standard child rates",
+      "notes": "Available for boys and girls."
+    },
+    "child_age_rules": {
+      "is_child_plan": true,
+      "min_child_age": 0,
+      "max_child_age": 12,
+      "risk_commencement_rule": "Risk commences from 8 years of age or 2 years after policy commencement, whichever is earlier.",
+      "proposer_pwb_available": true
+    },
+    "premium_rules": {
+      "premium_payment_modes": ["Yearly", "Half-Yearly", "Quarterly", "Monthly (NACH)"],
+      "min_sum_assured": 200000,
+      "max_sum_assured": null,
+      "min_sum_assured_text": "₹2,00,000",
+      "max_sum_assured_text": "No upper limit",
+      "sum_assured_multiples": "₹10,000",
+      "high_sum_assured_rebate": "Rebates for sum assured above ₹5 Lakhs."
+    },
+    "policy_term": {
+      "min_term_years": 13,
+      "max_term_years": 25,
+      "available_terms": "25 minus Child Entry Age",
+      "rule_description": "Policy term is calculated as 25 minus entry age."
+    },
+    "premium_payment_term": {
+      "options": ["20 minus Child Entry Age"],
+      "rule_description": "Premiums payable till child turns 20 years of age."
+    },
+    "benefits": {
+      "death_benefit_summary": "Death before risk commencement: Total premiums paid refunded. Death after risk commencement: Sum Assured on Death + Simple Reversionary Bonuses + FAB.",
+      "maturity_benefit_summary": "40% of Basic Sum Assured + vested Simple Reversionary Bonuses + Final Additional Bonus at age 25.",
+      "survival_benefits": "20% of BSA on survival to age 18, 20% at age 20, and 20% at age 22",
+      "guaranteed_additions": null,
+      "bonus_type": "Simple Reversionary Bonus + Final Additional Bonus",
+      "loyalty_additions": null
+    },
+    "death_benefit": "Sum Assured on Death + Vested Simple Reversionary Bonuses + Final Additional Bonus.",
+    "maturity_benefit": "40% of Basic Sum Assured + Vested Bonuses + FAB at age 25.",
+    "survival_benefit": "20% of Basic Sum Assured at age 18, 20% at age 20, and 20% at age 22.",
+    "loan_availability": {
+      "allowed": true,
+      "waiting_period_months": 12,
+      "max_loan_percentage": "Available after policy acquires surrender value."
+    },
+    "surrender_rules": {
+      "allowed_after_years": 1,
+      "guaranteed_surrender_value_rule": "Acquires surrender value after 1 full year's premiums are paid."
+    },
+    "revival_rules": {
+      "within_years": 5,
+      "notes": "Revival allowed within 5 consecutive years."
+    },
+    "grace_period": {
+      "yearly_half_quarterly_days": 30,
+      "monthly_days": 15,
+      "notes": "30 days standard; 15 days monthly."
+    },
+    "riders": ["LIC's Premium Waiver Benefit Rider"],
+    "goals": ["Child Higher Education", "College Fees", "Child Career Start", "Child Marriage"],
+    "suitable_for": ["Parents with young children (0-12 yrs) seeking structured college and graduation financial payouts"],
+    "retirement_relevance": "Low",
+    "protection_relevance": "High",
+    "investment_preference": ["Child Milestones", "Money Back", "Guaranteed + Bonus"],
+    "budget_category": "Moderate (₹2000-₹5000/mo)",
+    "official_lic_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_document_url": "https://www.licindia.in/en/web/guest/new-childrens-money-back-plan-732",
+    "official_brochure_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_category_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "source": "LIC Official Website",
+    "last_verified": "2026-08-31",
+    "verification_required": false
+  },
+  {
+    "plan_id": "LIC-019",
+    "plan_name": "LIC's Jeevan Tarun",
+    "plan_number": "734",
+    "uin": "512N299V03",
+    "category": "Child / Money Back",
+    "active_status": "active",
+    "short_description": "A participating child assurance plan offering 4 flexible annual survival benefit options from ages 20 to 24 with final maturity at age 25.",
+    "main_purpose": "Customizable annual education funding during child's university years (ages 20 to 24).",
+    "detailed_description": "LIC's Jeevan Tarun (Plan No. 734, UIN: 512N299V03) is a participating, non-linked child life assurance savings plan. It offers parents 4 flexible payout options to receive annual survival benefits from age 20 to 24 (ranging from 0% to 15% per year) matching the child's college degree timeline, with the remaining corpus and bonuses paid at age 25.",
+    "eligibility_rules": {
+      "min_entry_age": 0.25,
+      "max_entry_age": 12,
+      "min_maturity_age": 25,
+      "max_maturity_age": 25,
+      "allowed_genders": ["Male", "Female", "Other", "All"],
+      "allowed_professions": ["Child", "Student"],
+      "special_conditions": "Exclusively for children aged 90 days to 12 years. Matures at age 25."
+    },
+    "age_rules": {
+      "min_entry_age_years": 0.25,
+      "max_entry_age_years": 12,
+      "min_maturity_age_years": 25,
+      "max_maturity_age_years": 25,
+      "entry_age_text": "90 days (completed) to 12 years (last birthday)"
+    },
+    "gender_rules": {
+      "allowed": "All",
+      "female_concession": "Standard rates",
+      "notes": "Available for boys and girls."
+    },
+    "child_age_rules": {
+      "is_child_plan": true,
+      "min_child_age": 0.25,
+      "max_child_age": 12,
+      "risk_commencement_rule": "Risk commences from 8 years of age or 2 years after commencement, whichever is earlier.",
+      "proposer_pwb_available": true
+    },
+    "premium_rules": {
+      "premium_payment_modes": ["Yearly", "Half-Yearly", "Quarterly", "Monthly (NACH)"],
+      "min_sum_assured": 200000,
+      "max_sum_assured": null,
+      "min_sum_assured_text": "₹2,00,000",
+      "max_sum_assured_text": "No upper limit",
+      "sum_assured_multiples": "₹10,000",
+      "high_sum_assured_rebate": "Rebates for sum assured above ₹5 Lakhs."
+    },
+    "policy_term": {
+      "min_term_years": 13,
+      "max_term_years": 25,
+      "available_terms": "25 minus Child Entry Age",
+      "rule_description": "Policy term equals 25 minus entry age."
+    },
+    "premium_payment_term": {
+      "options": ["20 minus Child Entry Age"],
+      "rule_description": "Premiums payable till child reaches age 20."
+    },
+    "benefits": {
+      "death_benefit_summary": "Sum Assured on Death + Simple Reversionary Bonuses + Final Additional Bonus.",
+      "maturity_benefit_summary": "Balance Sum Assured (25% to 100% depending on option) + vested Simple Reversionary Bonuses + Final Additional Bonus at age 25.",
+      "survival_benefits": "4 Options: Option 1 (No survival payout), Option 2 (5% BSA yearly from age 20-24), Option 3 (10% BSA yearly), Option 4 (15% BSA yearly)",
+      "guaranteed_additions": null,
+      "bonus_type": "Simple Reversionary Bonus + Final Additional Bonus",
+      "loyalty_additions": null
+    },
+    "death_benefit": "Sum Assured on Death + Vested Simple Reversionary Bonuses + Final Additional Bonus.",
+    "maturity_benefit": "Remaining Sum Assured + Vested Bonuses + FAB at age 25.",
+    "survival_benefit": "Annual survival payouts from age 20 to 24 according to selected Option (0%, 5%, 10%, or 15% per year).",
+    "loan_availability": {
+      "allowed": true,
+      "waiting_period_months": 12,
+      "max_loan_percentage": "Up to 90% of surrender value."
+    },
+    "surrender_rules": {
+      "allowed_after_years": 1,
+      "guaranteed_surrender_value_rule": "Acquires surrender value after 1 full year."
+    },
+    "revival_rules": {
+      "within_years": 5,
+      "notes": "Revival allowed within 5 consecutive years."
+    },
+    "grace_period": {
+      "yearly_half_quarterly_days": 30,
+      "monthly_days": 15,
+      "notes": "30 days standard; 15 days monthly."
+    },
+    "riders": ["LIC's Premium Waiver Benefit Rider"],
+    "goals": ["Child Education Funding", "Flexible College Support", "Child Security"],
+    "suitable_for": ["Parents seeking tailored flexibility in annual education funding during child's university degree years (20 to 24)"],
+    "retirement_relevance": "Low",
+    "protection_relevance": "High",
+    "investment_preference": ["Flexible Child Plan", "Education Fund", "Low Risk"],
+    "budget_category": "Moderate (₹2000-₹5000/mo)",
+    "official_lic_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_document_url": "https://www.licindia.in/en/web/guest/jeevan-tarun-734",
+    "official_brochure_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_category_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "source": "LIC Official Website",
+    "last_verified": "2026-08-31",
+    "verification_required": false
+  },
+  {
+    "plan_id": "LIC-020",
+    "plan_name": "LIC’s Digi Term",
+    "plan_number": "876",
+    "uin": "512N356V02",
+    "category": "Term Assurance",
+    "active_status": "active",
+    "short_description": "An online-exclusive pure risk term assurance plan providing high financial protection to the family at deeply discounted online premium rates.",
+    "main_purpose": "High-value pure life insurance cover bought directly online at competitive rates.",
+    "detailed_description": "LIC's Digi Term (Plan No. 876, UIN: 512N356V02) is a non-linked, non-participating, individual pure risk term assurance plan available exclusively online. It provides financial security to the family in the unfortunate event of the life assured's demise during the policy term.",
+    "eligibility_rules": {
+      "min_entry_age": 18,
+      "max_entry_age": 45,
+      "min_maturity_age": 28,
+      "max_maturity_age": 75,
+      "allowed_genders": ["Male", "Female", "Other", "All"],
+      "allowed_professions": ["All", "Salaried", "Self-Employed", "Business", "Professional"],
+      "special_conditions": "Online exclusive. Minimum Sum Assured is ₹50,00,000."
+    },
+    "age_rules": {
+      "min_entry_age_years": 18,
+      "max_entry_age_years": 45,
+      "min_maturity_age_years": 28,
+      "max_maturity_age_years": 75,
+      "entry_age_text": "18 years (completed) to 45 years (nearer birthday)"
+    },
+    "gender_rules": {
+      "allowed": "All",
+      "female_concession": "Special discounted premium rates for female lives",
+      "notes": "Non-smoker concessions also available."
+    },
+    "child_age_rules": {
+      "is_child_plan": false,
+      "min_child_age": null,
+      "max_child_age": null,
+      "risk_commencement_rule": "Not applicable.",
+      "proposer_pwb_available": false
+    },
+    "premium_rules": {
+      "premium_payment_modes": ["Regular Premium", "Limited Premium (Term - 5 or Term - 10)", "Single Premium"],
+      "min_sum_assured": 5000000,
+      "max_sum_assured": null,
+      "min_sum_assured_text": "₹50,00,000",
+      "max_sum_assured_text": "No upper limit (subject to underwriting)",
+      "sum_assured_multiples": "₹5,00,000",
+      "high_sum_assured_rebate": "Discounted online term rates."
+    },
+    "policy_term": {
+      "min_term_years": 10,
+      "max_term_years": 40,
+      "available_terms": "10 to 40 years",
+      "rule_description": "Choice of term from 10 to 40 years."
+    },
+    "premium_payment_term": {
+      "options": ["Regular", "Limited (Term - 5 yrs)", "Limited (Term - 10 yrs)", "Single"],
+      "rule_description": "Regular, Limited, or Single premium payment."
+    },
+    "benefits": {
+      "death_benefit_summary": "Level Sum Assured or Increasing Sum Assured (increases 10% per year from 6th year up to double the sum assured).",
+      "maturity_benefit_summary": "Nil (Pure risk term insurance).",
+      "survival_benefits": null,
+      "guaranteed_additions": null,
+      "bonus_type": "Pure Term (No bonus)",
+      "loyalty_additions": null
+    },
+    "death_benefit": "Sum Assured on Death payable to nominee in lump sum or installments.",
+    "maturity_benefit": "Nil (Pure Term Plan).",
+    "loan_availability": {
+      "allowed": false,
+      "waiting_period_months": null,
+      "max_loan_percentage": "No loan facility on term plans."
+    },
+    "surrender_rules": {
+      "allowed_after_years": null,
+      "guaranteed_surrender_value_rule": "Surrender value payable under Single Premium and Limited Premium options under specified conditions."
+    },
+    "revival_rules": {
+      "within_years": 5,
+      "notes": "Revival allowed within 5 consecutive years."
+    },
+    "grace_period": {
+      "yearly_half_quarterly_days": 30,
+      "monthly_days": 15,
+      "notes": "30 days for yearly/half/quarterly; 15 days for monthly."
+    },
+    "riders": ["LIC's Accidental Death and Disability Benefit Rider"],
+    "goals": ["Pure Family Protection", "Income Replacement", "Debt/Loan Protection"],
+    "suitable_for": ["Young professionals seeking high sum assured pure term life coverage (₹50 Lakhs+) online at economical rates"],
+    "retirement_relevance": "Low",
+    "protection_relevance": "Highest",
+    "investment_preference": ["Pure Risk Cover", "High Sum Assured", "Lowest Premium"],
+    "budget_category": "Low (₹500-₹2000/mo)",
+    "official_lic_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_document_url": null,
+    "official_brochure_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_category_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "source": "LIC Official Website",
+    "last_verified": "2026-08-31",
+    "verification_required": false
+  },
+  {
+    "plan_id": "LIC-021",
+    "plan_name": "LIC’s Digi Credit Life",
+    "plan_number": "878",
+    "uin": "512N358V01",
+    "category": "Term Assurance",
+    "active_status": "active",
+    "short_description": "An online-exclusive decreasing term assurance plan tailored to protect home loan, education loan, or vehicle loan liabilities against borrower's death.",
+    "main_purpose": "Shield family from debt by matching decreasing sum assured to loan repayment schedule.",
+    "detailed_description": "LIC's Digi Credit Life (Plan No. 878, UIN: 512N358V01) is an online-exclusive decreasing term insurance plan. It provides life protection where the sum assured reduces over time to match the amortization schedule of loans (such as home loans), ensuring the loan is fully paid off in the event of the borrower's death.",
+    "eligibility_rules": {
+      "min_entry_age": 18,
+      "max_entry_age": 45,
+      "min_maturity_age": 23,
+      "max_maturity_age": 75,
+      "allowed_genders": ["Male", "Female", "Other", "All"],
+      "allowed_professions": ["All", "Salaried", "Self-Employed", "Business", "Professional"],
+      "special_conditions": "Online exclusive. Decreasing cover designed for loan borrowers."
+    },
+    "age_rules": {
+      "min_entry_age_years": 18,
+      "max_entry_age_years": 45,
+      "min_maturity_age_years": 23,
+      "max_maturity_age_years": 75,
+      "entry_age_text": "18 years to 45 years"
+    },
+    "gender_rules": {
+      "allowed": "All",
+      "female_concession": "Female rate discounts",
+      "notes": "Available to all borrowers."
+    },
+    "child_age_rules": {
+      "is_child_plan": false,
+      "min_child_age": null,
+      "max_child_age": null,
+      "risk_commencement_rule": "Not applicable.",
+      "proposer_pwb_available": false
+    },
+    "premium_rules": {
+      "premium_payment_modes": ["Single Premium", "Limited Premium (5 Years)"],
+      "min_sum_assured": 5000000,
+      "max_sum_assured": null,
+      "min_sum_assured_text": "₹50,00,000",
+      "max_sum_assured_text": "No limit",
+      "sum_assured_multiples": "₹5,00,000",
+      "high_sum_assured_rebate": "Online discounts apply."
+    },
+    "policy_term": {
+      "min_term_years": 5,
+      "max_term_years": 30,
+      "available_terms": "5 to 30 years",
+      "rule_description": "Matches loan tenure from 5 to 30 years."
+    },
+    "premium_payment_term": {
+      "options": ["Single", "Limited (5 years)"],
+      "rule_description": "Single or 5-year limited premium payment."
+    },
+    "benefits": {
+      "death_benefit_summary": "Decreasing Sum Assured on Death according to loan schedule payable to settle loan/protect family.",
+      "maturity_benefit_summary": "Nil (Decreasing Term).",
+      "survival_benefits": null,
+      "guaranteed_additions": null,
+      "bonus_type": "None",
+      "loyalty_additions": null
+    },
+    "death_benefit": "Decreasing Sum Assured as per loan repayment schedule.",
+    "maturity_benefit": "Nil.",
+    "loan_availability": {
+      "allowed": false,
+      "waiting_period_months": null,
+      "max_loan_percentage": "Not applicable."
+    },
+    "surrender_rules": {
+      "allowed_after_years": null,
+      "guaranteed_surrender_value_rule": "Available for single/limited premium options."
+    },
+    "revival_rules": {
+      "within_years": 5,
+      "notes": "Revival allowed within 5 years."
+    },
+    "grace_period": {
+      "yearly_half_quarterly_days": 30,
+      "monthly_days": 15,
+      "notes": "30 days standard."
+    },
+    "riders": [],
+    "goals": ["Home Loan Protection", "Mortgage Security", "Liability Shield"],
+    "suitable_for": ["Borrowers with active home loans or mortgages wishing to protect their families from debt burdens"],
+    "retirement_relevance": "Low",
+    "protection_relevance": "High",
+    "investment_preference": ["Loan Cover", "Decreasing Term", "Cost-effective"],
+    "budget_category": "Low (₹500-₹2000/mo)",
+    "official_lic_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_document_url": null,
+    "official_brochure_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_category_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "source": "LIC Official Website",
+    "last_verified": "2026-08-31",
+    "verification_required": false
+  },
+  {
+    "plan_id": "LIC-022",
+    "plan_name": "LIC’s Yuva Credit Life",
+    "plan_number": "877",
+    "uin": "512N357V01",
+    "category": "Term Assurance",
+    "active_status": "active",
+    "short_description": "An offline intermediary decreasing term assurance plan designed to protect loan liabilities for young borrowers.",
+    "main_purpose": "Offline decreasing life insurance for home loan and vehicle loan protection.",
+    "detailed_description": "LIC's Yuva Credit Life (Plan No. 877, UIN: 512N357V01) is a non-linked, non-participating decreasing term plan available through LIC agents and branch networks. It protects the borrower's family against outstanding loan liabilities upon death.",
+    "eligibility_rules": {
+      "min_entry_age": 18,
+      "max_entry_age": 45,
+      "min_maturity_age": 23,
+      "max_maturity_age": 75,
+      "allowed_genders": ["Male", "Female", "Other", "All"],
+      "allowed_professions": ["All", "Salaried", "Self-Employed", "Business", "Professional"],
+      "special_conditions": "Offline decreasing cover for loan borrowers."
+    },
+    "age_rules": {
+      "min_entry_age_years": 18,
+      "max_entry_age_years": 45,
+      "min_maturity_age_years": 23,
+      "max_maturity_age_years": 75,
+      "entry_age_text": "18 to 45 years"
+    },
+    "gender_rules": {
+      "allowed": "All",
+      "female_concession": "Lower female rates",
+      "notes": "Available to all."
+    },
+    "child_age_rules": {
+      "is_child_plan": false,
+      "min_child_age": null,
+      "max_child_age": null,
+      "risk_commencement_rule": "Not applicable.",
+      "proposer_pwb_available": false
+    },
+    "premium_rules": {
+      "premium_payment_modes": ["Single", "Limited (5 Years)"],
+      "min_sum_assured": 5000000,
+      "max_sum_assured": null,
+      "min_sum_assured_text": "₹50,00,000",
+      "max_sum_assured_text": "No limit",
+      "sum_assured_multiples": "₹5,00,000",
+      "high_sum_assured_rebate": "Standard offline rebates."
+    },
+    "policy_term": {
+      "min_term_years": 5,
+      "max_term_years": 30,
+      "available_terms": "5 to 30 years",
+      "rule_description": "Matches loan tenure from 5 to 30 years."
+    },
+    "premium_payment_term": {
+      "options": ["Single", "Limited (5 years)"],
+      "rule_description": "Single or 5-year limited premium payment."
+    },
+    "benefits": {
+      "death_benefit_summary": "Decreasing Sum Assured on Death according to loan schedule.",
+      "maturity_benefit_summary": "Nil.",
+      "survival_benefits": null,
+      "guaranteed_additions": null,
+      "bonus_type": "None",
+      "loyalty_additions": null
+    },
+    "death_benefit": "Decreasing Sum Assured matching outstanding loan principal.",
+    "maturity_benefit": "Nil.",
+    "loan_availability": {
+      "allowed": false,
+      "waiting_period_months": null,
+      "max_loan_percentage": "Not applicable."
+    },
+    "surrender_rules": {
+      "allowed_after_years": null,
+      "guaranteed_surrender_value_rule": "Available for single/limited premium options."
+    },
+    "revival_rules": {
+      "within_years": 5,
+      "notes": "Revival allowed within 5 years."
+    },
+    "grace_period": {
+      "yearly_half_quarterly_days": 30,
+      "monthly_days": 15,
+      "notes": "30 days standard."
+    },
+    "riders": [],
+    "goals": ["Loan Protection", "Liability Coverage", "Family Debt Shield"],
+    "suitable_for": ["Young borrowers taking loans via banks and seeking offline branch/agent consultation"],
+    "retirement_relevance": "Low",
+    "protection_relevance": "High",
+    "investment_preference": ["Loan Cover", "Decreasing Risk Cover"],
+    "budget_category": "Low (₹500-₹2000/mo)",
+    "official_lic_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_document_url": null,
+    "official_brochure_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_category_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "source": "LIC Official Website",
+    "last_verified": "2026-08-31",
+    "verification_required": false
+  },
+  {
+    "plan_id": "LIC-023",
+    "plan_name": "LIC’s Yuva Term",
+    "plan_number": "875",
+    "uin": "512N355V02",
+    "category": "Term Assurance",
+    "active_status": "active",
+    "short_description": "A pure risk term assurance plan designed for youth and young earners seeking substantial life cover via offline agent channels.",
+    "main_purpose": "Affordable pure term life insurance for young individuals bought through LIC agents.",
+    "detailed_description": "LIC's Yuva Term (Plan No. 875, UIN: 512N355V02) is a non-linked, non-participating pure risk term assurance plan available through LIC's agency network. It offers high protection with options for level or increasing sum assured.",
+    "eligibility_rules": {
+      "min_entry_age": 18,
+      "max_entry_age": 45,
+      "min_maturity_age": 28,
+      "max_maturity_age": 75,
+      "allowed_genders": ["Male", "Female", "Other", "All"],
+      "allowed_professions": ["All", "Salaried", "Self-Employed", "Business", "Professional"],
+      "special_conditions": "Minimum Sum Assured is ₹50,00,000."
+    },
+    "age_rules": {
+      "min_entry_age_years": 18,
+      "max_entry_age_years": 45,
+      "min_maturity_age_years": 28,
+      "max_maturity_age_years": 75,
+      "entry_age_text": "18 to 45 years"
+    },
+    "gender_rules": {
+      "allowed": "All",
+      "female_concession": "Discounted female rates",
+      "notes": "Non-smoker rates available."
+    },
+    "child_age_rules": {
+      "is_child_plan": false,
+      "min_child_age": null,
+      "max_child_age": null,
+      "risk_commencement_rule": "Not applicable.",
+      "proposer_pwb_available": false
+    },
+    "premium_rules": {
+      "premium_payment_modes": ["Regular", "Limited (Term - 5 or Term - 10)", "Single"],
+      "min_sum_assured": 5000000,
+      "max_sum_assured": null,
+      "min_sum_assured_text": "₹50,00,000",
+      "max_sum_assured_text": "No limit",
+      "sum_assured_multiples": "₹5,00,000",
+      "high_sum_assured_rebate": "High sum assured rebates."
+    },
+    "policy_term": {
+      "min_term_years": 10,
+      "max_term_years": 40,
+      "available_terms": "10 to 40 years",
+      "rule_description": "Terms from 10 to 40 years."
+    },
+    "premium_payment_term": {
+      "options": ["Regular", "Limited (Term - 5 or Term - 10)", "Single"],
+      "rule_description": "Flexible premium terms."
+    },
+    "benefits": {
+      "death_benefit_summary": "Level or Increasing Sum Assured on Death payable to nominee.",
+      "maturity_benefit_summary": "Nil (Pure term).",
+      "survival_benefits": null,
+      "guaranteed_additions": null,
+      "bonus_type": "None",
+      "loyalty_additions": null
+    },
+    "death_benefit": "Sum Assured on Death payable in lump sum or installments.",
+    "maturity_benefit": "Nil.",
+    "loan_availability": {
+      "allowed": false,
+      "waiting_period_months": null,
+      "max_loan_percentage": "Not applicable."
+    },
+    "surrender_rules": {
+      "allowed_after_years": null,
+      "guaranteed_surrender_value_rule": "Available for single/limited premium options."
+    },
+    "revival_rules": {
+      "within_years": 5,
+      "notes": "Revival allowed within 5 years."
+    },
+    "grace_period": {
+      "yearly_half_quarterly_days": 30,
+      "monthly_days": 15,
+      "notes": "30 days standard."
+    },
+    "riders": ["LIC's Accidental Death and Disability Benefit Rider"],
+    "goals": ["Family Protection", "Income Replacement", "Pure Risk Coverage"],
+    "suitable_for": ["Young earners seeking substantial term life protection through LIC agents"],
+    "retirement_relevance": "Low",
+    "protection_relevance": "Highest",
+    "investment_preference": ["Pure Risk Cover", "High Sum Assured"],
+    "budget_category": "Low (₹500-₹2000/mo)",
+    "official_lic_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_document_url": null,
+    "official_brochure_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_category_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "source": "LIC Official Website",
+    "last_verified": "2026-08-31",
+    "verification_required": false
+  },
+  {
+    "plan_id": "LIC-024",
+    "plan_name": "LIC's New Tech-Term",
+    "plan_number": "954",
+    "uin": "512N351V02",
+    "category": "Term Assurance",
+    "active_status": "active",
+    "short_description": "An online pure risk term plan providing comprehensive financial protection with attractive rates, smoker/non-smoker differentiation, and coverage up to age 80.",
+    "main_purpose": "Comprehensive high-value pure term life insurance bought online up to age 80.",
+    "detailed_description": "LIC's New Tech-Term (Plan No. 954, UIN: 512N351V02) is a non-linked, non-participating online pure risk premium plan providing comprehensive financial protection to the insured's family with attractive rates and smoker/non-smoker differential pricing.",
+    "eligibility_rules": {
+      "min_entry_age": 18,
+      "max_entry_age": 65,
+      "min_maturity_age": 28,
+      "max_maturity_age": 80,
+      "allowed_genders": ["Male", "Female", "Other", "All"],
+      "allowed_professions": ["All", "Salaried", "Self-Employed", "Business", "Professional"],
+      "special_conditions": "Online exclusive. Max maturity age 80 years. Min Sum Assured ₹50,00,000."
+    },
+    "age_rules": {
+      "min_entry_age_years": 18,
+      "max_entry_age_years": 65,
+      "min_maturity_age_years": 28,
+      "max_maturity_age_years": 80,
+      "entry_age_text": "18 years to 65 years (nearer birthday)"
+    },
+    "gender_rules": {
+      "allowed": "All",
+      "female_concession": "Special rates for women",
+      "notes": "Smoker / non-smoker rates."
+    },
+    "child_age_rules": {
+      "is_child_plan": false,
+      "min_child_age": null,
+      "max_child_age": null,
+      "risk_commencement_rule": "Not applicable.",
+      "proposer_pwb_available": false
+    },
+    "premium_rules": {
+      "premium_payment_modes": ["Regular", "Limited (Term - 5 or Term - 10)", "Single"],
+      "min_sum_assured": 5000000,
+      "max_sum_assured": null,
+      "min_sum_assured_text": "₹50,00,000",
+      "max_sum_assured_text": "No upper limit",
+      "sum_assured_multiples": "₹5,00,000",
+      "high_sum_assured_rebate": "Direct online pricing."
+    },
+    "policy_term": {
+      "min_term_years": 10,
+      "max_term_years": 40,
+      "available_terms": "10 to 40 years",
+      "rule_description": "Terms from 10 to 40 years."
+    },
+    "premium_payment_term": {
+      "options": ["Regular", "Limited (Term - 5 or Term - 10)", "Single"],
+      "rule_description": "Regular, limited, or single payment."
+    },
+    "benefits": {
+      "death_benefit_summary": "Level Sum Assured or Increasing Sum Assured on Death payable to nominee in lump sum or installments.",
+      "maturity_benefit_summary": "Nil (Pure Term).",
+      "survival_benefits": null,
+      "guaranteed_additions": null,
+      "bonus_type": "None",
+      "loyalty_additions": null
+    },
+    "death_benefit": "Sum Assured on Death (Level or Increasing option).",
+    "maturity_benefit": "Nil.",
+    "loan_availability": {
+      "allowed": false,
+      "waiting_period_months": null,
+      "max_loan_percentage": "Not applicable."
+    },
+    "surrender_rules": {
+      "allowed_after_years": null,
+      "guaranteed_surrender_value_rule": "Available for single/limited premium options."
+    },
+    "revival_rules": {
+      "within_years": 5,
+      "notes": "Revival allowed within 5 consecutive years."
+    },
+    "grace_period": {
+      "yearly_half_quarterly_days": 30,
+      "monthly_days": 15,
+      "notes": "30 days standard."
+    },
+    "riders": ["LIC's Accidental Death and Disability Benefit Rider"],
+    "goals": ["Comprehensive Family Security", "Online Term Insurance", "Income Replacement"],
+    "suitable_for": ["Individuals up to age 65 looking for high pure term coverage up to age 80 directly online"],
+    "retirement_relevance": "Low",
+    "protection_relevance": "Highest",
+    "investment_preference": ["Pure Risk Cover", "Online Discount", "High Sum Assured"],
+    "budget_category": "Low (₹500-₹2000/mo)",
+    "official_lic_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_document_url": "https://www.licindia.in/en/web/guest/tech-term-954",
+    "official_brochure_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_category_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "source": "LIC Official Website",
+    "last_verified": "2026-08-31",
+    "verification_required": false
+  },
+  {
+    "plan_id": "LIC-025",
+    "plan_name": "LIC's New Jeevan Amar",
+    "plan_number": "955",
+    "uin": "512N350V02",
+    "category": "Term Assurance",
+    "active_status": "active",
+    "short_description": "An offline pure risk term assurance plan available through LIC agents with lower entry sum assured from ₹25 Lakhs and flexible terms up to age 80.",
+    "main_purpose": "Accessible offline pure term protection for families starting from ₹25 Lakhs sum assured.",
+    "detailed_description": "LIC's New Jeevan Amar (Plan No. 955, UIN: 512N350V02) is a non-linked, non-participating pure risk term assurance plan available through LIC agents, offering flexible premium payment options, special rates for women, and smoker/non-smoker categorisation.",
+    "eligibility_rules": {
+      "min_entry_age": 18,
+      "max_entry_age": 65,
+      "min_maturity_age": 28,
+      "max_maturity_age": 80,
+      "allowed_genders": ["Male", "Female", "Other", "All"],
+      "allowed_professions": ["All", "Salaried", "Self-Employed", "Business", "Professional", "Farmer"],
+      "special_conditions": "Minimum Sum Assured ₹25,00,000."
+    },
+    "age_rules": {
+      "min_entry_age_years": 18,
+      "max_entry_age_years": 65,
+      "min_maturity_age_years": 28,
+      "max_maturity_age_years": 80,
+      "entry_age_text": "18 to 65 years"
+    },
+    "gender_rules": {
+      "allowed": "All",
+      "female_concession": "Lower female rates",
+      "notes": "Smoker and non-smoker rates."
+    },
+    "child_age_rules": {
+      "is_child_plan": false,
+      "min_child_age": null,
+      "max_child_age": null,
+      "risk_commencement_rule": "Not applicable.",
+      "proposer_pwb_available": false
+    },
+    "premium_rules": {
+      "premium_payment_modes": ["Regular", "Limited (Term - 5 or Term - 10)", "Single"],
+      "min_sum_assured": 2500000,
+      "max_sum_assured": null,
+      "min_sum_assured_text": "₹25,00,000",
+      "max_sum_assured_text": "No limit",
+      "sum_assured_multiples": "₹1,00,000 / ₹5,00,000",
+      "high_sum_assured_rebate": "High sum assured rebates."
+    },
+    "policy_term": {
+      "min_term_years": 10,
+      "max_term_years": 40,
+      "available_terms": "10 to 40 years",
+      "rule_description": "Terms from 10 to 40 years."
+    },
+    "premium_payment_term": {
+      "options": ["Regular", "Limited (Term - 5 or Term - 10)", "Single"],
+      "rule_description": "Regular, limited, or single payment."
+    },
+    "benefits": {
+      "death_benefit_summary": "Level or Increasing Sum Assured on Death payable to nominee.",
+      "maturity_benefit_summary": "Nil (Pure Term).",
+      "survival_benefits": null,
+      "guaranteed_additions": null,
+      "bonus_type": "None",
+      "loyalty_additions": null
+    },
+    "death_benefit": "Sum Assured on Death payable in lump sum or monthly/annual installments.",
+    "maturity_benefit": "Nil.",
+    "loan_availability": {
+      "allowed": false,
+      "waiting_period_months": null,
+      "max_loan_percentage": "Not applicable."
+    },
+    "surrender_rules": {
+      "allowed_after_years": null,
+      "guaranteed_surrender_value_rule": "Available for single/limited premium options."
+    },
+    "revival_rules": {
+      "within_years": 5,
+      "notes": "Revival allowed within 5 consecutive years."
+    },
+    "grace_period": {
+      "yearly_half_quarterly_days": 30,
+      "monthly_days": 15,
+      "notes": "30 days standard."
+    },
+    "riders": ["LIC's Accidental Death and Disability Benefit Rider"],
+    "goals": ["Family Financial Protection", "Income Replacement", "Offline Term Cover"],
+    "suitable_for": ["Individuals seeking affordable term insurance starting from ₹25 Lakhs through offline agent support"],
+    "retirement_relevance": "Low",
+    "protection_relevance": "Highest",
+    "investment_preference": ["Pure Risk Cover", "Flexible Sum Assured", "Offline Agent Support"],
+    "budget_category": "Low (₹500-₹2000/mo)",
+    "official_lic_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_document_url": "https://www.licindia.in/en/web/guest/jeevan-amar-955",
+    "official_brochure_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_category_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "source": "LIC Official Website",
+    "last_verified": "2026-08-31",
+    "verification_required": false
+  },
+  {
+    "plan_id": "LIC-026",
+    "plan_name": "LIC's Saral Jeevan Bima",
+    "plan_number": "859",
+    "uin": "512N341V01",
+    "category": "Term Assurance",
+    "active_status": "active",
+    "short_description": "An IRDAI-mandated standard individual pure term assurance plan with simple terms and low sum assured options from ₹5 Lakhs to ₹25 Lakhs.",
+    "main_purpose": "Standardized entry-level term insurance for first-time life insurance buyers.",
+    "detailed_description": "LIC's Saral Jeevan Bima (Plan No. 859, UIN: 512N341V01) is a standard non-linked, non-participating individual pure risk term insurance product with simple terms, standardized conditions, and accessible sum assured limits.",
+    "eligibility_rules": {
+      "min_entry_age": 18,
+      "max_entry_age": 65,
+      "min_maturity_age": 23,
+      "max_maturity_age": 70,
+      "allowed_genders": ["Male", "Female", "Other", "All"],
+      "allowed_professions": ["All", "Salaried", "Self-Employed", "Business", "Homemaker", "Professional", "Farmer"],
+      "special_conditions": "45-day waiting period from commencement (accidental death covered immediately)."
+    },
+    "age_rules": {
+      "min_entry_age_years": 18,
+      "max_entry_age_years": 65,
+      "min_maturity_age_years": 23,
+      "max_maturity_age_years": 70,
+      "entry_age_text": "18 to 65 years"
+    },
+    "gender_rules": {
+      "allowed": "All",
+      "female_concession": "Standard rates",
+      "notes": "Available to all."
+    },
+    "child_age_rules": {
+      "is_child_plan": false,
+      "min_child_age": null,
+      "max_child_age": null,
+      "risk_commencement_rule": "Not applicable.",
+      "proposer_pwb_available": false
+    },
+    "premium_rules": {
+      "premium_payment_modes": ["Regular", "Limited (5 or 10 yrs)", "Single"],
+      "min_sum_assured": 500000,
+      "max_sum_assured": 2500000,
+      "min_sum_assured_text": "₹5,00,000",
+      "max_sum_assured_text": "₹25,00,000 (can be extended under underwriting)",
+      "sum_assured_multiples": "₹50,000",
+      "high_sum_assured_rebate": "Standard modal rebates."
+    },
+    "policy_term": {
+      "min_term_years": 5,
+      "max_term_years": 40,
+      "available_terms": "5 to 40 years",
+      "rule_description": "Terms from 5 to 40 years."
+    },
+    "premium_payment_term": {
+      "options": ["Regular", "Limited (5 or 10 yrs)", "Single"],
+      "rule_description": "Regular, limited, or single payment."
+    },
+    "benefits": {
+      "death_benefit_summary": "Sum Assured on Death payable to nominee upon death of life assured.",
+      "maturity_benefit_summary": "Nil (Pure Term).",
+      "survival_benefits": null,
+      "guaranteed_additions": null,
+      "bonus_type": "None",
+      "loyalty_additions": null
+    },
+    "death_benefit": "Sum Assured on Death.",
+    "maturity_benefit": "Nil.",
+    "loan_availability": {
+      "allowed": false,
+      "waiting_period_months": null,
+      "max_loan_percentage": "Not applicable."
+    },
+    "surrender_rules": {
+      "allowed_after_years": null,
+      "guaranteed_surrender_value_rule": "Available for single/limited premium options."
+    },
+    "revival_rules": {
+      "within_years": 5,
+      "notes": "Revival allowed within 5 consecutive years."
+    },
+    "grace_period": {
+      "yearly_half_quarterly_days": 30,
+      "monthly_days": 15,
+      "notes": "30 days standard."
+    },
+    "riders": ["LIC's Accidental Death and Disability Benefit Rider"],
+    "goals": ["Entry-level Family Protection", "Affordable Life Cover", "Simple Standard Term"],
+    "suitable_for": ["First-time insurance buyers and middle-income families seeking simple, transparent term cover from ₹5 Lakhs to ₹25 Lakhs"],
+    "retirement_relevance": "Low",
+    "protection_relevance": "Highest",
+    "investment_preference": ["Standard Pure Term", "Low Cost", "Accessible"],
+    "budget_category": "Low (₹500-₹2000/mo)",
+    "official_lic_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_document_url": "https://www.licindia.in/en/web/guest/saral-jeevan-bima-859",
+    "official_brochure_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_category_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "source": "LIC Official Website",
+    "last_verified": "2026-08-31",
+    "verification_required": false
+  },
+  {
+    "plan_id": "LIC-027",
+    "plan_name": "LIC’s Bima Kavach",
+    "plan_number": "887",
+    "uin": "512N360V01",
+    "category": "Term Assurance",
+    "active_status": "active",
+    "short_description": "A non-linked pure risk life insurance plan offering financial protection against untimely death with affordable premium payments.",
+    "main_purpose": "Cost-effective family security shield without savings/maturity overheads.",
+    "detailed_description": "LIC's Bima Kavach (Plan No. 887, UIN: 512N360V01) is a non-linked, non-participating individual pure risk life insurance plan designed to provide essential financial cushion to the family of the life assured.",
+    "eligibility_rules": {
+      "min_entry_age": 18,
+      "max_entry_age": 60,
+      "min_maturity_age": 28,
+      "max_maturity_age": 75,
+      "allowed_genders": ["Male", "Female", "Other", "All"],
+      "allowed_professions": ["All", "Salaried", "Self-Employed", "Business", "Professional"],
+      "special_conditions": "Minimum Sum Assured is ₹10,00,000."
+    },
+    "age_rules": {
+      "min_entry_age_years": 18,
+      "max_entry_age_years": 60,
+      "min_maturity_age_years": 28,
+      "max_maturity_age_years": 75,
+      "entry_age_text": "18 to 60 years"
+    },
+    "gender_rules": {
+      "allowed": "All",
+      "female_concession": "Standard female rates",
+      "notes": "Available to all."
+    },
+    "child_age_rules": {
+      "is_child_plan": false,
+      "min_child_age": null,
+      "max_child_age": null,
+      "risk_commencement_rule": "Not applicable.",
+      "proposer_pwb_available": false
+    },
+    "premium_rules": {
+      "premium_payment_modes": ["Regular", "Limited"],
+      "min_sum_assured": 1000000,
+      "max_sum_assured": null,
+      "min_sum_assured_text": "₹10,00,000",
+      "max_sum_assured_text": "No limit",
+      "sum_assured_multiples": "₹1,00,000",
+      "high_sum_assured_rebate": "Standard rebates."
+    },
+    "policy_term": {
+      "min_term_years": 10,
+      "max_term_years": 30,
+      "available_terms": "10 to 30 years",
+      "rule_description": "Terms from 10 to 30 years."
+    },
+    "premium_payment_term": {
+      "options": ["Regular", "Limited"],
+      "rule_description": "Regular or limited payment."
+    },
+    "benefits": {
+      "death_benefit_summary": "Sum Assured on Death payable to nominee.",
+      "maturity_benefit_summary": "Nil (Pure Term).",
+      "survival_benefits": null,
+      "guaranteed_additions": null,
+      "bonus_type": "None",
+      "loyalty_additions": null
+    },
+    "death_benefit": "Sum Assured on Death.",
+    "maturity_benefit": "Nil.",
+    "loan_availability": {
+      "allowed": false,
+      "waiting_period_months": null,
+      "max_loan_percentage": "Not applicable."
+    },
+    "surrender_rules": {
+      "allowed_after_years": null,
+      "guaranteed_surrender_value_rule": "Applicable under limited premium options."
+    },
+    "revival_rules": {
+      "within_years": 5,
+      "notes": "Revival allowed within 5 consecutive years."
+    },
+    "grace_period": {
+      "yearly_half_quarterly_days": 30,
+      "monthly_days": 15,
+      "notes": "30 days standard."
+    },
+    "riders": ["LIC's Accidental Death and Disability Benefit Rider"],
+    "goals": ["Basic Family Protection", "Risk Coverage", "Income Protection"],
+    "suitable_for": ["Breadwinners looking for pure term protection without maturity components"],
+    "retirement_relevance": "Low",
+    "protection_relevance": "Highest",
+    "investment_preference": ["Pure Risk Cover", "Affordable Term"],
+    "budget_category": "Low (₹500-₹2000/mo)",
+    "official_lic_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_document_url": null,
+    "official_brochure_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_category_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "source": "LIC Official Website",
+    "last_verified": "2026-08-31",
+    "verification_required": false
+  },
+  {
+    "plan_id": "LIC-028",
+    "plan_name": "LIC's New Pension Plus",
+    "plan_number": "867",
+    "uin": "512L347V01",
+    "category": "Pension",
+    "active_status": "active",
+    "short_description": "A unit-linked individual pension plan designed to systematically build a retirement corpus through market funds with guaranteed additions.",
+    "main_purpose": "Market-linked retirement corpus accumulation with guaranteed additions and annuity conversion.",
+    "detailed_description": "LIC's New Pension Plus (Plan No. 867, UIN: 512L347V01) is an individual unit-linked pension plan. It enables individuals to build a substantial retirement fund by investing in 4 fund choices (Pension Bond, Secured, Balanced, Growth) with guaranteed additions, and converting the corpus into guaranteed lifelong annuity upon vesting.",
+    "eligibility_rules": {
+      "min_entry_age": 25,
+      "max_entry_age": 75,
+      "min_maturity_age": 35,
+      "max_maturity_age": 85,
+      "allowed_genders": ["Male", "Female", "Other", "All"],
+      "allowed_professions": ["All", "Salaried", "Self-Employed", "Business", "Professional", "Retired"],
+      "special_conditions": "Vesting age between 35 and 85 years. On vesting, up to 60% can be commuted tax-free and remainder must purchase annuity."
+    },
+    "age_rules": {
+      "min_entry_age_years": 25,
+      "max_entry_age_years": 75,
+      "min_maturity_age_years": 35,
+      "max_maturity_age_years": 85,
+      "entry_age_text": "25 to 75 years"
+    },
+    "gender_rules": {
+      "allowed": "All",
+      "female_concession": "Standard rates",
+      "notes": "Available to all."
+    },
+    "child_age_rules": {
+      "is_child_plan": false,
+      "min_child_age": null,
+      "max_child_age": null,
+      "risk_commencement_rule": "Not applicable (Min age 25 years).",
+      "proposer_pwb_available": false
+    },
+    "premium_rules": {
+      "premium_payment_modes": ["Single Premium", "Regular (Yearly, Half-Yearly, Quarterly, Monthly)"],
+      "min_sum_assured": 0,
+      "max_sum_assured": null,
+      "min_sum_assured_text": "Not applicable (ULIP Pension)",
+      "max_sum_assured_text": "No upper limit",
+      "min_premium": 3000,
+      "min_premium_text": "₹3,000/mo (Monthly), ₹30,000/yr (Yearly), ₹1,00,000 (Single)",
+      "high_sum_assured_rebate": "Guaranteed additions scale with premium size."
+    },
+    "policy_term": {
+      "min_term_years": 10,
+      "max_term_years": 42,
+      "available_terms": "10 to 42 years (deferment period)",
+      "rule_description": "Deferment period up to vesting age 85."
+    },
+    "premium_payment_term": {
+      "options": ["Single", "Regular / Limited (Equal to policy term)"],
+      "rule_description": "Single or regular payment matching deferment period."
+    },
+    "benefits": {
+      "death_benefit_summary": "Higher of Unit Fund Value or 105% of total premiums paid payable to nominee.",
+      "maturity_benefit_summary": "Unit Fund Value + accrued Guaranteed Additions on vesting date. Up to 60% commutable lump sum; remainder utilized for immediate annuity.",
+      "survival_benefits": null,
+      "guaranteed_additions": "Up to 15.5% of annualized premium added to unit fund at specified policy durations",
+      "bonus_type": "Guaranteed Additions + Unit Growth",
+      "loyalty_additions": null
+    },
+    "death_benefit": "Higher of Unit Fund Value or 105% of total premiums paid.",
+    "maturity_benefit": "Unit Fund Value + Accrued Guaranteed Additions.",
+    "loan_availability": {
+      "allowed": false,
+      "waiting_period_months": null,
+      "max_loan_percentage": "No loan facility on ULIP pension plans."
+    },
+    "surrender_rules": {
+      "allowed_after_years": 5,
+      "guaranteed_surrender_value_rule": "5-year statutory lock-in period applies; surrender proceeds used for annuity."
+    },
+    "revival_rules": {
+      "within_years": 3,
+      "notes": "Revival within 3 years."
+    },
+    "grace_period": {
+      "yearly_half_quarterly_days": 30,
+      "monthly_days": 15,
+      "notes": "30 days standard."
+    },
+    "riders": [],
+    "goals": ["Retirement Corpus Accumulation", "Market-Linked Growth", "Lifelong Pension"],
+    "suitable_for": ["Working professionals wanting market upside for retirement wealth creation with built-in guaranteed additions"],
+    "retirement_relevance": "Highest",
+    "protection_relevance": "Moderate",
+    "investment_preference": ["Market Linked", "Pension / Annuity", "Moderate to High Growth"],
+    "budget_category": "Moderate (₹2000-₹5000/mo)",
+    "official_lic_url": "https://licindia.in/en/web/guest/pension-plan",
+    "official_document_url": "https://licindia.in/en/web/guest/new-pension-plus-867",
+    "official_brochure_url": "https://licindia.in/en/web/guest/pension-plan",
+    "official_category_url": "https://licindia.in/en/web/guest/pension-plan",
+    "source": "LIC Official Website",
+    "last_verified": "2026-08-31",
+    "verification_required": false
+  },
+  {
+    "plan_id": "LIC-029",
+    "plan_name": "LIC's Jeevan Akshay-VII",
+    "plan_number": "857",
+    "uin": "512N337V07",
+    "category": "Pension / Annuity",
+    "active_status": "active",
+    "short_description": "An immediate annuity plan offering 10 annuity payout options including lifelong pension with return of purchase price and joint life annuity.",
+    "main_purpose": "Immediate lifelong guaranteed monthly/quarterly/annual pension from a lump sum retirement corpus.",
+    "detailed_description": "LIC's Jeevan Akshay-VII (Plan No. 857, UIN: 512N337V07) is a single premium immediate annuity plan. By depositing a one-time purchase price, the annuitant receives guaranteed regular pension payments for life under 10 diverse annuity options, including return of 100% purchase price to the nominee upon death.",
+    "eligibility_rules": {
+      "min_entry_age": 30,
+      "max_entry_age": 85,
+      "min_maturity_age": 30,
+      "max_maturity_age": 100,
+      "allowed_genders": ["Male", "Female", "Other", "All"],
+      "allowed_professions": ["All", "Salaried", "Self-Employed", "Business", "Homemaker", "Professional", "Farmer", "Retired"],
+      "special_conditions": "Immediate annuity begins from chosen mode (1 month, 3 months, 6 months, or 1 year). Min entry age 25 for dependent with disability under Option F."
+    },
+    "age_rules": {
+      "min_entry_age_years": 30,
+      "max_entry_age_years": 85,
+      "min_maturity_age_years": 30,
+      "max_maturity_age_years": 100,
+      "entry_age_text": "30 to 85 years (Option F: up to 100 years)"
+    },
+    "gender_rules": {
+      "allowed": "All",
+      "female_concession": "Standard annuity rates",
+      "notes": "Available to all individuals."
+    },
+    "child_age_rules": {
+      "is_child_plan": false,
+      "min_child_age": null,
+      "max_child_age": null,
+      "risk_commencement_rule": "Not applicable.",
+      "proposer_pwb_available": false
+    },
+    "premium_rules": {
+      "premium_payment_modes": ["Single Premium (Purchase Price)"],
+      "min_sum_assured": 100000,
+      "max_sum_assured": null,
+      "min_sum_assured_text": "₹1,00,000 (Min Purchase Price)",
+      "max_sum_assured_text": "No upper limit",
+      "min_premium": 100000,
+      "min_premium_text": "₹1,00,000 one-time",
+      "high_sum_assured_rebate": "Higher purchase price incentive rebates applicable on ₹5 Lakhs and above."
+    },
+    "policy_term": {
+      "min_term_years": 1,
+      "max_term_years": 100,
+      "available_terms": "Lifelong",
+      "rule_description": "Continues throughout the lifetime of the annuitant / joint annuitant."
+    },
+    "premium_payment_term": {
+      "options": ["Single Premium (One-time)"],
+      "rule_description": "Single one-time payment."
+    },
+    "benefits": {
+      "death_benefit_summary": "Under Option F (Life annuity with Return of Purchase Price) and Option J (Joint life with ROP): 100% of Purchase Price refunded to nominee.",
+      "maturity_benefit_summary": "Lifelong regular annuity payments.",
+      "survival_benefits": "Guaranteed annuity payouts (Monthly, Quarterly, Half-Yearly, Yearly) for life",
+      "guaranteed_additions": null,
+      "bonus_type": "Guaranteed Annuity Rate for life",
+      "loyalty_additions": null
+    },
+    "death_benefit": "Return of 100% Purchase Price to nominee under Return of Purchase Price options (Option F & J).",
+    "maturity_benefit": "Guaranteed lifelong pension.",
+    "survival_benefit": "Regular monthly / quarterly / half-yearly / yearly pension guaranteed for life.",
+    "loan_availability": {
+      "allowed": true,
+      "waiting_period_months": 3,
+      "max_loan_percentage": "Available under Option F and Option J after 3 months."
+    },
+    "surrender_rules": {
+      "allowed_after_years": 0.25,
+      "guaranteed_surrender_value_rule": "Surrender permitted under Option F and J for specified critical illnesses."
+    },
+    "revival_rules": {
+      "within_years": null,
+      "notes": "Not applicable (Single Premium Annuity)."
+    },
+    "grace_period": {
+      "yearly_half_quarterly_days": 0,
+      "monthly_days": 0,
+      "notes": "Not applicable."
+    },
+    "riders": [],
+    "goals": ["Immediate Retirement Pension", "Senior Citizen Income", "Lifelong Guaranteed Cash Flow", "Return of Capital to Nominee"],
+    "suitable_for": ["Retirees, senior citizens, and individuals receiving lump sum PF/gratuity seeking instant guaranteed monthly pension with 100% capital refund to heirs"],
+    "retirement_relevance": "Highest",
+    "protection_relevance": "High",
+    "investment_preference": ["Guaranteed Lifelong Pension", "Single Premium", "Zero Market Risk"],
+    "budget_category": "HNI / Lump Sum",
+    "official_lic_url": "https://licindia.in/en/web/guest/pension-plan",
+    "official_document_url": "https://licindia.in/en/web/guest/jeevan-akshay-vii-857",
+    "official_brochure_url": "https://licindia.in/en/web/guest/pension-plan",
+    "official_category_url": "https://licindia.in/en/web/guest/pension-plan",
+    "source": "LIC Official Website",
+    "last_verified": "2026-08-31",
+    "verification_required": false
+  },
+  {
+    "plan_id": "LIC-030",
+    "plan_name": "LIC’s New Jeevan Shanti",
+    "plan_number": "758",
+    "uin": "512N338V08",
+    "category": "Pension / Annuity",
+    "active_status": "active",
+    "short_description": "A single premium deferred annuity plan where annuity rates are guaranteed at inception and pension starts after a chosen deferment period (1 to 12 years).",
+    "main_purpose": "Lock in high guaranteed future pension rates today with flexible deferment from 1 to 12 years.",
+    "detailed_description": "LIC's New Jeevan Shanti (Plan No. 758, UIN: 512N338V08) is a single premium deferred annuity plan. The annuity rates are guaranteed at the inception of the policy. The annuitant chooses a deferment period between 1 and 12 years, after which regular lifelong annuity payments commence under Single Life or Joint Life options.",
+    "eligibility_rules": {
+      "min_entry_age": 30,
+      "max_entry_age": 79,
+      "min_maturity_age": 31,
+      "max_maturity_age": 80,
+      "allowed_genders": ["Male", "Female", "Other", "All"],
+      "allowed_professions": ["All", "Salaried", "Self-Employed", "Business", "Professional", "Retired"],
+      "special_conditions": "Deferment period between 1 and 12 years. Annuity rate fixed and guaranteed at purchase."
+    },
+    "age_rules": {
+      "min_entry_age_years": 30,
+      "max_entry_age_years": 79,
+      "min_maturity_age_years": 31,
+      "max_maturity_age_years": 80,
+      "entry_age_text": "30 to 79 years"
+    },
+    "gender_rules": {
+      "allowed": "All",
+      "female_concession": "Standard rates",
+      "notes": "Single Life and Joint Life options."
+    },
+    "child_age_rules": {
+      "is_child_plan": false,
+      "min_child_age": null,
+      "max_child_age": null,
+      "risk_commencement_rule": "Not applicable.",
+      "proposer_pwb_available": false
+    },
+    "premium_rules": {
+      "premium_payment_modes": ["Single Premium"],
+      "min_sum_assured": 150000,
+      "max_sum_assured": null,
+      "min_sum_assured_text": "₹1,50,000 (Min Purchase Price)",
+      "max_sum_assured_text": "No limit",
+      "min_premium": 150000,
+      "min_premium_text": "₹1,50,000 one-time",
+      "high_sum_assured_rebate": "Incentives on higher purchase price."
+    },
+    "policy_term": {
+      "min_term_years": 1,
+      "max_term_years": 12,
+      "available_terms": "Deferment Period: 1 to 12 years, then Lifelong",
+      "rule_description": "Deferment period 1 to 12 years followed by lifelong annuity."
+    },
+    "premium_payment_term": {
+      "options": ["Single Premium (One-time)"],
+      "rule_description": "Single payment at inception."
+    },
+    "benefits": {
+      "death_benefit_summary": "Death during deferment: Higher of Purchase Price + Accrued Additional Additions or 105% of Purchase Price paid to nominee. Death after deferment: Return of Purchase Price paid to nominee.",
+      "maturity_benefit_summary": "Guaranteed annuity payouts starting after chosen deferment period for life.",
+      "survival_benefits": "Guaranteed regular lifelong annuity after deferment period",
+      "guaranteed_additions": "Accrued monthly additions during deferment period",
+      "bonus_type": "Guaranteed Deferment Additions + Fixed Annuity Rate",
+      "loyalty_additions": null
+    },
+    "death_benefit": "Higher of (Purchase Price + Accrued Additions - Annuities paid) or 105% of Purchase Price.",
+    "maturity_benefit": "Guaranteed lifelong deferred annuity.",
+    "survival_benefit": "Guaranteed regular monthly/quarterly/annual pension for life starting after deferment period.",
+    "loan_availability": {
+      "allowed": true,
+      "waiting_period_months": 3,
+      "max_loan_percentage": "Available after 3 months from inception."
+    },
+    "surrender_rules": {
+      "allowed_after_years": 0.25,
+      "guaranteed_surrender_value_rule": "Surrender permitted anytime during or after deferment period."
+    },
+    "revival_rules": {
+      "within_years": null,
+      "notes": "Not applicable."
+    },
+    "grace_period": {
+      "yearly_half_quarterly_days": 0,
+      "monthly_days": 0,
+      "notes": "Not applicable."
+    },
+    "riders": [],
+    "goals": ["Pre-Retirement Planning", "Guaranteed Future Pension", "Rate Lock-in", "Joint Spouse Pension"],
+    "suitable_for": ["Working individuals aged 30-70 looking to invest surplus funds now to guarantee high monthly pension upon retirement 1-12 years later"],
+    "retirement_relevance": "Highest",
+    "protection_relevance": "High",
+    "investment_preference": ["Guaranteed Future Annuity", "Single Premium", "Capital Safety"],
+    "budget_category": "HNI / Lump Sum",
+    "official_lic_url": "https://licindia.in/en/web/guest/pension-plan",
+    "official_document_url": "https://licindia.in/en/web/guest/new-jeevan-shanti-758",
+    "official_brochure_url": "https://licindia.in/en/web/guest/pension-plan",
+    "official_category_url": "https://licindia.in/en/web/guest/pension-plan",
+    "source": "LIC Official Website",
+    "last_verified": "2026-08-31",
+    "verification_required": false
+  },
+  {
+    "plan_id": "LIC-031",
+    "plan_name": "LIC's Saral Pension",
+    "plan_number": "862",
+    "uin": "512N342V05",
+    "category": "Pension / Annuity",
+    "active_status": "active",
+    "short_description": "A standard individual immediate annuity plan compliant with IRDAI guidelines, offering uniform features with 100% return of purchase price to the nominee.",
+    "main_purpose": "Standardized, simple immediate pension with 100% refund of capital to legal heirs.",
+    "detailed_description": "LIC's Saral Pension (Plan No. 862, UIN: 512N342V05) is a standard non-linked, non-participating single premium immediate annuity plan. Compliant with IRDAI guidelines, it offers transparent pension options: Life Annuity with 100% Return of Purchase Price and Joint Life Last Survivor with 100% Return of Purchase Price.",
+    "eligibility_rules": {
+      "min_entry_age": 40,
+      "max_entry_age": 80,
+      "min_maturity_age": 40,
+      "max_maturity_age": 80,
+      "allowed_genders": ["Male", "Female", "Other", "All"],
+      "allowed_professions": ["All", "Salaried", "Self-Employed", "Business", "Homemaker", "Professional", "Farmer", "Retired"],
+      "special_conditions": "Minimum annuity ₹1,000 monthly / ₹12,000 yearly."
+    },
+    "age_rules": {
+      "min_entry_age_years": 40,
+      "max_entry_age_years": 80,
+      "min_maturity_age_years": 40,
+      "max_maturity_age_years": 80,
+      "entry_age_text": "40 to 80 years"
+    },
+    "gender_rules": {
+      "allowed": "All",
+      "female_concession": "Standard rates",
+      "notes": "Available to all."
+    },
+    "child_age_rules": {
+      "is_child_plan": false,
+      "min_child_age": null,
+      "max_child_age": null,
+      "risk_commencement_rule": "Not applicable.",
+      "proposer_pwb_available": false
+    },
+    "premium_rules": {
+      "premium_payment_modes": ["Single Premium"],
+      "min_sum_assured": 100000,
+      "max_sum_assured": null,
+      "min_sum_assured_text": "Approx ₹1,00,000 (Min Annuity ₹1,000/mo)",
+      "max_sum_assured_text": "No limit",
+      "min_premium": 100000,
+      "min_premium_text": "Based on minimum annuity requirement",
+      "high_sum_assured_rebate": "Standard modal annuity rebates."
+    },
+    "policy_term": {
+      "min_term_years": 1,
+      "max_term_years": 100,
+      "available_terms": "Lifelong",
+      "rule_description": "Lifelong regular annuity."
+    },
+    "premium_payment_term": {
+      "options": ["Single Premium (One-time)"],
+      "rule_description": "Single payment."
+    },
+    "benefits": {
+      "death_benefit_summary": "100% of Purchase Price refunded to the nominee upon demise of annuitant (or last survivor under Joint Life).",
+      "maturity_benefit_summary": "Guaranteed lifelong regular annuity.",
+      "survival_benefits": "Guaranteed regular annuity payouts for life",
+      "guaranteed_additions": null,
+      "bonus_type": "Fixed Standard Annuity",
+      "loyalty_additions": null
+    },
+    "death_benefit": "100% Return of Purchase Price to nominee.",
+    "maturity_benefit": "Guaranteed lifelong regular pension.",
+    "survival_benefit": "Regular monthly / quarterly / half-yearly / yearly pension guaranteed for life.",
+    "loan_availability": {
+      "allowed": true,
+      "waiting_period_months": 6,
+      "max_loan_percentage": "Loan available after 6 months from policy commencement."
+    },
+    "surrender_rules": {
+      "allowed_after_years": 0.5,
+      "guaranteed_surrender_value_rule": "Surrender permitted after 6 months for critical illness diagnosis (95% refund of purchase price)."
+    },
+    "revival_rules": {
+      "within_years": null,
+      "notes": "Not applicable."
+    },
+    "grace_period": {
+      "yearly_half_quarterly_days": 0,
+      "monthly_days": 0,
+      "notes": "Not applicable."
+    },
+    "riders": [],
+    "goals": ["Standard Senior Pension", "Guaranteed Monthly Income", "Capital Return to Heirs"],
+    "suitable_for": ["Senior citizens and retirees (aged 40-80) wanting a simple, transparent immediate pension plan where principal is 100% refunded to family"],
+    "retirement_relevance": "Highest",
+    "protection_relevance": "High",
+    "investment_preference": ["Standard Immediate Pension", "100% Capital Refund", "Zero Risk"],
+    "budget_category": "HNI / Lump Sum",
+    "official_lic_url": "https://licindia.in/en/web/guest/pension-plan",
+    "official_document_url": "https://licindia.in/en/web/guest/saral-pension-862",
+    "official_brochure_url": "https://licindia.in/en/web/guest/pension-plan",
+    "official_category_url": "https://licindia.in/en/web/guest/pension-plan",
+    "source": "LIC Official Website",
+    "last_verified": "2026-08-31",
+    "verification_required": false
+  },
+  {
+    "plan_id": "LIC-032",
+    "plan_name": "LIC’s Smart Pension",
+    "plan_number": "879",
+    "uin": "512N386V01",
+    "category": "Pension / Annuity",
+    "active_status": "active",
+    "short_description": "An immediate annuity plan offering customized annuity options, escalating annuity rates to combat inflation, and flexible liquidity provisions.",
+    "main_purpose": "Flexible immediate pension with options for step-up escalating payouts.",
+    "detailed_description": "LIC's Smart Pension (Plan No. 879, UIN: 512N386V01) is a single premium non-linked, non-participating annuity plan providing modern retirees with tailored annuity structures, including escalating pension rates and joint life provisions.",
+    "eligibility_rules": {
+      "min_entry_age": 30,
+      "max_entry_age": 85,
+      "min_maturity_age": 30,
+      "max_maturity_age": 100,
+      "allowed_genders": ["Male", "Female", "Other", "All"],
+      "allowed_professions": ["All", "Salaried", "Self-Employed", "Business", "Professional", "Retired"],
+      "special_conditions": "Single premium immediate annuity."
+    },
+    "age_rules": {
+      "min_entry_age_years": 30,
+      "max_entry_age_years": 85,
+      "min_maturity_age_years": 30,
+      "max_maturity_age_years": 100,
+      "entry_age_text": "30 to 85 years"
+    },
+    "gender_rules": {
+      "allowed": "All",
+      "female_concession": "Standard rates",
+      "notes": "Available to all."
+    },
+    "child_age_rules": {
+      "is_child_plan": false,
+      "min_child_age": null,
+      "max_child_age": null,
+      "risk_commencement_rule": "Not applicable.",
+      "proposer_pwb_available": false
+    },
+    "premium_rules": {
+      "premium_payment_modes": ["Single Premium"],
+      "min_sum_assured": 150000,
+      "max_sum_assured": null,
+      "min_sum_assured_text": "₹1,50,000",
+      "max_sum_assured_text": "No limit",
+      "min_premium": 150000,
+      "min_premium_text": "₹1,50,000 one-time",
+      "high_sum_assured_rebate": "Higher purchase price rebates."
+    },
+    "policy_term": {
+      "min_term_years": 1,
+      "max_term_years": 100,
+      "available_terms": "Lifelong",
+      "rule_description": "Lifelong annuity."
+    },
+    "premium_payment_term": {
+      "options": ["Single Premium (One-time)"],
+      "rule_description": "Single payment."
+    },
+    "benefits": {
+      "death_benefit_summary": "Death benefit depends on chosen annuity option (Return of Purchase Price available).",
+      "maturity_benefit_summary": "Guaranteed lifelong regular annuity.",
+      "survival_benefits": "Regular annuity payouts for life with escalating options",
+      "guaranteed_additions": null,
+      "bonus_type": "Fixed Guaranteed Annuity Rate",
+      "loyalty_additions": null
+    },
+    "death_benefit": "Return of Purchase Price to nominee under relevant options.",
+    "maturity_benefit": "Lifelong guaranteed regular annuity.",
+    "survival_benefit": "Regular pension payouts guaranteed for life.",
+    "loan_availability": {
+      "allowed": true,
+      "waiting_period_months": 3,
+      "max_loan_percentage": "Available under ROP options."
+    },
+    "surrender_rules": {
+      "allowed_after_years": 0.25,
+      "guaranteed_surrender_value_rule": "Surrender permitted under specified conditions."
+    },
+    "revival_rules": {
+      "within_years": null,
+      "notes": "Not applicable."
+    },
+    "grace_period": {
+      "yearly_half_quarterly_days": 0,
+      "monthly_days": 0,
+      "notes": "Not applicable."
+    },
+    "riders": [],
+    "goals": ["Smart Retirement Cashflow", "Inflation-protected Pension", "Senior Independence"],
+    "suitable_for": ["Retirees seeking flexible pension structuring and potential step-up annuities"],
+    "retirement_relevance": "Highest",
+    "protection_relevance": "High",
+    "investment_preference": ["Pension / Annuity", "Guaranteed Lifelong Income"],
+    "budget_category": "HNI / Lump Sum",
+    "official_lic_url": "https://licindia.in/en/web/guest/pension-plan",
+    "official_document_url": null,
+    "official_brochure_url": "https://licindia.in/en/web/guest/pension-plan",
+    "official_category_url": "https://licindia.in/en/web/guest/pension-plan",
+    "source": "LIC Official Website",
+    "last_verified": "2026-08-31",
+    "verification_required": false
+  },
+  {
+    "plan_id": "LIC-033",
+    "plan_name": "LIC's Index Plus",
+    "plan_number": "873",
+    "uin": "512L354V01",
+    "category": "Unit Linked",
+    "active_status": "active",
+    "short_description": "A unit-linked regular premium plan investing in benchmark index funds (Nifty 50 and Nifty Next 50) offering life insurance protection with equity index growth.",
+    "main_purpose": "Equity wealth creation through top Indian index funds combined with life insurance cover and guaranteed additions.",
+    "detailed_description": "LIC's Index Plus (Plan No. 873, UIN: 512L354V01) is a unit-linked, regular premium life insurance plan that invests in benchmark index funds (Flexi Growth Fund matching Nifty 50 & Flexi Smart Growth matching Nifty Next 50). It offers life insurance protection along with passive equity compounding and guaranteed additions.",
+    "eligibility_rules": {
+      "min_entry_age": 0.25,
+      "max_entry_age": 60,
+      "min_maturity_age": 18,
+      "max_maturity_age": 85,
+      "allowed_genders": ["Male", "Female", "Other", "All"],
+      "allowed_professions": ["All", "Salaried", "Self-Employed", "Business", "Homemaker", "Professional", "Student"],
+      "special_conditions": "5-year statutory lock-in period. Minimum premium ₹2,500/mo."
+    },
+    "age_rules": {
+      "min_entry_age_years": 0.25,
+      "max_entry_age_years": 60,
+      "min_maturity_age_years": 18,
+      "max_maturity_age_years": 85,
+      "entry_age_text": "90 days (completed) to 50/60 years (depending on sum assured option)"
+    },
+    "gender_rules": {
+      "allowed": "All",
+      "female_concession": "Standard ULIP rates",
+      "notes": "Available to all."
+    },
+    "child_age_rules": {
+      "is_child_plan": true,
+      "min_child_age": 0.25,
+      "max_child_age": 17,
+      "risk_commencement_rule": "Standard child risk commencement rules apply.",
+      "proposer_pwb_available": false
+    },
+    "premium_rules": {
+      "premium_payment_modes": ["Yearly", "Half-Yearly", "Quarterly", "Monthly (NACH)"],
+      "min_sum_assured": 250000,
+      "max_sum_assured": null,
+      "min_sum_assured_text": "7x to 10x Annualized Premium",
+      "max_sum_assured_text": "No upper limit",
+      "min_premium": 2500,
+      "min_premium_text": "₹2,500/mo (Monthly), ₹30,000/yr (Yearly)",
+      "high_sum_assured_rebate": "Guaranteed additions added to units."
+    },
+    "policy_term": {
+      "min_term_years": 10,
+      "max_term_years": 25,
+      "available_terms": "10 to 25 years",
+      "rule_description": "Terms from 10 to 25 years."
+    },
+    "premium_payment_term": {
+      "options": ["Equal to Policy Term (10 to 25 years)"],
+      "rule_description": "Regular premium payment matching policy term."
+    },
+    "benefits": {
+      "death_benefit_summary": "Higher of Basic Sum Assured or Unit Fund Value payable to nominee.",
+      "maturity_benefit_summary": "Unit Fund Value + accrued Guaranteed Additions on maturity date.",
+      "survival_benefits": null,
+      "guaranteed_additions": "Up to 12% of annualized premium credited as units at end of specific policy years",
+      "bonus_type": "Guaranteed Additions + Unit Value Growth",
+      "loyalty_additions": null
+    },
+    "death_benefit": "Higher of Basic Sum Assured (7x to 10x annual premium) or Unit Fund Value.",
+    "maturity_benefit": "Unit Fund Value + Accrued Guaranteed Additions.",
+    "loan_availability": {
+      "allowed": false,
+      "waiting_period_months": null,
+      "max_loan_percentage": "No loan facility on ULIPs."
+    },
+    "surrender_rules": {
+      "allowed_after_years": 5,
+      "guaranteed_surrender_value_rule": "Partial withdrawals and surrender allowed after 5-year lock-in."
+    },
+    "revival_rules": {
+      "within_years": 3,
+      "notes": "Revival within 3 years."
+    },
+    "grace_period": {
+      "yearly_half_quarterly_days": 30,
+      "monthly_days": 15,
+      "notes": "30 days standard; 15 days monthly."
+    },
+    "riders": ["LIC's Linked Accidental Death Benefit Rider"],
+    "goals": ["Index-linked Wealth Creation", "Long Term Equity Growth", "Family Protection", "Child Higher Education"],
+    "suitable_for": ["Modern investors seeking passive index fund returns (Nifty 50) with life insurance protection and tax advantages"],
+    "retirement_relevance": "High",
+    "protection_relevance": "High",
+    "investment_preference": ["Unit Linked / Equity Index", "High Growth Potential", "Passive Indexing"],
+    "budget_category": "Moderate (₹2000-₹5000/mo)",
+    "official_lic_url": "https://www.licindia.in/en/web/guest/unit-linked-plans",
+    "official_document_url": "https://www.licindia.in/en/web/guest/index-plus-873",
+    "official_brochure_url": "https://www.licindia.in/en/web/guest/unit-linked-plans",
+    "official_category_url": "https://www.licindia.in/en/web/guest/unit-linked-plans",
+    "source": "LIC Official Website",
+    "last_verified": "2026-08-31",
+    "verification_required": false
+  },
+  {
+    "plan_id": "LIC-034",
+    "plan_name": "LIC's Nivesh Plus",
+    "plan_number": "749",
+    "uin": "512L317V02",
+    "category": "Unit Linked",
+    "active_status": "active",
+    "short_description": "A single premium unit-linked individual life insurance plan offering choice of 4 investment funds, guaranteed additions, and life cover under a single investment.",
+    "main_purpose": "Market-linked growth on lump sum capital with life cover and guaranteed additions.",
+    "detailed_description": "LIC's Nivesh Plus (Plan No. 749, UIN: 512L317V02) is a single premium, unit-linked, individual life insurance plan. It provides an opportunity to invest surplus lump sum funds across 4 market funds (Bond, Secured, Balanced, Growth) with guaranteed additions and life protection.",
+    "eligibility_rules": {
+      "min_entry_age": 0.25,
+      "max_entry_age": 70,
+      "min_maturity_age": 18,
+      "max_maturity_age": 85,
+      "allowed_genders": ["Male", "Female", "Other", "All"],
+      "allowed_professions": ["All", "Salaried", "Self-Employed", "Business", "Homemaker", "Professional", "Student", "Retired"],
+      "special_conditions": "Single premium payment. Option 1 (1.25x BSA) or Option 2 (10x BSA)."
+    },
+    "age_rules": {
+      "min_entry_age_years": 0.25,
+      "max_entry_age_years": 70,
+      "min_maturity_age_years": 18,
+      "max_maturity_age_years": 85,
+      "entry_age_text": "90 days (Option 1) / 3 years (Option 2) to 70 years"
+    },
+    "gender_rules": {
+      "allowed": "All",
+      "female_concession": "Standard ULIP terms",
+      "notes": "Available to all."
+    },
+    "child_age_rules": {
+      "is_child_plan": true,
+      "min_child_age": 0.25,
+      "max_child_age": 17,
+      "risk_commencement_rule": "Standard child risk commencement rules apply.",
+      "proposer_pwb_available": false
+    },
+    "premium_rules": {
+      "premium_payment_modes": ["Single Premium"],
+      "min_sum_assured": 125000,
+      "max_sum_assured": null,
+      "min_sum_assured_text": "Option 1: 1.25x Single Premium; Option 2: 10x Single Premium",
+      "max_sum_assured_text": "No upper limit",
+      "min_premium": 100000,
+      "min_premium_text": "₹1,00,000 one-time",
+      "high_sum_assured_rebate": "Guaranteed additions scale with premium size."
+    },
+    "policy_term": {
+      "min_term_years": 10,
+      "max_term_years": 25,
+      "available_terms": "10 to 25 years",
+      "rule_description": "Terms from 10 to 25 years."
+    },
+    "premium_payment_term": {
+      "options": ["Single Premium (1 Year)"],
+      "rule_description": "One-time single payment."
+    },
+    "benefits": {
+      "death_benefit_summary": "Higher of Basic Sum Assured or Unit Fund Value payable to nominee.",
+      "maturity_benefit_summary": "Unit Fund Value + accrued Guaranteed Additions.",
+      "survival_benefits": null,
+      "guaranteed_additions": "Up to 5% of single premium added at specified policy milestones",
+      "bonus_type": "Guaranteed Additions + Unit Growth",
+      "loyalty_additions": null
+    },
+    "death_benefit": "Higher of Basic Sum Assured (1.25x or 10x single premium) or Unit Fund Value.",
+    "maturity_benefit": "Unit Fund Value + Accrued Guaranteed Additions.",
+    "loan_availability": {
+      "allowed": false,
+      "waiting_period_months": null,
+      "max_loan_percentage": "No loan on ULIPs."
+    },
+    "surrender_rules": {
+      "allowed_after_years": 5,
+      "guaranteed_surrender_value_rule": "Partial withdrawals and surrender allowed after 5-year lock-in."
+    },
+    "revival_rules": {
+      "within_years": null,
+      "notes": "Not applicable."
+    },
+    "grace_period": {
+      "yearly_half_quarterly_days": 0,
+      "monthly_days": 0,
+      "notes": "Not applicable."
+    },
+    "riders": ["LIC's Linked Accidental Death Benefit Rider"],
+    "goals": ["Lump-sum Market Investment", "Wealth Multiplication", "Child Education", "Capital Growth"],
+    "suitable_for": ["Investors with lump sum capital looking for market participation across equity and debt funds with tax benefits"],
+    "retirement_relevance": "High",
+    "protection_relevance": "Moderate",
+    "investment_preference": ["Unit Linked", "Single Premium", "Market Linked Growth"],
+    "budget_category": "HNI / Lump Sum",
+    "official_lic_url": "https://www.licindia.in/en/web/guest/unit-linked-plans",
+    "official_document_url": "https://www.licindia.in/en/web/guest/nivesh-plus-749",
+    "official_brochure_url": "https://www.licindia.in/en/web/guest/unit-linked-plans",
+    "official_category_url": "https://www.licindia.in/en/web/guest/unit-linked-plans",
+    "source": "LIC Official Website",
+    "last_verified": "2026-08-31",
+    "verification_required": false
+  },
+  {
+    "plan_id": "LIC-035",
+    "plan_name": "LIC's SIIP",
+    "plan_number": "752",
+    "uin": "512L334V02",
+    "category": "Unit Linked",
+    "active_status": "active",
+    "short_description": "A regular premium unit-linked life insurance savings plan combining market returns across 4 funds with full 100% refund of mortality charges at maturity.",
+    "main_purpose": "Systematic monthly/annual wealth building with market returns, life cover, and full refund of insurance charges at maturity.",
+    "detailed_description": "LIC's SIIP (Plan No. 752, UIN: 512L334V02) is an individual, unit-linked, regular premium life insurance plan. It provides life insurance protection and market investment across 4 funds. A standout feature is the 100% Refund of Mortality Charges at maturity, making it highly cost-efficient.",
+    "eligibility_rules": {
+      "min_entry_age": 0.25,
+      "max_entry_age": 65,
+      "min_maturity_age": 18,
+      "max_maturity_age": 85,
+      "allowed_genders": ["Male", "Female", "Other", "All"],
+      "allowed_professions": ["All", "Salaried", "Self-Employed", "Business", "Homemaker", "Professional", "Student"],
+      "special_conditions": "100% Mortality Charges refunded at maturity. 5-year lock-in applies."
+    },
+    "age_rules": {
+      "min_entry_age_years": 0.25,
+      "max_entry_age_years": 65,
+      "min_maturity_age_years": 18,
+      "max_maturity_age_years": 85,
+      "entry_age_text": "90 days (completed) to 65 years (nearer birthday)"
+    },
+    "gender_rules": {
+      "allowed": "All",
+      "female_concession": "Standard rates",
+      "notes": "Available to all."
+    },
+    "child_age_rules": {
+      "is_child_plan": true,
+      "min_child_age": 0.25,
+      "max_child_age": 17,
+      "risk_commencement_rule": "Standard child risk commencement rules apply.",
+      "proposer_pwb_available": false
+    },
+    "premium_rules": {
+      "premium_payment_modes": ["Yearly", "Half-Yearly", "Quarterly", "Monthly (NACH)"],
+      "min_sum_assured": 400000,
+      "max_sum_assured": null,
+      "min_sum_assured_text": "10x Annualized Premium (if age < 55) or 7x (if age >= 55)",
+      "max_sum_assured_text": "No upper limit",
+      "min_premium": 4000,
+      "min_premium_text": "₹4,000/mo (Monthly), ₹40,000/yr (Yearly)",
+      "high_sum_assured_rebate": "Guaranteed additions scale with premium size."
+    },
+    "policy_term": {
+      "min_term_years": 10,
+      "max_term_years": 25,
+      "available_terms": "10 to 25 years",
+      "rule_description": "Terms from 10 to 25 years."
+    },
+    "premium_payment_term": {
+      "options": ["Equal to Policy Term (10 to 25 years)"],
+      "rule_description": "Regular premium payment matching policy term."
+    },
+    "benefits": {
+      "death_benefit_summary": "Higher of Basic Sum Assured or Unit Fund Value payable to nominee.",
+      "maturity_benefit_summary": "Unit Fund Value + accrued Guaranteed Additions + 100% Refund of Mortality Charges.",
+      "survival_benefits": null,
+      "guaranteed_additions": "Up to 25% of annualized premium credited across policy tenure",
+      "bonus_type": "Guaranteed Additions + Refund of Mortality Charges",
+      "loyalty_additions": null
+    },
+    "death_benefit": "Higher of Basic Sum Assured (10x annual premium) or Unit Fund Value.",
+    "maturity_benefit": "Unit Fund Value + Accrued Guaranteed Additions + 100% Refund of Mortality Charges.",
+    "loan_availability": {
+      "allowed": false,
+      "waiting_period_months": null,
+      "max_loan_percentage": "No loan on ULIPs."
+    },
+    "surrender_rules": {
+      "allowed_after_years": 5,
+      "guaranteed_surrender_value_rule": "Partial withdrawals and surrender allowed after 5-year lock-in."
+    },
+    "revival_rules": {
+      "within_years": 3,
+      "notes": "Revival within 3 years."
+    },
+    "grace_period": {
+      "yearly_half_quarterly_days": 30,
+      "monthly_days": 15,
+      "notes": "30 days standard; 15 days monthly."
+    },
+    "riders": ["LIC's Linked Accidental Death Benefit Rider"],
+    "goals": ["Systematic Wealth Accumulation", "High Long-term Returns", "Child Higher Education", "Retirement Fund"],
+    "suitable_for": ["Disciplined investors looking for monthly SIP-like investing into equity/debt with life cover and 100% refund of insurance charges"],
+    "retirement_relevance": "High",
+    "protection_relevance": "High",
+    "investment_preference": ["Unit Linked / SIP", "Refund of Mortality Charges", "Market Linked"],
+    "budget_category": "Moderate (₹2000-₹5000/mo)",
+    "official_lic_url": "https://www.licindia.in/en/web/guest/unit-linked-plans",
+    "official_document_url": "https://www.licindia.in/en/web/guest/siip-752",
+    "official_brochure_url": "https://www.licindia.in/en/web/guest/unit-linked-plans",
+    "official_category_url": "https://www.licindia.in/en/web/guest/unit-linked-plans",
+    "source": "LIC Official Website",
+    "last_verified": "2026-08-31",
+    "verification_required": false
+  },
+  {
+    "plan_id": "LIC-036",
+    "plan_name": "LIC's Protection Plus",
+    "plan_number": "886",
+    "uin": "512L361V01",
+    "category": "Unit Linked",
+    "active_status": "active",
+    "short_description": "A unit-linked insurance plan prioritizing enhanced life insurance cover along with market fund growth and guaranteed additions.",
+    "main_purpose": "High-multiplier life insurance protection combined with unit-linked wealth acceleration.",
+    "detailed_description": "LIC's Protection Plus (Plan No. 886, UIN: 512L361V01) is a unit-linked, individual life insurance plan designed to offer substantial life cover multiples alongside investment participation in market-linked funds.",
+    "eligibility_rules": {
+      "min_entry_age": 18,
+      "max_entry_age": 55,
+      "min_maturity_age": 28,
+      "max_maturity_age": 75,
+      "allowed_genders": ["Male", "Female", "Other", "All"],
+      "allowed_professions": ["All", "Salaried", "Self-Employed", "Business", "Professional"],
+      "special_conditions": "Enhanced protection multiplier. 5-year lock-in period."
+    },
+    "age_rules": {
+      "min_entry_age_years": 18,
+      "max_entry_age_years": 55,
+      "min_maturity_age_years": 28,
+      "max_maturity_age_years": 75,
+      "entry_age_text": "18 to 55 years"
+    },
+    "gender_rules": {
+      "allowed": "All",
+      "female_concession": "Standard rates",
+      "notes": "Available to all."
+    },
+    "child_age_rules": {
+      "is_child_plan": false,
+      "min_child_age": null,
+      "max_child_age": null,
+      "risk_commencement_rule": "Not applicable.",
+      "proposer_pwb_available": false
+    },
+    "premium_rules": {
+      "premium_payment_modes": ["Yearly", "Half-Yearly", "Quarterly", "Monthly (NACH)"],
+      "min_sum_assured": 300000,
+      "max_sum_assured": null,
+      "min_sum_assured_text": "High cover multiplier",
+      "max_sum_assured_text": "No limit",
+      "min_premium": 3000,
+      "min_premium_text": "₹3,000/mo (Monthly), ₹30,000/yr (Yearly)",
+      "high_sum_assured_rebate": "Guaranteed additions applicable."
+    },
+    "policy_term": {
+      "min_term_years": 10,
+      "max_term_years": 30,
+      "available_terms": "10 to 30 years",
+      "rule_description": "Terms from 10 to 30 years."
+    },
+    "premium_payment_term": {
+      "options": ["5 to 30 years"],
+      "rule_description": "Regular or limited premium payment."
+    },
+    "benefits": {
+      "death_benefit_summary": "Higher of Enhanced Basic Sum Assured or Unit Fund Value payable to nominee.",
+      "maturity_benefit_summary": "Unit Fund Value + accrued Guaranteed Additions.",
+      "survival_benefits": null,
+      "guaranteed_additions": "Guaranteed additions credited at policy milestones",
+      "bonus_type": "Guaranteed Additions + Unit Value Growth",
+      "loyalty_additions": null
+    },
+    "death_benefit": "Higher of Enhanced Basic Sum Assured or Unit Fund Value.",
+    "maturity_benefit": "Unit Fund Value + Accrued Guaranteed Additions.",
+    "loan_availability": {
+      "allowed": false,
+      "waiting_period_months": null,
+      "max_loan_percentage": "No loan on ULIPs."
+    },
+    "surrender_rules": {
+      "allowed_after_years": 5,
+      "guaranteed_surrender_value_rule": "Available after 5-year lock-in."
+    },
+    "revival_rules": {
+      "within_years": 3,
+      "notes": "Revival within 3 years."
+    },
+    "grace_period": {
+      "yearly_half_quarterly_days": 30,
+      "monthly_days": 15,
+      "notes": "30 days standard."
+    },
+    "riders": ["LIC's Linked Accidental Death Benefit Rider"],
+    "goals": ["High Protection + Market Growth", "Family Security", "Wealth Accumulation"],
+    "suitable_for": ["Working professionals wanting enhanced life protection alongside unit-linked market wealth creation"],
+    "retirement_relevance": "High",
+    "protection_relevance": "Very High",
+    "investment_preference": ["Unit Linked", "High Protection Multiplier", "Market Linked"],
+    "budget_category": "Moderate (₹2000-₹5000/mo)",
+    "official_lic_url": "https://www.licindia.in/en/web/guest/unit-linked-plans",
+    "official_document_url": null,
+    "official_brochure_url": "https://www.licindia.in/en/web/guest/unit-linked-plans",
+    "official_category_url": "https://www.licindia.in/en/web/guest/unit-linked-plans",
+    "source": "LIC Official Website",
+    "last_verified": "2026-08-31",
+    "verification_required": false
+  },
+  {
+    "plan_id": "LIC-037",
+    "plan_name": "LIC's Micro Bachat",
+    "plan_number": "751",
+    "uin": "512N329V03",
+    "category": "Micro Insurance",
+    "active_status": "active",
+    "short_description": "A low-cost, regular premium, participating micro-insurance savings plan specially crafted for low-income individuals, rural families, and micro-savings.",
+    "main_purpose": "Affordable micro life insurance and savings protection for low-income and rural households without medical exams.",
+    "detailed_description": "LIC's Micro Bachat (Plan No. 751, UIN: 512N329V03) is a regular premium, non-linked, participating micro-insurance plan designed for rural and low-income individuals. It provides life insurance protection against death and savings for maturity with auto-cover facility and loyalty additions.",
+    "eligibility_rules": {
+      "min_entry_age": 18,
+      "max_entry_age": 55,
+      "min_maturity_age": 28,
+      "max_maturity_age": 70,
+      "allowed_genders": ["Male", "Female", "Other", "All"],
+      "allowed_professions": ["All", "Daily Wage Earner", "Farmer", "Artisan", "Self-Employed", "Homemaker", "Salaried", "Worker"],
+      "special_conditions": "Micro insurance ceiling: Maximum Sum Assured ₹2,00,000. Simplified underwriting."
+    },
+    "age_rules": {
+      "min_entry_age_years": 18,
+      "max_entry_age_years": 55,
+      "min_maturity_age_years": 28,
+      "max_maturity_age_years": 70,
+      "entry_age_text": "18 years (completed) to 55 years (nearer birthday)"
+    },
+    "gender_rules": {
+      "allowed": "All",
+      "female_concession": "Affordable micro insurance rates",
+      "notes": "Available to all low-income individuals."
+    },
+    "child_age_rules": {
+      "is_child_plan": false,
+      "min_child_age": null,
+      "max_child_age": null,
+      "risk_commencement_rule": "Not applicable (Min age 18 years).",
+      "proposer_pwb_available": false
+    },
+    "premium_rules": {
+      "premium_payment_modes": ["Yearly", "Half-Yearly", "Quarterly", "Monthly (NACH)"],
+      "min_sum_assured": 50000,
+      "max_sum_assured": 200000,
+      "min_sum_assured_text": "₹50,000",
+      "max_sum_assured_text": "₹2,00,000 (Micro Insurance ceiling)",
+      "sum_assured_multiples": "₹5,000",
+      "high_sum_assured_rebate": "Rebates for sum assured ₹1 Lakh and above."
+    },
+    "policy_term": {
+      "min_term_years": 10,
+      "max_term_years": 15,
+      "available_terms": "10 to 15 years",
+      "rule_description": "Choice of 10 to 15 years term."
+    },
+    "premium_payment_term": {
+      "options": ["Equal to Policy Term (10 to 15 years)"],
+      "rule_description": "Regular premium paying term equal to policy term."
+    },
+    "benefits": {
+      "death_benefit_summary": "Sum Assured on Death (higher of Basic Sum Assured or 7 times annualized premium) plus Loyalty Addition (after 5 years). Auto-cover facility protects policyholder for 6-12 months if premiums cannot be paid after 3-5 years.",
+      "maturity_benefit_summary": "Basic Sum Assured + Loyalty Addition (if any).",
+      "survival_benefits": null,
+      "guaranteed_additions": null,
+      "bonus_type": "Loyalty Addition",
+      "loyalty_additions": "Payable on death or maturity after completion of 5 policy years"
+    },
+    "death_benefit": "Sum Assured on Death + Loyalty Addition (after 5 years).",
+    "maturity_benefit": "Basic Sum Assured + Loyalty Addition.",
+    "loan_availability": {
+      "allowed": true,
+      "waiting_period_months": 12,
+      "max_loan_percentage": "Up to 90% of surrender value."
+    },
+    "surrender_rules": {
+      "allowed_after_years": 1,
+      "guaranteed_surrender_value_rule": "Acquires surrender value after 1 full year's premiums are paid."
+    },
+    "revival_rules": {
+      "within_years": 5,
+      "notes": "Revival allowed within 5 consecutive years."
+    },
+    "grace_period": {
+      "yearly_half_quarterly_days": 30,
+      "monthly_days": 15,
+      "notes": "30 days for yearly/half/quarterly; 15 days for monthly."
+    },
+    "riders": ["LIC's Accidental Death and Disability Benefit Rider", "LIC's Accident Benefit Rider"],
+    "goals": ["Micro Savings", "Low-income Family Protection", "Emergency Reserve"],
+    "suitable_for": ["Daily wage earners, agricultural workers, domestic helpers, artisans, and low-income rural/urban families seeking affordable life cover and savings"],
+    "retirement_relevance": "Moderate",
+    "protection_relevance": "High",
+    "investment_preference": ["Micro Insurance", "Low Cost", "Guaranteed + Loyalty Addition"],
+    "budget_category": "Low (₹500-₹2000/mo)",
+    "official_lic_url": "https://www.licindia.in/en/web/guest/micro-insurance-plans",
+    "official_document_url": "https://www.licindia.in/en/web/guest/micro-bachat-751",
+    "official_brochure_url": "https://www.licindia.in/en/web/guest/micro-insurance-plans",
+    "official_category_url": "https://www.licindia.in/en/web/guest/micro-insurance-plans",
+    "source": "LIC Official Website",
+    "last_verified": "2026-08-31",
+    "verification_required": false
+  },
+  {
+    "plan_id": "LIC-038",
+    "plan_name": "LIC's Jan Suraksha",
+    "plan_number": "880",
+    "uin": "512N388V01",
+    "category": "Micro Insurance",
+    "active_status": "active",
+    "short_description": "A micro-insurance life protection plan offering pure security and modest savings with minimal documentation and ultra-affordable premiums.",
+    "main_purpose": "Grassroots life safety net for low-income workers and rural families.",
+    "detailed_description": "LIC's Jan Suraksha (Plan No. 880, UIN: 512N388V01) is a non-linked, non-participating micro-insurance plan designed to provide simple life insurance security to economically weaker sections, self-help groups (SHGs), and rural households at minimal cost.",
+    "eligibility_rules": {
+      "min_entry_age": 18,
+      "max_entry_age": 55,
+      "min_maturity_age": 23,
+      "max_maturity_age": 70,
+      "allowed_genders": ["Male", "Female", "Other", "All"],
+      "allowed_professions": ["All", "Daily Wage Earner", "Farmer", "Artisan", "Worker", "Homemaker", "Self-Employed"],
+      "special_conditions": "Micro insurance ceiling: Maximum Sum Assured ₹2,00,000. Simplified documentation."
+    },
+    "age_rules": {
+      "min_entry_age_years": 18,
+      "max_entry_age_years": 55,
+      "min_maturity_age_years": 23,
+      "max_maturity_age_years": 70,
+      "entry_age_text": "18 to 55 years"
+    },
+    "gender_rules": {
+      "allowed": "All",
+      "female_concession": "Affordable rates",
+      "notes": "Available to all."
+    },
+    "child_age_rules": {
+      "is_child_plan": false,
+      "min_child_age": null,
+      "max_child_age": null,
+      "risk_commencement_rule": "Not applicable.",
+      "proposer_pwb_available": false
+    },
+    "premium_rules": {
+      "premium_payment_modes": ["Yearly", "Half-Yearly", "Quarterly", "Monthly (NACH)"],
+      "min_sum_assured": 50000,
+      "max_sum_assured": 200000,
+      "min_sum_assured_text": "₹50,00,000 / ₹50,000",
+      "max_sum_assured_text": "₹2,00,000 (Micro limit)",
+      "sum_assured_multiples": "₹5,000",
+      "high_sum_assured_rebate": "Standard micro rebates."
+    },
+    "policy_term": {
+      "min_term_years": 5,
+      "max_term_years": 15,
+      "available_terms": "5 to 15 years",
+      "rule_description": "Terms from 5 to 15 years."
+    },
+    "premium_payment_term": {
+      "options": ["5 to 15 years"],
+      "rule_description": "Regular or limited payment."
+    },
+    "benefits": {
+      "death_benefit_summary": "Basic Sum Assured payable on death to nominee.",
+      "maturity_benefit_summary": "Basic Sum Assured + loyalty addition (if applicable).",
+      "survival_benefits": null,
+      "guaranteed_additions": null,
+      "bonus_type": "Loyalty Addition",
+      "loyalty_additions": null
+    },
+    "death_benefit": "Basic Sum Assured payable to nominee.",
+    "maturity_benefit": "Basic Sum Assured on maturity.",
+    "loan_availability": {
+      "allowed": true,
+      "waiting_period_months": 12,
+      "max_loan_percentage": "Available after 1 year."
+    },
+    "surrender_rules": {
+      "allowed_after_years": 1,
+      "guaranteed_surrender_value_rule": "Acquires surrender value after 1 full year."
+    },
+    "revival_rules": {
+      "within_years": 5,
+      "notes": "Revival allowed within 5 consecutive years."
+    },
+    "grace_period": {
+      "yearly_half_quarterly_days": 30,
+      "monthly_days": 15,
+      "notes": "30 days standard."
+    },
+    "riders": ["LIC's Accidental Death and Disability Benefit Rider"],
+    "goals": ["Grassroots Protection", "Micro Security", "Family Safety"],
+    "suitable_for": ["Low-income workers, rural households, SHG members seeking basic financial safety"],
+    "retirement_relevance": "Low",
+    "protection_relevance": "High",
+    "investment_preference": ["Micro Insurance", "Affordable Safety Net"],
+    "budget_category": "Low (₹500-₹2000/mo)",
+    "official_lic_url": "https://www.licindia.in/en/web/guest/micro-insurance-plans",
+    "official_document_url": null,
+    "official_brochure_url": "https://www.licindia.in/en/web/guest/micro-insurance-plans",
+    "official_category_url": "https://www.licindia.in/en/web/guest/micro-insurance-plans",
+    "source": "LIC Official Website",
+    "last_verified": "2026-08-31",
+    "verification_required": false
+  }
+]

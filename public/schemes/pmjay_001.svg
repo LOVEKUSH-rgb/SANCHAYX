@@ -1,0 +1,28 @@
+<svg width="400" height="225" viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ayushman Bharat - Pradhan Mantri Jan Arogya Yojana">
+  <defs>
+    <radialGradient id="bg-pmjay_001" cx="30%" cy="30%" r="90%">
+      <stop offset="0%" stop-color="#F6F1E7"/>
+      <stop offset="100%" stop-color="#EFE8D8"/>
+    </radialGradient>
+    <linearGradient id="scrim-pmjay_001" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#16213E" stop-opacity="0"/>
+      <stop offset="55%" stop-color="#16213E" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#16213E" stop-opacity="0.62"/>
+    </linearGradient>
+    <pattern id="dots-pmjay_001" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#C0392B" opacity="0.09"/>
+    </pattern>
+  </defs>
+
+  <rect width="400" height="225" fill="url(#bg-pmjay_001)"/>
+  <rect width="400" height="225" fill="url(#dots-pmjay_001)"/>
+
+  <circle cx="282.0" cy="97.5" r="105" fill="#C0392B" opacity="0.10"/>
+  <circle cx="282.0" cy="97.5" r="66" fill="#C0392B" opacity="0.16"/>
+
+  <g transform="translate(282.0,97.5) rotate(-9)" color="#8E2A20">
+    <rect x="-34" y="-34" width="68" height="68" rx="16" fill="none" stroke="currentColor" stroke-width="5"/><path d="M0 -16 V16 M-16 0 H16" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+  </g>
+
+  <rect width="400" height="225" fill="url(#scrim-pmjay_001)"/>
+</svg>

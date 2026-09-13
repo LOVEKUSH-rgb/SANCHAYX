@@ -1,0 +1,7 @@
+{"ts":"2026-08-24T13:09:05.264Z","session":"20260824-130905","kind":"server_start","data":{"port":5500,"host":"0.0.0.0","root":"c:\\Users\\Yash Srivastava\\Desktop\\Sanchy","https":false,"live_reload":true}}
+{"ts":"2026-08-24T13:09:06.983Z","session":"20260824-130905","kind":"http_request","data":{"method":"GET","path":"/","status":304,"duration_ms":2}}
+{"ts":"2026-08-24T13:09:07.009Z","session":"20260824-130905","kind":"http_request","data":{"method":"GET","path":"/src/main.jsx","status":304,"duration_ms":1}}
+{"ts":"2026-08-24T13:09:07.075Z","session":"20260824-130905","kind":"http_request","data":{"method":"GET","path":"/favicon.svg","status":404,"duration_ms":1}}
+{"ts":"2026-08-24T13:09:07.382Z","session":"20260824-130905","kind":"ws_connect","data":{"client_id":"c0","url":"http://localhost:5500/","user_agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36 Edg/151.0.0.0","viewport":[1528,828]}}
+{"ts":"2026-08-24T13:09:11.833Z","session":"20260824-130905","kind":"ws_disconnect","data":{"client_id":"c0"}}
+{"ts":"2026-08-24T13:10:59.273Z","session":"20260824-130905","kind":"file_change","data":{"path":"src/components/hero/FloatingCardComposition.jsx","ext":"jsx","change":"modify"}}

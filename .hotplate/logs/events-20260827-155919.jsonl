@@ -1,0 +1,6 @@
+{"ts":"2026-08-27T15:59:19.912Z","session":"20260827-155919","kind":"server_start","data":{"port":5500,"host":"0.0.0.0","root":"c:\\Users\\Yash Srivastava\\Desktop\\Sanchy","https":false,"live_reload":true}}
+{"ts":"2026-08-27T15:59:20.962Z","session":"20260827-155919","kind":"http_request","data":{"method":"GET","path":"/","status":200,"duration_ms":52}}
+{"ts":"2026-08-27T15:59:21.038Z","session":"20260827-155919","kind":"http_request","data":{"method":"GET","path":"/src/main.jsx","status":200,"duration_ms":1}}
+{"ts":"2026-08-27T15:59:21.065Z","session":"20260827-155919","kind":"http_request","data":{"method":"GET","path":"/favicon.svg","status":404,"duration_ms":0}}
+{"ts":"2026-08-27T15:59:21.380Z","session":"20260827-155919","kind":"ws_connect","data":{"client_id":"c0","url":"http://localhost:5501/","user_agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36 Edg/151.0.0.0","viewport":[1528,828]}}
+{"ts":"2026-08-27T15:59:24.107Z","session":"20260827-155919","kind":"ws_disconnect","data":{"client_id":"c0"}}

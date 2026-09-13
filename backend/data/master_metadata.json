@@ -1,0 +1,32 @@
+{
+  "total_records": 184,
+  "verified": 184,
+  "review_required": 0,
+  "legacy": 1,
+  "central": 121,
+  "state": 63,
+  "pension": 6,
+  "savings": 9,
+  "insurance": 2,
+  "education": 22,
+  "duplicates_removed": 0,
+  "recommendation_enabled_count": 184,
+  "category_distribution": {
+    "PENSION": 6,
+    "SAVINGS": 9,
+    "WOMEN": 18,
+    "SENIOR_CITIZEN": 8,
+    "SOCIAL_SECURITY": 8,
+    "DISABILITY": 4,
+    "INSURANCE": 2,
+    "HEALTH": 21,
+    "AGRICULTURE": 36,
+    "HOUSING": 15,
+    "BUSINESS": 18,
+    "EMPLOYMENT": 12,
+    "FINANCIAL_INCLUSION": 2,
+    "EDUCATION": 22,
+    "CHILD_WELFARE": 3
+  },
+  "note": "PHASE 2+ Expansion: 184 real Indian government schemes across Central and State jurisdictions (including Rajasthan, Maharashtra, UP, TN, Telangana, Andhra Pradesh, West Bengal, Odisha, MP, Gujarat, Karnataka). 184 schemes are fully VERIFIED with live official sources and recommendation_enabled=true; 0 schemes are REVIEW_REQUIRED per strict no-fabrication rule."
+}

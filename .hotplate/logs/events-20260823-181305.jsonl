@@ -1,0 +1,10 @@
+{"ts":"2026-08-23T18:13:05.430Z","session":"20260823-181305","kind":"server_start","data":{"port":5500,"host":"0.0.0.0","root":"c:\\Users\\Yash Srivastava\\Desktop\\Sanchy","https":false,"live_reload":true}}
+{"ts":"2026-08-23T18:13:06.712Z","session":"20260823-181305","kind":"http_request","data":{"method":"GET","path":"/","status":200,"duration_ms":2}}
+{"ts":"2026-08-23T18:13:06.740Z","session":"20260823-181305","kind":"http_request","data":{"method":"GET","path":"/src/main.jsx","status":200,"duration_ms":0}}
+{"ts":"2026-08-23T18:13:06.791Z","session":"20260823-181305","kind":"http_request","data":{"method":"GET","path":"/favicon.svg","status":404,"duration_ms":0}}
+{"ts":"2026-08-23T18:13:07.090Z","session":"20260823-181305","kind":"ws_connect","data":{"client_id":"c0","url":"http://localhost:5501/","user_agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36 Edg/151.0.0.0","viewport":[1528,828]}}
+{"ts":"2026-08-23T18:13:13.309Z","session":"20260823-181305","kind":"ws_disconnect","data":{"client_id":"c0"}}
+{"ts":"2026-08-23T18:13:24.009Z","session":"20260823-181305","kind":"file_change","data":{"path":"package-lock.json","ext":"json","change":"create"}}
+{"ts":"2026-08-23T18:13:29.047Z","session":"20260823-181305","kind":"file_change","data":{"path":"vite.config.js.timestamp-1787508809046-33e7638c17b8b.mjs","ext":"mjs","change":"create"}}
+{"ts":"2026-08-23T18:15:57.999Z","session":"20260823-181305","kind":"file_change","data":{"path":"backend/requirements.txt","ext":"txt","change":"create"}}
+{"ts":"2026-08-23T18:17:37.333Z","session":"20260823-181305","kind":"file_change","data":{"path":"src/services/api.js","ext":"js","change":"create"}}

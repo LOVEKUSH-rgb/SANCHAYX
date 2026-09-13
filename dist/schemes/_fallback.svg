@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img">
+  <defs>
+    <linearGradient id="fallbackbg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F1F5F9"/>
+      <stop offset="100%" stop-color="#E2E8F0"/>
+    </linearGradient>
+    <radialGradient id="fallbackmed" cx="0.5" cy="0.45" r="0.6">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.90"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.30"/>
+    </radialGradient>
+  </defs>
+  <rect width="640" height="400" fill="url(#fallbackbg)"/>
+  <circle cx="90" cy="70" r="46" fill="#0EA5E9" opacity="0.10"/>
+  <circle cx="560" cy="330" r="60" fill="#0EA5E9" opacity="0.10"/>
+  <circle cx="565" cy="70" r="16" fill="#F59E0B" opacity="0.5"/>
+  <circle cx="320" cy="180" r="150" fill="#0EA5E9" opacity="0.14"/>
+  <circle cx="320" cy="180" r="132" fill="url(#fallbackmed)"/>
+  <ellipse cx="320" cy="312" rx="120" ry="17" fill="#0F172A" opacity="0.10"/>
+  
+  <!-- Central Emblem / Sovereign Shield -->
+  <path d="M320,90 Q370,95 370,145 Q370,220 320,255 Q270,220 270,145 Q270,95 320,90 Z" fill="#0284C7"/>
+  <path d="M320,105 Q355,110 355,150 Q355,210 320,240 Q285,210 285,150 Q285,110 320,105 Z" fill="#0369A1"/>
+  
+  <!-- Rupee Symbol -->
+  <circle cx="320" cy="170" r="26" fill="#FFFFFF"/>
+  <text x="320" y="179" font-family="Georgia, serif" font-weight="700" font-size="26" fill="#0369A1" text-anchor="middle">₹</text>
+  
+  <!-- Verified Star -->
+  <polygon points="320,60 324,69 334,69 326,75 329,84 320,79 311,84 314,75 306,69 316,69" fill="#F59E0B"/>
+</svg>

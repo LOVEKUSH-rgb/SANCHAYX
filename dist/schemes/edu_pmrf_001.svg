@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img">
+  <defs>
+    <linearGradient id="edupmrf001bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EEF2FF"/>
+      <stop offset="100%" stop-color="#E0E7FF"/>
+    </linearGradient>
+    <radialGradient id="edupmrf001med" cx="0.5" cy="0.45" r="0.6">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.90"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.30"/>
+    </radialGradient>
+  </defs>
+  <rect width="640" height="400" fill="url(#edupmrf001bg)"/>
+  <circle cx="90" cy="70" r="46" fill="#4F46E5" opacity="0.10"/>
+  <circle cx="560" cy="330" r="60" fill="#4F46E5" opacity="0.10"/>
+  <circle cx="565" cy="70" r="16" fill="#F59E0B" opacity="0.5"/>
+  <circle cx="320" cy="180" r="150" fill="#4F46E5" opacity="0.14"/>
+  <circle cx="320" cy="180" r="132" fill="url(#edupmrf001med)"/>
+  <ellipse cx="320" cy="312" rx="120" ry="17" fill="#1E1B4B" opacity="0.10"/>
+  
+  <!-- Graduation Cap -->
+  <polygon points="320,80 395,115 320,150 245,115" fill="#3730A3"/>
+  <polygon points="320,80 395,115 320,150 245,115" fill="none" stroke="#4338CA" stroke-width="2"/>
+  <path d="M275,130 L275,165 Q320,185 365,165 L365,130 Q320,150 275,130 Z" fill="#312E81"/>
+  <!-- Tassel -->
+  <path d="M320,115 L385,140 L385,175" fill="none" stroke="#F59E0B" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="385" cy="180" r="6" fill="#F59E0B"/>
+  <circle cx="320" cy="115" r="5" fill="#F59E0B"/>
+  
+  <!-- Open Book -->
+  <path d="M260,240 Q290,230 320,240 Q350,230 380,240 L380,270 Q350,260 320,270 Q290,260 260,270 Z" fill="#FFFFFF" stroke="#4338CA" stroke-width="3"/>
+  <line x1="320" y1="240" x2="320" y2="270" stroke="#4338CA" stroke-width="3"/>
+  <line x1="275" y1="248" x2="305" y2="245" stroke="#818CF8" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="275" y1="256" x2="305" y2="253" stroke="#818CF8" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="335" y1="245" x2="365" y2="248" stroke="#818CF8" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="335" y1="253" x2="365" y2="256" stroke="#818CF8" stroke-width="2.5" stroke-linecap="round"/>
+  
+  <!-- Golden Rupee Coin Stack -->
+  <ellipse cx="400" cy="285" rx="26" ry="22.5" fill="#D97706"/>
+  <ellipse cx="400" cy="280" rx="26" ry="22.5" fill="#FBBF24"/>
+  <ellipse cx="400" cy="280" rx="19" ry="16.5" fill="none" stroke="#D97706" stroke-width="2" opacity="0.7"/>
+  <ellipse cx="400" cy="265" rx="26" ry="22.5" fill="#D97706"/>
+  <ellipse cx="400" cy="260" rx="26" ry="22.5" fill="#FBBF24"/>
+  <ellipse cx="400" cy="260" rx="19" ry="16.5" fill="none" stroke="#D97706" stroke-width="2" opacity="0.7"/>
+  <ellipse cx="400" cy="245" rx="26" ry="22.5" fill="#D97706"/>
+  <ellipse cx="400" cy="240" rx="26" ry="22.5" fill="#FBBF24"/>
+  <ellipse cx="400" cy="240" rx="19" ry="16.5" fill="none" stroke="#D97706" stroke-width="2" opacity="0.7"/>
+  <text x="400" y="250" font-family="Georgia, serif" font-weight="700" font-size="28" fill="#1E1B4B" text-anchor="middle">₹</text>
+  
+  <!-- Star of Excellence -->
+  <polygon points="245,175 250,188 264,188 253,196 257,209 245,201 233,209 237,196 226,188 240,188" fill="#F59E0B"/>
+</svg>

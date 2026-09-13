@@ -1,0 +1,620 @@
+[
+  {
+    "benefit_id": "CENTRAL-PMGKAY",
+    "name": "Pradhan Mantri Garib Kalyan Anna Yojana (PMGKAY)",
+    "level": "central",
+    "state": "All India",
+    "category": "food",
+    "benefit_type": "completely_free",
+    "status": "active_listed",
+    "benefit": "AAY: 35 kg foodgrains/family/month; PHH: 5 kg/person/month.",
+    "eligibility_text": "Eligible NFSA ration-card holders under AAY or PHH.",
+    "structured_eligibility": {
+      "requires_ration_card": true,
+      "allowed_card_types": ["AAY", "PHH", "NFSA", "BPL"],
+      "allowed_states": ["All India"]
+    },
+    "application_mode": "no_separate_application",
+    "application_steps": "No separate application required. Eligible beneficiaries can collect grain from nearest Fair Price Shop (FPS) using their existing NFSA/AAY/PHH ration card.",
+    "required_documents": [
+      "NFSA / AAY / PHH Ration Card",
+      "Aadhaar Card of Family Head & Members"
+    ],
+    "application_url": null,
+    "official_source": "https://www.myscheme.gov.in/schemes/pm-gkay",
+    "last_date": null,
+    "last_verified": "2026-09-10"
+  },
+  {
+    "benefit_id": "CENTRAL-PM-DAKSH",
+    "name": "PM-DAKSH",
+    "level": "central",
+    "state": "All India",
+    "category": "skill_employment",
+    "benefit_type": "free_training",
+    "status": "active_listed",
+    "benefit": "Free skill training, stipend, certification and placement support under applicable components.",
+    "eligibility_text": "Indian citizens aged 18-45 from SC, OBC, EWS, DNT or Safai Mitra/waste-picker groups; OBC/EWS family income below ₹3 lakh, while SC/DNT/Safai Mitras have no income limit.",
+    "structured_eligibility": {
+      "min_age": 18,
+      "max_age": 45,
+      "allowed_categories": ["SC", "OBC", "EWS", "DNT", "Safai Karamchari", "Waste Picker"],
+      "max_annual_income": 300000,
+      "allowed_states": ["All India"]
+    },
+    "application_mode": "online",
+    "application_steps": "Register online via Skill India Digital portal or PM-DAKSH mobile app with Aadhaar and caste/income certificate, select target training course, and enroll in nearest accredited training center.",
+    "required_documents": [
+      "Aadhaar Card",
+      "Caste / Category Certificate (SC/OBC/EWS/DNT)",
+      "Income Certificate (if applicable for OBC/EWS)",
+      "Educational Qualification Proof"
+    ],
+    "application_url": "https://www.skillindiadigital.gov.in/",
+    "official_source": "https://www.myscheme.gov.in/schemes/pm-daksh",
+    "last_date": null,
+    "last_verified": "2026-09-10"
+  },
+  {
+    "benefit_id": "CENTRAL-SMILE-TRAINING",
+    "name": "SMILE – Skill Development and Training for Transgender Persons",
+    "level": "central",
+    "state": "All India",
+    "category": "skill_employment",
+    "benefit_type": "completely_free",
+    "status": "active_listed",
+    "benefit": "Free skill training, ₹1,000/month stipend for non-residential training and post-placement assistance subject to conditions.",
+    "eligibility_text": "Transgender persons aged 18-45 with a valid Transgender Certificate/Identity Card; no income criterion; training benefit is free.",
+    "structured_eligibility": {
+      "min_age": 18,
+      "max_age": 45,
+      "requires_transgender_certificate": true,
+      "allowed_genders": ["Transgender", "Other"],
+      "allowed_states": ["All India"]
+    },
+    "application_mode": "online_portal",
+    "application_steps": "1. Visit the National Portal for Transgender Persons.\n2. Obtain/provide Transgender Certificate / Identity Card issued under the Transgender Persons Act.\n3. Apply for SMILE Skill Development & Training component online.",
+    "required_documents": [
+      "Transgender Certificate / Identity Card issued by DM / National Portal",
+      "Aadhaar Card",
+      "Bank Account Details (for stipend transfer)"
+    ],
+    "application_url": "https://transgender.dosje.gov.in/",
+    "official_source": "https://www.myscheme.gov.in/schemes/smile-skill-and-training",
+    "last_date": null,
+    "last_verified": "2026-09-10"
+  },
+  {
+    "benefit_id": "PUD-FREE-RICE-BPL",
+    "name": "Free Supply of Rice to the Poor People",
+    "level": "ut",
+    "state": "Puducherry",
+    "category": "food",
+    "benefit_type": "completely_free",
+    "status": "active_listed",
+    "benefit": "10 kg free rice through fair-price shops during natural calamities and two important festive occasions each year.",
+    "eligibility_text": "Indian citizen; native/continuous Puducherry resident for at least 5 years; BPL; fishermen excluded.",
+    "structured_eligibility": {
+      "allowed_states": ["Puducherry"],
+      "min_residency_years": 5,
+      "requires_bpl": true,
+      "excluded_occupations": ["Fisherman", "Fisheries"]
+    },
+    "application_mode": "offline_no_separate_application",
+    "application_steps": "Benefit is disbursed automatically through Fair Price Shops (FPS) to registered Puducherry BPL ration cardholders.",
+    "required_documents": [
+      "Puducherry BPL Ration Card / Red Card",
+      "Proof of 5-year continuous residence in Puducherry",
+      "Aadhaar Card"
+    ],
+    "application_url": null,
+    "official_source": "https://www.myscheme.gov.in/schemes/fsrpp",
+    "last_date": null,
+    "last_verified": "2026-09-10"
+  },
+  {
+    "benefit_id": "DELHI-DHTESS",
+    "name": "Delhi Higher & Technical Education Support Scheme",
+    "level": "state",
+    "state": "Delhi",
+    "category": "education",
+    "benefit_type": "tuition_fee_assistance",
+    "status": "active_listed",
+    "benefit": "Tuition-fee assistance/reimbursement for eligible undergraduate students in Delhi institutions.",
+    "eligibility_text": "Meritorious students from economically weaker sections meeting detailed scheme conditions.",
+    "structured_eligibility": {
+      "allowed_states": ["Delhi", "NCT of Delhi"],
+      "student_only": true,
+      "max_annual_income": 250000,
+      "requires_merit": true
+    },
+    "application_mode": "through_college_university_department",
+    "application_steps": "Apply through the Delhi State e-District portal or through the designated nodal officer of your Delhi State University / College.",
+    "required_documents": [
+      "Delhi Domicile / Residence Proof",
+      "Income Certificate issued by Delhi Revenue Dept",
+      "Fee Receipt of current academic session",
+      "Previous year academic marksheets"
+    ],
+    "application_url": null,
+    "official_source": "https://www.myscheme.gov.in/schemes/dhtess",
+    "last_date": null,
+    "last_verified": "2026-09-10"
+  },
+  {
+    "benefit_id": "HARYANA-HSMIS",
+    "name": "Haryana State Meritorious Incentive Scheme",
+    "level": "state",
+    "state": "Haryana",
+    "category": "education",
+    "benefit_type": "financial_assistance",
+    "status": "active_listed",
+    "benefit": "₹5,000/year first position, ₹3,000 second, ₹2,000 third in applicable university examinations.",
+    "eligibility_text": "Meritorious students in government colleges meeting scheme conditions.",
+    "structured_eligibility": {
+      "allowed_states": ["Haryana"],
+      "student_only": true,
+      "requires_merit_rank": true
+    },
+    "application_mode": "online",
+    "application_steps": "Apply through the Haryana Higher Education scholarship portal (HarChhatravratti) via student login.",
+    "required_documents": [
+      "Haryana Parivar Pehchan Patra (PPP) / Domicile",
+      "University Merit List / Rank Certificate",
+      "Government College ID & Enrollment Certificate"
+    ],
+    "application_url": null,
+    "official_source": "https://www.myscheme.gov.in/schemes/hsmis",
+    "last_date": null,
+    "last_verified": "2026-09-10"
+  },
+  {
+    "benefit_id": "MAHARASHTRA-PMS-VJNT",
+    "name": "Post-Matric Scholarship to VJNT Students – Maharashtra",
+    "level": "state",
+    "state": "Maharashtra",
+    "category": "education",
+    "benefit_type": "scholarship_and_fee_support",
+    "status": "active_listed",
+    "benefit": "Tuition fees, examination fees and maintenance allowance under applicable conditions.",
+    "eligibility_text": "VJNT students resident in Maharashtra meeting course and other conditions.",
+    "structured_eligibility": {
+      "allowed_states": ["Maharashtra"],
+      "allowed_categories": ["VJNT", "NT", "DT-VJ", "VJ", "NT-A", "NT-B", "NT-C", "NT-D"],
+      "student_only": true,
+      "max_annual_income": 150000
+    },
+    "application_mode": "online_portal",
+    "application_steps": "Register and fill the scholarship application on the MahaDBT portal (mahadbt.maharashtra.gov.in).",
+    "required_documents": [
+      "Maharashtra Domicile Certificate",
+      "VJNT Caste Certificate & Caste Validity",
+      "Income Certificate issued by Tehsildar",
+      "10th/12th Marksheet & Current College Fee Receipt"
+    ],
+    "application_url": null,
+    "official_source": "https://www.myscheme.gov.in/schemes/pmsvs-maharashtra",
+    "last_date": null,
+    "last_verified": "2026-09-10"
+  },
+  {
+    "benefit_id": "GUJARAT-PRE-MATRIC-SEBC",
+    "name": "Pre-Matric Scholarship for Students of Socially and Educationally Backward Class",
+    "level": "state",
+    "state": "Gujarat",
+    "category": "education",
+    "benefit_type": "scholarship",
+    "status": "active_listed",
+    "benefit": "Annual scholarship for eligible SEBC boys and girls in Standards 1–10.",
+    "eligibility_text": "SEBC students meeting applicable scheme conditions.",
+    "structured_eligibility": {
+      "allowed_states": ["Gujarat"],
+      "allowed_categories": ["SEBC", "OBC"],
+      "student_only": true,
+      "school_standard_max": 10,
+      "max_annual_income": 600000
+    },
+    "application_mode": "online_portal",
+    "application_steps": "Apply online on the Digital Gujarat portal or submit physical application through school principal.",
+    "required_documents": [
+      "Gujarat Domicile / Ration Card",
+      "SEBC Caste Certificate",
+      "Income Certificate",
+      "School Study Certificate / Bonafide"
+    ],
+    "application_url": null,
+    "official_source": "https://www.myscheme.gov.in/schemes/pmsssebc",
+    "last_date": null,
+    "last_verified": "2026-09-10"
+  },
+  {
+    "benefit_id": "NAGALAND-STATE-TECH-ST",
+    "name": "State Technical Scholarship for ST Students",
+    "level": "state",
+    "state": "Nagaland",
+    "category": "education",
+    "benefit_type": "scholarship",
+    "status": "active_listed",
+    "benefit": "Financial assistance for eligible diploma/degree/postgraduate engineering or forestry students.",
+    "eligibility_text": "Nagaland resident, ST, parental annual income up to ₹6 lakh, eligible course/institution.",
+    "structured_eligibility": {
+      "allowed_states": ["Nagaland"],
+      "allowed_categories": ["ST", "Scheduled Tribe"],
+      "student_only": true,
+      "max_annual_income": 600000,
+      "technical_courses_only": true
+    },
+    "application_mode": "as_per_department",
+    "application_steps": "Apply online through the Nagaland State Scholarship Portal (scholarship.nagaland.gov.in) with verified ST certificate and parental income proof.",
+    "required_documents": [
+      "Nagaland Indigenous Inhabitant / ST Certificate",
+      "Parental Annual Income Certificate (up to ₹6 Lakhs)",
+      "Technical / Engineering Course Admission Slip & Marksheets",
+      "Bank Passbook seeded with Aadhaar"
+    ],
+    "application_url": null,
+    "official_source": "https://www.myscheme.gov.in/schemes/stssts",
+    "last_date": null,
+    "last_verified": "2026-09-10"
+  },
+  {
+    "benefit_id": "CENTRAL-FREE-COACHING-SC-OBC",
+    "name": "Central Sector Scheme of Free Coaching for SC and OBC Students",
+    "level": "central",
+    "state": "All India",
+    "category": "education",
+    "benefit_type": "free_coaching",
+    "status": "active_listed",
+    "benefit": "Free coaching for economically disadvantaged SC and OBC candidates for competitive examinations and employment opportunities.",
+    "eligibility_text": "Economically disadvantaged SC/OBC candidates meeting detailed scheme conditions.",
+    "structured_eligibility": {
+      "allowed_states": ["All India"],
+      "allowed_categories": ["SC", "OBC"],
+      "max_annual_income": 800000
+    },
+    "application_mode": "as_per_official_scheme",
+    "application_steps": "Apply online on the Free Coaching Scheme Portal (coaching.dosje.gov.in) when application cycles open each financial year.",
+    "required_documents": [
+      "Aadhaar Card",
+      "Caste Certificate (SC/OBC)",
+      "Family Income Certificate (up to ₹8 Lakhs)",
+      "10th / 12th / Graduation Marksheet"
+    ],
+    "application_url": null,
+    "official_source": "https://www.india.gov.in/category/benefits-social-development/subcategory/minorities-castes-tribes/details/free-coaching-scheme-for-sc-and-obc-students",
+    "last_date": null,
+    "last_verified": "2026-09-10"
+  },
+  {
+    "benefit_id": "CENTRAL-DISABILITY-SCHOLARSHIP",
+    "name": "Scholarship Scheme for Students with Disabilities",
+    "level": "central",
+    "state": "All India",
+    "category": "education",
+    "benefit_type": "scholarship_and_free_coaching",
+    "status": "active_listed",
+    "benefit": "Umbrella scholarship support covering pre-matric, post-matric, overseas, fellowship, free coaching and top-class education components.",
+    "eligibility_text": "Students with disabilities meeting the applicable component-specific conditions.",
+    "structured_eligibility": {
+      "requires_disability": true,
+      "student_only": true,
+      "allowed_states": ["All India"]
+    },
+    "application_mode": "as_per_official_portal",
+    "application_steps": "Apply through the National Scholarship Portal (NSP) under Department of Empowerment of Persons with Disabilities with valid UDID card or disability certificate.",
+    "required_documents": [
+      "Disability Certificate / UDID Card (40% or more disability)",
+      "Aadhaar Card",
+      "Student Bonafide / Enrollment Certificate",
+      "Income Certificate"
+    ],
+    "application_url": null,
+    "official_source": "https://www.india.gov.in/category/benefits-social-development/subcategory/persons-with-disabilities/details/scholarship-scheme-for-student-with-disabilities",
+    "last_date": null,
+    "last_verified": "2026-09-10"
+  },
+  {
+    "benefit_id": "CENTRAL-MES-SDIS",
+    "name": "Modular Employable Skills Scheme",
+    "level": "central",
+    "state": "All India",
+    "category": "skill_employment",
+    "benefit_type": "free_training",
+    "status": "active_listed",
+    "benefit": "Vocational training for school leavers, existing workers, ITI graduates and others to improve employability.",
+    "eligibility_text": "Target groups and course-specific conditions apply.",
+    "structured_eligibility": {
+      "min_age": 14,
+      "allowed_states": ["All India"]
+    },
+    "application_mode": "as_per_official_training_provider",
+    "application_steps": "Enroll directly through registered Vocational Training Providers (VTPs) or state skill development nodal centers.",
+    "required_documents": [
+      "Aadhaar Card",
+      "Age Proof / School Leaving Certificate",
+      "Bank Account Details"
+    ],
+    "application_url": null,
+    "official_source": "https://www.india.gov.in/category/jobs/subcategory/career-information-jobs/details/modular-employable-skills-scheme",
+    "last_date": null,
+    "last_verified": "2026-09-10"
+  },
+  {
+    "benefit_id": "CENTRAL-NAYA-SAVERA-FREE-COACHING",
+    "name": "Naya Savera – Free Coaching and Allied Scheme",
+    "level": "central",
+    "state": "All India",
+    "category": "education",
+    "benefit_type": "free_coaching",
+    "status": "active_listed",
+    "benefit": "Free coaching support for eligible minority-community candidates for competitive examinations and admission to reputed institutions.",
+    "eligibility_text": "Eligible candidates from notified minority communities meeting scheme conditions.",
+    "structured_eligibility": {
+      "allowed_categories": ["Minority", "Muslim", "Christian", "Sikh", "Buddhist", "Jain", "Parsi"],
+      "max_annual_income": 600000,
+      "allowed_states": ["All India"]
+    },
+    "application_mode": "online_or_selected_institutions",
+    "application_steps": "Apply online through the Ministry of Minority Affairs portal or through empaneled coaching institutes during announced batches.",
+    "required_documents": [
+      "Minority Community Self-Declaration / Certificate",
+      "Income Certificate (up to ₹6 Lakhs)",
+      "Aadhaar Card",
+      "Educational Marksheets"
+    ],
+    "application_url": null,
+    "official_source": "https://services.india.gov.in/service/detail/coaching-and-allied-scheme-by-naya-savera",
+    "last_date": null,
+    "last_verified": "2026-09-10"
+  },
+  {
+    "benefit_id": "DELHI-JBMPVY",
+    "name": "Jai Bhim Mukhyamantri Pratibha Vikas Yojana",
+    "level": "state",
+    "state": "Delhi",
+    "category": "education",
+    "benefit_type": "free_coaching",
+    "status": "active_listed",
+    "benefit": "Free coaching for eligible SC students for specified competitive examinations.",
+    "eligibility_text": "SC students residing in Delhi who passed 10th/12th from Delhi schools or are studying class XII, family income up to ₹6 lakh/year, plus prescribed marks conditions.",
+    "structured_eligibility": {
+      "allowed_states": ["Delhi", "NCT of Delhi"],
+      "allowed_categories": ["SC"],
+      "student_only": true,
+      "max_annual_income": 600000
+    },
+    "application_mode": "through_selected_institutions",
+    "application_steps": "Apply directly through empaneled coaching institutes or Delhi SC/ST Welfare Department with Delhi residence proof and SC certificate.",
+    "required_documents": [
+      "Delhi Domicile / Residence Proof",
+      "SC Caste Certificate issued by Delhi Revenue Dept",
+      "Income Certificate (up to ₹6 Lakhs)",
+      "Delhi School Marksheets (10th/12th)"
+    ],
+    "application_url": null,
+    "official_source": "https://www.myscheme.gov.in/schemes/jbmpvy",
+    "last_date": null,
+    "last_verified": "2026-09-10"
+  },
+  {
+    "benefit_id": "RAJASTHAN-FREE-HOSTEL",
+    "name": "Rajasthan Free Hostel Facility for Eligible Students",
+    "level": "state",
+    "state": "Rajasthan",
+    "category": "education",
+    "benefit_type": "completely_free",
+    "status": "active_listed",
+    "benefit": "Free hostel facilities including accommodation, meals, clothing, study materials, sports, training and special coaching for eligible students.",
+    "eligibility_text": "SC/ST/OBC/Special Backward Class/EBC students in Classes 6-12 meeting applicable Rajasthan conditions.",
+    "structured_eligibility": {
+      "allowed_states": ["Rajasthan"],
+      "allowed_categories": ["SC", "ST", "OBC", "SBC", "EBC"],
+      "student_only": true,
+      "school_standard_min": 6,
+      "school_standard_max": 12
+    },
+    "application_mode": "online",
+    "application_steps": "Apply online through the Rajasthan SSO portal (sso.rajasthan.gov.in) under SJMS (Social Justice and Empowerment) Hostel Admission application.",
+    "required_documents": [
+      "Rajasthan Jan Aadhaar / Bhamashah Card",
+      "Caste Certificate (SC/ST/OBC/SBC/EBC)",
+      "Last Year School Marksheet",
+      "School Admission Bonafide Certificate"
+    ],
+    "application_url": null,
+    "official_source": "https://services.india.gov.in/service/detail/apply-for-post-matric-scholarship-scheme-rajasthan",
+    "last_date": null,
+    "last_verified": "2026-09-10"
+  },
+  {
+    "benefit_id": "RAJASTHAN-SC-POSTMATRIC",
+    "name": "Rajasthan Post Matric Scholarship for Scheduled Castes",
+    "level": "state",
+    "state": "Rajasthan",
+    "category": "education",
+    "benefit_type": "fee_support_and_allowance",
+    "status": "active_listed",
+    "benefit": "Financial aid covering non-refundable academic fees and maintenance allowance for eligible SC students.",
+    "eligibility_text": "SC students pursuing post-matric education and meeting Rajasthan scheme conditions.",
+    "structured_eligibility": {
+      "allowed_states": ["Rajasthan"],
+      "allowed_categories": ["SC"],
+      "student_only": true,
+      "max_annual_income": 250000
+    },
+    "application_mode": "online",
+    "application_steps": "Apply through the Rajasthan SSO portal (sso.rajasthan.gov.in) under the Scholarship (SJE) module with verified Jan Aadhaar.",
+    "required_documents": [
+      "Jan Aadhaar Card",
+      "SC Caste Certificate",
+      "Income Certificate issued by Executive Magistrate",
+      "College Fee Receipt & Previous Marksheets"
+    ],
+    "application_url": null,
+    "official_source": "https://services.india.gov.in/service/detail/apply-for-post-matric-scholarship-for-scheduled-castes-rajasthan",
+    "last_date": null,
+    "last_verified": "2026-09-10"
+  },
+  {
+    "benefit_id": "RAJASTHAN-EBC-POSTMATRIC",
+    "name": "Dr. Ambedkar Economically Backward Classes Post Matric Scholarship Scheme, Rajasthan",
+    "level": "state",
+    "state": "Rajasthan",
+    "category": "education",
+    "benefit_type": "fee_support_and_allowance",
+    "status": "active_listed",
+    "benefit": "Financial aid covering non-refundable fees and maintenance allowance for eligible EBC students pursuing higher education.",
+    "eligibility_text": "EBC students of Rajasthan meeting the scheme's eligibility conditions.",
+    "structured_eligibility": {
+      "allowed_states": ["Rajasthan"],
+      "allowed_categories": ["EBC", "Economically Backward Class", "General-EBC"],
+      "student_only": true,
+      "max_annual_income": 100000
+    },
+    "application_mode": "online",
+    "application_steps": "Apply through Rajasthan SSO portal using the SJE Scholarship application form with verified EBC certificate.",
+    "required_documents": [
+      "Jan Aadhaar Card",
+      "EBC / Economically Backward Class Certificate",
+      "Parental Income Certificate (up to ₹1 Lakh)",
+      "College Fee Receipt & Marksheets"
+    ],
+    "application_url": null,
+    "official_source": "https://services.india.gov.in/service/detail/apply-for-dr-ambedkar-economically-backward-classes-post-matric-scholarship-scheme-rajasthan",
+    "last_date": null,
+    "last_verified": "2026-09-10"
+  },
+  {
+    "benefit_id": "CENTRAL-PMJAY-FREE-HEALTH",
+    "name": "Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (PM-JAY)",
+    "level": "central",
+    "state": "All India",
+    "category": "health",
+    "benefit_type": "completely_free",
+    "status": "active_listed",
+    "benefit": "Cashless treatment for covered hospitalization and healthcare services according to PM-JAY package rules up to ₹5 lakh per family per year.",
+    "eligibility_text": "Eligible economically vulnerable families identified under PM-JAY beneficiary criteria (SECC 2011 / Ayushman Card holders; NFSA ration cards in participating states).",
+    "structured_eligibility": {
+      "allowed_states": ["All India"],
+      "requires_ration_card": true,
+      "allowed_card_types": ["AAY", "PHH", "BPL", "NFSA"]
+    },
+    "application_mode": "online_and_csc_empanelled_hospitals",
+    "application_steps": "Check eligibility at beneficiary.nha.gov.in or nearest PM-JAY Ayushman Mitra / CSC kiosk with Aadhaar and Ration Card to generate Ayushman Card for cashless hospitalization.",
+    "required_documents": [
+      "Aadhaar Card",
+      "Ration Card / PM-JAY Identification Letter",
+      "Valid Mobile Number"
+    ],
+    "application_url": "https://pmjay.gov.in/",
+    "official_source": "https://pmjay.gov.in/",
+    "last_date": null,
+    "last_verified": "2026-09-10"
+  },
+  {
+    "benefit_id": "CENTRAL-ESDP",
+    "name": "Entrepreneurship Skill Development Programme (ESDP)",
+    "level": "central",
+    "state": "All India",
+    "category": "skill_employment",
+    "benefit_type": "free_training",
+    "status": "active_listed",
+    "benefit": "Free/assisted entrepreneurship and skill-development training under eligible ESDP programmes to encourage new entrepreneurs and practical business skills.",
+    "eligibility_text": "Aspiring entrepreneurs, existing entrepreneurs, youth and individuals aged 18 years and above seeking entrepreneurship/skill development.",
+    "structured_eligibility": {
+      "min_age": 18,
+      "allowed_states": ["All India"]
+    },
+    "application_mode": "through_msme_dfo_training_centres",
+    "application_steps": "Apply through MSME Development and Facilitation Offices (MSME-DFO) or official Ministry of MSME training notices for scheduled ESDP batches.",
+    "required_documents": [
+      "Aadhaar Card",
+      "Age Proof / Educational Qualification Certificate",
+      "Bank Account Details"
+    ],
+    "application_url": null,
+    "official_source": "https://msme.gov.in/",
+    "last_date": null,
+    "last_verified": "2026-09-10"
+  },
+  {
+    "benefit_id": "CENTRAL-PMKVY-FREE-SKILL",
+    "name": "Pradhan Mantri Kaushal Vikas Yojana (PMKVY)",
+    "level": "central",
+    "state": "All India",
+    "category": "skill_employment",
+    "benefit_type": "free_training",
+    "status": "active_listed",
+    "benefit": "Eligible candidates can receive skill training/certification support through approved training programmes under the national skill-development initiative.",
+    "eligibility_text": "Indian citizens aged 15-45 meeting the eligibility requirements of applicable PMKVY training courses (youth, job seekers, and school dropouts).",
+    "structured_eligibility": {
+      "min_age": 15,
+      "max_age": 45,
+      "allowed_states": ["All India"]
+    },
+    "application_mode": "online",
+    "application_steps": "Register on the Skill India Digital portal (skillindiadigital.gov.in), search available PMKVY training courses, and enroll at an accredited training centre.",
+    "required_documents": [
+      "Aadhaar Card",
+      "Educational Qualification Marksheets",
+      "Bank Account Details (Aadhaar linked)"
+    ],
+    "application_url": "https://www.pmkvyofficial.org/",
+    "official_source": "https://www.pmkvyofficial.org/",
+    "last_date": null,
+    "last_verified": "2026-09-10"
+  },
+  {
+    "benefit_id": "ASSAM-FREE-HEART-SURGERY",
+    "name": "Free Congenital Heart Surgery Assistance for Children - Assam",
+    "level": "state",
+    "state": "Assam",
+    "category": "health",
+    "benefit_type": "completely_free",
+    "status": "active_listed",
+    "benefit": "Eligible children can receive congenital heart surgery/treatment support according to the applicable government programme rules.",
+    "eligibility_text": "Children from infancy up to 18 years of age residing in Assam who are clinically diagnosed with congenital heart disease requiring surgery.",
+    "structured_eligibility": {
+      "allowed_states": ["Assam"],
+      "max_age": 18
+    },
+    "application_mode": "screening_through_district_nodal_centres",
+    "application_steps": "Consult District Early Intervention Centres (DEIC) under National Health Mission (NHM) Assam or designated government medical college hospitals with child diagnostic reports for evaluation and empanelled hospital referral.",
+    "required_documents": [
+      "Assam Domicile / Residence Proof of Parents",
+      "Birth Certificate of Child / Age Proof",
+      "Cardiological Diagnostic Report / Echo Report",
+      "Aadhaar Card of Parent and Child (if available)"
+    ],
+    "application_url": null,
+    "official_source": "https://nhm.assam.gov.in/",
+    "last_date": null,
+    "last_verified": "2026-09-10"
+  },
+  {
+    "benefit_id": "CENTRAL-PM-SURYA-GHAR",
+    "name": "PM Surya Ghar: Muft Bijli Yojana",
+    "level": "central",
+    "state": "All India",
+    "category": "energy_utility",
+    "benefit_type": "subsidy",
+    "status": "active_listed",
+    "benefit": "Eligible residential consumers can receive Central Government rooftop-solar subsidy according to the applicable scheme rules (up to ₹78,000 capital subsidy for up to 3 kW system).",
+    "eligibility_text": "Indian citizens possessing an active residential electricity connection and suitable rooftop space. Note: This is a government subsidy programme to offset installation costs, not 100% free installation.",
+    "structured_eligibility": {
+      "allowed_states": ["All India"]
+    },
+    "application_mode": "online_portal",
+    "application_steps": "Register on the National Portal (pmsuryaghar.gov.in) with your electricity consumer number, submit rooftop solar application, get DISCOM technical approval, install via registered vendor, and submit plant commissioning details for direct subsidy disbursement.",
+    "required_documents": [
+      "Electricity Bill of Residential Connection",
+      "Aadhaar Card of Property Owner",
+      "Bank Account Details for Direct Benefit Transfer (DBT)",
+      "Photograph of Rooftop Space"
+    ],
+    "application_url": "https://pmsuryaghar.gov.in/",
+    "official_source": "https://pmsuryaghar.gov.in/",
+    "last_date": null,
+    "last_verified": "2026-09-10"
+  }
+]

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img">
+  <defs>
+    <linearGradient id="pmsym001bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFF7ED"/>
+      <stop offset="100%" stop-color="#FFEDD5"/>
+    </linearGradient>
+    <radialGradient id="pmsym001med" cx="0.5" cy="0.45" r="0.6">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.90"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.30"/>
+    </radialGradient>
+  </defs>
+  <rect width="640" height="400" fill="url(#pmsym001bg)"/>
+  <circle cx="90" cy="70" r="46" fill="#EA580C" opacity="0.10"/>
+  <circle cx="560" cy="330" r="60" fill="#EA580C" opacity="0.10"/>
+  <circle cx="565" cy="70" r="16" fill="#F59E0B" opacity="0.5"/>
+  <circle cx="320" cy="180" r="150" fill="#EA580C" opacity="0.14"/>
+  <circle cx="320" cy="180" r="132" fill="url(#pmsym001med)"/>
+  <ellipse cx="320" cy="312" rx="120" ry="17" fill="#7C2D12" opacity="0.10"/>
+  
+  <!-- Security Shield in Center -->
+  <path d="M320,80 Q380,85 380,140 Q380,225 320,265 Q260,225 260,140 Q260,85 320,80 Z" fill="#EA580C"/>
+  <path d="M320,95 Q365,100 365,145 Q365,215 320,250 Q275,215 275,145 Q275,100 320,95 Z" fill="#C2410C"/>
+  
+  <!-- Worker Hardhat & Gear Silhouette -->
+  <!-- Hardhat / Safety Cap -->
+  <path d="M295,145 Q320,118 345,145 Z" fill="#FBBF24"/>
+  <rect x="290" y="145" width="60" height="8" rx="3" fill="#F59E0B"/>
+  
+  <!-- Protective Handshake / Support Heart inside Shield -->
+  <circle cx="320" cy="185" r="22" fill="#FFFFFF"/>
+  <text x="320" y="193" font-family="Georgia, serif" font-weight="700" font-size="24" fill="#C2410C" text-anchor="middle">₹</text>
+  
+  <!-- Golden Rupee Coin Stack on Right -->
+  <ellipse cx="410" cy="285" rx="26" ry="22.5" fill="#D97706"/>
+  <ellipse cx="410" cy="280" rx="26" ry="22.5" fill="#FBBF24"/>
+  <ellipse cx="410" cy="280" rx="19" ry="16.5" fill="none" stroke="#D97706" stroke-width="2" opacity="0.7"/>
+  <ellipse cx="410" cy="265" rx="26" ry="22.5" fill="#D97706"/>
+  <ellipse cx="410" cy="260" rx="26" ry="22.5" fill="#FBBF24"/>
+  <ellipse cx="410" cy="260" rx="19" ry="16.5" fill="none" stroke="#D97706" stroke-width="2" opacity="0.7"/>
+  <ellipse cx="410" cy="245" rx="26" ry="22.5" fill="#D97706"/>
+  <ellipse cx="410" cy="240" rx="26" ry="22.5" fill="#FBBF24"/>
+  <ellipse cx="410" cy="240" rx="19" ry="16.5" fill="none" stroke="#D97706" stroke-width="2" opacity="0.7"/>
+  <text x="410" y="250" font-family="Georgia, serif" font-weight="700" font-size="28" fill="#7C2D12" text-anchor="middle">₹</text>
+  
+  <!-- Mini Badge on Left -->
+  <circle cx="230" cy="160" r="26" fill="#F97316"/>
+  <path d="M220,160 L227,167 L242,152" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

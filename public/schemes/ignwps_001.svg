@@ -1,0 +1,28 @@
+<svg width="400" height="225" viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Indira Gandhi National Widow Pension Scheme">
+  <defs>
+    <radialGradient id="bg-ignwps_001" cx="30%" cy="30%" r="90%">
+      <stop offset="0%" stop-color="#F6F1E7"/>
+      <stop offset="100%" stop-color="#EFE8D8"/>
+    </radialGradient>
+    <linearGradient id="scrim-ignwps_001" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#16213E" stop-opacity="0"/>
+      <stop offset="55%" stop-color="#16213E" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#16213E" stop-opacity="0.62"/>
+    </linearGradient>
+    <pattern id="dots-ignwps_001" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#A13D63" opacity="0.05"/>
+    </pattern>
+  </defs>
+
+  <rect width="400" height="225" fill="url(#bg-ignwps_001)"/>
+  <rect width="400" height="225" fill="url(#dots-ignwps_001)"/>
+
+  <circle cx="306.0" cy="85.5" r="105" fill="#A13D63" opacity="0.10"/>
+  <circle cx="306.0" cy="85.5" r="66" fill="#A13D63" opacity="0.16"/>
+
+  <g transform="translate(306.0,85.5) rotate(9)" color="#7A2E4B">
+    <circle cx="0" cy="-14" r="20" fill="none" stroke="currentColor" stroke-width="5"/><path d="M0 6 V38 M-14 20 H14" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><path d="M-9 -14 A9 9 0 1 1 9 -14" fill="none" stroke="currentColor" stroke-width="4"/>
+  </g>
+
+  <rect width="400" height="225" fill="url(#scrim-ignwps_001)"/>
+</svg>

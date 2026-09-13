@@ -1,0 +1,28 @@
+<svg width="400" height="225" viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Government Scheme">
+  <defs>
+    <radialGradient id="bg-_fallback" cx="30%" cy="30%" r="90%">
+      <stop offset="0%" stop-color="#F6F1E7"/>
+      <stop offset="100%" stop-color="#EFE8D8"/>
+    </radialGradient>
+    <linearGradient id="scrim-_fallback" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#16213E" stop-opacity="0"/>
+      <stop offset="55%" stop-color="#16213E" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#16213E" stop-opacity="0.62"/>
+    </linearGradient>
+    <pattern id="dots-_fallback" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#5C5C5C" opacity="0.07"/>
+    </pattern>
+  </defs>
+
+  <rect width="400" height="225" fill="url(#bg-_fallback)"/>
+  <rect width="400" height="225" fill="url(#dots-_fallback)"/>
+
+  <circle cx="282.0" cy="97.5" r="105" fill="#5C5C5C" opacity="0.10"/>
+  <circle cx="282.0" cy="97.5" r="66" fill="#5C5C5C" opacity="0.16"/>
+
+  <g transform="translate(282.0,97.5) rotate(9)" color="#3D3D3D">
+    <circle cx="0" cy="0" r="36" fill="none" stroke="currentColor" stroke-width="5"/><path d="M-14 -8 Q-14 -22 0 -22 Q14 -22 14 -10 Q14 0 0 4 V14" stroke="currentColor" stroke-width="5" fill="none" stroke-linecap="round"/><circle cx="0" cy="26" r="3" fill="currentColor"/>
+  </g>
+
+  <rect width="400" height="225" fill="url(#scrim-_fallback)"/>
+</svg>

@@ -1,0 +1,28 @@
+<svg width="400" height="225" viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Post-Matric Scholarship for Scheduled Tribe Students">
+  <defs>
+    <radialGradient id="bg-edu_pms_st_001" cx="30%" cy="30%" r="90%">
+      <stop offset="0%" stop-color="#F6F1E7"/>
+      <stop offset="100%" stop-color="#EFE8D8"/>
+    </radialGradient>
+    <linearGradient id="scrim-edu_pms_st_001" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#16213E" stop-opacity="0"/>
+      <stop offset="55%" stop-color="#16213E" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#16213E" stop-opacity="0.62"/>
+    </linearGradient>
+    <pattern id="dots-edu_pms_st_001" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#1A2E5C" opacity="0.09"/>
+    </pattern>
+  </defs>
+
+  <rect width="400" height="225" fill="url(#bg-edu_pms_st_001)"/>
+  <rect width="400" height="225" fill="url(#dots-edu_pms_st_001)"/>
+
+  <circle cx="270.0" cy="73.5" r="105" fill="#1A2E5C" opacity="0.10"/>
+  <circle cx="270.0" cy="73.5" r="66" fill="#1A2E5C" opacity="0.16"/>
+
+  <g transform="translate(270.0,73.5) rotate(3)" color="#101D3D">
+    <path d="M-42 -8 L0 -26 L42 -8 L0 10 Z" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round"/><path d="M-24 0 V22 Q0 34 24 22 V0" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round"/><path d="M36 -4 V18" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+  </g>
+
+  <rect width="400" height="225" fill="url(#scrim-edu_pms_st_001)"/>
+</svg>

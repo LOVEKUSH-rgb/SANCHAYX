@@ -1,0 +1,28 @@
+{
+  "organization_name": "Life Insurance Corporation of India",
+  "short_name": "LIC",
+  "establishment_date": "1 September 1956",
+  "statutory_act": "Life Insurance Corporation Act, 1956 (Act No. 31 of 1956 passed by Parliament of India)",
+  "organization_type": "Statutory Public Sector Life Insurance Corporation (Wholly owned by Government of India)",
+  "irdai_registration_number": "512",
+  "corporate_office": "Yogakshema, Jeevan Bima Marg, P.O. Box No. 19953, Mumbai – 400 021, Maharashtra, India",
+  "purpose": "Spread life insurance widely and in particular to the rural areas and to the socially and economically disadvantaged classes with a view to providing them adequate financial cover against death at a reasonable cost, and to maximize mobilization of people's savings by making insurance-linked savings adequately attractive.",
+  "official_website": "https://www.licindia.in/",
+  "official_product_pages": {
+    "insurance_plans": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "pension_plans": "https://licindia.in/en/web/guest/pension-plan",
+    "unit_linked_plans": "https://www.licindia.in/en/web/guest/unit-linked-plans",
+    "micro_insurance_plans": "https://www.licindia.in/en/web/guest/micro-insurance-plans",
+    "withdrawn_plans": "https://www.licindia.in/en/web/guest/withdrawn-plans"
+  },
+  "catalogue_summary": {
+    "total_active_plans": 38,
+    "insurance_plans_count": 27,
+    "pension_plans_count": 5,
+    "unit_linked_plans_count": 4,
+    "micro_insurance_plans_count": 2
+  },
+  "source": "LIC Official Website",
+  "last_verified": "2026-08-31",
+  "verification_required": false
+}

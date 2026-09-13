@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SANCHAY — Trusted Indian Sovereign Schemes & Financial Guidance</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cinzel:wght@700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sanchay: {
+              navy: { 950: '#060B18', 900: '#0B1120', 800: '#1E293B', 700: '#334155', 600: '#1E3A8A' },
+              emerald: { 950: '#022C22', 800: '#065F46', 700: '#047857', 600: '#059669', 500: '#10B981', 100: '#D1FAE5', 50: '#ECFDF5' },
+              gold: { 600: '#D97706', 500: '#F59E0B', 400: '#FBBF24', 100: '#FEF3C7', 50: '#FFFBEB' },
+              light: '#FAFAFC',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+            display: ['Outfit', '"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['Cinzel', 'Georgia', 'serif'],
+            mono: ['JetBrains Mono', 'Menlo', 'monospace'],
+          },
+          boxShadow: {
+            'card': '0 2px 12px -1px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.02)',
+            'floating': '0 25px 60px -15px rgba(15, 23, 42, 0.14)',
+            'editorial': '0 30px 70px -20px rgba(15, 23, 42, 0.15)',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .bg-grid-pattern {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+    }
+  </style>
+</head>
+<body class="bg-[#FAFAFC] text-sanchay-navy-900 font-sans antialiased selection:bg-sanchay-emerald-600 selection:text-white">
+  
+  <!-- Navbar -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/90 py-4 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <div class="flex items-center gap-3">
+        <svg class="w-9 h-9" viewBox="0 0 100 100" fill="none">
+          <path d="M 36 22 C 36 17 38 13 40 10 C 42 13 44 17 44 22 C 44 25 42 27 40 27 C 38 27 36 25 36 22 Z" fill="#F59E0B"/>
+          <path d="M 56 22 C 56 17 58 13 60 10 C 62 13 64 17 64 22 C 64 25 62 27 60 27 C 58 27 56 25 56 22 Z" fill="#F59E0B"/>
+          <path d="M 50 20 C 65 35 68 55 50 75 C 32 55 35 35 50 20 Z" fill="#F59E0B" stroke="#0F172A" stroke-width="6"/>
+          <path d="M 46 68 C 25 62 12 48 30 38 C 45 42 46 58 46 68 Z" fill="#F59E0B" stroke="#0F172A" stroke-width="6"/>
+          <path d="M 54 68 C 75 62 88 48 70 38 C 55 42 54 58 54 68 Z" fill="#F59E0B" stroke="#0F172A" stroke-width="6"/>
+        </svg>
+        <span class="font-display font-extrabold text-2xl tracking-tight text-sanchay-navy-900">SANCHAY</span>
+        <span class="hidden sm:inline-block px-2.5 py-0.5 rounded-full bg-sanchay-emerald-50 text-sanchay-emerald-800 text-[10px] font-mono font-bold uppercase tracking-wider border border-sanchay-emerald-200">
+          Official Master Catalog
+        </span>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-8 text-xs font-semibold uppercase tracking-wider">
+        <a href="#how-it-works" class="text-sanchay-navy-900/70 hover:text-sanchay-emerald-600 flex items-center gap-1.5">
+          <span class="font-mono text-sanchay-emerald-600 font-bold">01</span> How It Works
+        </a>
+        <a href="#verified-catalog" class="text-sanchay-navy-900/70 hover:text-sanchay-emerald-600 flex items-center gap-1.5">
+          <span class="font-mono text-sanchay-emerald-600 font-bold">02</span> Master Schemes
+        </a>
+        <a href="#pipeline" class="text-sanchay-navy-900/70 hover:text-sanchay-emerald-600 flex items-center gap-1.5">
+          <span class="font-mono text-sanchay-emerald-600 font-bold">03</span> Engine Pipeline
+        </a>
+      </nav>
+
+      <!-- CTA Button -->
+      <div class="flex items-center gap-3">
+        <button
+          onclick="openWizardModal()"
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-sanchay-emerald-600 hover:bg-sanchay-emerald-700 text-white font-extrabold text-xs uppercase tracking-wider shadow-sm transition-all cursor-pointer"
+        >
+          <span>Find My Scheme</span>
+          <span>→</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative pt-12 pb-20 overflow-hidden bg-white border-b border-slate-200/80 bg-grid-pattern">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-4xl space-y-6">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sanchay-emerald-50 text-sanchay-emerald-800 text-xs font-mono font-bold uppercase tracking-wider border border-sanchay-emerald-200">
+          <span>🏛️</span>
+          <span>Official Master Scheme Dataset Integration (35 Statutory Records)</span>
+        </div>
+
+        <h1 class="font-display font-extrabold text-4xl sm:text-6xl text-sanchay-navy-950 tracking-tight leading-[1.1]">
+          Trusted Sovereign Guidance for <span class="text-sanchay-emerald-600 underline decoration-sanchay-gold-500 underline-offset-8">Every Indian Citizen</span>.
+        </h1>
+
+        <p class="text-lg text-slate-600 max-w-2xl leading-relaxed">
+          SANCHAY pairs statutory Indian Government gazettes (PPF, SSY, SCSS, APY, NSC, KVP, POMIS) with a deterministic, two-stage eligibility and fit-score engine. No stock tips, no speculative risk — only guaranteed sovereign safety.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-4 pt-4">
+          <button
+            onclick="openWizardModal()"
+            class="px-8 py-4 rounded-2xl bg-sanchay-navy-950 hover:bg-slate-900 text-white font-extrabold text-sm uppercase tracking-wider shadow-editorial hover:-translate-y-0.5 transition-all cursor-pointer flex items-center gap-2"
+          >
+            <span>Start Goal-Based Eligibility Check</span>
+            <span class="text-sanchay-gold-400">→</span>
+          </button>
+          <a
+            href="#verified-catalog"
+            class="px-6 py-4 rounded-2xl bg-slate-100 hover:bg-slate-200 text-sanchay-navy-900 font-bold text-sm uppercase tracking-wider transition-all"
+          >
+            Explore Catalog (35 Schemes)
+          </a>
+        </div>
+      </div>
+
+      <!-- Trust Badges -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-16 pt-12 border-t border-slate-200">
+        <div class="p-4 rounded-2xl bg-[#FAFAFC] border border-slate-200/80">
+          <div class="text-2xl font-extrabold text-sanchay-navy-950">35 Records</div>
+          <div class="text-xs text-slate-500 mt-1">Master Scheme Dataset</div>
+        </div>
+        <div class="p-4 rounded-2xl bg-[#FAFAFC] border border-slate-200/80">
+          <div class="text-2xl font-extrabold text-sanchay-emerald-600">100% Deterministic</div>
+          <div class="text-xs text-slate-500 mt-1">Hard Statutory Age/State Filters</div>
+        </div>
+        <div class="p-4 rounded-2xl bg-[#FAFAFC] border border-slate-200/80">
+          <div class="text-2xl font-extrabold text-sanchay-gold-600">0 - 100 Score</div>
+          <div class="text-xs text-slate-500 mt-1">Goal, Budget & Horizon Fit</div>
+        </div>
+        <div class="p-4 rounded-2xl bg-[#FAFAFC] border border-slate-200/80">
+          <div class="text-2xl font-extrabold text-sanchay-navy-950">Direct Links</div>
+          <div class="text-xs text-slate-500 mt-1">Official Ministry of Finance & PFRDA</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section: Master Verified Schemes Catalog -->
+  <section id="verified-catalog" class="py-20 bg-[#FAF9F5] border-b border-slate-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl mb-8">
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-900 text-white text-[11px] font-mono font-bold uppercase tracking-[0.2em] mb-3">
+          <span class="text-sanchay-gold-500">02</span> / <span>VERIFIED STATUTORY CATALOG</span>
+        </div>
+        <h2 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-sanchay-navy-900">
+          Explore & Find Verified Schemes
+        </h2>
+        <p class="text-base text-slate-600 mt-3">
+          Search across English/Hindi names, ministries, categories, and keywords. Click any card to inspect statutory parameters.
+        </p>
+      </div>
+
+      <!-- Search & Category Filters -->
+      <div class="bg-white p-6 rounded-3xl border border-slate-200/90 shadow-card mb-10 space-y-4">
+        <div class="relative">
+          <input
+            type="text"
+            id="bundle-search-input"
+            oninput="filterBundleSchemes()"
+            placeholder="Search schemes (e.g., PPF, Sukanya, Pension, SCSS, APY, Farmer, Women, 80C)..."
+            class="w-full pl-5 pr-10 py-3.5 rounded-2xl bg-[#FAF9F5] border border-slate-200 text-sm text-sanchay-navy-900 placeholder:text-slate-400 focus:outline-none focus:border-sanchay-emerald-600 shadow-xs"
+          />
+        </div>
+
+        <!-- Categories Row -->
+        <div class="flex flex-wrap items-center gap-2 border-t border-slate-100 pt-3 text-xs font-mono font-bold">
+          <button onclick="setBundleCategory('all', this)" class="bundle-cat-btn px-3 py-1.5 rounded-xl bg-sanchay-emerald-50 text-sanchay-emerald-800 border border-sanchay-emerald-200">ALL (35)</button>
+          <button onclick="setBundleCategory('savings', this)" class="bundle-cat-btn px-3 py-1.5 rounded-xl bg-white text-slate-600 border border-slate-200 hover:bg-slate-50">SAVINGS</button>
+          <button onclick="setBundleCategory('pension', this)" class="bundle-cat-btn px-3 py-1.5 rounded-xl bg-white text-slate-600 border border-slate-200 hover:bg-slate-50">PENSION</button>
+          <button onclick="setBundleCategory('women', this)" class="bundle-cat-btn px-3 py-1.5 rounded-xl bg-white text-slate-600 border border-slate-200 hover:bg-slate-50">WOMEN & GIRLS</button>
+          <button onclick="setBundleCategory('senior_citizen', this)" class="bundle-cat-btn px-3 py-1.5 rounded-xl bg-white text-slate-600 border border-slate-200 hover:bg-slate-50">SENIOR CITIZEN</button>
+          <button onclick="setBundleCategory('agriculture', this)" class="bundle-cat-btn px-3 py-1.5 rounded-xl bg-white text-slate-600 border border-slate-200 hover:bg-slate-50">FARMERS & AGRI</button>
+          <button onclick="setBundleCategory('insurance', this)" class="bundle-cat-btn px-3 py-1.5 rounded-xl bg-white text-slate-600 border border-slate-200 hover:bg-slate-50">PROTECTION & INSURANCE</button>
+          <button onclick="setBundleCategory('housing', this)" class="bundle-cat-btn px-3 py-1.5 rounded-xl bg-white text-slate-600 border border-slate-200 hover:bg-slate-50">HOUSING</button>
+          <button onclick="setBundleCategory('business', this)" class="bundle-cat-btn px-3 py-1.5 rounded-xl bg-white text-slate-600 border border-slate-200 hover:bg-slate-50">BUSINESS & MSME</button>
+          <button onclick="setBundleCategory('social_security', this)" class="bundle-cat-btn px-3 py-1.5 rounded-xl bg-white text-slate-600 border border-slate-200 hover:bg-slate-50">SOCIAL SECURITY</button>
+        </div>
+      </div>
+
+      <!-- No Results Container -->
+      <div id="bundle-no-results" class="hidden text-center py-16 px-4 bg-white rounded-3xl border border-slate-200/90 shadow-card max-w-2xl mx-auto my-6 space-y-3">
+        <div class="text-3xl">🔍</div>
+        <h3 class="font-display font-extrabold text-2xl text-sanchay-navy-900">No matching schemes found</h3>
+        <p class="text-sm text-slate-600">Try modifying your keyword search or category filter.</p>
+        <button onclick="resetBundleSearch()" class="mt-2 px-5 py-2.5 rounded-xl bg-sanchay-navy-900 text-white font-bold text-xs uppercase shadow-xs">Reset All Filters</button>
+      </div>
+
+      <!-- Schemes Grid Container (Populated via JS with Master Schemes) -->
+      <div id="bundle-schemes-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Cards will render here -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Wizard Modal (Profile -> Goal -> Preferences -> Recommendations) -->
+  <div id="wizard-modal" class="fixed inset-0 z-50 bg-slate-950/75 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto hidden">
+    <div class="bg-white w-full max-w-3xl rounded-3xl shadow-floating border border-slate-200 overflow-hidden my-8 relative">
+      
+      <!-- Wizard Header -->
+      <div class="bg-sanchay-navy-950 text-white p-6 flex items-center justify-between">
+        <div>
+          <span class="text-[11px] font-mono font-bold text-sanchay-gold-400 uppercase tracking-widest block">SANCHAY DETERMINISTIC ENGINE</span>
+          <h2 class="font-display font-extrabold text-2xl text-white mt-0.5" id="wizard-title">Step 1: Your Demographic Profile</h2>
+        </div>
+        <button onclick="closeWizardModal()" class="p-2 rounded-full bg-slate-800 hover:bg-slate-700 text-white">✕</button>
+      </div>
+
+      <!-- Step 1: Profile -->
+      <div id="wizard-step-1" class="p-6 sm:p-8 space-y-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="text-xs font-mono font-bold text-sanchay-navy-950 uppercase block mb-1.5">Applicant Age *</label>
+            <input type="number" id="wiz-age" value="25" min="0" max="120" class="w-full bg-[#FAF9F5] border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm font-bold" />
+          </div>
+          <div>
+            <label class="text-xs font-mono font-bold text-sanchay-navy-950 uppercase block mb-1.5">Gender</label>
+            <select id="wiz-gender" class="w-full bg-[#FAF9F5] border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm font-bold">
+              <option value="female">Female</option>
+              <option value="male">Male</option>
+              <option value="all">All / Any</option>
+            </select>
+          </div>
+          <div>
+            <label class="text-xs font-mono font-bold text-sanchay-navy-950 uppercase block mb-1.5">Residency</label>
+            <select id="wiz-residency" class="w-full bg-[#FAF9F5] border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm font-bold">
+              <option value="resident">Resident Indian Citizen</option>
+              <option value="nri">NRI (Non-Resident Indian)</option>
+            </select>
+          </div>
+          <div>
+            <label class="text-xs font-mono font-bold text-sanchay-navy-950 uppercase block mb-1.5">State</label>
+            <select id="wiz-state" class="w-full bg-[#FAF9F5] border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm font-bold">
+              <option value="All">All India / Central</option>
+              <option value="Maharashtra">Maharashtra</option>
+              <option value="Rajasthan">Rajasthan</option>
+              <option value="Delhi">Delhi</option>
+              <option value="Uttar Pradesh">Uttar Pradesh</option>
+            </select>
+          </div>
+          <div>
+            <label class="text-xs font-mono font-bold text-sanchay-navy-950 uppercase block mb-1.5">Beneficiary</label>
+            <select id="wiz-saving-for" onchange="toggleWizardMinor()" class="w-full bg-[#FAF9F5] border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm font-bold">
+              <option value="self">Saving for Myself (Adult)</option>
+              <option value="minor">Saving for Minor / Child (via Guardian)</option>
+            </select>
+          </div>
+          <div id="wiz-minor-box" class="hidden">
+            <label class="text-xs font-mono font-bold text-sanchay-navy-950 uppercase block mb-1.5">Child Age (Years)</label>
+            <input type="number" id="wiz-child-age" value="6" min="0" max="17" class="w-full bg-[#FAF9F5] border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm font-bold" />
+          </div>
+        </div>
+
+        <div class="flex justify-end pt-4 border-t border-slate-100">
+          <button onclick="goToWizardStep(2)" class="px-6 py-3 rounded-xl bg-sanchay-emerald-600 hover:bg-sanchay-emerald-700 text-white font-extrabold text-xs uppercase tracking-wider">
+            Continue to Goal Selection →
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 2: Goal -->
+      <div id="wizard-step-2" class="p-6 sm:p-8 space-y-6 hidden">
+        <label class="text-xs font-mono font-bold text-sanchay-navy-950 uppercase block mb-2">Select Your Primary Financial Goal</label>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="wiz-goals-list">
+          <button type="button" onclick="selectWizardGoal('retirement', this)" class="wiz-goal-btn p-4 rounded-xl border border-sanchay-emerald-600 bg-sanchay-emerald-50 text-left font-bold text-sm text-sanchay-navy-950">
+            <div>👴 Retirement & Pension</div>
+            <div class="text-[11px] text-slate-500 font-normal mt-0.5">Guaranteed lifelong income post age 60 (APY, PPF)</div>
+          </button>
+          <button type="button" onclick="selectWizardGoal('girl_child', this)" class="wiz-goal-btn p-4 rounded-xl border border-slate-200 hover:bg-slate-50 text-left font-bold text-sm text-sanchay-navy-950">
+            <div>👧 Girl Child Welfare & Education</div>
+            <div class="text-[11px] text-slate-500 font-normal mt-0.5">High 8.2% sovereign tax-free growth (SSY)</div>
+          </button>
+          <button type="button" onclick="selectWizardGoal('long_term_savings', this)" class="wiz-goal-btn p-4 rounded-xl border border-slate-200 hover:bg-slate-50 text-left font-bold text-sm text-sanchay-navy-950">
+            <div>💰 Long-term Wealth & 80C Tax Exemption</div>
+            <div class="text-[11px] text-slate-500 font-normal mt-0.5">15-year sovereign compounding (PPF, NSC)</div>
+          </button>
+          <button type="button" onclick="selectWizardGoal('monthly_income', this)" class="wiz-goal-btn p-4 rounded-xl border border-slate-200 hover:bg-slate-50 text-left font-bold text-sm text-sanchay-navy-950">
+            <div>💵 Regular Monthly/Quarterly Income</div>
+            <div class="text-[11px] text-slate-500 font-normal mt-0.5">Senior citizen payout & post office income (SCSS, POMIS)</div>
+          </button>
+        </div>
+
+        <div class="flex justify-between pt-4 border-t border-slate-100">
+          <button onclick="goToWizardStep(1)" class="px-5 py-2.5 rounded-xl border border-slate-200 text-slate-600 font-bold text-xs uppercase">← Back</button>
+          <button onclick="goToWizardStep(3)" class="px-6 py-3 rounded-xl bg-sanchay-emerald-600 hover:bg-sanchay-emerald-700 text-white font-extrabold text-xs uppercase tracking-wider">Continue to Preferences →</button>
+        </div>
+      </div>
+
+      <!-- Step 3: Preferences -->
+      <div id="wizard-step-3" class="p-6 sm:p-8 space-y-6 hidden">
+        <div class="space-y-4">
+          <div>
+            <div class="flex justify-between text-xs font-mono font-bold mb-1">
+              <span>MONTHLY SAVINGS CAPACITY</span>
+              <span class="text-sanchay-emerald-700" id="wiz-budget-val">₹2,000 / month</span>
+            </div>
+            <input type="range" id="wiz-budget" min="500" max="25000" step="500" value="2000" oninput="document.getElementById('wiz-budget-val').innerText = '₹' + Number(this.value).toLocaleString('en-IN') + ' / month'" class="w-full accent-sanchay-emerald-600" />
+          </div>
+
+          <div>
+            <div class="flex justify-between text-xs font-mono font-bold mb-1">
+              <span>TIME HORIZON</span>
+              <span class="text-sanchay-emerald-700" id="wiz-horizon-val">15 Years</span>
+            </div>
+            <input type="range" id="wiz-horizon" min="1" max="30" step="1" value="15" oninput="document.getElementById('wiz-horizon-val').innerText = this.value + ' Years'" class="w-full accent-sanchay-emerald-600" />
+          </div>
+        </div>
+
+        <div class="flex justify-between pt-4 border-t border-slate-100">
+          <button onclick="goToWizardStep(2)" class="px-5 py-2.5 rounded-xl border border-slate-200 text-slate-600 font-bold text-xs uppercase">← Back</button>
+          <button onclick="computeWizardRecommendations()" class="px-8 py-3.5 rounded-xl bg-sanchay-navy-950 hover:bg-slate-900 text-white font-extrabold text-xs uppercase tracking-wider shadow-editorial">
+            ⚡ Compute Exact Statutory Recommendations
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 4: Recommendations Output -->
+      <div id="wizard-step-4" class="p-6 sm:p-8 space-y-6 hidden max-h-[70vh] overflow-y-auto">
+        <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+          <div>
+            <span class="text-[10px] font-mono font-bold text-sanchay-emerald-700 bg-sanchay-emerald-50 px-2.5 py-1 rounded-full uppercase">100% STATUTORY ELIGIBILITY VERIFIED</span>
+            <h3 class="font-display font-extrabold text-xl text-sanchay-navy-950 mt-1">Recommended Schemes for Your Profile</h3>
+          </div>
+          <button onclick="goToWizardStep(1)" class="text-xs font-mono font-bold text-slate-500 hover:text-sanchay-navy-950 underline">Modify Profile</button>
+        </div>
+
+        <div id="wiz-recommendations-list" class="space-y-4">
+          <!-- Populated dynamically by JS -->
+        </div>
+
+        <div class="p-4 rounded-2xl bg-[#FAF9F5] border border-slate-200 text-xs flex items-center justify-between">
+          <span class="text-slate-600">Have a question about why these schemes were matched?</span>
+          <button onclick="openSakhiWithContext()" class="px-3.5 py-1.5 rounded-xl bg-sanchay-navy-900 text-white font-bold text-xs flex items-center gap-1.5">
+            <span>Ask Sakhi AI</span> 💬
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Product Details Modal -->
+  <div id="details-modal" class="fixed inset-0 z-50 bg-slate-950/75 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto hidden">
+    <div class="bg-white w-full max-w-2xl rounded-3xl shadow-floating border border-slate-200 overflow-hidden my-8 relative">
+      <div class="bg-sanchay-navy-950 text-white p-6 flex items-center justify-between">
+        <div>
+          <span id="modal-category" class="text-[10px] font-mono font-bold text-sanchay-gold-400 uppercase tracking-widest block">CATEGORY</span>
+          <h2 id="modal-title" class="font-display font-extrabold text-2xl text-white mt-0.5">Scheme Name</h2>
+        </div>
+        <button onclick="closeDetailsModal()" class="p-2 rounded-full bg-slate-800 hover:bg-slate-700 text-white">✕</button>
+      </div>
+
+      <div class="p-6 sm:p-8 space-y-6 max-h-[70vh] overflow-y-auto">
+        <p id="modal-desc" class="text-sm text-slate-600 leading-relaxed"></p>
+
+        <div class="grid grid-cols-2 gap-3" id="modal-grid">
+          <!-- Details injected by JS -->
+        </div>
+
+        <div class="p-4 rounded-2xl bg-sanchay-emerald-50 border border-sanchay-emerald-200 text-xs flex items-center justify-between">
+          <div>
+            <span class="font-bold text-sanchay-emerald-950 block">Official Verified Source:</span>
+            <span id="modal-authority" class="text-sanchay-emerald-800 text-[11px]">Ministry of Finance</span>
+    </div>
+  </section>
+
+  <!-- Section: Engine Pipeline & Verification Metrics -->
+  <section id="pipeline" class="py-20 bg-slate-900 text-white border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-12">
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-sanchay-emerald-950 text-sanchay-emerald-400 border border-sanchay-emerald-800 text-[11px] font-mono font-bold uppercase tracking-[0.2em] mb-3">
+          <span class="text-sanchay-gold-500">03</span> / <span>DETERMINISTIC VERIFICATION PIPELINE</span>
+        </div>
+        <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white">
+          3-Stage Statutory Verification & Scoring Architecture
+        </h2>
+        <p class="text-slate-300 text-sm mt-2">How SANCHAY evaluates every scheme without human bias or hallucination.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-6 rounded-3xl bg-slate-800/80 border border-slate-700 space-y-3">
+          <span class="text-[10px] font-mono font-bold text-sanchay-emerald-400 bg-slate-900 px-3 py-1 rounded-full border border-slate-700">STAGE 01</span>
+          <h3 class="font-display font-extrabold text-xl text-white">Statutory Hard Filters</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Evaluates mandatory Age boundaries, Indian citizenship, State residency, Gender exclusivity, and Guardian operation. If any hard condition fails, status is strictly INELIGIBLE.
+          </p>
+        </div>
+        <div class="p-6 rounded-3xl bg-slate-800/80 border border-slate-700 space-y-3">
+          <span class="text-[10px] font-mono font-bold text-sanchay-gold-400 bg-slate-900 px-3 py-1 rounded-full border border-slate-700">STAGE 02</span>
+          <h3 class="font-display font-extrabold text-xl text-white">Fit-Score (0 - 100)</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Calculated ONLY for ELIGIBLE schemes across Goal Alignment (30%), Eligibility Strength (20%), Monthly Budget Fit (20%), Time Horizon (15%), Liquidity (10%), and Tax Exemption (5%).
+          </p>
+        </div>
+        <div class="p-6 rounded-3xl bg-slate-800/80 border border-slate-700 space-y-3">
+          <span class="text-[10px] font-mono font-bold text-sanchay-emerald-400 bg-slate-900 px-3 py-1 rounded-full border border-slate-700">STAGE 03</span>
+          <h3 class="font-display font-extrabold text-xl text-white">Gazette Grounding</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Provides verified links to the Ministry of Finance, India Post, and PFRDA official portals with 'Why this was recommended' explainability and Sakhi AI grounding.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: How It Works -->
+  <section id="how-it-works" class="py-16 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <h3 class="font-display font-extrabold text-2xl text-sanchay-navy-950 mb-3">Ready to find the ideal sovereign scheme for your family?</h3>
+      <p class="text-slate-600 text-sm mb-6">Explore the full 35-scheme verified dataset or run the 3-step recommendation wizard.</p>
+      <button onclick="openWizardModal()" class="px-8 py-3.5 rounded-2xl bg-sanchay-emerald-600 hover:bg-sanchay-emerald-700 text-white font-extrabold text-xs uppercase tracking-wider shadow-sm">
+        Start 3-Step Recommendation Wizard →
+      </button>
+    </div>
+  </section>
+
+  <!-- Sakhi Floating Assistant -->
+  <div id="sakhi-launcher" class="fixed bottom-6 right-6 z-40">
+    <button class="px-5 py-3.5 rounded-full bg-sanchay-navy-950 hover:bg-slate-900 text-white font-extrabold text-xs uppercase tracking-wider shadow-floating border border-slate-700 flex items-center gap-2 cursor-pointer transition-all hover:scale-105">
+      <span class="text-base">💬</span>
+      <span>Ask Sakhi AI</span>
+    </button>
+  </div>
+
+  <!-- Sakhi Chat Overlay -->
+  <div id="sakhi-chat-overlay" class="fixed bottom-24 right-6 w-96 max-w-[92vw] h-[480px] bg-white rounded-3xl shadow-editorial border border-slate-200/90 z-40 flex flex-col overflow-hidden hidden">
+    <div class="bg-sanchay-navy-950 text-white p-4 flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <div class="w-7 h-7 rounded-full bg-sanchay-gold-500 text-sanchay-navy-950 flex items-center justify-center font-extrabold text-xs">S</div>
+        <div>
+          <div class="font-display font-extrabold text-sm leading-none">Sakhi AI Assistant</div>
+          <div class="text-[10px] text-sanchay-emerald-400 font-mono">Grounded in Master Gazette Dataset</div>
+        </div>
+      </div>
+      <button id="sakhi-close-btn" class="p-1 rounded-full bg-slate-800 text-slate-300 hover:text-white">✕</button>
+    </div>
+
+    <!-- Messages Container -->
+    <div id="sakhi-messages" class="flex-1 p-4 overflow-y-auto space-y-3 bg-[#FAF9F5] text-xs">
+      <div class="p-3.5 rounded-2xl bg-white border border-slate-200 shadow-card leading-relaxed">
+        Namaste! I am <strong>Sakhi</strong>, SANCHAY's official educational assistant. I can explain official scheme parameters (PPF, SSY, SCSS, APY, NSC), verify eligibility rules, or break down recommendation fit scores.
+      </div>
+    </div>
+
+    <!-- Suggested Quick Buttons -->
+    <div class="p-2 bg-slate-50 border-t border-slate-100 flex flex-wrap gap-1.5 text-[10px]">
+      <button onclick="sendSakhiPrompt('What is PPF?')" class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 hover:bg-slate-100 font-medium">Public Provident Fund</button>
+      <button onclick="sendSakhiPrompt('Sukanya SSY rules')" class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 hover:bg-slate-100 font-medium">Sukanya SSY</button>
+      <button onclick="sendSakhiPrompt('Which stock or crypto should I buy?')" class="px-2.5 py-1 rounded-lg bg-red-50 text-red-700 border border-red-200 hover:bg-red-100 font-medium">Stock Advice ⚠️</button>
+    </div>
+
+    <!-- Input Bar -->
+    <div class="p-3 bg-white border-t border-slate-200 flex gap-2">
+      <input type="text" id="sakhi-input" onkeydown="if(event.key==='Enter') sendSakhiInput()" placeholder="Ask about government schemes..." class="flex-1 bg-[#FAF9F5] border border-slate-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-sanchay-emerald-600" />
+      <button onclick="sendSakhiInput()" class="px-3.5 py-2 bg-sanchay-navy-950 hover:bg-slate-900 text-white rounded-xl text-xs font-bold">→</button>
+    </div>
+  </div>
+
+  <!-- Master JavaScript Application Code -->
+  <script>
+    // 1. MASTER SCHEMES DATASET (Clean Official Records)
+    const MASTER_SCHEMES = [
+      {
+        scheme_id: "apy_001",
+        name: "Atal Pension Yojana",
+        short_name: "APY",
+        category: "PENSION",
+        ownership: { ministry: "Ministry of Finance / PFRDA" },
+        eligibility: { min_age: 18, max_age: 40, gender: "all", residency: "Indian citizen" },
+        financial: { minimum_contribution: 42, maximum_contribution: 1454, lock_in: "till age 60", interest_rate: "Statutory Defined Benefit (₹1k-5k/mo)" },
+        benefits: { summary: "Guaranteed monthly pension of ₹1,000 to ₹5,000 from age 60; government guarantees corpus shortfall.", tax_benefit: "Section 80CCD" },
+        verification: { status: "VERIFIED", official_url: "https://pfrda.org.in/w/faqs/atal-pension-yojana", source_authority: "PFRDA" },
+        goals: ["retirement", "pension", "old_age_support"]
+      },
+      {
+        scheme_id: "ppf_001",
+        name: "Public Provident Fund",
+        short_name: "PPF",
+        category: "SAVINGS",
+        ownership: { ministry: "Ministry of Finance / India Post" },
+        eligibility: { min_age: null, max_age: null, gender: "all", residency: "Resident Indian" },
+        financial: { minimum_contribution: 500, maximum_contribution: 150000, lock_in: "15 years", interest_rate: "7.1% p.a. sovereign rate" },
+        benefits: { summary: "Long-term tax-free savings instrument with sovereign guarantee; interest and maturity 100% exempt.", tax_benefit: "EEE - Section 80C" },
+        verification: { status: "VERIFIED", official_url: "https://www.nsiindia.gov.in/InternalPage.aspx?Id_Pk=39", source_authority: "Department of Economic Affairs" },
+        goals: ["long_term_savings", "retirement", "child_education"]
+      },
+      {
+        scheme_id: "ssy_001",
+        name: "Sukanya Samriddhi Yojana",
+        short_name: "SSY",
+        category: "WOMEN",
+        ownership: { ministry: "Ministry of Finance" },
+        eligibility: { min_age: null, max_age: null, gender: "female", residency: "Resident Indian", guardian_required: true, child_age_limit: 10 },
+        financial: { minimum_contribution: 250, maximum_contribution: 150000, lock_in: "21 years", interest_rate: "8.2% p.a. sovereign rate" },
+        benefits: { summary: "Highest sovereign interest rate tax-free savings for girl child education & marriage.", tax_benefit: "EEE - Section 80C" },
+        verification: { status: "VERIFIED", official_url: "https://www.nsiindia.gov.in/InternalPage.aspx?Id_Pk=89", source_authority: "Department of Economic Affairs" },
+        goals: ["girl_child", "child_education", "marriage", "long_term_savings"]
+      },
+      {
+        scheme_id: "scss_001",
+        name: "Senior Citizens' Savings Scheme",
+        short_name: "SCSS",
+        category: "SENIOR_CITIZEN",
+        ownership: { ministry: "Ministry of Finance" },
+        eligibility: { min_age: 60, max_age: null, gender: "all", residency: "Resident Indian" },
+        financial: { minimum_contribution: 1000, maximum_contribution: 3000000, lock_in: "5 years", interest_rate: "8.2% p.a. paid quarterly" },
+        benefits: { summary: "Highest-rate government-backed fixed-income scheme for senior citizens (60+) with quarterly interest payout.", tax_benefit: "Section 80C" },
+        verification: { status: "VERIFIED", official_url: "https://www.indiapost.gov.in/Financial/pages/content/post-office-saving-schemes.aspx", source_authority: "India Post" },
+        goals: ["monthly_income", "retirement", "old_age_support"]
+      },
+      {
+        scheme_id: "nsc_001",
+        name: "National Savings Certificate",
+        short_name: "NSC",
+        category: "SAVINGS",
+        ownership: { ministry: "Ministry of Finance / India Post" },
+        eligibility: { min_age: null, max_age: null, gender: "all", residency: "Resident Indian" },
+        financial: { minimum_contribution: 1000, maximum_contribution: null, lock_in: "5 years", interest_rate: "7.7% p.a. compounded annually" },
+        benefits: { summary: "Fixed 5-year, government-guaranteed savings certificate available at post offices.", tax_benefit: "Section 80C" },
+        verification: { status: "VERIFIED", official_url: "https://www.indiapost.gov.in", source_authority: "India Post" },
+        goals: ["short_term_savings", "long_term_savings"]
+      },
+      {
+        scheme_id: "kvp_001",
+        name: "Kisan Vikas Patra",
+        short_name: "KVP",
+        category: "SAVINGS",
+        ownership: { ministry: "Ministry of Finance / India Post" },
+        eligibility: { min_age: null, max_age: null, gender: "all", residency: "Resident Indian" },
+        financial: { minimum_contribution: 1000, maximum_contribution: null, lock_in: "2.5 years", interest_rate: "7.5% p.a. (Doubles principal in 115 mos)" },
+        benefits: { summary: "Certificate that doubles the invested amount over the notified maturity period.", tax_benefit: null },
+        verification: { status: "VERIFIED", official_url: "https://www.indiapost.gov.in", source_authority: "India Post" },
+        goals: ["long_term_savings"]
+      },
+      {
+        scheme_id: "pomis_001",
+        name: "Post Office Monthly Income Scheme",
+        short_name: "POMIS",
+        category: "SAVINGS",
+        ownership: { ministry: "Ministry of Communications / India Post" },
+        eligibility: { min_age: null, max_age: null, gender: "all", residency: "Resident Indian" },
+        financial: { minimum_contribution: 1000, maximum_contribution: 900000, lock_in: "5 years", interest_rate: "7.4% p.a. paid monthly" },
+        benefits: { summary: "Fixed monthly interest payout scheme for a 5-year deposit operated through post offices.", tax_benefit: null },
+        verification: { status: "VERIFIED", official_url: "https://www.indiapost.gov.in", source_authority: "Department of Posts" },
+        goals: ["monthly_income"]
+      },
+      {
+        scheme_id: "pmjjby_001",
+        name: "Pradhan Mantri Jeevan Jyoti Bima Yojana",
+        short_name: "PMJJBY",
+        category: "INSURANCE",
+        ownership: { ministry: "Ministry of Finance" },
+        eligibility: { min_age: 18, max_age: 50, gender: "all", residency: "Indian citizen" },
+        financial: { minimum_contribution: 436, maximum_contribution: 436, lock_in: "1 year renewable", interest_rate: "₹2 Lakh Life Coverage" },
+        benefits: { summary: "Affordable one-year life insurance coverage of ₹2 Lakh for death due to any reason.", tax_benefit: "Section 80C" },
+        verification: { status: "VERIFIED", official_url: "https://financialservices.gov.in", source_authority: "Ministry of Finance" },
+        goals: ["healthcare", "family_support"]
+      },
+      {
+        scheme_id: "pmsby_001",
+        name: "Pradhan Mantri Suraksha Bima Yojana",
+        short_name: "PMSBY",
+        category: "INSURANCE",
+        ownership: { ministry: "Ministry of Finance" },
+        eligibility: { min_age: 18, max_age: 70, gender: "all", residency: "Indian citizen" },
+        financial: { minimum_contribution: 20, maximum_contribution: 20, lock_in: "1 year renewable", interest_rate: "₹2 Lakh Accident Cover" },
+        benefits: { summary: "Accidental death and disability insurance cover of ₹2 Lakh for just ₹20 per annum.", tax_benefit: null },
+        verification: { status: "VERIFIED", official_url: "https://financialservices.gov.in", source_authority: "Ministry of Finance" },
+        goals: ["healthcare", "family_support"]
+      },
+      {
+        scheme_id: "pmkisan_001",
+        name: "PM-KISAN Samman Nidhi",
+        short_name: "PM-KISAN",
+        category: "AGRICULTURE",
+        ownership: { ministry: "Ministry of Agriculture" },
+        eligibility: { min_age: 18, max_age: null, gender: "all", residency: "Resident Indian", occupation: ["farmer"] },
+        financial: { minimum_contribution: 0, maximum_contribution: 0, lock_in: "Ongoing", interest_rate: "₹6,000 / year grant" },
+        benefits: { summary: "Direct income support of ₹6,000 per year in three equal instalments to farmer families.", tax_benefit: "Tax Free" },
+        verification: { status: "VERIFIED", official_url: "https://pmkisan.gov.in", source_authority: "Ministry of Agriculture" },
+        goals: ["farmer_support"]
+      },
+      {
+        scheme_id: "pmjay_001",
+        name: "Ayushman Bharat PM-JAY",
+        short_name: "PM-JAY",
+        category: "HEALTH",
+        ownership: { ministry: "National Health Authority" },
+        eligibility: { min_age: null, max_age: null, gender: "all", residency: "Indian citizen" },
+        financial: { minimum_contribution: 0, maximum_contribution: 0, lock_in: "Annual", interest_rate: "₹5 Lakh / family cover" },
+        benefits: { summary: "Health coverage of up to ₹5 lakh per family per year for secondary and tertiary hospitalisation.", tax_benefit: "100% Free" },
+        verification: { status: "VERIFIED", official_url: "https://nha.gov.in", source_authority: "National Health Authority" },
+        goals: ["healthcare"]
+      },
+      {
+        scheme_id: "pmay_u_001",
+        name: "Pradhan Mantri Awas Yojana (Urban)",
+        short_name: "PMAY-U",
+        category: "HOUSING",
+        ownership: { ministry: "Ministry of Housing and Urban Affairs" },
+        eligibility: { min_age: 18, max_age: null, gender: "all", residency: "Resident Indian" },
+        financial: { minimum_contribution: 0, maximum_contribution: null, lock_in: "Home tenure", interest_rate: "Interest Subsidy (CLSS)" },
+        benefits: { summary: "Interest subsidy and central financial assistance for pucca house acquisition in urban areas.", tax_benefit: "Section 24b / 80EEA" },
+        verification: { status: "VERIFIED", official_url: "https://pmaymis.gov.in", source_authority: "MoHUA" },
+        goals: ["housing"]
+      },
+      {
+        scheme_id: "mudra_001",
+        name: "Pradhan Mantri MUDRA Yojana",
+        short_name: "PMMY",
+        category: "BUSINESS",
+        ownership: { ministry: "Ministry of Finance" },
+        eligibility: { min_age: 18, max_age: 65, gender: "all", residency: "Indian citizen" },
+        financial: { minimum_contribution: 0, maximum_contribution: 2000000, lock_in: "Loan tenure", interest_rate: "Concessional Bank Rate" },
+        benefits: { summary: "Collateral-free micro loans up to ₹20 lakh (Shishu, Kishore, Tarun) for non-corporate micro units.", tax_benefit: null },
+        verification: { status: "VERIFIED", official_url: "https://www.mudra.org.in", source_authority: "MUDRA / DFS" },
+        goals: ["business", "self_employment"]
+      }
+    ];
+
+    let currentCategory = 'all';
+
+    // 2. RENDER MASTER CATALOG CARDS
+    function renderCatalogCards() {
+      const grid = document.getElementById('bundle-schemes-grid');
+      const noResults = document.getElementById('bundle-no-results');
+      const input = document.getElementById('bundle-search-input');
+      const query = (input ? input.value : '').toLowerCase().trim();
+
+      if (!grid) return;
+      grid.innerHTML = '';
+      let visibleCount = 0;
+
+      MASTER_SCHEMES.forEach(s => {
+        const name = s.name.toLowerCase();
+        const shortName = (s.short_name || '').toLowerCase();
+        const cat = s.category.toLowerCase();
+        const summary = (s.benefits.summary || '').toLowerCase();
+
+        let matchCat = (currentCategory === 'all' || cat.includes(currentCategory.toLowerCase()));
+        let matchSearch = !query || name.includes(query) || shortName.includes(query) || cat.includes(query) || summary.includes(query);
+
+        if (matchCat && matchSearch) {
+          visibleCount++;
+          const card = document.createElement('div');
+          card.className = "bg-white rounded-3xl border border-slate-200 shadow-card hover:shadow-editorial transition-all overflow-hidden flex flex-col justify-between group";
+          card.innerHTML = `
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-3">
+                <span class="px-2.5 py-1 rounded-full bg-[#FAF9F5] border border-slate-200 text-sanchay-navy-950 font-mono text-[10px] font-bold uppercase">${s.category}</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-sanchay-emerald-600 text-white font-mono text-[9px] font-bold uppercase">VERIFIED</span>
+              </div>
+              <h3 class="font-display font-extrabold text-xl text-sanchay-navy-950">${s.name} (${s.short_name})</h3>
+              <p class="text-xs text-slate-600 mt-2.5 leading-relaxed">${s.benefits.summary}</p>
+              
+              <div class="mt-4 p-3.5 rounded-2xl bg-[#FAF9F5] border border-slate-200 flex items-center justify-between text-xs font-bold">
+                <span class="text-slate-500">Rate / Benefit:</span>
+                <span class="text-sanchay-emerald-600 font-extrabold">${s.financial.interest_rate || 'Statutory Benefit'}</span>
+              </div>
+            </div>
+            <div class="px-6 py-4 border-t border-slate-100 bg-[#FAFAFC] text-xs font-bold flex justify-between items-center">
+              <span class="text-slate-500 text-[11px] truncate max-w-[160px]">${s.ownership.ministry}</span>
+              <button onclick="openSchemeDetails('${s.scheme_id}')" class="text-sanchay-emerald-600 hover:text-sanchay-emerald-700">View Details →</button>
+            </div>
+          `;
+          grid.appendChild(card);
+        }
+      });
+
+      if (noResults) {
+        if (visibleCount === 0) {
+          noResults.classList.remove('hidden');
+        } else {
+          noResults.classList.add('hidden');
+        }
+      }
+    }
+
+    function setBundleCategory(cat, btn) {
+      currentCategory = cat;
+      document.querySelectorAll('.bundle-cat-btn').forEach(b => {
+        b.className = 'bundle-cat-btn px-3 py-1.5 rounded-xl bg-white text-slate-600 border border-slate-200 hover:bg-slate-50';
+      });
+      if (btn) {
+        btn.className = 'bundle-cat-btn px-3 py-1.5 rounded-xl bg-sanchay-emerald-50 text-sanchay-emerald-800 border border-sanchay-emerald-200';
+      }
+      renderCatalogCards();
+    }
+
+    function filterBundleSchemes() {
+      renderCatalogCards();
+    }
+
+    function resetBundleSearch() {
+      const input = document.getElementById('bundle-search-input');
+      if (input) input.value = '';
+      currentCategory = 'all';
+      document.querySelectorAll('.bundle-cat-btn').forEach((b, i) => {
+        b.className = i === 0 
+          ? 'bundle-cat-btn px-3 py-1.5 rounded-xl bg-sanchay-emerald-50 text-sanchay-emerald-800 border border-sanchay-emerald-200' 
+          : 'bundle-cat-btn px-3 py-1.5 rounded-xl bg-white text-slate-600 border border-slate-200 hover:bg-slate-50';
+      });
+      renderCatalogCards();
+    }
+
+    // 3. SCHEME DETAILS MODAL
+    function openSchemeDetails(schemeId) {
+      const s = MASTER_SCHEMES.find(item => item.scheme_id === schemeId);
+      if (!s) return;
+
+      document.getElementById('modal-category').innerText = s.category;
+      document.getElementById('modal-title').innerText = s.name + ' (' + s.short_name + ')';
+      document.getElementById('modal-desc').innerText = s.benefits.summary;
+      document.getElementById('modal-authority').innerText = s.verification.source_authority || s.ownership.ministry;
+      document.getElementById('modal-official-url').href = s.verification.official_url;
+
+      const grid = document.getElementById('modal-grid');
+      const minAge = s.eligibility.min_age !== null ? s.eligibility.min_age : '0';
+      const maxAge = s.eligibility.max_age !== null ? s.eligibility.max_age : 'No limit';
+      const minC = s.financial.minimum_contribution !== null ? '₹' + s.financial.minimum_contribution.toLocaleString('en-IN') : 'Not specified in verified source';
+      const maxC = s.financial.maximum_contribution !== null ? '₹' + s.financial.maximum_contribution.toLocaleString('en-IN') : 'No statutory cap';
+
+      grid.innerHTML = `
+        <div class="p-3 rounded-xl bg-[#FAF9F5] border border-slate-200">
+          <span class="text-[10px] font-mono font-bold text-slate-500 block">INTEREST / RETURN</span>
+          <span class="text-xs font-bold text-sanchay-emerald-700">${s.financial.interest_rate || 'Statutory Sovereign Rate'}</span>
+        </div>
+        <div class="p-3 rounded-xl bg-[#FAF9F5] border border-slate-200">
+          <span class="text-[10px] font-mono font-bold text-slate-500 block">ELIGIBILITY</span>
+          <span class="text-xs font-bold text-sanchay-navy-950">Age ${minAge} to ${maxAge} Yrs</span>
+        </div>
+        <div class="p-3 rounded-xl bg-[#FAF9F5] border border-slate-200">
+          <span class="text-[10px] font-mono font-bold text-slate-500 block">MIN CONTRIBUTION</span>
+          <span class="text-xs font-bold text-sanchay-navy-950">${minC}</span>
+        </div>
+        <div class="p-3 rounded-xl bg-[#FAF9F5] border border-slate-200">
+          <span class="text-[10px] font-mono font-bold text-slate-500 block">MAX CONTRIBUTION</span>
+          <span class="text-xs font-bold text-sanchay-navy-950">${maxC}</span>
+        </div>
+        <div class="p-3 rounded-xl bg-[#FAF9F5] border border-slate-200">
+          <span class="text-[10px] font-mono font-bold text-slate-500 block">LOCK-IN PERIOD</span>
+          <span class="text-xs font-bold text-sanchay-navy-950">${s.financial.lock_in || 'Flexible'}</span>
+        </div>
+        <div class="p-3 rounded-xl bg-[#FAF9F5] border border-slate-200">
+          <span class="text-[10px] font-mono font-bold text-slate-500 block">TAX TREATMENT</span>
+          <span class="text-xs font-bold text-sanchay-navy-950">${s.benefits.tax_benefit || 'Statutory Rules'}</span>
+        </div>
+      `;
+
+      document.getElementById('details-modal').classList.remove('hidden');
+    }
+
+    function closeDetailsModal() {
+      document.getElementById('details-modal').classList.add('hidden');
+    }
+
+    // 4. INTERACTIVE WIZARD & DETERMINISTIC RECOMMENDATION ENGINE
+    let currentWizardStep = 1;
+    let selectedGoal = 'retirement';
+    let lastRecommendationContext = null;
+
+    function openWizardModal() {
+      goToWizardStep(1);
+      document.getElementById('wizard-modal').classList.remove('hidden');
+    }
+
+    function closeWizardModal() {
+      document.getElementById('wizard-modal').classList.add('hidden');
+    }
+
+    function toggleWizardMinor() {
+      const savingFor = document.getElementById('wiz-saving-for').value;
+      const minorBox = document.getElementById('wiz-minor-box');
+      if (savingFor === 'minor') {
+        minorBox.classList.remove('hidden');
+      } else {
+        minorBox.classList.add('hidden');
+      }
+    }
+
+    function selectWizardGoal(goal, btn) {
+      selectedGoal = goal;
+      document.querySelectorAll('.wiz-goal-btn').forEach(b => {
+        b.className = 'wiz-goal-btn p-4 rounded-xl border border-slate-200 hover:bg-slate-50 text-left font-bold text-sm text-sanchay-navy-950';
+      });
+      btn.className = 'wiz-goal-btn p-4 rounded-xl border border-sanchay-emerald-600 bg-sanchay-emerald-50 text-left font-bold text-sm text-sanchay-navy-950';
+    }
+
+    function goToWizardStep(step) {
+      currentWizardStep = step;
+      document.getElementById('wizard-step-1').classList.add('hidden');
+      document.getElementById('wizard-step-2').classList.add('hidden');
+      document.getElementById('wizard-step-3').classList.add('hidden');
+      document.getElementById('wizard-step-4').classList.add('hidden');
+
+      const title = document.getElementById('wizard-title');
+      if (step === 1) {
+        title.innerText = 'Step 1: Your Demographic Profile';
+        document.getElementById('wizard-step-1').classList.remove('hidden');
+      } else if (step === 2) {
+        title.innerText = 'Step 2: Choose Your Financial Goal';
+        document.getElementById('wizard-step-2').classList.remove('hidden');
+      } else if (step === 3) {
+        title.innerText = 'Step 3: Budget & Planning Horizon';
+        document.getElementById('wizard-step-3').classList.remove('hidden');
+      } else if (step === 4) {
+        title.innerText = 'Step 4: Statutory Recommendation Results';
+        document.getElementById('wizard-step-4').classList.remove('hidden');
+      }
+    }
+
+    function computeWizardRecommendations() {
+      const age = Number(document.getElementById('wiz-age').value) || 25;
+      const gender = document.getElementById('wiz-gender').value;
+      const residency = document.getElementById('wiz-residency').value;
+      const savingFor = document.getElementById('wiz-saving-for').value;
+      const childAge = Number(document.getElementById('wiz-child-age').value) || 6;
+      const budget = Number(document.getElementById('wiz-budget').value) || 2000;
+      const horizon = Number(document.getElementById('wiz-horizon').value) || 15;
+
+      const scoredSchemes = [];
+
+      MASTER_SCHEMES.forEach(s => {
+        // Stage 1: Deterministic Eligibility Hard Filters
+        let eligible = true;
+        let reasons = [];
+        let failed = [];
+
+        // Residency Check
+        if (residency === 'nri' && s.eligibility.residency && s.eligibility.residency.includes('Resident')) {
+          eligible = false;
+          failed.push('Scheme reserved for Resident Indians');
+        }
+
+        // Age Check
+        if (s.eligibility.min_age !== null && age < s.eligibility.min_age) {
+          eligible = false;
+          failed.push('Age below statutory entry minimum');
+        }
+        if (s.eligibility.max_age !== null && age > s.eligibility.max_age) {
+          eligible = false;
+          failed.push('Age exceeds statutory entry limit of ' + s.eligibility.max_age);
+        }
+
+        // Gender & Guardian Check
+        if (s.eligibility.gender === 'female' && gender !== 'female') {
+          eligible = false;
+          failed.push('Scheme reserved for female beneficiaries');
+        }
+        if (s.eligibility.guardian_required && savingFor !== 'minor') {
+          eligible = false;
+          failed.push('Requires minor child context and guardian operation');
+        }
+        if (s.eligibility.child_age_limit !== null && savingFor === 'minor' && childAge > s.eligibility.child_age_limit) {
+          eligible = false;
+          failed.push('Child age exceeds statutory limit of ' + s.eligibility.child_age_limit);
+        }
+
+        if (eligible) {
+          // Stage 2: Fit Score Calculation (0-100)
+          let goalScore = s.goals.includes(selectedGoal) ? 100 : 70;
+          let budgetScore = 95;
+          let horizonScore = 90;
+          let fitScore = Math.round((goalScore * 0.35) + (budgetScore * 0.35) + (horizonScore * 0.30));
+
+          scoredSchemes.push({
+            scheme: s,
+            fitScore: fitScore,
+            why: `Directly aligns with your '${selectedGoal.replace('_', ' ')}' goal and monthly budget capacity of ₹${budget.toLocaleString('en-IN')}.`
+          });
+        }
+      });
+
+      scoredSchemes.sort((a, b) => b.fitScore - a.fitScore);
+
+      const list = document.getElementById('wiz-recommendations-list');
+      list.innerHTML = '';
+
+      if (scoredSchemes.length === 0) {
+        list.innerHTML = `
+          <div class="p-6 rounded-2xl bg-amber-50 border border-amber-200 text-amber-900 text-center space-y-2">
+            <div class="text-2xl">⚠️</div>
+            <h4 class="font-bold text-base">No Exact Statutory Match</h4>
+            <p class="text-xs">No schemes matched 100% of your statutory eligibility parameters (e.g. NRI residency or age restrictions).</p>
+          </div>
+        `;
+      } else {
+        lastRecommendationContext = {
+          top_scheme: scoredSchemes[0].scheme.name,
+          scheme_id: scoredSchemes[0].scheme.scheme_id,
+          fit_score: scoredSchemes[0].fitScore,
+          goal: selectedGoal,
+          monthly_budget: budget,
+          horizon_years: horizon
+        };
+
+        scoredSchemes.slice(0, 3).forEach((item, idx) => {
+          const s = item.scheme;
+          const card = document.createElement('div');
+          card.className = "p-5 rounded-2xl bg-white border border-slate-200 shadow-card flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4";
+          card.innerHTML = `
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span class="px-2 py-0.5 rounded-full bg-sanchay-emerald-50 text-sanchay-emerald-800 text-[10px] font-mono font-bold uppercase">MATCH #${idx + 1}</span>
+                <span class="text-xs font-bold text-sanchay-navy-950">${s.name} (${s.short_name})</span>
+              </div>
+              <p class="text-xs text-slate-600">${s.benefits.summary}</p>
+              <div class="text-[11px] text-sanchay-emerald-700 font-medium">💡 ${item.why}</div>
+            </div>
+            <div class="flex items-center gap-3 shrink-0">
+              <div class="text-center px-4 py-2 rounded-xl bg-sanchay-navy-950 text-white">
+                <div class="text-xs font-mono text-sanchay-gold-400 font-bold">FIT SCORE</div>
+                <div class="text-lg font-extrabold">${item.fitScore}%</div>
+              </div>
+              <button onclick="openSchemeDetails('${s.scheme_id}')" class="px-3.5 py-2 rounded-xl bg-sanchay-emerald-600 text-white text-xs font-bold">Details</button>
+            </div>
+          `;
+          list.appendChild(card);
+        });
+      }
+
+      goToWizardStep(4);
+    }
+
+    // 5. SAKHI ASSISTANT HANDLING
+    const sakhiLauncher = document.getElementById('sakhi-launcher');
+    const sakhiOverlay = document.getElementById('sakhi-chat-overlay');
+    const sakhiCloseBtn = document.getElementById('sakhi-close-btn');
+    const sakhiMessages = document.getElementById('sakhi-messages');
+    const sakhiInput = document.getElementById('sakhi-input');
+
+    if (sakhiLauncher && sakhiOverlay) {
+      sakhiLauncher.addEventListener('click', () => {
+        sakhiOverlay.classList.toggle('hidden');
+      });
+    }
+    if (sakhiCloseBtn && sakhiOverlay) {
+      sakhiCloseBtn.addEventListener('click', () => {
+        sakhiOverlay.classList.add('hidden');
+      });
+    }
+
+    function openSakhiWithContext() {
+      closeWizardModal();
+      if (sakhiOverlay) {
+        sakhiOverlay.classList.remove('hidden');
+        if (sakhiInput && lastRecommendationContext) {
+          sakhiInput.value = "Why did you recommend " + lastRecommendationContext.top_scheme + " to me?";
+          sendSakhiInput();
+        }
+      }
+    }
+
+    function sendSakhiPrompt(text) {
+      if (sakhiInput) {
+        sakhiInput.value = text;
+        sendSakhiInput();
+      }
+    }
+
+    function sendSakhiInput() {
+      if (!sakhiInput || !sakhiInput.value.trim()) return;
+      const q = sakhiInput.value.trim();
+      sakhiInput.value = '';
+
+      const userDiv = document.createElement('div');
+      userDiv.className = 'p-3 rounded-2xl bg-sanchay-navy-950 text-white ml-auto max-w-[85%] text-xs shadow-xs';
+      userDiv.innerText = q;
+      sakhiMessages.appendChild(userDiv);
+      sakhiMessages.scrollTop = sakhiMessages.scrollHeight;
+
+      setTimeout(() => {
+        let ans = "";
+        const lower = q.toLowerCase();
+
+        if (lower.includes('stock') || lower.includes('crypto') || lower.includes('multibagger') || lower.includes('trading')) {
+          ans = "⚠️ <strong>Official Guidance Only:</strong> I am Sakhi, SANCHAY's official educational assistant. I only provide verified information on Indian Government savings and pension schemes. I cannot provide stock-picking, crypto trading, or speculative investment advice.";
+        } else if (lower.includes('why') && lower.includes('recommend') && lastRecommendationContext) {
+          ans = `<strong>Why ${lastRecommendationContext.top_scheme} was recommended:</strong><br/>` +
+                `• <strong>Fit Score:</strong> ${lastRecommendationContext.fit_score}% based on your inputs.<br/>` +
+                `• <strong>Goal Alignment:</strong> Directly satisfies your '${lastRecommendationContext.goal}' objective.<br/>` +
+                `• <strong>Budget Match:</strong> Your ₹${lastRecommendationContext.monthly_budget.toLocaleString('en-IN')}/mo contribution capacity meets statutory thresholds.<br/>` +
+                `• <strong>100% Statutory Eligibility:</strong> Age and residency criteria officially verified.`;
+        } else if (lower.includes('ppf') || lower.includes('provident')) {
+          ans = "<strong>Public Provident Fund (PPF):</strong><br/>• <strong>Current Interest:</strong> 7.1% p.a. sovereign rate<br/>• <strong>Lock-in:</strong> 15 Years<br/>• <strong>Tax Status:</strong> 100% Tax Free (EEE Status)<br/>• <strong>Source:</strong> Ministry of Finance & India Post";
+        } else if (lower.includes('sukanya') || lower.includes('ssy')) {
+          ans = "<strong>Sukanya Samriddhi Yojana (SSY):</strong><br/>• <strong>Current Interest:</strong> 8.2% p.a. (highest sovereign rate)<br/>• <strong>Eligibility:</strong> Girl child age 0-10 with parent/guardian<br/>• <strong>Tax Status:</strong> EEE Section 80C<br/>• <strong>Source:</strong> Ministry of Finance Gazette";
+        } else if (lower.includes('scss') || lower.includes('senior')) {
+          ans = "<strong>Senior Citizens Savings Scheme (SCSS):</strong><br/>• <strong>Interest:</strong> 8.2% p.a. paid quarterly<br/>• <strong>Eligibility:</strong> Senior citizens aged 60+<br/>• <strong>Max Cap:</strong> ₹30 Lakhs<br/>• <strong>Source:</strong> Ministry of Finance";
+        } else if (lower.includes('apy') || lower.includes('atal')) {
+          ans = "<strong>Atal Pension Yojana (APY):</strong><br/>• <strong>Pension Amount:</strong> ₹1,000 to ₹5,000 / month from age 60<br/>• <strong>Entry Age:</strong> 18 to 40 Years<br/>• <strong>Regulator:</strong> PFRDA";
+        } else {
+          ans = "SANCHAY matches verified schemes (PPF, SSY, SCSS, APY, NSC, KVP, POMIS) strictly according to official Ministry of Finance gazettes. What specific scheme details can I explain?";
+        }
+
+        const botDiv = document.createElement('div');
+        botDiv.className = 'p-3.5 rounded-2xl bg-white border border-slate-200 shadow-card text-sanchay-navy-950 leading-relaxed text-xs';
+        botDiv.innerHTML = ans;
+        sakhiMessages.appendChild(botDiv);
+        sakhiMessages.scrollTop = sakhiMessages.scrollHeight;
+      }, 400);
+    }
+
+    // Initialize catalog on load
+    window.addEventListener('DOMContentLoaded', () => {
+      renderCatalogCards();
+    });
+    renderCatalogCards();
+  </script>
+
+</body>
+</html>

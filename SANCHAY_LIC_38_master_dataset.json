@@ -1,0 +1,30 @@
+{
+  "dataset_name": "SANCHAY LIC Master Dataset",
+  "version": "1.0",
+  "verified_on": "2026-08-31",
+  "source": "Life Insurance Corporation of India",
+  "lic_information": {
+    "organization_name": "Life Insurance Corporation of India",
+    "short_name": "LIC",
+    "official_website": "https://www.licindia.in/",
+    "official_insurance_plans_url": "https://www.licindia.in/en/web/guest/insurance-plan",
+    "official_pension_plans_url": "https://licindia.in/en/web/guest/pension-plan",
+    "official_unit_linked_plans_url": "https://www.licindia.in/en/web/guest/unit-linked-plans",
+    "official_micro_insurance_plans_url": "https://www.licindia.in/en/web/guest/micro-insurance-plans",
+    "official_withdrawn_plans_url": "https://www.licindia.in/en/web/guest/withdrawn-plans",
+    "irdai_registration_number": "512",
+    "corporate_office": "Yogakshema, Jeevan Bima Marg, P.O. Box No. 19953, Mumbai – 400 021",
+    "establishment_date": "1 September 1956",
+    "statutory_act": "Life Insurance Corporation Act, 1956 (Act No. 31 of 1956)",
+    "organization_type": "Statutory Public Sector Corporation",
+    "purpose": "Spread life insurance widely and in particular to rural areas and to socially and economically disadvantaged classes with a view to providing them adequate financial cover against death at a reasonable cost, and to maximize mobilization of people's savings by making insurance-linked savings adequately attractive."
+  },
+  "catalogue_count": 38,
+  "breakdown": {
+    "insurance": 27,
+    "pension": 5,
+    "unit_linked": 4,
+    "micro_insurance": 2
+  },
+  "important_note": "The current LIC website catalogue totals 38: 27 Insurance Plans, 5 Pension Schemes, 4 Unit Linked Plans and 2 Micro Insurance Plans. The older Bima Jyoti Plan 760 is withdrawn; the current plan is New Bima Jyoti Plan 890."
+}
