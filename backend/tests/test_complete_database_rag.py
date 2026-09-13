@@ -8,12 +8,14 @@ from dotenv import load_dotenv
 backend_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, backend_dir)
 
-# Load environment from backend/.env
+# Load environment from root and backend .env
+root_env = Path(backend_dir).parent / ".env"
 backend_env = Path(backend_dir) / ".env"
+if root_env.exists():
+    load_dotenv(root_env, override=False)
 if backend_env.exists():
-    load_dotenv(backend_env, override=True)
-else:
-    load_dotenv(override=True)
+    load_dotenv(backend_env, override=False)
+load_dotenv(override=False)
 
 from fastapi.testclient import TestClient
 from app.main import app

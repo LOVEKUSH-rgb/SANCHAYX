@@ -210,10 +210,12 @@ class GeminiSakhiAdapter:
 
     def _init_client(self):
         backend_env = Path(__file__).resolve().parent.parent.parent / ".env"
+        root_env = Path(__file__).resolve().parent.parent.parent.parent / ".env"
+        if root_env.exists():
+            load_dotenv(root_env, override=False)
         if backend_env.exists():
-            load_dotenv(backend_env, override=True)
-        else:
-            load_dotenv(override=True)
+            load_dotenv(backend_env, override=False)
+        load_dotenv(override=False)
 
         key = self.api_key or os.getenv("GEMINI_API_KEY")
         if key and key != self.api_key:

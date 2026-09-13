@@ -6,14 +6,46 @@ from typing import Dict, Any, List, Optional
 from dotenv import load_dotenv
 
 BACKEND_DIR = Path(__file__).resolve().parent.parent
+root_env = BACKEND_DIR.parent / ".env"
 backend_env = BACKEND_DIR / ".env"
-if backend_env.exists():
-    load_dotenv(backend_env, override=True)
-else:
-    load_dotenv(override=True)
 
-MONGODB_URI = os.getenv("MONGODB_URI", "mongodb://localhost:27017")
-DATABASE_NAME = os.getenv("DATABASE_NAME", "sanchay_db")
+# Cloud/System environment variables (e.g. Render dashboard) take highest priority.
+# Load root .env first, then backend .env as secondary, but NEVER override existing env vars.
+if root_env.exists():
+    load_dotenv(root_env, override=False)
+if backend_env.exists():
+    load_dotenv(backend_env, override=False)
+load_dotenv(override=False)
+
+
+def get_mongodb_uri() -> Optional[str]:
+    """Read MONGODB_URI dynamically, prioritizing cloud/system environment variables."""
+    uri = os.getenv("MONGODB_URI")
+    if uri and uri.strip():
+        cleaned = uri.strip().strip("'\"")
+        if cleaned:
+            return cleaned
+    return None
+
+
+def get_database_name() -> str:
+    """Read DATABASE_NAME dynamically from environment."""
+    return os.getenv("DATABASE_NAME", "sanchay_db").strip().strip("'\"")
+
+
+def mask_mongo_uri(uri: str) -> str:
+    """Sanitize MongoDB connection string to ensure credentials are never exposed in logs."""
+    if not uri:
+        return "None"
+    # Matches ://username:password@ and replaces with ://username:****@
+    masked = re.sub(r'://([^:]+):([^@]+)@', r'://\1:****@', uri)
+    # Also mask any password embedded in error traces matching :<password>@
+    masked = re.sub(r'(?<=:)[^:@/\s]+(?=@)', '****', masked)
+    return masked
+
+
+MONGODB_URI = get_mongodb_uri()
+DATABASE_NAME = get_database_name()
 
 # Path for persistent local fallback storage if MongoDB service is not running
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
@@ -314,15 +346,40 @@ class MongoDatabaseWrapper:
 
 def init_db():
     global _mongo_client, _db, _use_fallback
+    mongo_uri = get_mongodb_uri()
+    db_name = get_database_name()
+
+    if not mongo_uri:
+        print(f"Notice: MONGODB_URI not configured. Activating persistent zero-downtime database driver ({db_name}).")
+        _use_fallback = True
+        _db = MongoDatabaseWrapper()
+        return
+
+    masked_uri = mask_mongo_uri(mongo_uri)
     try:
         from pymongo import MongoClient
-        client = MongoClient(MONGODB_URI, serverSelectionTimeoutMS=1500)
-        # Test connection
-        client.server_info()
+        try:
+            import certifi
+            ca_file = certifi.where()
+        except Exception:
+            ca_file = None
+
+        client_kwargs = {
+            "serverSelectionTimeoutMS": 4000,
+            "connectTimeoutMS": 4000,
+            "retryWrites": True,
+        }
+        # Provide certifi CA bundle for Atlas SRV or TLS connections when available
+        if ca_file and ("mongodb+srv://" in mongo_uri or "ssl=true" in mongo_uri.lower() or "tls=true" in mongo_uri.lower()):
+            client_kwargs["tlsCAFile"] = ca_file
+
+        client = MongoClient(mongo_uri, **client_kwargs)
+        # Test connection by running admin ping command
+        client.admin.command('ping')
         _mongo_client = client
-        _db = client[DATABASE_NAME]
+        _db = client[db_name]
         _use_fallback = False
-        print(f"Connected successfully to MongoDB at {MONGODB_URI}/{DATABASE_NAME}")
+        print(f"Connected successfully to MongoDB at {masked_uri}/{db_name}")
 
         # Setup Indexes for schemes
         schemes_col = _db["schemes"]
@@ -365,7 +422,8 @@ def init_db():
         fb_col.create_index("benefit_type")
         fb_col.create_index("status")
     except Exception as e:
-        print(f"MongoDB connection notice: {e}. Activating persistent zero-downtime database driver.")
+        err_msg = mask_mongo_uri(str(e))
+        print(f"MongoDB connection notice ({masked_uri}): {err_msg}. Activating persistent zero-downtime database driver.")
         _use_fallback = True
         _db = MongoDatabaseWrapper()
 

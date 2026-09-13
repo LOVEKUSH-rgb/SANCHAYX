@@ -5,12 +5,14 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 BACKEND_DIR = Path(__file__).resolve().parent.parent
+root_env = BACKEND_DIR.parent / ".env"
 backend_env = BACKEND_DIR / ".env"
+
+if root_env.exists():
+    load_dotenv(root_env, override=False)
 if backend_env.exists():
-    load_dotenv(backend_env, override=True)
-else:
-    load_dotenv(override=True)
-# Loaded Gemini API Key and environment configurations
+    load_dotenv(backend_env, override=False)
+load_dotenv(override=False)
 
 
 from app.database import init_db, get_schemes_collection, get_lic_plans_collection, get_free_benefits_collection
