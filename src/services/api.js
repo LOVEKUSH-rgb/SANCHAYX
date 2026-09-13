@@ -1,4 +1,15 @@
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000';
+const getApiBaseUrl = () => {
+  const envUrl = import.meta.env.VITE_API_URL;
+  if (envUrl && envUrl.trim()) {
+    return envUrl.trim().replace(/\/+$/, '');
+  }
+  if (typeof window !== 'undefined' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+    return '';
+  }
+  return 'http://127.0.0.1:8000';
+};
+
+export const API_BASE_URL = getApiBaseUrl();
 import { calculateLocalRecommendations } from './clientEngine';
 import { FALLBACK_FREE_BENEFITS, filterLocalFreeBenefits } from '../data/freeBenefitsFallback';
 
@@ -194,11 +205,18 @@ export async function compareSchemes(schemeIds, profile = null) {
  * Chat with Sakhi AI Assistant (Grounded in Verified MongoDB records)
  */
 export async function sendSakhiChat({ message, language = 'en', context = null }) {
+  // If running in production on a remote domain without a remote backend URL, immediately use the local verified engine
+  if (!API_BASE_URL || API_BASE_URL.includes('127.0.0.1') || API_BASE_URL.includes('localhost')) {
+    if (typeof window !== 'undefined' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+      throw new Error('Remote backend not configured in production. Switching to verified local engine.');
+    }
+  }
+
   try {
     const res = await fetch(`${API_BASE_URL}/api/sakhi/chat`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      signal: typeof AbortSignal !== 'undefined' && AbortSignal.timeout ? AbortSignal.timeout(60000) : undefined,
+      signal: typeof AbortSignal !== 'undefined' && AbortSignal.timeout ? AbortSignal.timeout(10000) : undefined,
       body: JSON.stringify({
         message: message,
         language: language,
@@ -210,7 +228,7 @@ export async function sendSakhiChat({ message, language = 'en', context = null }
     }
     return await res.json();
   } catch (err) {
-    console.warn('Sakhi backend unavailable:', err);
+    console.warn('Sakhi backend unavailable, using local sovereign engine:', err);
     throw err;
   }
 }
