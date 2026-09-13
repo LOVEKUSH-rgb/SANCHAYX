@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import { sendSakhiChat } from '../../services/api';
+import { resolveLocalSakhiAnswer } from '../../services/sakhiLocalResponder';
 
 const CONTEXTUAL_PROMPTS = {
   Landing: {
@@ -722,9 +723,13 @@ export const SakhiChatPanel = ({
       setMessages(prev => [...prev, sakhiMsg]);
     } catch (err) {
       console.warn('Sakhi assistant API error:', err);
-      setMessages(prev => [
-        ...prev,
-        {
+      const localFallback = resolveLocalSakhiAnswer(textToSend.trim(), currentLang);
+      if (localFallback) {
+        setMessages(prev => [...prev, localFallback]);
+      } else {
+        setMessages(prev => [
+          ...prev,
+          {
           id: `err-${Date.now()}`,
           sender: 'sakhi',
           text: ({
@@ -739,6 +744,7 @@ export const SakhiChatPanel = ({
           timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
         }
       ]);
+      }
     } finally {
       setIsLoading(false);
     }

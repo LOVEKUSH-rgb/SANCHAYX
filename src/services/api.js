@@ -198,7 +198,7 @@ export async function sendSakhiChat({ message, language = 'en', context = null }
     const res = await fetch(`${API_BASE_URL}/api/sakhi/chat`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      signal: typeof AbortSignal !== 'undefined' && AbortSignal.timeout ? AbortSignal.timeout(25000) : undefined,
+      signal: typeof AbortSignal !== 'undefined' && AbortSignal.timeout ? AbortSignal.timeout(60000) : undefined,
       body: JSON.stringify({
         message: message,
         language: language,
