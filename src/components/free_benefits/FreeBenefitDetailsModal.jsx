@@ -74,7 +74,7 @@ export const FreeBenefitDetailsModal = ({ benefit, isOpen, onClose, onCheckEligi
                   addToMyPlans(benefit.benefit_id);
                 }
               }}
-              title={isSaved ? "Remove from My Plans" : "Save to My Plans"}
+              title={isSaved ? t('myPlans.removePlan', "Remove from My Plans") : t('myPlans.addToMyPlans', "Save to My Plans")}
               className={`p-2 rounded-xl border transition-all cursor-pointer ${
                 isSaved
                   ? 'bg-emerald-50 border-emerald-300 text-emerald-700 shadow-2xs'
@@ -139,7 +139,7 @@ export const FreeBenefitDetailsModal = ({ benefit, isOpen, onClose, onCheckEligi
           <div className="space-y-2">
             <h3 className="font-serif font-bold text-sm text-sanchay-navy-950 flex items-center gap-2">
               <Building2 className="w-4 h-4 text-slate-600" />
-              <span>Application Mode & Procedure</span>
+              <span>{getLocalizedCommonText('application_mode_procedure', currentLang)}</span>
             </h3>
             <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 text-xs">
               <div className="flex items-center gap-2">
@@ -195,7 +195,7 @@ export const FreeBenefitDetailsModal = ({ benefit, isOpen, onClose, onCheckEligi
             className="px-4 py-2.5 rounded-xl bg-sanchay-gold-500 hover:bg-sanchay-gold-600 text-sanchay-navy-950 font-mono font-bold text-xs uppercase tracking-wider transition-colors inline-flex items-center gap-1.5 cursor-pointer shadow-xs"
           >
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Check My Eligibility</span>
+            <span>{getLocalizedCommonText('check_eligibility_title', currentLang)}</span>
           </button>
 
           <div className="flex items-center gap-2">
@@ -206,7 +206,7 @@ export const FreeBenefitDetailsModal = ({ benefit, isOpen, onClose, onCheckEligi
                 rel="noopener noreferrer"
                 className="px-5 py-2.5 rounded-xl bg-sanchay-navy-950 hover:bg-sanchay-navy-900 text-white font-mono font-bold text-xs uppercase tracking-wider transition-colors inline-flex items-center gap-1.5 shadow-card cursor-pointer"
               >
-                <span>Apply on Official Portal</span>
+                <span>{getLocalizedCommonText('apply_on_portal', currentLang)}</span>
                 <ExternalLink className="w-3.5 h-3.5 text-sanchay-gold-400" />
               </a>
             ) : (
@@ -216,7 +216,7 @@ export const FreeBenefitDetailsModal = ({ benefit, isOpen, onClose, onCheckEligi
                 rel="noopener noreferrer"
                 className="px-5 py-2.5 rounded-xl bg-slate-200 hover:bg-slate-300 text-sanchay-navy-950 font-mono font-bold text-xs uppercase tracking-wider transition-colors inline-flex items-center gap-1.5 cursor-pointer"
               >
-                <span>View Official Source</span>
+                <span>{getLocalizedCommonText('official_details', currentLang)}</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
             )}

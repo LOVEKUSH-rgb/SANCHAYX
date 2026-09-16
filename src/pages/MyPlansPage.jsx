@@ -196,6 +196,57 @@ export const MyPlansPage = () => {
   const licCount = savedSchemes.filter(s => getItemType(s) === 'LIC').length;
   const freeCount = savedSchemes.filter(s => getItemType(s) === 'FREE').length;
 
+  const getProfessionDisplay = (prof) => {
+    if (!prof) return '';
+    const key = String(prof).toLowerCase().trim();
+    const loc = t(`myPlans.professions.${key}`);
+    if (loc && !loc.startsWith('myPlans.professions.')) {
+      return loc;
+    }
+    return prof;
+  };
+
+  const getAuthorityDisplay = (scheme, isFree, isLic) => {
+    const rawAuth = scheme.authority;
+    if (rawAuth) {
+      const lower = rawAuth.toLowerCase();
+      if (lower.includes('government of india') || lower === 'central') {
+        return t('myPlans.authorityGovIndia', 'Government of India');
+      }
+      if (lower.includes('life insurance corporation') || lower.includes('lic')) {
+        return t('myPlans.authorityLic', 'Life Insurance Corporation of India (LIC)');
+      }
+      if (lower.includes('welfare department') || lower.includes('welfare')) {
+        return t('myPlans.authorityGovWelfare', 'Government Welfare Department');
+      }
+      return rawAuth;
+    }
+    if (isFree) return t('myPlans.authorityGovWelfare', 'Government Welfare Department');
+    if (isLic) return t('myPlans.authorityLic', 'Life Insurance Corporation of India (LIC)');
+    return t('myPlans.authorityGovIndia', 'Government of India');
+  };
+
+  const getBenefitValueDisplay = (scheme, isFree, isLic) => {
+    if (isFree) {
+      if (!scheme.benefit || scheme.benefit === '100% Free' || scheme.benefit === '100% Free / Direct Benefit') {
+        return t('myPlans.freePercent', '100% Free');
+      }
+      return scheme.benefit;
+    }
+    if (isLic) {
+      const val = scheme.benefits?.interest_rate || scheme.financial?.interest_rate;
+      if (!val || val === 'Sum Assured + Bonuses') {
+        return t('myPlans.sumAssuredWithBonus', 'Sum Assured + Bonuses');
+      }
+      return val;
+    }
+    const val = scheme.benefits?.interest_rate || scheme.financial?.interest_rate;
+    if (!val || val === 'Statutory Benefit') {
+      return t('myPlans.statutoryBenefit', 'Statutory Benefit');
+    }
+    return val;
+  };
+
   return (
     <div className="min-h-screen bg-[#FAF9F5] flex flex-col font-sans">
       <Navbar />
@@ -207,19 +258,17 @@ export const MyPlansPage = () => {
           <div className="flex items-center gap-2 mb-2">
             <span className="px-3 py-1 rounded-full bg-sanchay-emerald-50 text-sanchay-emerald-800 text-[11px] font-mono font-bold uppercase tracking-wider flex items-center gap-1.5 border border-sanchay-emerald-200 shadow-2xs">
               <Bookmark className="w-3.5 h-3.5 text-sanchay-emerald-600 fill-sanchay-emerald-600" />
-              <span>{currentLang === 'hi' ? 'मेरी सुरक्षित योजनाएं' : 'My Sovereign & LIC Portfolio'}</span>
+              <span>{t('myPlans.portfolioTag', 'My Sovereign & LIC Portfolio')}</span>
             </span>
           </div>
 
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
               <h1 className="text-2xl sm:text-4xl font-serif font-black text-sanchay-navy-950 tracking-tight">
-                {currentLang === 'hi' ? 'मेरे सहेजे गए प्लान' : 'My Saved Plans'}
+                {t('myPlans.title', 'My Saved Plans')}
               </h1>
               <p className="text-sm text-slate-600 mt-1 max-w-2xl font-sans leading-relaxed">
-                {currentLang === 'hi'
-                  ? 'आपकी चुनी हुई सरकारी योजनाएं और एलआईसी प्लान आपके खाते में सुरक्षित हैं। किसी भी समय आधिकारिक नियम और विवरण देखें।'
-                  : 'Your shortlisted statutory government schemes and verified LIC plans are saved securely to your portfolio.'}
+                {t('myPlans.subtitle', 'Your shortlisted statutory government schemes and verified LIC plans are saved securely to your portfolio.')}
               </p>
             </div>
 
@@ -230,7 +279,7 @@ export const MyPlansPage = () => {
                   className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-white hover:bg-slate-50 text-sanchay-navy-950 text-xs font-bold uppercase tracking-wider border border-slate-200 shadow-2xs transition-all"
                 >
                   <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                  <span>{currentLang === 'hi' ? 'एलआईसी प्लान देखें' : 'Explore LIC Plans'}</span>
+                  <span>{t('myPlans.exploreLic', 'Explore LIC Plans')}</span>
                 </Link>
 
                 <Link
@@ -238,7 +287,7 @@ export const MyPlansPage = () => {
                   className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-sanchay-navy-950 hover:bg-sanchay-navy-900 text-white text-xs font-bold uppercase tracking-wider shadow-card transition-all"
                 >
                   <PlusCircle className="w-4 h-4 text-sanchay-gold-400" />
-                  <span>{currentLang === 'hi' ? 'नई योजनाएं खोजें' : 'Find More Schemes'}</span>
+                  <span>{t('myPlans.findMore', 'Find More Schemes')}</span>
                 </Link>
               </div>
             )}
@@ -252,19 +301,19 @@ export const MyPlansPage = () => {
               <UserAvatar user={user} size="lg" className="shadow-xs" />
               <div>
                 <div className="font-serif font-bold text-base text-sanchay-navy-950 flex items-center gap-2">
-                  <span>{user.full_name || 'Citizen'}</span>
+                  <span>{user.full_name || t('myPlans.citizen', 'Citizen')}</span>
                   {user.is_verified && (
                     <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 text-[10px] font-mono font-bold border border-emerald-200">
                       <ShieldCheck className="w-3 h-3 text-emerald-600" />
-                      Verified
+                      {t('myPlans.verified', 'Verified')}
                     </span>
                   )}
                 </div>
                 <div className="text-xs text-slate-500 font-mono flex flex-wrap items-center gap-x-3 gap-y-1 mt-0.5">
                   <span>{user.email}</span>
                   {user.mobile && <span>• {user.mobile}</span>}
-                  {user.profession && <span className="capitalize">• {user.profession}</span>}
-                  {user.age && <span>• {user.age} Yrs</span>}
+                  {user.profession && <span className="capitalize">• {getProfessionDisplay(user.profession)}</span>}
+                  {user.age && <span>• {user.age} {t('myPlans.years', 'Yrs')}</span>}
                 </div>
               </div>
             </div>
@@ -273,57 +322,57 @@ export const MyPlansPage = () => {
             <div className="flex items-center gap-2">
               <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-sanchay-navy-950 bg-slate-50 px-3 py-2 rounded-xl border border-slate-200 shrink-0">
                 <Bookmark className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
-                <span>{savedSchemes.length} {currentLang === 'hi' ? 'सहेजे गए प्लान' : 'Saved Total'}</span>
+                <span>{savedSchemes.length} {t('myPlans.savedTotal', 'Saved Total')}</span>
               </div>
             </div>
           </div>
         )}
 
-        {/* Filter Category Tabs (All / Government / LIC) */}
+        {/* Filter Category Tabs (All / Government / LIC / Free) */}
         {isAuthenticated && savedSchemes.length > 0 && (
-          <div className="flex items-center gap-2 mb-6 border-b border-slate-200 pb-3">
+          <div className="flex items-center gap-2 mb-6 border-b border-slate-200 pb-3 overflow-x-auto">
             <button
               onClick={() => setActiveTab('ALL')}
-              className={`px-4 py-2 rounded-xl text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer ${
+              className={`px-4 py-2 rounded-xl text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap ${
                 activeTab === 'ALL'
                   ? 'bg-sanchay-navy-950 text-white shadow-xs'
                   : 'bg-white hover:bg-slate-100 text-slate-600 border border-slate-200'
               }`}
             >
-              <span>All Saved ({savedSchemes.length})</span>
+              <span>{t('myPlans.tabAll', 'All Saved')} ({savedSchemes.length})</span>
             </button>
 
             <button
               onClick={() => setActiveTab('GOV')}
-              className={`px-4 py-2 rounded-xl text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer ${
+              className={`px-4 py-2 rounded-xl text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap ${
                 activeTab === 'GOV'
                   ? 'bg-sanchay-navy-950 text-white shadow-xs'
                   : 'bg-white hover:bg-slate-100 text-slate-600 border border-slate-200'
               }`}
             >
-              <span>Sovereign Schemes ({govCount})</span>
+              <span>{t('myPlans.tabGovt', 'Sovereign Schemes')} ({govCount})</span>
             </button>
 
             <button
               onClick={() => setActiveTab('LIC')}
-              className={`px-4 py-2 rounded-xl text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer ${
+              className={`px-4 py-2 rounded-xl text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap ${
                 activeTab === 'LIC'
                   ? 'bg-sanchay-navy-950 text-white shadow-xs'
                   : 'bg-white hover:bg-slate-100 text-slate-600 border border-slate-200'
               }`}
             >
-              <span>LIC Plans ({licCount})</span>
+              <span>{t('myPlans.tabLic', 'LIC Plans')} ({licCount})</span>
             </button>
 
             <button
               onClick={() => setActiveTab('FREE')}
-              className={`px-4 py-2 rounded-xl text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer ${
+              className={`px-4 py-2 rounded-xl text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap ${
                 activeTab === 'FREE'
                   ? 'bg-emerald-700 text-white shadow-xs'
                   : 'bg-white hover:bg-slate-100 text-slate-600 border border-slate-200'
               }`}
             >
-              <span>Free Benefits ({freeCount})</span>
+              <span>{t('myPlans.tabFree', 'Free Benefits')} ({freeCount})</span>
             </button>
           </div>
         )}
@@ -335,25 +384,23 @@ export const MyPlansPage = () => {
               <Bookmark className="w-7 h-7" />
             </div>
             <h2 className="text-xl font-serif font-bold text-sanchay-navy-950 mb-2">
-              {currentLang === 'hi' ? 'अपने प्लान देखने के लिए लॉगिन करें' : 'Login to View Your Saved Plans'}
+              {t('myPlans.loginRequiredTitle', 'Login to View Your Saved Plans')}
             </h2>
             <p className="text-xs text-slate-600 font-sans mb-6 leading-relaxed">
-              {currentLang === 'hi'
-                ? 'सरकारी योजनाओं और एलआईसी प्लान को सहेजने और अपने खाते में सुरक्षित रखने के लिए कृपया लॉगिन करें या निःशुल्क खाता बनाएं।'
-                : 'Sign in to access your saved sovereign schemes and LIC plans, track interest rates, and manage your financial discovery portfolio.'}
+              {t('myPlans.loginRequiredDesc', 'Sign in to access your saved sovereign schemes and LIC plans, track interest rates, and manage your financial discovery portfolio.')}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <button
                 onClick={() => openAuthModal('login')}
                 className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-sanchay-navy-950 hover:bg-sanchay-navy-900 text-white text-xs font-extrabold uppercase tracking-wider shadow-card transition-all cursor-pointer"
               >
-                {currentLang === 'hi' ? 'लॉगिन करें' : 'Citizen Login'}
+                {t('myPlans.citizenLogin', 'Citizen Login')}
               </button>
               <button
                 onClick={() => openAuthModal('register')}
                 className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-extrabold uppercase tracking-wider shadow-card transition-all cursor-pointer"
               >
-                {currentLang === 'hi' ? 'नया खाता बनाएं' : 'Create Free Account'}
+                {t('myPlans.createAccount', 'Create Free Account')}
               </button>
             </div>
           </div>
@@ -364,7 +411,7 @@ export const MyPlansPage = () => {
           <div className="py-16 text-center">
             <RefreshCw className="w-8 h-8 text-emerald-600 animate-spin mx-auto mb-3" />
             <p className="text-xs font-mono text-slate-500">
-              {currentLang === 'hi' ? 'सहेजे गए प्लान लोड हो रहे हैं...' : 'Loading your saved sovereign & LIC plans...'}
+              {t('myPlans.loadingPlans', 'Loading your saved sovereign & LIC plans...')}
             </p>
           </div>
         )}
@@ -376,19 +423,17 @@ export const MyPlansPage = () => {
               <Bookmark className="w-7 h-7" />
             </div>
             <h3 className="text-lg font-serif font-bold text-sanchay-navy-950">
-              {currentLang === 'hi' ? 'कोई योजना सहेजी नहीं गई है' : 'No Saved Schemes or LIC Plans Yet'}
+              {t('myPlans.emptyTitle', 'No Saved Schemes or LIC Plans Yet')}
             </h3>
             <p className="text-xs text-slate-600 font-sans leading-relaxed">
-              {currentLang === 'hi'
-                ? 'कैटलॉग या एलआईसी पेज पर किसी भी योजना के बुकमार्क (Add to My Plans) आइकन पर क्लिक करके उसे यहाँ सुरक्षित करें।'
-                : 'Click the Bookmark icon on any verified Government scheme or official LIC plan to save it to your portfolio.'}
+              {t('myPlans.emptyDesc', 'Click the Bookmark icon on any verified Government scheme or official LIC plan to save it to your portfolio.')}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
               <Link
                 to="/#verified-schemes"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-sanchay-navy-950 hover:bg-sanchay-navy-900 text-white text-xs font-bold uppercase tracking-wider shadow-card transition-all"
               >
-                <span>{currentLang === 'hi' ? 'कैटलॉग देखें' : 'Explore Catalog'}</span>
+                <span>{t('myPlans.exploreCatalog', 'Explore Catalog')}</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
 
@@ -396,7 +441,7 @@ export const MyPlansPage = () => {
                 to="/lic"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-slate-50 text-sanchay-navy-950 text-xs font-bold uppercase tracking-wider border border-slate-200 shadow-2xs transition-all"
               >
-                <span>{currentLang === 'hi' ? 'एलआईसी प्लान' : 'Official LIC Plans'}</span>
+                <span>{t('myPlans.officialLic', 'Official LIC Plans')}</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -408,13 +453,13 @@ export const MyPlansPage = () => {
           <div className="py-12 text-center bg-white rounded-3xl border border-slate-200 p-6 max-w-md mx-auto space-y-3">
             <Info className="w-8 h-8 text-slate-400 mx-auto" />
             <p className="text-xs text-slate-600 font-mono">
-              No saved items under this filter.
+              {t('myPlans.noFilteredItems', 'No saved items under this filter.')}
             </p>
             <button
               onClick={() => setActiveTab('ALL')}
               className="text-xs font-mono font-bold text-emerald-700 underline cursor-pointer"
             >
-              Show All Saved Plans ({savedSchemes.length})
+              {t('myPlans.showAllPlans', 'Show All Saved Plans')} ({savedSchemes.length})
             </button>
           </div>
         )}
@@ -434,18 +479,22 @@ export const MyPlansPage = () => {
                 const locItem = localizeFreeBenefit(scheme.raw_benefit || scheme, currentLang);
                 cardTitle = locItem.displayName || scheme.name;
                 cardDesc = locItem.displayBenefit || scheme.benefit || scheme.description;
-                cardCategory = scheme.benefit_type === 'completely_free' ? '★ 100% FREE' : (locItem.displayBenefitType || 'FREE BENEFIT');
+                cardCategory = scheme.benefit_type === 'completely_free'
+                  ? t('myPlans.freeBadge', '★ 100% FREE')
+                  : (locItem.displayBenefitType || t('myPlans.tabFree', 'Free Benefits'));
               } else if (isLic) {
                 const locItem = localizeLICPlan(scheme.raw_plan || scheme, currentLang);
                 cardTitle = locItem.displayName || scheme.name || scheme.plan_name;
                 cardDesc = locItem.displayDescription || scheme.description || scheme.short_description;
-                cardCategory = locItem.displayCategory || scheme.category || 'LIC PLAN';
+                cardCategory = locItem.displayCategory || scheme.category || t('myPlans.tabLic', 'LIC Plans');
               } else {
                 const locItem = localizeScheme(scheme, currentLang);
                 cardTitle = locItem.displayName || scheme.name;
                 cardDesc = locItem.displayDescription || scheme.description || scheme.short_description || scheme.benefits?.summary;
-                cardCategory = locItem.displayCategory || scheme.category || 'SAVINGS';
+                cardCategory = locItem.displayCategory || scheme.category || t('myPlans.tabGovt', 'Sovereign Schemes');
               }
+
+              const displayAuthority = getAuthorityDisplay(scheme, isFree, isLic);
 
               return (
                 <div
@@ -476,7 +525,7 @@ export const MyPlansPage = () => {
                       <button
                         onClick={(e) => handleRemove(schemeId, e)}
                         disabled={isRemoving}
-                        title={currentLang === 'hi' ? 'हटाएं' : 'Remove from My Plans'}
+                        title={t('myPlans.removePlan', 'Remove from My Plans')}
                         className="p-1.5 rounded-full bg-white/20 hover:bg-red-500 text-white transition-all cursor-pointer shadow-xs"
                       >
                         {isRemoving ? (
@@ -492,7 +541,7 @@ export const MyPlansPage = () => {
                         {cardTitle}
                       </h3>
                       <p className="text-[10px] text-slate-300 font-mono truncate mt-0.5">
-                        {scheme.authority || (isFree ? 'Government Welfare Department' : isLic ? 'Life Insurance Corporation of India' : 'Government of India')}
+                        {displayAuthority}
                       </p>
                     </div>
                   </div>
@@ -506,17 +555,17 @@ export const MyPlansPage = () => {
                     {/* Highlight Box */}
                     <div className="p-3 rounded-2xl bg-emerald-50/70 border border-emerald-200/80 flex items-center justify-between">
                       <span className="text-[10px] font-mono font-bold uppercase text-emerald-800">
-                        {isFree ? 'Welfare Benefit' : isLic ? 'Sum Assured / Benefit' : (currentLang === 'hi' ? 'ब्याज / लाभ' : 'Interest / Benefit')}
+                        {isFree ? t('myPlans.welfareBenefit', 'Welfare Benefit') : isLic ? t('myPlans.sumAssured', 'Sum Assured / Benefit') : t('myPlans.interestBenefit', 'Interest / Benefit')}
                       </span>
                       <span className="font-serif font-black text-xs sm:text-sm text-emerald-800 text-right truncate max-w-[150px]">
-                        {isFree ? (scheme.benefit || '100% Free') : (scheme.benefits?.interest_rate || scheme.financial?.interest_rate || 'Statutory Benefit')}
+                        {getBenefitValueDisplay(scheme, isFree, isLic)}
                       </span>
                     </div>
 
                     {/* Action Footer */}
                     <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
                       <span className="font-bold text-sanchay-navy-900 group-hover:text-emerald-700 transition-colors flex items-center gap-1">
-                        <span>{isFree ? 'View Free Benefit Details' : isLic ? 'View LIC Plan Details' : (currentLang === 'hi' ? 'विवरण देखें' : 'View Scheme Details')}</span>
+                        <span>{isFree ? t('myPlans.viewFreeDetails', 'View Free Benefit Details') : isLic ? t('myPlans.viewLicDetails', 'View LIC Plan Details') : t('myPlans.viewSchemeDetails', 'View Scheme Details')}</span>
                         <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                       </span>
                       
@@ -525,7 +574,7 @@ export const MyPlansPage = () => {
                         className="text-red-600 hover:text-red-700 font-bold text-[11px] flex items-center gap-1 cursor-pointer"
                       >
                         <Trash2 className="w-3 h-3" />
-                        <span>{currentLang === 'hi' ? 'हटाएं' : 'Remove'}</span>
+                        <span>{t('myPlans.remove', 'Remove')}</span>
                       </button>
                     </div>
                   </div>
