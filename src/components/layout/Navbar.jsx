@@ -79,12 +79,12 @@ export const Navbar = () => {
               ) : (
                 <button
                   onClick={() => openAuthModal('login')}
-                  title={currentLang === 'hi' ? 'नागरिक लॉगिन' : 'Citizen Login'}
+                  title={t('nav.citizenLogin', 'Citizen Login')}
                   className="flex items-center gap-1.5 h-8 sm:h-8.5 px-2 sm:px-2.5 rounded-full bg-white hover:bg-slate-50 border border-slate-200 shadow-2xs hover:shadow-card hover:border-sanchay-emerald-300 transition-all cursor-pointer whitespace-nowrap group"
                 >
                   <GradientUserIcon className="w-4.5 h-4.5 sm:w-5 sm:h-5 transition-transform group-hover:scale-110 shrink-0" />
                   <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-sanchay-navy-900 group-hover:text-sanchay-emerald-600 font-extrabold whitespace-nowrap">
-                    {currentLang === 'hi' ? 'लॉगिन' : 'Log In'}
+                    {t('nav.login', 'Log In')}
                   </span>
                 </button>
               )}
@@ -110,7 +110,7 @@ export const Navbar = () => {
                       >
                         <div className="flex items-center gap-2.5">
                           <Bookmark className="w-4 h-4 text-sanchay-emerald-600" />
-                          <span>{currentLang === 'hi' ? 'मेरे प्लान' : 'My Plans'}</span>
+                          <span>{t('nav.myPlans', 'My Plans')}</span>
                         </div>
                         {savedCount > 0 && (
                           <span className="px-2 py-0.5 rounded-full bg-sanchay-emerald-100 text-sanchay-emerald-800 text-[10px] font-mono font-bold">
@@ -125,7 +125,7 @@ export const Navbar = () => {
                         className="w-full text-left px-4 py-2.5 text-xs text-sanchay-navy-900 hover:bg-sanchay-emerald-50 hover:text-sanchay-emerald-700 font-semibold flex items-center gap-2.5 transition-colors"
                       >
                         <User className="w-4 h-4 text-sanchay-emerald-600" />
-                        <span>{currentLang === 'hi' ? 'मेरी प्रोफाइल' : 'My Profile'}</span>
+                        <span>{t('nav.myProfile', 'My Profile')}</span>
                       </Link>
                     </div>
 
@@ -138,7 +138,7 @@ export const Navbar = () => {
                         className="w-full text-left px-4 py-2 text-xs text-red-600 hover:bg-red-50 font-bold flex items-center gap-2.5 transition-colors cursor-pointer"
                       >
                         <LogOut className="w-3.5 h-3.5 text-red-500" />
-                        <span>{currentLang === 'hi' ? 'लॉगआउट' : 'Sign Out'}</span>
+                        <span>{t('nav.signOut', 'Sign Out')}</span>
                       </button>
                     </div>
                   </div>
@@ -155,7 +155,7 @@ export const Navbar = () => {
             <span className="hidden 2xl:inline-flex items-center gap-1.5 h-6.5 px-2.5 rounded-full bg-sanchay-emerald-50 text-sanchay-emerald-800 font-mono font-bold text-[10px] uppercase tracking-wider border border-sanchay-emerald-100 shadow-2xs shrink-0">
               <span className="w-1.5 h-1.5 rounded-full bg-sanchay-emerald-600 shadow-xs"></span>
               <Check className="w-3 h-3 text-sanchay-emerald-600 stroke-[3]" />
-              <span>Verified</span>
+              <span>{t('nav.verified', 'Verified')}</span>
             </span>
 
           </div>
@@ -200,10 +200,10 @@ export const Navbar = () => {
                   ? 'text-sanchay-emerald-600 font-black border-b-2 border-sanchay-emerald-600'
                   : 'text-sanchay-navy-800 hover:text-sanchay-emerald-600'
               }`}
-              title={currentLang === 'hi' ? 'सखी AI सहायक' : 'Ask Sakhi AI Assistant'}
+              title={t('nav.askSakhiAssistant', 'Ask Sakhi AI Assistant')}
             >
               <Sparkles className="w-3.5 h-3.5 text-sanchay-gold-500 group-hover:rotate-12 transition-transform" />
-              <span>{currentLang === 'hi' ? 'सखी AI' : 'SAKHI'}</span>
+              <span>{t('nav.sakhiAI', 'SAKHI')}</span>
               <span className="px-1.5 py-0.5 rounded-full bg-sanchay-emerald-100 text-sanchay-emerald-800 text-[9px] font-mono font-extrabold uppercase tracking-wide">
                 AI
               </span>
@@ -216,7 +216,7 @@ export const Navbar = () => {
                 }`}
               >
                 <Bookmark className="w-3.5 h-3.5 text-sanchay-emerald-600" />
-                <span>{currentLang === 'hi' ? 'मेरे प्लान' : 'My Plans'}</span>
+                <span>{t('nav.myPlans', 'My Plans')}</span>
                 {savedCount > 0 && (
                   <span className="px-1.5 py-0.5 rounded-full bg-sanchay-emerald-100 text-sanchay-emerald-800 text-[9px] font-mono font-bold">
                     {savedCount}
@@ -276,9 +276,9 @@ export const Navbar = () => {
                 }`}
               >
                 <ShieldCheck className={`w-3.5 h-3.5 shrink-0 transition-colors ${isLicActive ? 'text-blue-700' : 'text-blue-600'}`} />
-                <span>{currentLang === 'hi' ? 'LIC योजनाएं' : 'LIC Plans'}</span>
+                <span>{t('nav.licPlans', 'LIC Plans')}</span>
                 <span className="px-1 py-0.5 rounded text-[8.5px] xl:text-[9px] font-mono font-black uppercase tracking-wider bg-blue-600 text-white shadow-2xs">
-                  {currentLang === 'hi' ? 'बीमा' : 'INSURE'}
+                  {t('nav.insureBadge', 'INSURE')}
                 </span>
               </Link>
               <Link 
@@ -290,9 +290,9 @@ export const Navbar = () => {
                 }`}
               >
                 <Gift className={`w-3.5 h-3.5 shrink-0 transition-colors ${isFreeActive ? 'text-emerald-700' : 'text-emerald-600'}`} />
-                <span>{currentLang === 'hi' ? 'मुफ्त लाभ' : 'Free Benefits'}</span>
+                <span>{t('nav.freeBenefits', 'Free Benefits')}</span>
                 <span className="px-1 py-0.5 rounded text-[8.5px] xl:text-[9px] font-mono font-black uppercase tracking-wider bg-emerald-600 text-white shadow-2xs">
-                  {currentLang === 'hi' ? 'मुफ्त' : 'FREE'}
+                  {t('nav.freeBadge', 'FREE')}
                 </span>
               </Link>
             </div>
@@ -354,10 +354,10 @@ export const Navbar = () => {
             >
               <span className="flex items-center gap-2">
                 <ShieldCheck className={`w-4 h-4 shrink-0 ${isLicActive ? 'text-blue-700' : 'text-blue-600'}`} />
-                <span>{currentLang === 'hi' ? 'LIC योजनाएं' : 'LIC Plans'}</span>
+                <span>{t('nav.licPlans', 'LIC Plans')}</span>
               </span>
               <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-black uppercase tracking-wide bg-blue-600 text-white shadow-2xs">
-                {currentLang === 'hi' ? 'बीमा' : 'INSURE'}
+                {t('nav.insureBadge', 'INSURE')}
               </span>
             </Link>
             <Link 
@@ -371,10 +371,10 @@ export const Navbar = () => {
             >
               <span className="flex items-center gap-2">
                 <Gift className={`w-4 h-4 shrink-0 ${isFreeActive ? 'text-emerald-700' : 'text-emerald-600'}`} />
-                <span>{currentLang === 'hi' ? 'मुफ्त लाभ' : 'Free Benefits'}</span>
+                <span>{t('nav.freeBenefits', 'Free Benefits')}</span>
               </span>
               <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-black uppercase tracking-wide bg-emerald-600 text-white shadow-2xs">
-                {currentLang === 'hi' ? 'मुफ्त' : 'FREE'}
+                {t('nav.freeBadge', 'FREE')}
               </span>
             </Link>
             <Link 
@@ -394,7 +394,7 @@ export const Navbar = () => {
             >
               <span className="flex items-center gap-2">
                 <Sparkles className="w-3.5 h-3.5 text-sanchay-gold-500" />
-                <span>{currentLang === 'hi' ? 'सखी AI सहायक' : 'Sakhi AI Assistant'}</span>
+                <span>{t('nav.sakhiAI', 'Sakhi AI Assistant')}</span>
               </span>
               <span className="px-2 py-0.5 rounded-full bg-sanchay-emerald-100 text-sanchay-emerald-800 text-[10px] font-mono font-bold">
                 AI
@@ -406,7 +406,7 @@ export const Navbar = () => {
                 <div className="px-3 py-2.5 bg-slate-50 rounded-2xl border border-slate-200/70 flex items-center gap-3">
                   <UserAvatar user={user} size="sm" />
                   <div className="min-w-0 flex-1">
-                    <div className="font-bold text-xs text-sanchay-navy-950 truncate">{user?.full_name || 'Citizen'}</div>
+                    <div className="font-bold text-xs text-sanchay-navy-950 truncate">{user?.full_name || t('nav.citizen', 'Citizen')}</div>
                     <div className="text-[10px] text-slate-500 font-mono truncate">{user?.email}</div>
                   </div>
                 </div>
@@ -417,7 +417,7 @@ export const Navbar = () => {
                 >
                   <span className="flex items-center gap-2">
                     <Bookmark className="w-3.5 h-3.5 text-sanchay-emerald-600" />
-                    {currentLang === 'hi' ? 'मेरे प्लान' : 'My Plans'}
+                    {t('nav.myPlans', 'My Plans')}
                   </span>
                   {savedCount > 0 && (
                     <span className="px-2 py-0.5 rounded-full bg-sanchay-emerald-100 text-sanchay-emerald-800 text-[10px] font-mono font-bold">
@@ -431,7 +431,7 @@ export const Navbar = () => {
                   className="text-xs font-bold uppercase tracking-wider text-sanchay-navy-900 py-2 border-b border-slate-100 flex items-center gap-2"
                 >
                   <User className="w-3.5 h-3.5 text-sanchay-emerald-600" />
-                  <span>{currentLang === 'hi' ? 'मेरी प्रोफाइल' : 'My Profile'}</span>
+                  <span>{t('nav.myProfile', 'My Profile')}</span>
                 </Link>
                 <button
                   onClick={() => {
@@ -441,7 +441,7 @@ export const Navbar = () => {
                   className="text-left text-xs font-bold uppercase tracking-wider text-red-600 py-2 flex items-center gap-2 cursor-pointer"
                 >
                   <LogOut className="w-3.5 h-3.5 text-red-500" />
-                  <span>{currentLang === 'hi' ? 'लॉगआउट' : 'Sign Out'}</span>
+                  <span>{t('nav.signOut', 'Sign Out')}</span>
                 </button>
               </>
             ) : (
@@ -453,7 +453,7 @@ export const Navbar = () => {
                 className="text-left text-xs font-bold uppercase tracking-wider text-sanchay-navy-950 py-2 flex items-center gap-2 cursor-pointer"
               >
                 <LogIn className="w-3.5 h-3.5 text-sanchay-emerald-600" />
-                <span>{currentLang === 'hi' ? 'लॉगिन / खाता बनाएं' : 'Log In / Create Account'}</span>
+                <span>{t('auth.citizenLogin', 'Log In / Create Account')}</span>
               </button>
             )}
           </div>

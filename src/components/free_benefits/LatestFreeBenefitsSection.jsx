@@ -1,12 +1,15 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowRight, Sparkles, ShieldCheck, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { getLatestFreeBenefits } from '../../services/api';
 import { FALLBACK_FREE_BENEFITS } from '../../data/freeBenefitsFallback';
 import { FreeBenefitDetailsModal } from './FreeBenefitDetailsModal';
 import { FreeBenefitEligibilityModal } from './FreeBenefitEligibilityModal';
+import { useLanguage } from '../../context/LanguageContext';
+import { localizeFreeBenefit } from '../../utils/contentLocalizer';
 
 export const LatestFreeBenefitsSection = () => {
+  const { t, currentLang } = useLanguage();
   const [benefits, setBenefits] = useState(FALLBACK_FREE_BENEFITS.slice(0, 10));
   const [loading, setLoading] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
@@ -41,24 +44,24 @@ export const LatestFreeBenefitsSection = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
               </span>
-              <span>Live News Feed</span>
+              <span>{t('ticker.liveNewsFeed', 'Live News Feed')}</span>
             </div>
 
             <h2 className="font-serif font-extrabold text-xl sm:text-2xl text-sanchay-navy-950 tracking-tight">
-              Latest Free Benefits
+              {t('ticker.latestFreeBenefits', 'Latest Free Benefits')}
             </h2>
           </div>
 
           <div className="flex items-center gap-3">
             <span className="hidden md:inline-block text-[11px] font-mono text-slate-400">
-              Hover to pause • Click item to review gazette details
+              {t('ticker.hoverPause', 'Hover to pause • Click item to review gazette details')}
             </span>
 
             <Link
               to="/free-benefits"
               className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sanchay-navy-950 text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer shrink-0"
             >
-              <span>View All Free Benefits</span>
+              <span>{t('ticker.viewAllFreeBenefits', 'View All Free Benefits')}</span>
               <ArrowRight className="w-3.5 h-3.5 text-emerald-600" />
             </Link>
           </div>
@@ -83,7 +86,9 @@ export const LatestFreeBenefitsSection = () => {
           style={{ animationPlayState: isPaused ? 'paused' : 'running' }}
         >
           {tickerItems.map((item, idx) => {
-            const isCompletelyFree = item.benefit_type === 'completely_free';
+            const locItem = localizeFreeBenefit(item, currentLang);
+            const displayName = locItem.displayName || item.name;
+            const displayBenefit = locItem.displayBenefit || item.benefit;
 
             return (
               <div
@@ -94,23 +99,23 @@ export const LatestFreeBenefitsSection = () => {
                 {/* 1. Status Indicator */}
                 <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-100/80 text-emerald-900 font-mono font-bold text-[10px] uppercase tracking-wider shrink-0 border border-emerald-200">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
-                  <span>NEW</span>
+                  <span>{t('ticker.newBadge', 'NEW')}</span>
                 </span>
 
                 {/* 2. Benefit Name & State Tag */}
                 <div className="min-w-0 flex flex-col justify-center">
                   <div className="flex items-center gap-2">
                     <span className="font-serif font-bold text-xs sm:text-sm text-sanchay-navy-950 truncate group-hover:text-emerald-800 transition-colors">
-                      {item.name}
+                      {displayName}
                     </span>
                     <span className="px-2 py-0.2 rounded-md bg-slate-200/70 text-slate-700 font-mono text-[9.5px] font-bold uppercase shrink-0">
-                      {item.state === 'All India' ? 'Central' : item.state}
+                      {item.state === 'All India' ? t('ticker.central', 'Central') : item.state}
                     </span>
                   </div>
 
                   {/* 3. Short Benefit Summary */}
                   <p className="text-[11px] sm:text-xs text-slate-600 truncate mt-0.5 max-w-[240px] sm:max-w-[300px]">
-                    {item.benefit}
+                    {displayBenefit}
                   </p>
                 </div>
 
@@ -124,8 +129,8 @@ export const LatestFreeBenefitsSection = () => {
                   className="ml-auto inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-white hover:bg-emerald-50 text-emerald-800 border border-emerald-300 font-mono font-bold text-[10.5px] uppercase tracking-wider transition-colors shrink-0 cursor-pointer shadow-xs hover:border-emerald-500"
                 >
                   <Sparkles className="w-3 h-3 text-sanchay-gold-600" />
-                  <span className="hidden sm:inline">Check Eligibility</span>
-                  <span className="sm:hidden">Check</span>
+                  <span className="hidden sm:inline">{t('ticker.checkEligibility', 'Check Eligibility')}</span>
+                  <span className="sm:hidden">{t('ticker.checkShort', 'Check')}</span>
                   <ChevronRight className="w-3 h-3" />
                 </button>
               </div>

@@ -73,14 +73,14 @@ export const LICPlanCard = ({ plan, onViewDetails }) => {
 
             {planNumber && (
               <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200/90 font-mono font-bold text-[10px] tracking-wider">
-                Plan {planNumber}
+                {t('lic.plan', 'Plan')} {planNumber}
               </span>
             )}
           </div>
 
           <button
             onClick={handleBookmarkToggle}
-            title={isSaved ? 'Remove from My Plans' : 'Save to My Plans'}
+            title={isSaved ? t('myPlans.saved', 'Saved in My Plans') : t('myPlans.addToMyPlans', 'Add to My Plans')}
             className={`p-2 rounded-xl border transition-all cursor-pointer ${
               isSaved
                 ? 'bg-amber-500 text-white border-amber-600 shadow-xs'
@@ -103,7 +103,7 @@ export const LICPlanCard = ({ plan, onViewDetails }) => {
           </span>
           <span className="text-slate-300">•</span>
           <span className="text-[11px] font-mono text-emerald-700 font-bold">
-            100% Official
+            {t('lic.officialBadge', '100% Official')}
           </span>
         </div>
 
@@ -123,15 +123,15 @@ export const LICPlanCard = ({ plan, onViewDetails }) => {
         {/* Key Plan Metrics Grid */}
         <div className="grid grid-cols-3 gap-2 my-3 p-3 rounded-2xl bg-slate-50 border border-slate-200/80 text-xs">
           <div>
-            <span className="text-[9.5px] font-mono font-bold text-slate-400 uppercase tracking-wider block">Entry Age</span>
+            <span className="text-[9.5px] font-mono font-bold text-slate-400 uppercase tracking-wider block">{t('lic.entryAge', 'Entry Age')}</span>
             <span className="font-bold text-sanchay-navy-950 mt-0.5 block truncate">{minAgeText} - {maxAgeText}</span>
           </div>
           <div>
-            <span className="text-[9.5px] font-mono font-bold text-slate-400 uppercase tracking-wider block">Min Cover</span>
+            <span className="text-[9.5px] font-mono font-bold text-slate-400 uppercase tracking-wider block">{t('lic.minCover', 'Min Cover')}</span>
             <span className="font-bold text-sanchay-navy-950 mt-0.5 block truncate">{minSumAssured}</span>
           </div>
           <div>
-            <span className="text-[9.5px] font-mono font-bold text-slate-400 uppercase tracking-wider block">Term</span>
+            <span className="text-[9.5px] font-mono font-bold text-slate-400 uppercase tracking-wider block">{t('lic.term', 'Term')}</span>
             <span className="font-bold text-sanchay-navy-950 mt-0.5 block truncate">{policyTermText}</span>
           </div>
         </div>
@@ -143,7 +143,7 @@ export const LICPlanCard = ({ plan, onViewDetails }) => {
           onClick={() => onViewDetails(plan)}
           className="flex-1 inline-flex items-center justify-center gap-1.5 h-10 px-4 rounded-xl bg-sanchay-navy-950 hover:bg-sanchay-navy-900 text-white font-mono font-bold text-xs uppercase tracking-wider transition-all duration-200 cursor-pointer shadow-xs group-hover:shadow-card"
         >
-          <span>View Details</span>
+          <span>{t('lic.viewDetails', 'View Details')}</span>
           <ArrowRight className="w-3.5 h-3.5" />
         </button>
 

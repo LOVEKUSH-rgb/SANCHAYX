@@ -23,23 +23,23 @@ export const FeaturedSchemesSection = ({ schemes = [], onSelectScheme, initialLi
   }, [initialLifeStage]);
 
   const categories = [
-    { id: 'all', num: '01', label: 'ALL SCHEMES' },
-    { id: 'savings', num: '02', label: 'SAVINGS' },
-    { id: 'pension', num: '03', label: 'PENSION' },
-    { id: 'protection', num: '04', label: 'PROTECTION & INSURANCE' },
-    { id: 'education', num: '05', label: 'EDUCATION' },
-    { id: 'women', num: '06', label: 'WOMEN & GIRLS' },
-    { id: 'agriculture', num: '07', label: 'FARMERS & AGRI' },
-    { id: 'health', num: '08', label: 'HEALTHCARE' },
-    { id: 'housing', num: '09', label: 'HOUSING' },
-    { id: 'employment', num: '10', label: 'EMPLOYMENT & SKILL' },
-    { id: 'social_security', num: '11', label: 'SOCIAL SECURITY' },
-    { id: 'business', num: '12', label: 'BUSINESS & MSME' },
-    { id: 'financial_inclusion', num: '13', label: 'FINANCIAL INCLUSION' },
+    { id: 'all', num: '01', label: t('featuredSchemes.categoryAll', 'ALL SCHEMES') },
+    { id: 'savings', num: '02', label: t('featuredSchemes.savings', 'SAVINGS') },
+    { id: 'pension', num: '03', label: t('featuredSchemes.pension', 'PENSION') },
+    { id: 'protection', num: '04', label: t('featuredSchemes.protection', 'PROTECTION & INSURANCE') },
+    { id: 'education', num: '05', label: t('featuredSchemes.education', 'EDUCATION') },
+    { id: 'women', num: '06', label: t('featuredSchemes.women', 'WOMEN & GIRLS') },
+    { id: 'agriculture', num: '07', label: t('featuredSchemes.agriculture', 'FARMERS & AGRI') },
+    { id: 'health', num: '08', label: t('featuredSchemes.health', 'HEALTHCARE') },
+    { id: 'housing', num: '09', label: t('featuredSchemes.housing', 'HOUSING') },
+    { id: 'employment', num: '10', label: t('featuredSchemes.employment', 'EMPLOYMENT & SKILL') },
+    { id: 'social_security', num: '11', label: t('featuredSchemes.socialSecurity', 'SOCIAL SECURITY') },
+    { id: 'business', num: '12', label: t('featuredSchemes.business', 'BUSINESS & MSME') },
+    { id: 'financial_inclusion', num: '13', label: t('featuredSchemes.financialInclusion', 'FINANCIAL INCLUSION') },
   ];
 
   const goalsList = [
-    { id: 'all', label: currentLang === 'hi' ? 'सभी लक्ष्य' : currentLang === 'mr' ? 'सर्व उद्दिष्टे' : currentLang === 'bn' ? 'সকল লক্ষ্য' : currentLang === 'te' ? 'అన్ని లక్ష్యాలు' : 'All Goals' },
+    { id: 'all', label: t('featuredSchemes.allGoals', 'All Goals') },
     { id: 'education', label: t('goals.education', 'Child Education') },
     { id: 'retirement', label: t('goals.retirement', 'Retirement & Pension') },
     { id: 'emergency', label: t('goals.emergency', 'Emergency Fund') },
@@ -53,7 +53,7 @@ export const FeaturedSchemesSection = ({ schemes = [], onSelectScheme, initialLi
   ];
 
   const lifeStagesList = [
-    { id: 'all', label: currentLang === 'hi' ? 'सभी जीवन चरण' : currentLang === 'mr' ? 'सर्व टप्पे' : currentLang === 'bn' ? 'সকল পর্যায়' : currentLang === 'te' ? 'అన్ని దశలు' : 'All Life Stages' },
+    { id: 'all', label: t('featuredSchemes.allLifeStages', 'All Life Stages') },
     { id: 'student', label: t('lifeStages.students', 'Students') },
     { id: 'young_professional', label: t('lifeStages.professionals', 'Young Professionals') },
     { id: 'parents', label: t('lifeStages.parents', 'Parents / Families') },
@@ -247,7 +247,7 @@ export const FeaturedSchemesSection = ({ schemes = [], onSelectScheme, initialLi
           </div>
 
           <div className="text-xs font-mono font-bold text-slate-500">
-            Showing <span className="text-sanchay-emerald-700 font-extrabold text-sm">{displayedSchemes.length}</span> of <span className="text-sanchay-navy-950 font-bold">{filteredSchemes.length}</span> Schemes
+            {t('featuredSchemes.showingCount', 'Showing')} <span className="text-sanchay-emerald-700 font-extrabold text-sm">{displayedSchemes.length}</span> {t('featuredSchemes.of', 'of')} <span className="text-sanchay-navy-950 font-bold">{filteredSchemes.length}</span> {t('featuredSchemes.schemes', 'Schemes')}
           </div>
         </div>
 
@@ -262,7 +262,7 @@ export const FeaturedSchemesSection = ({ schemes = [], onSelectScheme, initialLi
               id="scheme-search-input"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder={t('explore.searchPlaceholder', 'Search schemes by name, keyword, or benefits...')}
+              placeholder={t('featuredSchemes.searchPlaceholder', 'Search schemes by name, keyword, or benefits...')}
               className="w-full pl-12 pr-10 py-3.5 rounded-2xl bg-[#FAFAFC] border border-slate-200/90 text-sm text-sanchay-navy-950 placeholder:text-slate-400 focus:outline-none focus:border-sanchay-emerald-600 transition-colors"
             />
             {searchQuery && (
@@ -282,7 +282,7 @@ export const FeaturedSchemesSection = ({ schemes = [], onSelectScheme, initialLi
             <div className="flex flex-wrap items-center gap-3">
               {/* Goal Filter */}
               <div className="flex items-center gap-1.5">
-                <span className="font-mono font-bold text-slate-400 uppercase text-[10px]">Goal:</span>
+                <span className="font-mono font-bold text-slate-400 uppercase text-[10px]">{t('featuredSchemes.goalLabel', 'Goal:')}</span>
                 <select
                   value={selectedGoal}
                   onChange={(e) => setSelectedGoal(e.target.value)}
@@ -296,7 +296,7 @@ export const FeaturedSchemesSection = ({ schemes = [], onSelectScheme, initialLi
 
               {/* Life Stage Filter */}
               <div className="flex items-center gap-1.5">
-                <span className="font-mono font-bold text-slate-400 uppercase text-[10px]">Life Stage:</span>
+                <span className="font-mono font-bold text-slate-400 uppercase text-[10px]">{t('featuredSchemes.lifeStageLabel', 'Life Stage:')}</span>
                 <select
                   value={selectedLifeStage}
                   onChange={(e) => setSelectedLifeStage(e.target.value)}
@@ -320,7 +320,7 @@ export const FeaturedSchemesSection = ({ schemes = [], onSelectScheme, initialLi
                 />
                 <span className="font-mono font-bold text-sanchay-emerald-800 uppercase text-[11px] flex items-center gap-1">
                   <ShieldCheck className="w-3.5 h-3.5" />
-                  Verified Only
+                  {t('featuredSchemes.verifiedOnly', 'Verified Only')}
                 </span>
               </label>
 
@@ -331,7 +331,7 @@ export const FeaturedSchemesSection = ({ schemes = [], onSelectScheme, initialLi
                   className="inline-flex items-center gap-1 text-[11px] font-mono font-bold text-slate-500 hover:text-sanchay-emerald-700 underline"
                 >
                   <RefreshCw className="w-3 h-3" />
-                  <span>Reset</span>
+                  <span>{t('featuredSchemes.reset', 'Reset')}</span>
                 </button>
               )}
             </div>
@@ -380,7 +380,7 @@ export const FeaturedSchemesSection = ({ schemes = [], onSelectScheme, initialLi
               className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-sanchay-navy-950 text-white font-bold text-xs uppercase tracking-wider hover:bg-sanchay-navy-900 transition-colors shadow-xs"
             >
               <RefreshCw className="w-4 h-4" />
-              <span>Reset All Filters</span>
+              <span>{t('featuredSchemes.resetAllFilters', 'Reset All Filters')}</span>
             </button>
           </div>
         ) : (
@@ -437,7 +437,7 @@ export const FeaturedSchemesSection = ({ schemes = [], onSelectScheme, initialLi
                           {/* Category Pill over image */}
                           <div className="absolute top-3 left-3">
                             <span className="px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-sanchay-navy-950 font-mono font-bold text-[10px] uppercase tracking-wider shadow-2xs">
-                              {scheme.category || 'Government Scheme'}
+                              {getLocalizedCategory(scheme.category, currentLang) || scheme.category || 'Government Scheme'}
                             </span>
                           </div>
 
@@ -445,14 +445,16 @@ export const FeaturedSchemesSection = ({ schemes = [], onSelectScheme, initialLi
                           <div className="absolute top-3 right-3">
                             <span className="px-2.5 py-1 rounded-full bg-sanchay-emerald-600 text-white font-mono font-bold text-[9px] uppercase tracking-wider flex items-center gap-1 shadow-2xs">
                               <Check className="w-3 h-3 stroke-[3]" />
-                              <span>VERIFIED SOURCE</span>
+                              <span>{t('featuredSchemes.verifiedSource', 'VERIFIED SOURCE')}</span>
                             </span>
                           </div>
 
                           {/* Return Rate / Key Highlight banner at bottom of image */}
                           <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white">
                             <div className="min-w-0 pr-2">
-                              <span className="text-[10px] font-mono uppercase tracking-wider text-slate-300 block">Benefit / Return</span>
+                              <span className="text-[10px] font-mono uppercase tracking-wider text-slate-300 block">
+                                {t('featuredSchemes.benefitReturn', 'Benefit / Return')}
+                              </span>
                               <span className="font-serif font-extrabold text-xl text-sanchay-gold-400 drop-shadow-xs truncate block max-w-[200px]">
                                 {benefitDisplay}
                               </span>
@@ -460,7 +462,7 @@ export const FeaturedSchemesSection = ({ schemes = [], onSelectScheme, initialLi
 
                             {/* Safety Indicator */}
                             <span className="shrink-0 px-2.5 py-1 rounded-lg bg-slate-900/80 backdrop-blur-xs text-[10px] font-mono text-sanchay-emerald-400 font-bold border border-sanchay-emerald-500/30">
-                              {isInsurance ? 'LIC Protection' : 'Sovereign Safe'}
+                              {isInsurance ? t('featuredSchemes.licProtection', 'LIC Protection') : t('featuredSchemes.sovereignSafe', 'Sovereign Safe')}
                             </span>
                           </div>
                         </div>
@@ -479,11 +481,11 @@ export const FeaturedSchemesSection = ({ schemes = [], onSelectScheme, initialLi
                         {/* Trust Metadata */}
                         <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px]">
                           <div>
-                            <span className="text-[9px] font-mono text-slate-400 uppercase block">Authority</span>
+                            <span className="text-[9px] font-mono text-slate-400 uppercase block">{t('featuredSchemes.authority', 'Authority')}</span>
                             <span className="font-bold text-sanchay-navy-900 truncate block max-w-[170px]">{authority}</span>
                           </div>
                           <div className="text-right">
-                            <span className="text-[9px] font-mono text-slate-400 uppercase block">Verified Date</span>
+                            <span className="text-[9px] font-mono text-slate-400 uppercase block">{t('featuredSchemes.verifiedDate', 'Verified Date')}</span>
                             <span className="font-mono text-[10px] text-sanchay-emerald-700 font-bold">{lastVerified}</span>
                           </div>
                         </div>
@@ -513,7 +515,7 @@ export const FeaturedSchemesSection = ({ schemes = [], onSelectScheme, initialLi
                                 e.stopPropagation();
                                 isSaved ? removeFromMyPlans(sid) : addToMyPlans(sid);
                               }}
-                              title={isSaved ? (currentLang === 'hi' ? 'प्लान में सहेजा गया' : 'Saved in My Plans') : (currentLang === 'hi' ? 'प्लान में जोड़ें' : 'Add to My Plans')}
+                              title={isSaved ? t('myPlans.saved', 'Saved in My Plans') : t('myPlans.addToMyPlans', 'Add to My Plans')}
                               className={`p-2 rounded-xl border transition-all cursor-pointer ${
                                 isSaved
                                   ? 'bg-emerald-50 text-emerald-700 border-emerald-300'
@@ -532,7 +534,7 @@ export const FeaturedSchemesSection = ({ schemes = [], onSelectScheme, initialLi
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-sanchay-emerald-50 hover:bg-sanchay-emerald-100 text-sanchay-emerald-800 font-bold text-[11px] uppercase tracking-wider border border-sanchay-emerald-200 transition-colors"
                           >
-                            <span>Official Portal</span>
+                            <span>{t('featuredSchemes.officialPortal', 'Official Portal')}</span>
                             <ExternalLink className="w-3 h-3" />
                           </a>
                         )}
@@ -552,7 +554,7 @@ export const FeaturedSchemesSection = ({ schemes = [], onSelectScheme, initialLi
                       onClick={() => setVisibleCount(prev => prev + 10)}
                       className="group inline-flex items-center gap-2.5 px-8 py-3.5 rounded-2xl bg-sanchay-navy-950 hover:bg-sanchay-navy-900 text-white font-extrabold text-xs uppercase tracking-wider shadow-card hover:shadow-editorial hover:scale-[1.02] transition-all cursor-pointer border border-sanchay-navy-800"
                     >
-                      <span>Show More Schemes (+10)</span>
+                      <span>{t('featuredSchemes.showMore', 'Show More Schemes (+10)')}</span>
                       <ChevronDown className="w-4 h-4 text-sanchay-gold-400 group-hover:translate-y-0.5 transition-transform" />
                     </button>
                   )}
@@ -569,13 +571,13 @@ export const FeaturedSchemesSection = ({ schemes = [], onSelectScheme, initialLi
                       className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl bg-white hover:bg-slate-100 text-sanchay-navy-950 font-extrabold text-xs uppercase tracking-wider shadow-card hover:shadow-editorial hover:scale-[1.02] transition-all cursor-pointer border border-slate-300"
                     >
                       <ChevronUp className="w-4 h-4 text-sanchay-navy-700 group-hover:-translate-y-0.5 transition-transform" />
-                      <span>Show Less</span>
+                      <span>{t('featuredSchemes.showLess', 'Show Less')}</span>
                     </button>
                   )}
                 </div>
 
                 <span className="text-[11px] font-mono text-slate-500">
-                  Showing {displayedSchemes.length} of {filteredSchemes.length} verified schemes
+                  {t('featuredSchemes.showingCount', 'Showing')} {displayedSchemes.length} {t('featuredSchemes.of', 'of')} {filteredSchemes.length} {t('featuredSchemes.verifiedSchemes', 'verified schemes')}
                 </span>
               </div>
             )}

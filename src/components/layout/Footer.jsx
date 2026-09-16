@@ -38,7 +38,7 @@ export const Footer = () => {
             </h4>
             <ul className="space-y-2.5 text-xs text-slate-300">
               <li>
-                <Link to="/" className="hover:text-sanchay-emerald-400 transition-colors inline-block hover:translate-x-0.5">Home</Link>
+                <Link to="/" className="hover:text-sanchay-emerald-400 transition-colors inline-block hover:translate-x-0.5">{t('nav.home', 'Home')}</Link>
               </li>
               <li>
                 <Link to="/profile" className="hover:text-sanchay-emerald-400 transition-colors inline-block hover:translate-x-0.5">{t('nav.findMySchemes', 'Find My Schemes')}</Link>
@@ -47,10 +47,10 @@ export const Footer = () => {
                 <Link to="/compare" className="hover:text-sanchay-emerald-400 transition-colors inline-block hover:translate-x-0.5">{t('nav.compare', 'Compare')}</Link>
               </li>
               <li>
-                <Link to="/lic" className="hover:text-sanchay-emerald-400 transition-colors inline-block hover:translate-x-0.5">{currentLang === 'hi' ? 'LIC योजनाएं' : 'LIC Plans'}</Link>
+                <Link to="/lic" className="hover:text-sanchay-emerald-400 transition-colors inline-block hover:translate-x-0.5">{t('nav.licPlans', 'LIC Plans')}</Link>
               </li>
               <li>
-                <Link to="/free-benefits" className="hover:text-sanchay-emerald-400 transition-colors inline-block hover:translate-x-0.5">{currentLang === 'hi' ? 'मुफ्त लाभ व योजनाएं' : 'Free Benefits & Assistance'}</Link>
+                <Link to="/free-benefits" className="hover:text-sanchay-emerald-400 transition-colors inline-block hover:translate-x-0.5">{t('nav.freeBenefits', 'Free Benefits')}</Link>
               </li>
               <li>
                 <Link to="/sources" className="hover:text-sanchay-emerald-400 transition-colors inline-block hover:translate-x-0.5">{t('nav.sources', 'Official Sources')}</Link>
@@ -142,7 +142,7 @@ export const Footer = () => {
                   to="/sources"
                   className="text-[11px] text-sanchay-emerald-400 hover:text-sanchay-emerald-300 font-mono inline-flex items-center gap-1 hover:underline"
                 >
-                  <span>{currentLang === 'hi' ? 'सभी 9+ आधिकारिक स्रोत देखें →' : 'View All 9+ Sources →'}</span>
+                  <span>{t('trust.viewSources', 'View All Verified Sources →')}</span>
                 </Link>
               </li>
             </ul>

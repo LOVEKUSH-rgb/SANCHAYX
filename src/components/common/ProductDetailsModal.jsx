@@ -175,7 +175,7 @@ export const ProductDetailsModal = ({ item, onClose, onCompare }) => {
             <div className="flex items-center gap-2 min-w-0">
               <ShieldCheck className="w-4 h-4 text-sanchay-emerald-600 shrink-0" />
               <div className="min-w-0">
-                <div className="font-serif font-bold text-xs text-sanchay-navy-950">Official Authority Source: {authority}</div>
+                <div className="font-serif font-bold text-xs text-sanchay-navy-950">{t('featuredSchemes.authority', 'Authority')}: {authority}</div>
                 <div className="text-[10px] text-slate-500 font-mono truncate max-w-sm">{officialUrl}</div>
               </div>
             </div>
@@ -187,7 +187,7 @@ export const ProductDetailsModal = ({ item, onClose, onCompare }) => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-sanchay-emerald-600 hover:bg-sanchay-emerald-700 text-white font-mono font-bold text-[10px] uppercase tracking-wider transition-colors shrink-0 shadow-2xs"
               >
-                <span>Official Details</span>
+                <span>{t('featuredSchemes.officialPortal', 'Official Details')}</span>
                 <ExternalLink className="w-3 h-3" />
               </a>
             )}
@@ -206,7 +206,7 @@ export const ProductDetailsModal = ({ item, onClose, onCompare }) => {
             }`}
           >
             <Bookmark className={`w-3.5 h-3.5 ${isSaved ? 'text-emerald-600 fill-emerald-600' : 'text-slate-500'}`} />
-            <span>{isSaved ? (currentLang === 'hi' ? 'प्लान में सहेजा गया' : 'Saved to Plans') : (currentLang === 'hi' ? '+ प्लान में जोड़ें' : 'Add to My Plans')}</span>
+            <span>{isSaved ? t('myPlans.saved', 'Saved to Plans') : t('myPlans.addToMyPlans', 'Add to My Plans')}</span>
           </button>
 
           <Link

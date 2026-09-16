@@ -594,24 +594,28 @@ const LIC_LOCALIZATIONS = {
  */
 export function localizeScheme(scheme, lang = 'en') {
   if (!scheme) return scheme;
-  if (lang === 'en') return scheme;
 
   const id = String(scheme.scheme_id || scheme.id || '').toLowerCase();
   const loc = SCHEME_LOCALIZATIONS[id];
 
-  const localizedName = loc?.name?.[lang] || (typeof scheme.name === 'object' ? (scheme.name[lang] || scheme.name.en) : scheme.name);
-  const localizedDesc = loc?.description?.[lang] || scheme.descriptionSimple || scheme.short_description || scheme.description;
-  const localizedElig = loc?.eligibility?.[lang] || scheme.eligibilitySummary || (typeof scheme.eligibility === 'string' ? scheme.eligibility : null);
+  const defaultName = typeof scheme.name === 'object' ? (scheme.name?.en || Object.values(scheme.name)[0] || scheme.shortName) : (scheme.name || scheme.shortName);
+  const localizedName = lang === 'en' ? defaultName : (loc?.name?.[lang] || (typeof scheme.name === 'object' ? (scheme.name[lang] || scheme.name.en) : scheme.name));
+  
+  const defaultDesc = scheme.descriptionSimple || scheme.short_description || scheme.full_description || scheme.description;
+  const localizedDesc = lang === 'en' ? defaultDesc : (loc?.description?.[lang] || defaultDesc);
+
+  const defaultElig = scheme.eligibilitySummary || (typeof scheme.eligibility === 'string' ? scheme.eligibility : null);
+  const localizedElig = lang === 'en' ? defaultElig : (loc?.eligibility?.[lang] || defaultElig);
 
   const categoryObj = CATEGORY_NAMES[scheme.category] || CATEGORY_NAMES[String(scheme.category).toLowerCase()];
   const localizedCategory = categoryObj?.[lang] || scheme.category;
 
   return {
     ...scheme,
-    displayName: localizedName,
-    displayDescription: localizedDesc,
-    displayEligibility: localizedElig,
-    displayCategory: localizedCategory
+    displayName: localizedName || defaultName,
+    displayDescription: localizedDesc || defaultDesc,
+    displayEligibility: localizedElig || defaultElig,
+    displayCategory: localizedCategory || scheme.category
   };
 }
 
@@ -620,24 +624,23 @@ export function localizeScheme(scheme, lang = 'en') {
  */
 export function localizeLICPlan(plan, lang = 'en') {
   if (!plan) return plan;
-  if (lang === 'en') return plan;
 
   const planNum = String(plan.plan_number || '').trim();
   const loc = LIC_LOCALIZATIONS[planNum];
 
-  const localizedName = loc?.plan_name?.[lang] || plan.plan_name;
-  const localizedDesc = loc?.short_description?.[lang] || plan.short_description || plan.description;
-  const localizedPurpose = loc?.main_purpose?.[lang] || plan.main_purpose;
+  const localizedName = lang === 'en' ? plan.plan_name : (loc?.plan_name?.[lang] || plan.plan_name);
+  const localizedDesc = lang === 'en' ? (plan.short_description || plan.description) : (loc?.short_description?.[lang] || plan.short_description || plan.description);
+  const localizedPurpose = lang === 'en' ? plan.main_purpose : (loc?.main_purpose?.[lang] || plan.main_purpose);
 
   const categoryObj = CATEGORY_NAMES[plan.category];
   const localizedCategory = categoryObj?.[lang] || plan.category;
 
   return {
     ...plan,
-    displayName: localizedName,
-    displayDescription: localizedDesc,
-    displayPurpose: localizedPurpose,
-    displayCategory: localizedCategory
+    displayName: localizedName || plan.plan_name,
+    displayDescription: localizedDesc || plan.short_description,
+    displayPurpose: localizedPurpose || plan.main_purpose,
+    displayCategory: localizedCategory || plan.category
   };
 }
 
@@ -646,23 +649,22 @@ export function localizeLICPlan(plan, lang = 'en') {
  */
 export function localizeFreeBenefit(benefit, lang = 'en') {
   if (!benefit) return benefit;
-  if (lang === 'en') return benefit;
 
   const bId = String(benefit.benefit_id || '').trim();
   const loc = FREE_BENEFIT_LOCALIZATIONS[bId];
 
-  const localizedName = loc?.name?.[lang] || benefit.name;
-  const localizedBenefit = loc?.benefit?.[lang] || benefit.benefit;
-  const localizedElig = loc?.eligibility?.[lang] || benefit.eligibility_text || benefit.eligibility;
+  const localizedName = lang === 'en' ? benefit.name : (loc?.name?.[lang] || benefit.name);
+  const localizedBenefit = lang === 'en' ? benefit.benefit : (loc?.benefit?.[lang] || benefit.benefit);
+  const localizedElig = lang === 'en' ? (benefit.eligibility_text || benefit.eligibility) : (loc?.eligibility?.[lang] || benefit.eligibility_text || benefit.eligibility);
 
   const typeObj = BENEFIT_TYPE_NAMES[benefit.benefit_type];
   const localizedBenefitType = typeObj?.[lang] || (benefit.benefit_type ? benefit.benefit_type.replace(/_/g, ' ') : 'Benefit');
 
   return {
     ...benefit,
-    displayName: localizedName,
-    displayBenefit: localizedBenefit,
-    displayEligibility: localizedElig,
+    displayName: localizedName || benefit.name,
+    displayBenefit: localizedBenefit || benefit.benefit,
+    displayEligibility: localizedElig || benefit.eligibility_text || benefit.eligibility,
     displayBenefitType: localizedBenefitType
   };
 }

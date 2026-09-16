@@ -3,37 +3,37 @@ import { Target, ShieldCheck, CheckCircle2, Award, FileText, Lock } from 'lucide
 import { useLanguage } from '../../context/LanguageContext';
 
 export const KeyFeaturesSection = () => {
-  const { t, currentLang } = useLanguage();
+  const { t } = useLanguage();
 
   const features = [
     {
-      title: '1. Goal-First Guidance',
-      desc: currentLang === 'hi' ? 'नागरिक अपना व्यक्तिगत वित्तीय लक्ष्य चुनते हैं, कोई जटिल उत्पाद नाम नहीं।' : 'Users select what they want to achieve, not a complex financial product name.',
+      title: t('keyFeatures.feat1Title', '1. Goal-First Guidance'),
+      desc: t('keyFeatures.feat1Desc', 'Users select what they want to achieve, not a complex financial product name.'),
       icon: Target,
     },
     {
-      title: '2. Eligibility-Aware',
-      desc: currentLang === 'hi' ? 'आयु, निवास, बजट और सरकारी नियमों का प्राथमिक सत्यापन।' : 'Checks age, profile, contribution capacity, goal duration, and scheme rules upfront.',
+      title: t('keyFeatures.feat2Title', '2. Eligibility-Aware'),
+      desc: t('keyFeatures.feat2Desc', 'Checks age, profile, contribution capacity, goal duration, and scheme rules upfront.'),
       icon: ShieldCheck,
     },
     {
-      title: '3. Govt-Verified Only',
-      desc: currentLang === 'hi' ? 'प्रत्येक योजना सीधे आधिकारिक भारत सरकार के राजपत्रों से सत्यापित है।' : 'Every scheme record is linked directly to an official source and verification date.',
+      title: t('keyFeatures.feat3Title', '3. Govt-Verified Only'),
+      desc: t('keyFeatures.feat3Desc', 'Every scheme record is linked directly to an official source and verification date.'),
       icon: CheckCircle2,
     },
     {
-      title: '4. Explainable Ranking',
-      desc: currentLang === 'hi' ? 'स्पष्ट Fit Score और उपयुक्तता के पारदर्शी कारण।' : 'Users see "Why this scheme fits you" instead of receiving a black-box result.',
+      title: t('keyFeatures.feat4Title', '4. Explainable Ranking'),
+      desc: t('keyFeatures.feat4Desc', 'Users see "Why this scheme fits you" instead of receiving a black-box result.'),
       icon: Award,
     },
     {
-      title: '5. Plain Language',
-      desc: currentLang === 'hi' ? 'ब्याज दर, लॉक-इन अवधि और कर लाभ की सरल व्याख्या।' : 'Simple explanations of return type, minimum amount, lock-in, and tax benefits.',
+      title: t('keyFeatures.feat5Title', '5. Plain Language'),
+      desc: t('keyFeatures.feat5Desc', 'Simple explanations of return type, minimum amount, lock-in, and tax benefits.'),
       icon: FileText,
     },
     {
-      title: '6. Safety-First Design',
-      desc: currentLang === 'hi' ? 'शून्य अनधिकृत उत्पाद, शून्य एजेंट कमीशन, शत-प्रतिशत संप्रभु सुरक्षा।' : 'No third-party products, no agent promotion, and no misleading return promises.',
+      title: t('keyFeatures.feat6Title', '6. Safety-First Design'),
+      desc: t('keyFeatures.feat6Desc', 'No third-party products, no agent promotion, and no misleading return promises.'),
       icon: Lock,
     },
   ];
@@ -46,13 +46,13 @@ export const KeyFeaturesSection = () => {
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sanchay-emerald-50 text-sanchay-emerald-600 text-xs font-bold uppercase tracking-wider mb-3">
             <Award className="w-3.5 h-3.5 text-sanchay-gold-500" />
-            <span>{t('problemSolution.solutionBadge', 'Why Choose Sanchay')}</span>
+            <span>{t('keyFeatures.badge', 'Why Choose Sanchay')}</span>
           </div>
           <h2 className="font-serif font-extrabold text-3xl sm:text-4xl text-sanchay-navy-900 tracking-tight">
-            {t('problemSolution.solutionTitle', 'What Makes Sanchay Different')}
+            {t('keyFeatures.title', 'What Makes Sanchay Different')}
           </h2>
           <p className="text-sm sm:text-base text-slate-600 mt-2">
-            6 core pillars powering our trusted, zero-bias recommendation platform.
+            {t('keyFeatures.subtitle', '6 core pillars powering our trusted, zero-bias recommendation platform.')}
           </p>
         </div>
 
@@ -79,7 +79,7 @@ export const KeyFeaturesSection = () => {
 
                 <div className="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] font-bold text-sanchay-emerald-600">
                   <CheckCircle2 className="w-3.5 h-3.5" />
-                  <span>Standard Feature</span>
+                  <span>{t('keyFeatures.standardFeature', 'Standard Feature')}</span>
                 </div>
               </div>
             );

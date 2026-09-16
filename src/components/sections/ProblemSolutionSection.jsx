@@ -51,7 +51,7 @@ export const ProblemSolutionSection = () => {
             </div>
 
             <div className="mt-8 pt-4 border-t border-slate-200/80 text-xs font-mono font-bold text-slate-500">
-              RESULT: Citizens abandon savings or invest in suboptimal options.
+              {t('problemSolution.problemResult', 'RESULT: Citizens abandon savings or invest in suboptimal options.')}
             </div>
           </div>
 
@@ -62,12 +62,12 @@ export const ProblemSolutionSection = () => {
               <div className="flex items-center justify-between mb-6">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sanchay-emerald-500/20 text-sanchay-emerald-400 text-[10px] font-mono font-bold uppercase tracking-wider border border-sanchay-emerald-500/30">
                   <ShieldCheck className="w-3.5 h-3.5" />
-                  <span>SANCHAY APPROACH</span>
+                  <span>{t('problemSolution.sanchayApproach', 'SANCHAY APPROACH')}</span>
                 </div>
               </div>
 
               <h3 className="font-serif font-extrabold text-2xl sm:text-3xl text-white leading-snug">
-                100% Grounded in Official Government Gazettes.
+                {t('problemSolution.gazettesHeadline', '100% Grounded in Official Government Gazettes.')}
               </h3>
 
               <p className="text-sm text-slate-300 mt-3.5 leading-relaxed">

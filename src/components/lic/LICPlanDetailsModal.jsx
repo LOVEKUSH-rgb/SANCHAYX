@@ -86,11 +86,11 @@ export const LICPlanDetailsModal = ({ plan, onClose }) => {
               {category}
             </span>
             <span className="px-2.5 py-0.5 rounded-md bg-white/10 text-white font-mono font-bold text-[10.5px]">
-              PLAN NO. {planNumber}
+              {t('lic.plan', 'PLAN')} {planNumber}
             </span>
             <span className="px-2.5 py-0.5 rounded-md bg-emerald-950/80 text-emerald-400 border border-emerald-800 text-[10px] font-mono font-bold uppercase tracking-wider flex items-center gap-1">
               <ShieldCheck className="w-3 h-3 text-emerald-400" />
-              100% Official LIC Gazette
+              {t('lic.gazetteBadge', '100% Official LIC Gazette')}
             </span>
           </div>
 
@@ -101,9 +101,9 @@ export const LICPlanDetailsModal = ({ plan, onClose }) => {
           <div className="flex items-center gap-3 mt-2 text-xs font-mono text-slate-300 flex-wrap">
             <span>UIN: <strong className="text-sanchay-gold-300">{uin}</strong></span>
             <span>•</span>
-            <span>IRDAI Registration: <strong>512</strong></span>
+            <span>{t('lic.irdaiReg', 'IRDAI Registration')}: <strong>512</strong></span>
             <span>•</span>
-            <span>Last Verified: <strong>{plan.last_verified || '2026-08-31'}</strong></span>
+            <span>{t('featuredSchemes.verifiedDate', 'Last Verified')}: <strong>{plan.last_verified || '2026-08-31'}</strong></span>
           </div>
         </div>
 
@@ -136,7 +136,7 @@ export const LICPlanDetailsModal = ({ plan, onClose }) => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
               <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80">
-                <span className="font-mono font-bold text-[10px] text-slate-400 uppercase tracking-wider block">Entry Age Window</span>
+                <span className="font-mono font-bold text-[10px] text-slate-400 uppercase tracking-wider block">{t('lic.entryAgeWindow', 'Entry Age Window')}</span>
                 <span className="font-bold text-sanchay-navy-950 text-sm mt-1 block">
                   {ageRules.entry_age_text || `${ageRules.min_entry_age_years || 0} to ${ageRules.max_entry_age_years || 65} Years`}
                 </span>
@@ -146,7 +146,7 @@ export const LICPlanDetailsModal = ({ plan, onClose }) => {
               </div>
 
               <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80">
-                <span className="font-mono font-bold text-[10px] text-slate-400 uppercase tracking-wider block">Allowed Gender & Lives</span>
+                <span className="font-mono font-bold text-[10px] text-slate-400 uppercase tracking-wider block">{t('lic.allowedGender', 'Allowed Gender & Lives')}</span>
                 <span className="font-bold text-sanchay-navy-950 text-sm mt-1 block">
                   {plan.gender_rules?.allowed || 'All Genders (Male / Female / Other)'}
                 </span>
@@ -173,24 +173,24 @@ export const LICPlanDetailsModal = ({ plan, onClose }) => {
           <div className="space-y-3">
             <h3 className="font-serif font-bold text-base text-sanchay-navy-950 flex items-center gap-2 border-b border-slate-200 pb-1.5">
               <DollarSign className="w-4 h-4 text-emerald-600" />
-              <span>Premium & Policy Terms</span>
+              <span>{t('lic.premiumPolicyTerms', 'Premium & Policy Terms')}</span>
             </h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
               <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200/80">
-                <span className="font-mono font-bold text-[10px] text-slate-400 uppercase tracking-wider block">Sum Assured</span>
+                <span className="font-mono font-bold text-[10px] text-slate-400 uppercase tracking-wider block">{t('lic.sumAssured', 'Sum Assured')}</span>
                 <span className="font-bold text-sanchay-navy-950 text-sm mt-1 block">{premRules.min_sum_assured_text || '₹1,00,000'}</span>
                 <span className="text-[10px] text-slate-400 mt-0.5 block">{premRules.max_sum_assured_text || 'No upper limit'}</span>
               </div>
 
               <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200/80">
-                <span className="font-mono font-bold text-[10px] text-slate-400 uppercase tracking-wider block">Policy Term</span>
+                <span className="font-mono font-bold text-[10px] text-slate-400 uppercase tracking-wider block">{t('lic.policyTerm', 'Policy Term')}</span>
                 <span className="font-bold text-sanchay-navy-950 text-sm mt-1 block">{polTerm.available_terms || '10 to 25 Years'}</span>
                 <span className="text-[10px] text-slate-400 mt-0.5 block">{polTerm.rule_description || 'Flexible term choices'}</span>
               </div>
 
               <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200/80">
-                <span className="font-mono font-bold text-[10px] text-slate-400 uppercase tracking-wider block">Payment Term (PPT)</span>
+                <span className="font-mono font-bold text-[10px] text-slate-400 uppercase tracking-wider block">{t('lic.paymentTerm', 'Payment Term (PPT)')}</span>
                 <span className="font-bold text-sanchay-navy-950 text-sm mt-1 block">{ppt.options ? ppt.options.join(', ') : 'Equal to Policy Term'}</span>
                 <span className="text-[10px] text-slate-400 mt-0.5 block">{ppt.rule_description || 'Regular / Limited premium options'}</span>
               </div>
@@ -198,7 +198,7 @@ export const LICPlanDetailsModal = ({ plan, onClose }) => {
 
             <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200/80 text-xs flex items-center justify-between gap-2 flex-wrap">
               <div>
-                <span className="font-bold text-sanchay-navy-900">Allowed Payment Modes:</span>{' '}
+                <span className="font-bold text-sanchay-navy-900">{t('lic.allowedPaymentModes', 'Allowed Payment Modes:')}</span>{' '}
                 <span className="text-slate-600 font-medium">{premRules.premium_payment_modes ? premRules.premium_payment_modes.join(', ') : 'Yearly, Half-Yearly, Quarterly, Monthly (NACH)'}</span>
               </div>
               {premRules.high_sum_assured_rebate && (
@@ -213,29 +213,29 @@ export const LICPlanDetailsModal = ({ plan, onClose }) => {
           <div className="space-y-3">
             <h3 className="font-serif font-bold text-base text-sanchay-navy-950 flex items-center gap-2 border-b border-slate-200 pb-1.5">
               <Award className="w-4 h-4 text-emerald-600" />
-              <span>Verified Statutory Benefits</span>
+              <span>{t('lic.verifiedStatutoryBenefits', 'Verified Statutory Benefits')}</span>
             </h3>
 
             <div className="space-y-2.5 text-xs">
               <div className="p-3.5 rounded-2xl bg-emerald-50/70 border border-emerald-200/80">
-                <strong className="font-bold text-emerald-900 block mb-0.5">🛡️ Death Benefit:</strong>
+                <strong className="font-bold text-emerald-900 block mb-0.5">{t('lic.deathBenefit', '🛡️ Death Benefit:')}</strong>
                 <p className="text-emerald-950 leading-relaxed">{deathBenefit}</p>
               </div>
 
               <div className="p-3.5 rounded-2xl bg-emerald-50/70 border border-emerald-200/80">
-                <strong className="font-bold text-emerald-900 block mb-0.5">🏆 Maturity Benefit:</strong>
+                <strong className="font-bold text-emerald-900 block mb-0.5">{t('lic.maturityBenefit', '🏆 Maturity Benefit:')}</strong>
                 <p className="text-emerald-950 leading-relaxed">{maturityBenefit}</p>
               </div>
 
               {survivalBenefit && survivalBenefit !== 'Not applicable (Lump-sum endowment/term assurance structure)' && (
                 <div className="p-3.5 rounded-2xl bg-amber-50/80 border border-amber-200/80">
-                  <strong className="font-bold text-amber-900 block mb-0.5">💵 Survival Payouts:</strong>
+                  <strong className="font-bold text-amber-900 block mb-0.5">{t('lic.survivalPayouts', '💵 Survival Payouts:')}</strong>
                   <p className="text-amber-950 leading-relaxed">{survivalBenefit}</p>
                 </div>
               )}
 
               <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200 text-[11.5px] text-slate-700">
-                <strong className="font-bold text-sanchay-navy-950">Bonus Participation & Yield Structure:</strong> {bonusType}
+                <strong className="font-bold text-sanchay-navy-950">{t('lic.bonusParticipation', 'Bonus Participation & Yield Structure:')}</strong> {bonusType}
               </div>
             </div>
           </div>
@@ -244,19 +244,19 @@ export const LICPlanDetailsModal = ({ plan, onClose }) => {
           <div className="space-y-3">
             <h3 className="font-serif font-bold text-base text-sanchay-navy-950 flex items-center gap-2 border-b border-slate-200 pb-1.5">
               <AlertCircle className="w-4 h-4 text-emerald-600" />
-              <span>Important Conditions & Liquidity</span>
+              <span>{t('lic.conditionsLiquidity', 'Important Conditions & Liquidity')}</span>
             </h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
               <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-1">
-                <strong className="font-bold text-sanchay-navy-950 block">Loan Facility:</strong>
+                <strong className="font-bold text-sanchay-navy-950 block">{t('lic.loanFacility', 'Loan Facility:')}</strong>
                 <p className="text-slate-600">
                   {loanRules.allowed ? `Allowed after ${loanRules.waiting_period_months || 12} months. ${loanRules.max_loan_percentage || 'Up to 90% of surrender value.'}` : 'Loan facility is not permitted under this plan structure.'}
                 </p>
               </div>
 
               <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-1">
-                <strong className="font-bold text-sanchay-navy-950 block">Surrender & Revival:</strong>
+                <strong className="font-bold text-sanchay-navy-950 block">{t('lic.surrenderRevival', 'Surrender & Revival:')}</strong>
                 <p className="text-slate-600">
                   {surrenderRules.guaranteed_surrender_value_rule || 'Guaranteed surrender value available after policy acquires paid-up status.'} Revival permitted within {plan.revival_rules?.within_years || 5} years.
                 </p>
@@ -265,7 +265,7 @@ export const LICPlanDetailsModal = ({ plan, onClose }) => {
 
             {plan.riders && plan.riders.length > 0 && (
               <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200/80 text-xs">
-                <strong className="font-bold text-sanchay-navy-950 block mb-1">Optional LIC Riders Available:</strong>
+                <strong className="font-bold text-sanchay-navy-950 block mb-1">{t('lic.optionalRiders', 'Optional LIC Riders Available:')}</strong>
                 <div className="flex flex-wrap gap-1.5 mt-1">
                   {plan.riders.map((r, i) => (
                     <span key={i} className="px-2.5 py-0.5 rounded-full bg-white border border-slate-200 text-slate-700 font-mono text-[10.5px]">
@@ -291,7 +291,7 @@ export const LICPlanDetailsModal = ({ plan, onClose }) => {
             }`}
           >
             <Bookmark className={`w-4 h-4 ${isSaved ? 'fill-white stroke-white' : ''}`} />
-            <span>{isSaved ? 'Saved in My Plans' : 'Save to My Plans'}</span>
+            <span>{isSaved ? t('myPlans.saved', 'Saved in My Plans') : t('myPlans.addToMyPlans', 'Save to My Plans')}</span>
           </button>
 
           <div className="flex items-center gap-2.5 w-full sm:w-auto">
@@ -301,7 +301,7 @@ export const LICPlanDetailsModal = ({ plan, onClose }) => {
               rel="noreferrer"
               className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 h-11 px-6 rounded-2xl bg-sanchay-navy-950 hover:bg-sanchay-navy-900 text-white font-mono font-bold text-xs uppercase tracking-wider transition-all cursor-pointer shadow-card"
             >
-              <span>View Official LIC Source</span>
+              <span>{t('lic.viewOfficialSource', 'View Official LIC Source')}</span>
               <ExternalLink className="w-3.5 h-3.5" />
             </a>
 
@@ -309,7 +309,7 @@ export const LICPlanDetailsModal = ({ plan, onClose }) => {
               onClick={onClose}
               className="px-4 h-11 rounded-2xl bg-slate-200 hover:bg-slate-300 text-sanchay-navy-950 font-mono font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer"
             >
-              Close
+              {t('common.close', 'Close')}
             </button>
           </div>
 

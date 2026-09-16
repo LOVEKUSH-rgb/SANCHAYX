@@ -1,14 +1,17 @@
 import React from 'react';
 import { ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 
 export const VerifiedSourcesTicker = () => {
+  const { t } = useLanguage();
+
   const sources = [
-    { name: 'Ministry of Finance', detail: 'Small Savings Directives' },
-    { name: 'India Post & NSI', detail: 'Postal Savings & PPF Rules' },
-    { name: 'LIC of India', detail: '38 Verified Active Plans' },
-    { name: 'PFRDA', detail: 'APY & NPS Statutory Data' },
-    { name: 'Income Tax Dept', detail: 'Sec 80C & 10(10D) Rules' },
-    { name: 'myScheme / DBT', detail: '22+ Free Sovereign Benefits' },
+    { name: 'Ministry of Finance', detail: t('ticker.smallSavings', 'Small Savings Directives') },
+    { name: 'India Post & NSI', detail: t('ticker.postalSavings', 'Postal Savings & PPF Rules') },
+    { name: 'LIC of India', detail: t('ticker.activePlans38', '38 Verified Active Plans') },
+    { name: 'PFRDA', detail: t('ticker.pfrdaData', 'APY & NPS Statutory Data') },
+    { name: 'Income Tax Dept', detail: t('ticker.taxRules', 'Sec 80C & 10(10D) Rules') },
+    { name: 'myScheme / DBT', detail: t('ticker.freeBenefits22', '22+ Free Sovereign Benefits') },
   ];
 
   return (
@@ -25,11 +28,11 @@ export const VerifiedSourcesTicker = () => {
             <div>
               <div className="flex items-center gap-2">
                 <span className="text-[10px] font-mono font-bold text-sanchay-emerald-600 uppercase tracking-widest">
-                  TRUST FRAMEWORK
+                  {t('ticker.trustFramework', 'TRUST FRAMEWORK')}
                 </span>
               </div>
               <span className="text-xs font-extrabold text-sanchay-navy-900 uppercase tracking-wider block mt-0.5">
-                Verified Official Sources
+                {t('ticker.verifiedOfficialSources', 'Verified Official Sources')}
               </span>
             </div>
           </div>

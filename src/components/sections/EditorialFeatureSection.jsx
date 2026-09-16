@@ -52,7 +52,7 @@ export const EditorialFeatureSection = ({ onSelectGoal }) => {
             {t('goals.subtitle', 'Which scheme is right for your goal?')}
           </h2>
           <p className="text-base sm:text-lg text-sanchay-navy-700 mt-3 leading-relaxed">
-            Select your primary objective to explore officially verified financial pathways tailored to your timeline.
+            {t('goals.objectiveSubtitle', 'Select your primary objective to explore officially verified financial pathways tailored to your timeline.')}
           </p>
         </div>
 
@@ -77,7 +77,7 @@ export const EditorialFeatureSection = ({ onSelectGoal }) => {
               />
               
               <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-sanchay-navy-950/80 backdrop-blur-xs text-white font-mono font-bold text-xs uppercase tracking-wider shadow-sm">
-                FEATURED EDITORIAL GUIDANCE
+                {t('editorial.featuredGuidance', 'FEATURED EDITORIAL GUIDANCE')}
               </div>
             </div>
 
@@ -85,7 +85,7 @@ export const EditorialFeatureSection = ({ onSelectGoal }) => {
             <div className="p-8 bg-white flex-1 flex flex-col justify-between">
               <div>
                 <span className="text-xs font-mono font-bold text-sanchay-emerald-700 uppercase tracking-widest block mb-2">
-                  01 / PRIMARY WEALTH OBJECTIVE
+                  {t('editorial.primaryWealthObjective', '01 / PRIMARY WEALTH OBJECTIVE')}
                 </span>
                 <h3 className="font-serif font-extrabold text-2xl sm:text-3xl text-sanchay-navy-950 group-hover:text-sanchay-emerald-700 transition-colors">
                   {t('goals.wealth', 'Long-term wealth & retirement')}
@@ -97,10 +97,10 @@ export const EditorialFeatureSection = ({ onSelectGoal }) => {
 
               <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
                 <span className="text-xs font-bold font-mono text-slate-500 uppercase">
-                  Includes PPF, NPS & Sovereign Gold Bonds
+                  {t('editorial.includesPPFNPS', 'Includes PPF, NPS & Sovereign Gold Bonds')}
                 </span>
                 <span className="inline-flex items-center gap-2 text-xs font-extrabold text-sanchay-emerald-700 group-hover:translate-x-1 transition-transform uppercase tracking-wider">
-                  <span>{t('explore.viewDetails', 'Explore Pathway')}</span>
+                  <span>{t('editorial.explorePathway', 'Explore Pathway')}</span>
                   <ArrowRight className="w-4 h-4" />
                 </span>
               </div>
@@ -138,7 +138,7 @@ export const EditorialFeatureSection = ({ onSelectGoal }) => {
                     {card.desc}
                   </p>
                   <span className="inline-flex items-center gap-1 text-[11px] font-bold text-sanchay-emerald-700 uppercase tracking-wider mt-2 group-hover:translate-x-0.5 transition-transform">
-                    <span>Explore Goal</span>
+                    <span>{t('editorial.exploreGoal', 'Explore Goal')}</span>
                     <ArrowRight className="w-3 h-3" />
                   </span>
                 </div>

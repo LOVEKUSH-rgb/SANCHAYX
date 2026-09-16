@@ -34,7 +34,7 @@ export const HeroHeadline = () => {
           className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-sanchay-gold-50 hover:bg-amber-100/80 text-sanchay-gold-700 border border-sanchay-gold-100 text-xs font-mono font-bold uppercase tracking-wider transition-all shadow-2xs group"
         >
           <span className="w-2 h-2 rounded-full bg-sanchay-gold-500"></span>
-          <span>38+ Active LIC Plans</span>
+          <span>{t('hero.activeLicBadge', '38+ Active LIC Plans')}</span>
           <span className="text-sanchay-gold-700 font-extrabold group-hover:translate-x-0.5 transition-transform">→</span>
         </Link>
 
@@ -51,7 +51,7 @@ export const HeroHeadline = () => {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sanchay-emerald-500 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-sanchay-emerald-600"></span>
           </span>
-          <span>22+ Free Benefits & Aid</span>
+          <span>{t('hero.freeBenefitsBadge', '22+ Free Benefits & Aid')}</span>
           <span className="text-sanchay-emerald-700 font-extrabold group-hover:translate-y-0.5 transition-transform">↓</span>
         </a>
       </div>
@@ -64,7 +64,7 @@ export const HeroHeadline = () => {
 
       {/* Supporting Text */}
       <p className="text-base sm:text-lg text-sanchay-navy-700 font-normal leading-relaxed">
-        Match your life goals with verified Government schemes, sovereign LIC insurance, and 100% free direct welfare benefits through our deterministic rule engine.
+        {t('hero.heroSubtitle', 'Match your life goals with verified Government schemes, sovereign LIC insurance, and 100% free direct welfare benefits through our deterministic rule engine.')}
       </p>
 
       {/* Dual CTAs */}
@@ -96,14 +96,16 @@ export const HeroHeadline = () => {
           <div className="font-serif font-extrabold text-2xl sm:text-3xl text-sanchay-navy-950">
             {schemeCount ? `${schemeCount}+` : '184+'}
           </div>
-          <div className="text-xs font-mono font-bold uppercase tracking-wider text-slate-500 mt-0.5">Govt Schemes</div>
+          <div className="text-xs font-mono font-bold uppercase tracking-wider text-slate-500 mt-0.5">
+            {t('hero.statGovtSchemes', 'Govt Schemes')}
+          </div>
         </div>
         <Link to="/lic" className="group block">
           <div className="font-serif font-extrabold text-2xl sm:text-3xl text-sanchay-gold-700 group-hover:text-sanchay-gold-600 transition-colors">
             38+
           </div>
           <div className="text-xs font-mono font-bold uppercase tracking-wider text-slate-500 group-hover:text-sanchay-gold-700 transition-colors mt-0.5">
-            Active LIC Plans →
+            {t('hero.statLicPlans', 'Active LIC Plans')} →
           </div>
         </Link>
         <Link to="/free-benefits" className="group block">
@@ -111,12 +113,14 @@ export const HeroHeadline = () => {
             22+
           </div>
           <div className="text-xs font-mono font-bold uppercase tracking-wider text-slate-500 group-hover:text-sanchay-emerald-800 transition-colors mt-0.5">
-            Free Benefits & Aid →
+            {t('hero.statFreeBenefits', 'Free Benefits & Aid')} →
           </div>
         </Link>
         <div>
           <div className="font-serif font-extrabold text-2xl sm:text-3xl text-sanchay-navy-900">0</div>
-          <div className="text-xs font-mono font-bold uppercase tracking-wider text-slate-500 mt-0.5">Commissions</div>
+          <div className="text-xs font-mono font-bold uppercase tracking-wider text-slate-500 mt-0.5">
+            {t('hero.statCommissions', 'Commissions')}
+          </div>
         </div>
       </div>
 

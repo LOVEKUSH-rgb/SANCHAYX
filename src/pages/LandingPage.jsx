@@ -124,11 +124,11 @@ export const LandingPage = () => {
             </div>
 
             <h2 className="font-serif font-extrabold text-3xl sm:text-5xl text-white tracking-tight leading-tight">
-              {t('hero.headlinePrefix', 'Ready to discover the verified schemes you are eligible for?')}
+              {t('hero.readyToDiscover', 'Ready to discover the verified schemes you are eligible for?')}
             </h2>
 
             <p className="text-base text-slate-300 max-w-2xl mx-auto mt-4 leading-relaxed font-normal">
-              {t('hero.subheadline', 'Enter your life stage, goal, and monthly budget. Sanchay calculates your deterministic eligibility and fit score in seconds.')}
+              {t('hero.readySubtitle', 'Enter your life stage, goal, and monthly budget. Sanchay calculates your deterministic eligibility and fit score in seconds.')}
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">

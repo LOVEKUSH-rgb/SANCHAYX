@@ -10,10 +10,10 @@ export const HowItWorksSection = () => {
     {
       id: 'schemes',
       icon: <Landmark className="w-5 h-5 text-emerald-700" />,
-      tag: 'PILLAR 01',
-      title: 'Government Schemes',
-      count: '184+ Schemes',
-      desc: 'Sovereign small savings (PPF, SSY), guaranteed pensions (APY, NPS), and collateral-free enterprise credit (MUDRA).',
+      tag: `${t('howItWorks.pillar', 'PILLAR')} 01`,
+      title: t('howItWorks.pillar1Title', 'Government Schemes'),
+      count: `184+ ${t('featuredSchemes.schemes', 'Schemes')}`,
+      desc: t('howItWorks.pillar1Desc', 'Sovereign small savings (PPF, SSY), guaranteed pensions (APY, NPS), and collateral-free enterprise credit (MUDRA).'),
       accent: 'border-emerald-200 bg-emerald-50/50 hover:bg-emerald-50 text-emerald-950',
       badge: 'bg-emerald-100 text-emerald-800',
       link: '/#verified-schemes'
@@ -21,10 +21,10 @@ export const HowItWorksSection = () => {
     {
       id: 'lic',
       icon: <ShieldCheck className="w-5 h-5 text-amber-700" />,
-      tag: 'PILLAR 02',
-      title: 'LIC Life Plans',
-      count: '38 Active Plans',
-      desc: 'High-value family term cover (Digi Term), child milestone education funds (Jeevan Tarun), and lifelong guaranteed annuities.',
+      tag: `${t('howItWorks.pillar', 'PILLAR')} 02`,
+      title: t('howItWorks.pillar2Title', 'LIC Life Plans'),
+      count: `38 ${t('lic.activePlans', 'Active Plans')}`,
+      desc: t('howItWorks.pillar2Desc', 'High-value family term cover (Digi Term), child milestone education funds (Jeevan Tarun), and lifelong guaranteed annuities.'),
       accent: 'border-amber-200 bg-amber-50/50 hover:bg-amber-50 text-amber-950',
       badge: 'bg-amber-100 text-amber-800',
       link: '/lic'
@@ -32,10 +32,10 @@ export const HowItWorksSection = () => {
     {
       id: 'free_benefits',
       icon: <Gift className="w-5 h-5 text-teal-700" />,
-      tag: 'PILLAR 03',
-      title: 'Free Benefits & Direct Aid',
-      count: '22 Free Benefits',
-      desc: '100% free foodgrains (PMGKAY), ₹5 Lakh cashless healthcare (PM-JAY), and accredited skill training with monthly stipends.',
+      tag: `${t('howItWorks.pillar', 'PILLAR')} 03`,
+      title: t('howItWorks.pillar3Title', 'Free Benefits & Direct Aid'),
+      count: `22 ${t('freeBenefits.freeBenefitsCount', 'Free Benefits')}`,
+      desc: t('howItWorks.pillar3Desc', '100% free foodgrains (PMGKAY), ₹5 Lakh cashless healthcare (PM-JAY), and accredited skill training with monthly stipends.'),
       accent: 'border-teal-200 bg-teal-50/50 hover:bg-teal-50 text-teal-950',
       badge: 'bg-teal-100 text-teal-800',
       link: '/free-benefits'
@@ -45,24 +45,24 @@ export const HowItWorksSection = () => {
   const steps = [
     {
       num: '01',
-      title: 'PROFILE',
+      title: t('howItWorks.step1Tag', 'PROFILE'),
       desc: t('howItWorks.step1Title', '1. Share Your Profile, Budget & Needs'),
-      details: 'Enter your age, residency, occupation, monthly savings budget, or family protection and welfare assistance needs in seconds.',
-      tag: 'Universal Profile'
+      details: t('howItWorks.step1Desc', 'Enter your age, residency, occupation, monthly savings budget, or family protection and welfare assistance needs in seconds.'),
+      tag: t('howItWorks.step1Badge', 'Universal Profile')
     },
     {
       num: '02',
-      title: 'EVALUATE',
+      title: t('howItWorks.step2Tag', 'EVALUATE'),
       desc: t('howItWorks.step2Title', '2. Rule Engine Evaluates All 3 Pillars'),
-      details: 'Our deterministic engine cross-checks 184+ Govt Schemes, 38+ LIC Plans, and 22+ Free Benefits matching 100% of statutory rules.',
-      tag: 'Deterministic Matching'
+      details: t('howItWorks.step2Desc', 'Our deterministic engine cross-checks 184+ Govt Schemes, 38+ LIC Plans, and 22+ Free Benefits matching 100% of statutory rules.'),
+      tag: t('howItWorks.step2Badge', 'Deterministic Matching')
     },
     {
       num: '03',
-      title: 'RECOMMEND',
+      title: t('howItWorks.step3Tag', 'RECOMMEND'),
       desc: t('howItWorks.step3Title', '3. Get Schemes, LIC Plans & Free Grants'),
-      details: 'Review explainable Fit Scores for savings, compare official LIC policies, and claim 100% free healthcare, ration and skill assistance.',
-      tag: 'Ranked Recommendations'
+      details: t('howItWorks.step3Desc', 'Review explainable Fit Scores for savings, compare official LIC policies, and claim 100% free healthcare, ration and skill assistance.'),
+      tag: t('howItWorks.step3Badge', 'Ranked Recommendations')
     },
   ];
 
@@ -79,11 +79,11 @@ export const HowItWorksSection = () => {
           </div>
           
           <h2 className="font-serif font-extrabold text-3xl sm:text-4xl lg:text-5xl text-sanchay-navy-950 tracking-tight leading-tight">
-            How SANCHAY Matches Schemes, LIC Plans & Free Benefits
+            {t('howItWorks.title', 'How SANCHAY Matches Schemes, LIC Plans & Free Benefits')}
           </h2>
           
           <p className="text-base sm:text-lg text-sanchay-navy-700 mt-3 leading-relaxed">
-            Deterministic rule evaluation across Government Savings Schemes, Sovereign LIC Life Solutions, and 100% Free Direct Assistance — zero guesswork, zero third-party commissions.
+            {t('howItWorks.subtitle', 'Deterministic rule evaluation across Government Savings Schemes, Sovereign LIC Life Solutions, and 100% Free Direct Assistance — zero guesswork, zero third-party commissions.')}
           </p>
         </div>
 
@@ -118,7 +118,7 @@ export const HowItWorksSection = () => {
               </div>
 
               <div className="pt-3 mt-3 border-t border-black/5 text-[11px] font-mono font-bold text-sanchay-navy-950 group-hover:underline flex items-center gap-1">
-                <span>Explore Details</span>
+                <span>{t('common.exploreDetails', 'Explore Details')}</span>
                 <span>→</span>
               </div>
             </Link>
@@ -157,7 +157,7 @@ export const HowItWorksSection = () => {
               </div>
 
               <div className="pt-4 mt-6 border-t border-slate-100 flex items-center justify-between text-[10px] font-mono text-slate-400">
-                <span>STEP {st.num}</span>
+                <span>{t('howItWorks.step', 'STEP')} {st.num}</span>
                 {idx < 2 && <ArrowRight className="w-3.5 h-3.5 text-sanchay-emerald-600 hidden md:block" />}
               </div>
             </div>
@@ -178,7 +178,7 @@ export const HowItWorksSection = () => {
             to="/lic"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl bg-amber-50 hover:bg-amber-100 text-amber-950 border border-amber-300 font-mono font-bold text-xs uppercase tracking-wider transition-all"
           >
-            <span>Explore 38 LIC Plans →</span>
+            <span>{t('howItWorks.exploreLicPlans', 'Explore 38 LIC Plans')} →</span>
           </Link>
 
           <Link
@@ -186,7 +186,7 @@ export const HowItWorksSection = () => {
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl bg-emerald-50 hover:bg-emerald-100 text-emerald-950 border border-emerald-300 font-mono font-bold text-xs uppercase tracking-wider transition-all"
           >
             <Gift className="w-3.5 h-3.5 text-emerald-600" />
-            <span>Discover 22 Free Benefits →</span>
+            <span>{t('howItWorks.discoverFreeBenefits', 'Discover 22 Free Benefits')} →</span>
           </Link>
         </div>
 
