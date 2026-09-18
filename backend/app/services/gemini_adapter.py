@@ -55,9 +55,11 @@ OUT_OF_SCOPE_KEYWORDS = [
     "trading", "day trading", "intraday", "forex", "derivatives", "futures trading", "options trading", "call option", "put option",
     "multibagger", "get rich quick", "20% return", "guaranteed 20", "speculation", "satta", "सट्टा",
     
-    # Non-government off-topic queries
+    # Non-government off-topic queries & dismissals/slang
     "weather", "joke", "tell me a joke", "movie", "cricket", "ipl", "song", "recipe", "who is prime minister", "who is president",
     "mausam", "chutkula", "गाना", "मौसम", "क्रिकेट", "जोक",
+    "hat re", "hat", "hatt", "hat ja", "hat be", "chup", "chup kar", "chup baith", "chup ho ja", "bakwas", "bakwaas", "pagal", "nikal",
+    "kya kar rahi ho", "kya kar rahe ho", "kya haal hai", "kya chal raha hai", "shut up", "go away", "nonsense", "stupid", "idiot",
     
     # Prompt injection / rule override
     "ignore your rules", "ignore rules", "override system", "jailbreak", "pretend you are"
@@ -1025,44 +1027,49 @@ class GeminiSakhiAdapter:
         if intent == "OUT_OF_SCOPE":
             refusals = {
                 "hi": (
-                    "### ⚠️ सखी की सीमा: केवल आधिकारिक सरकारी योजनाएं\n\n"
+                    "### ⚠️ सखी केवल सरकारी योजनाओं और वित्तीय बचत के लिए है\n\n"
                     "मैं **सखी (Sakhi)** हूँ — संचय की सत्यापित सरकारी योजना सहायक।\n\n"
-                    "**मेरी सीमाएं और नियम:**\n"
-                    "• **मैं क्या बताती हूँ:** केवल भारत सरकार, डाकघर (India Post), PFRDA, EPFO और राज्य सरकारों द्वारा अधिसूचित 100% सुरक्षित और सत्यापित सरकारी योजनाएं (जैसे PPF, SSY, SCSS, APY, NPS)।\n"
-                    "• **मैं क्या नहीं बताती:** मैं शेयर बाज़ार (Stocks/Shares), म्यूचुअल फंड (Mutual Funds), क्रिप्टोकरेंसी (Bitcoin), ट्रेडिंग टिप्स, या किसी भी प्रकार के गैर-सरकारी सट्टा बाज़ार पर कोई सलाह या जानकारी नहीं देती हूँ।\n\n"
-                    "👉 यदि आप सुरक्षित और सरकारी गारंटीकृत बचत योजनाओं के बारे में जानना चाहते हैं, तो नीचे दिए गए विकल्पों को चुन सकते हैं:"
+                    "**कृपया ध्यान दें:**\n"
+                    "• मैं इन सब चीज़ों, सामान्य बातचीत या गैर-सरकारी/गलत सवालों के लिए **नहीं बनी हूँ**।\n"
+                    "• **मेरा कार्यक्षेत्र:** केवल भारत सरकार, डाकघर (India Post), PFRDA, EPFO और राज्य सरकारों द्वारा अधिसूचित 100% सुरक्षित और सत्यापित सरकारी योजनाएं (जैसे PPF, SSY, SCSS, APY, NPS) एवं LIC पॉलिसियों की सही जानकारी देना है।\n"
+                    "• **मैं क्या नहीं बताती:** मैं शेयर बाज़ार (Stocks/Shares), म्यूचुअल फंड (Mutual Funds), क्रिप्टोकरेंसी (Bitcoin/Crypto), ट्रेडिंग टिप्स या सामान्य बातचीत के उत्तर नहीं देती हूँ।\n\n"
+                    "👉 कृपया सुरक्षित और सरकारी गारंटीकृत बचत योजनाओं या LIC पॉलिसियों से संबंधित प्रश्न पूछें:"
                 ),
                 "mr": (
                     "### ⚠️ सखीची मर्यादा: केवळ अधिकृत सरकारी योजना\n\n"
                     "मी **सखी (Sakhi)** आहे — संचयची अधिकृत सरकारी योजना सहाय्यक.\n\n"
                     "**माझ्या मर्यादा:**\n"
-                    "• मी केवळ भारत सरकार, टपाल खाते आणि PFRDA च्या अधिकृत योजनांची (PPF, SSY, SCSS, APY, NPS) माहिती देते.\n"
+                    "• मी सामान्य गप्पागोष्टी किंवा अशा चुकीच्या प्रश्नांसाठी बनलेली नाही.\n"
+                    "• मी केवळ भारत सरकार, टपाल खाते आणि PFRDA च्या अधिकृत योजनांची (PPF, SSY, SCSS, APY, NPS) व LIC पॉलिसींची माहिती देते.\n"
                     "• मी शेअर मार्केट, क्रिप्टो किंवा म्युच्युअल फंडांवर कोणतीही माहिती किंवा सल्ला देत नाही.\n\n"
-                    "👉 सुरक्षित सरकारी योजनांसाठी खालील पर्याय निवडा:"
+                    "👉 कृपया सुरक्षित सरकारी योजनांसाठी खालील पर्याय निवडा:"
                 ),
                 "bn": (
                     "### ⚠️ সখীর কার্যপরিধি: শুধুমাত্র সরকারি স্কিম\n\n"
                     "আমি **সখী (Sakhi)** — সঞ্চয়ের যাচাইকৃত সরকারি স্কিম সহায়ক।\n\n"
                     "**আমার নিয়মাবলী:**\n"
-                    "• আমি শুধুমাত্র ভারত সরকার এবং ডাকঘর অনুমোদিত নিরাপদ স্কিমের (যেমন PPF, SSY, SCSS, APY, NPS) তথ্য দিই।\n"
+                    "• আমি সাধারণ আড্ডা বা ভুল/অনুপযুক্ত প্রশ্নের উত্তরের জন্য তৈরি নই।\n"
+                    "• আমি শুধুমাত্র ভারত সরকার এবং ডাকঘর অনুমোদিত নিরাপদ স্কিমের (যেমন PPF, SSY, SCSS, APY, NPS) ও LIC পলিসির তথ্য দিই।\n"
                     "• আমি শেয়ার মার্কেট, ক্রিপ্টোকারেন্সি বা মিউচুয়াল ফান্ডের বিষয়ে কোনো উত্তর বা পরামর্শ দিই না।\n\n"
-                    "👉 সরকারি সঞ্চয় স্কিমের জন্য নিচের বিকল্পগুলি দেখুন:"
+                    "👉 অনুগ্রহ করে সরকারি সঞ্চয় স্কিমের জন্য নিচের বিকল্পগুলি দেখুন:"
                 ),
                 "te": (
                     "### ⚠️ సఖి పరిమితి: అధికారిక ప్రభుత్వ పథకాలు మాత్రమే\n\n"
                     "నేను **సఖి (Sakhi)** — సంచయ్ యొక్క అధికారిక ప్రభుత్వ పథకాల సహాయకురాలిని.\n\n"
                     "**నా పరిమితులు:**\n"
-                    "• నేను భారత ప్రభుత్వం మరియు పోస్టాఫీస్ ద్వారా ధృవీకరించబడిన పథకాల (PPF, SSY, SCSS, APY, NPS) పై మాత్రమే సమాచారాన్ని అందిస్తాను.\n"
+                    "• నేను సాధారణ సంభాషణలు లేదా సంబంధం లేని ప్రశ్నల కోసం రూపొందించబడలేదు.\n"
+                    "• నేను భారత ప్రభుత్వం మరియు పోస్టాఫీస్ ద్వారా ధృవీకరించబడిన పథకాల (PPF, SSY, SCSS, APY, NPS) మరియు LIC పాలసీలపై మాత్రమే సమాచారాన్ని అందిస్తాను.\n"
                     "• నేను స్టాక్ మార్కెట్, క్రిప్టో లేదా మ్యూచువల్ ఫండ్స్‌పై సలహాలు లేదా వివరణలు ఇవ్వను.\n\n"
-                    "👉 సురక్షిత ప్రభుత్వ పథకాల కోసం దిగువ ఎంపికలను చూడండి:"
+                    "👉 దయచేసి సురక్షిత ప్రభుత్వ పథకాల కోసం దిగువ ఎంపికలను చూడండి:"
                 ),
                 "en": (
-                    "### ⚠️ Sakhi Scope: Verified Government Schemes Only\n\n"
+                    "### ⚠️ Sakhi Scope: Verified Government Schemes & Savings Only\n\n"
                     "I am **Sakhi** — Sanchay's Verified Government Scheme Assistant.\n\n"
-                    "**My Strict Boundaries & Scope:**\n"
-                    "• **What I Cover:** Officially notified Government of India savings, pensions, social security, and welfare programs (e.g. PPF, SSY, SCSS, APY, NPS, EPF).\n"
-                    "• **What I Do Not Cover:** I do not provide explanations, trading advice, or tips for the stock market, shares, mutual funds, cryptocurrency, intraday trading, or non-government speculative instruments.\n\n"
-                    "👉 If you are looking for sovereign-guaranteed, safe savings schemes, please select a prompt below or click **Find My Schemes**:"
+                    "**My Strict Scope & Boundaries:**\n"
+                    "• I am **not designed** for casual conversations, slang, or off-topic/unrelated questions.\n"
+                    "• **What I Cover:** Officially notified Government of India savings, pensions, social security, and welfare programs (e.g. PPF, SSY, SCSS, APY, NPS, EPF) and LIC policies.\n"
+                    "• **What I Do Not Cover:** I do not provide explanations, trading advice, or tips for the stock market, shares, mutual funds, cryptocurrency (crypto/bitcoin), intraday trading, or non-government speculative instruments.\n\n"
+                    "👉 If you are looking for sovereign-guaranteed, safe savings schemes, please ask a question or select a prompt below:"
                 )
             }
             return SakhiChatResponse(

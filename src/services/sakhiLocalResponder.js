@@ -171,5 +171,77 @@ export function resolveLocalSakhiAnswer(rawQuery, lang = 'en') {
     };
   }
 
-  return null;
+  // 7. Greetings and Identity Introduction
+  const greetings = ['hi', 'hello', 'hey', 'hii', 'namaste', 'namaskar', 'pranam', 'halo', 'who are you', 'kon ho', 'koun ho', 'kaun ho', 'who is sakhi', 'sakhi kon hai', 'sakhi kaun hai'];
+  const cleanQ = q.replace(/[^\w\s]/g, '').trim();
+  const isGreeting = greetings.includes(cleanQ) || greetings.some(g => cleanQ === `${g} sakhi` || cleanQ === `sakhi ${g}`) || (cleanQ.length <= 15 && greetings.some(g => cleanQ.startsWith(g)));
+
+  if (isGreeting) {
+    const greetingTexts = {
+      hi: `नमस्ते! मैं **सखी (Sakhi)** हूँ — संचय की सत्यापित सरकारी योजना एवं वित्तीय बचत सहायक। 🙏\n\nमैं केवल **भारत सरकार की योजनाओं (जैसे PPF, सुकन्या समृद्धि, अटल पेंशन)**, **LIC पॉलिसियों** और **सुरक्षित बचत नियमों** की 100% सटीक और आधिकारिक जानकारी देने के लिए बनाई गई हूँ।\n\nआप मुझसे क्या जानना चाहते हैं?`,
+      mr: `नमस्कार! मी **सखी (Sakhi)** आहे — संचयची अधिकृत सरकारी योजना आणि आर्थिक बचत सहाय्यक. 🙏\n\nमी केवळ **भारत सरकारच्या अधिकृत योजना (उदा. PPF, सुकन्या, APY)** आणि **LIC पॉलिसी** बाबत माहिती देण्यासाठी तयार करण्यात आलेली आहे.\n\nमी आपल्याला कशी मदत करू शकते?`,
+      bn: `নমস্কার! আমি **সখী (Sakhi)** — সঞ্চয়ের যাচাইকৃত সরকারি স্কিম ও সঞ্চয় সহায়ক। 🙏\n\nআমি শুধুমাত্র **ভারত সরকারের বিভিন্ন স্কিম (যেমন PPF, SSY, APY)** এবং **LIC পলিসির** সঠিক ও অফিসিয়াল তথ্য প্রদান করি।\n\nআমি আপনাকে কীভাবে সাহায্য করতে পারি?`,
+      te: `నమస్కారం! నేను **సఖి (Sakhi)** — సంచయ్ యొక్క అధికారిక ప్రభుత్వ పథకాల సహాయకురాలిని. 🙏\n\nనేను కేవలం **భారత ప్రభుత్వ పథకాలు (PPF, SSY, APY వంటివి)** మరియు **LIC పాలసీలపై** సరైన సమాచారం అందించడానికే రూపొందించబడ్డాను.\n\nనేను మీకు ఏ విధంగా సహాయపడగలను?`,
+      en: `Hello! I am **Sakhi** — Sanchay's Verified Government Schemes & Savings Assistant. 🙏\n\nI am designed specifically to assist you with **Government of India Schemes (e.g. PPF, Sukanya Samriddhi, APY)**, **LIC Plans**, and sovereign savings guidelines.\n\nHow can I help you today?`
+    };
+
+    return {
+      id: `s-local-${Date.now()}`,
+      sender: 'sakhi',
+      text: greetingTexts[lang] || greetingTexts.en,
+      intent: 'GREETING',
+      sources: [],
+      guardrailApplied: false,
+      suggestedPrompts: [
+        'Tell me about Sukanya Samriddhi Yojana (SSY)',
+        'What is PPF?',
+        'Atal Pension Yojana (APY)',
+        '🎁 Free Plans'
+      ],
+      actionButtons: [
+        { label: '🎯 Find My Schemes', action: 'navigate', payload: { path: '/profile' } },
+        { label: '🏛️ Explore Catalog', action: 'navigate', payload: { path: '/explore' } }
+      ],
+      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+    };
+  }
+
+  // 8. Out-of-Scope / Casual / Slang / Rude / Wrong Questions Handling
+  // Clearly explain that Sakhi is not designed for these things, but strictly for government schemes & financial guidance
+  const outOfScopeResponses = {
+    hi: `### ⚠️ सखी केवल सरकारी योजनाओं और वित्तीय बचत के लिए है\n\nमैं **सखी (Sakhi)** हूँ — संचय की समर्पित सरकारी योजना एवं वित्तीय बचत सहायक।\n\n**कृपया ध्यान दें:**\n• मैं इन सब चीज़ों, सामान्य बातचीत या गैर-सरकारी/गलत सवालों के लिए **नहीं बनी हूँ**।\n• मेरा एकमात्र उद्देश्य आपको **भारत सरकार की कल्याणकारी योजनाओं (जैसे PPF, सुकन्या समृद्धि, किसान व पेंशन योजनाएं)**, **LIC पॉलिसियों** और **बचत नियमों** की 100% सत्यापित जानकारी देना है।\n\n👉 *कृपया सरकारी योजनाओं, सब्सिडी, छात्रवृत्ति या वित्तीय बचत से जुड़ा कोई सवाल पूछें:*`,
+    mr: `### ⚠️ सखी केवळ सरकारी योजना आणि आर्थिक बचतीसाठी आहे\n\nमी **सखी (Sakhi)** आहे — संचयची अधिकृत सरकारी योजना व वित्तीय बचत सहाय्यक.\n\n**कृपया नोंद घ्या:**\n• मी सामान्य गप्पागोष्टी, अवांतर किंवा अशा प्रकारच्या चुकीच्या प्रश्नांसाठी **बनलेली नाही**.\n• माझे उद्दिष्ट केवळ **भारत सरकारच्या योजना (PPF, सुकन्या, APY)** आणि **LIC पॉलिसी** बाबत अधिकृत माहिती देणे हे आहे.\n\n👉 *कृपया सरकारी योजना किंवा बचतीशी संबंधित प्रश्न विचारा:*`,
+    bn: `### ⚠️ সখী শুধুমাত্র সরকারি স্কিম ও আর্থিক সঞ্চয়ের জন্য নিবেদিত\n\nআমি **সখী (Sakhi)** — সঞ্চয়ের যাচাইকৃত সরকারি স্কিম সহায়ক।\n\n**অনুগ্রহ করে মনে রাখবেন:**\n• আমি সাধারণ আড্ডা বা ভুল/অনুপযুক্ত প্রশ্নের জন্য **তৈরি নই**।\n• আমার একমাত্র উদ্দেশ্য আপনাকে **ভারত সরকারের বিভিন্ন স্কিম (যেমন PPF, সুকন্যা, পেনশন স্কিম)** এবং **LIC পলিসির** নির্ভরযোগ্য তথ্য দেওয়া।\n\n👉 *অনুগ্রহ করে সরকারি স্কিম বা সঞ্চয় সম্পর্কিত কোনো প্রশ্ন জিজ্ঞাসা করুন:*`,
+    te: `### ⚠️ సఖి కేవలం ప్రభుత్వ పథకాలు మరియు పొదుపు కోసమే\n\nనేను **సఖి (Sakhi)** — సంచయ్ యొక్క అధికారిక ప్రభుత్వ పథకాల సహాయకురాలిని.\n\n**గమనిక:**\n• నేను సాధారణ సంభాషణలు లేదా సంబంధం లేని తప్పుడు ప్రశ్నల కోసం **రూపొందించబడలేదు**.\n• నా ఉద్దేశం కేవలం **భారత ప్రభుత్వ పథకాలు (PPF, SSY, APY)** మరియు **LIC పాలసీలపై** అధికారిక సమాచారాన్ని అందించడమే.\n\n👉 *దయచేసి ప్రభుత్వ పథకాలు లేదా పొదుపునకు సంబంధించిన ప్రశ్నలను అడగండి:*`,
+    en: `### ⚠️ Sakhi is Designed Exclusively for Government Schemes & Savings\n\nI am **Sakhi** — Sanchay's Verified Government Schemes & Financial Guidance Assistant.\n\n**Important Notice:**\n• I am **not designed** for casual conversations, slang, or off-topic/unrelated questions.\n• My sole purpose is to provide verified, sovereign-backed information on **Government of India Schemes (e.g. PPF, Sukanya Samriddhi, APY, Welfare Programs)**, **LIC Plans**, and statutory savings rules.\n\n👉 *Please ask a question related to government schemes, subsidies, pensions, or financial savings:*`
+  };
+
+  // If query is in Hindi/Hinglish (e.g. contains words like 'hat', 're', 'kya', 'hai', 'bhai', 'tu', 'kar'), detect language context
+  const isHinglish = /\b(hat|re|hatt|chup|kya|bhai|bata|batao|kaun|kon|teri|mera|mujhe|kuch|nahi|nhi)\b/i.test(q);
+  const effectiveLang = (lang === 'hi' || isHinglish) ? 'hi' : (outOfScopeResponses[lang] ? lang : 'en');
+
+  return {
+    id: `s-local-${Date.now()}`,
+    sender: 'sakhi',
+    text: outOfScopeResponses[effectiveLang] || outOfScopeResponses.en,
+    intent: 'OUT_OF_SCOPE',
+    sources: [],
+    guardrailApplied: 'OUT_OF_SCOPE_REFUSAL',
+    suggestedPrompts: effectiveLang === 'hi' ? [
+      'सुकन्या समृद्धि योजना क्या है?',
+      'पब्लिक प्रोविडेंट फंड (PPF) के नियम',
+      'अटल पेंशन योजना (APY)',
+      '🎁 मुफ्त सरकारी योजनाएं (Free Plans)'
+    ] : [
+      'Tell me about Sukanya Samriddhi Yojana (SSY)',
+      'What is Public Provident Fund (PPF)?',
+      'Atal Pension Yojana (APY)',
+      '🎁 100% Free Government Plans'
+    ],
+    actionButtons: [
+      { label: effectiveLang === 'hi' ? '🎯 मेरे लिए योजनाएं खोजें' : '🎯 Find My Schemes', action: 'navigate', payload: { path: '/profile' } },
+      { label: effectiveLang === 'hi' ? '🏛️ सभी योजनाएं देखें' : '🏛️ Explore All Schemes', action: 'navigate', payload: { path: '/explore' } }
+    ],
+    timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+  };
 }
