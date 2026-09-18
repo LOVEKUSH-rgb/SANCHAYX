@@ -58,13 +58,17 @@ export const AuthProvider = ({ children }) => {
       setIsLoadingUser(true);
       getCurrentUser(token)
         .then(userData => {
-          if (userData) {
+          if (userData && !userData.unauthorized) {
             setUser(userData);
             localStorage.setItem(USER_KEY, JSON.stringify(userData));
-          } else {
-            // Token expired or invalid
+          } else if (userData?.unauthorized) {
+            // ONLY log out if backend explicitly rejected token (401)
             logout();
           }
+          // If null (network error / backend not running), keep cached profile from localStorage
+        })
+        .catch(() => {
+          // Keep cached profile on network error
         })
         .finally(() => setIsLoadingUser(false));
     }
@@ -168,36 +172,77 @@ export const AuthProvider = ({ children }) => {
 
   // Saved Plans Management
   const addToMyPlans = async (schemeId) => {
-    if (!token) {
+    if (!schemeId) return false;
+    if (!token && !user) {
       openAuthModal('login');
       return false;
     }
-    try {
-      const res = await addSavedPlan(schemeId, token);
-      if (res.saved_plans) {
-        setSavedPlanIds(new Set(res.saved_plans));
-        setUser(prev => prev ? { ...prev, saved_plans: res.saved_plans } : prev);
+
+    const idStr = String(schemeId);
+    // Optimistically update local state & storage
+    const currentList = Array.from(savedPlanIds || user?.saved_plans || []);
+    const updatedPlans = currentList.includes(idStr) ? currentList : [...currentList, idStr];
+    setSavedPlanIds(new Set(updatedPlans));
+    setUser(prev => {
+      const updatedUser = prev ? { ...prev, saved_plans: updatedPlans } : { saved_plans: updatedPlans };
+      localStorage.setItem(USER_KEY, JSON.stringify(updatedUser));
+      return updatedUser;
+    });
+
+    if (token) {
+      try {
+        const res = await addSavedPlan(schemeId, token);
+        if (res?.saved_plans) {
+          setSavedPlanIds(new Set(res.saved_plans));
+          setUser(prev => {
+            const updatedUser = prev ? { ...prev, saved_plans: res.saved_plans } : prev;
+            if (updatedUser) localStorage.setItem(USER_KEY, JSON.stringify(updatedUser));
+            return updatedUser;
+          });
+        }
+      } catch (err) {
+        console.warn('Backend addSavedPlan offline, persisted locally:', err);
       }
-      return true;
-    } catch (err) {
-      console.error('Failed to add plan:', err);
-      return false;
     }
+    return true;
   };
 
   const removeFromMyPlans = async (schemeId) => {
-    if (!token) return false;
-    try {
-      const res = await removeSavedPlan(schemeId, token);
-      if (res.saved_plans) {
-        setSavedPlanIds(new Set(res.saved_plans));
-        setUser(prev => prev ? { ...prev, saved_plans: res.saved_plans } : prev);
-      }
+    if (!schemeId) return false;
+    const idStr = String(schemeId).toLowerCase();
+    const currentList = Array.from(savedPlanIds || user?.saved_plans || []);
+    const updatedPlans = currentList.filter(id => {
+      const curLower = String(id).toLowerCase();
+      if (curLower === idStr) return false;
+      const m1 = curLower.match(/\d+/);
+      const m2 = idStr.match(/\d+/);
+      if (m1 && m2 && m1[0] === m2[0] && (curLower.includes('lic') || idStr.includes('lic'))) return false;
       return true;
-    } catch (err) {
-      console.error('Failed to remove plan:', err);
-      return false;
+    });
+
+    setSavedPlanIds(new Set(updatedPlans));
+    setUser(prev => {
+      const updatedUser = prev ? { ...prev, saved_plans: updatedPlans } : { saved_plans: updatedPlans };
+      localStorage.setItem(USER_KEY, JSON.stringify(updatedUser));
+      return updatedUser;
+    });
+
+    if (token) {
+      try {
+        const res = await removeSavedPlan(schemeId, token);
+        if (res?.saved_plans) {
+          setSavedPlanIds(new Set(res.saved_plans));
+          setUser(prev => {
+            const updatedUser = prev ? { ...prev, saved_plans: res.saved_plans } : prev;
+            if (updatedUser) localStorage.setItem(USER_KEY, JSON.stringify(updatedUser));
+            return updatedUser;
+          });
+        }
+      } catch (err) {
+        console.warn('Backend removeSavedPlan offline, removed locally:', err);
+      }
     }
+    return true;
   };
 
   const isPlanSaved = (schemeId) => {

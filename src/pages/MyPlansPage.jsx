@@ -16,6 +16,7 @@ import { useAuth } from '../context/AuthContext';
 import { useLanguage } from '../context/LanguageContext';
 import { fetchSavedPlans } from '../services/api';
 import { getSchemeImage } from '../data/schemeImages';
+import { MOCK_SCHEMES } from '../data/mockSchemes';
 import { FALLBACK_LIC_PLANS } from '../data/licPlansFallback';
 import { FALLBACK_FREE_BENEFITS } from '../data/freeBenefitsFallback';
 import { localizeScheme, localizeLICPlan, localizeFreeBenefit } from '../utils/contentLocalizer';
@@ -33,9 +34,13 @@ export const MyPlansPage = () => {
   const [sakhiChatOpen, setSakhiChatOpen] = useState(false);
   const [removingId, setRemovingId] = useState(null);
 
+  const savedIdsKey = Array.from(savedPlanIds || user?.saved_plans || []).sort().join(',');
+
   const loadPlans = async () => {
-    if (!token && (!user?.saved_plans || user.saved_plans.length === 0)) {
+    const currentSavedIds = Array.from(savedPlanIds || user?.saved_plans || []);
+    if (!token && currentSavedIds.length === 0) {
       setIsLoading(false);
+      setSavedSchemes([]);
       return;
     }
     setIsLoading(true);
@@ -45,22 +50,42 @@ export const MyPlansPage = () => {
         data = await fetchSavedPlans(token);
       }
 
-      // Check if any saved ID in user state was missing from API response (e.g. LIC fallback)
-      const currentSavedIds = Array.from(savedPlanIds || user?.saved_plans || []);
-      const existingIds = new Set((data || []).map(s => String(s.scheme_id || s.id || s.plan_id).toLowerCase()));
-
+      const existingIds = new Set((data || []).map(s => String(s.scheme_id || s.id || s.plan_id || s.benefit_id || '').toLowerCase()));
       const enriched = [...(data || [])];
 
       currentSavedIds.forEach(rawId => {
         const idStr = String(rawId).toLowerCase();
         if (!existingIds.has(idStr)) {
-          // Look up in FALLBACK_LIC_PLANS
+          // 1. Look up in MOCK_SCHEMES (Sovereign Government Schemes)
+          const govMatch = MOCK_SCHEMES.find(s => {
+            const sId = String(s.scheme_id || s.id || '').toLowerCase();
+            const sShort = String(s.short_name || s.shortName || '').toLowerCase();
+            return sId === idStr || 
+                   sShort === idStr || 
+                   idStr.startsWith(sId) || 
+                   sId.startsWith(idStr) ||
+                   (sShort && idStr.includes(sShort));
+          });
+
+          if (govMatch) {
+            enriched.push({
+              ...govMatch,
+              scheme_id: govMatch.scheme_id || govMatch.id || rawId,
+              id: govMatch.scheme_id || govMatch.id || rawId,
+              is_lic_plan: false,
+              is_free_benefit: false
+            });
+            existingIds.add(idStr);
+            return;
+          }
+
+          // 2. Look up in FALLBACK_LIC_PLANS
           const numMatch = idStr.match(/\d+/);
           const num = numMatch ? numMatch[0] : null;
           const licMatch = FALLBACK_LIC_PLANS.find(p => 
             String(p.plan_id).toLowerCase() === idStr ||
-            String(p.plan_number) === num ||
-            `lic-${p.plan_number}` === idStr ||
+            (num && String(p.plan_number) === num) ||
+            (num && `lic-${p.plan_number}` === idStr) ||
             `lic-${p.plan_id}`.toLowerCase() === idStr
           );
 
@@ -91,43 +116,65 @@ export const MyPlansPage = () => {
               raw_plan: licMatch
             });
             existingIds.add(idStr);
-          } else {
-            const fbMatch = FALLBACK_FREE_BENEFITS.find(b =>
-              String(b.benefit_id).toLowerCase() === idStr ||
-              String(b.benefit_id).toLowerCase() === `fb_${idStr}`
-            );
-            if (fbMatch) {
-              enriched.push({
-                scheme_id: fbMatch.benefit_id,
-                id: fbMatch.benefit_id,
-                benefit_id: fbMatch.benefit_id,
-                is_free_benefit: true,
-                is_lic_plan: false,
-                name: fbMatch.name,
-                category: fbMatch.category || 'Free Benefit',
-                description: fbMatch.description || fbMatch.benefit,
-                benefit: fbMatch.benefit,
-                eligibility: fbMatch.eligibility,
-                benefit_type: fbMatch.benefit_type || 'completely_free',
-                state: fbMatch.state || 'All India',
-                level: fbMatch.level || 'National',
-                authority: 'Government of India',
-                official_url: fbMatch.application_url || fbMatch.official_source || 'https://india.gov.in',
-                last_verified_date: fbMatch.last_verified || '2026-08-30',
-                benefits: {
-                  summary: fbMatch.benefit,
-                  interest_rate: '100% Free / Direct Benefit',
-                  tax_benefit: 'Full Subsidy'
-                },
-                financial: {
-                  interest_rate: '100% Free',
-                  minimum_contribution: 0
-                },
-                raw_benefit: fbMatch
-              });
-              existingIds.add(idStr);
-            }
+            return;
           }
+
+          // 3. Look up in FALLBACK_FREE_BENEFITS
+          const fbMatch = FALLBACK_FREE_BENEFITS.find(b =>
+            String(b.benefit_id).toLowerCase() === idStr ||
+            String(b.benefit_id).toLowerCase() === `fb_${idStr}` ||
+            idStr === `fb_${String(b.benefit_id).toLowerCase()}`
+          );
+          if (fbMatch) {
+            enriched.push({
+              scheme_id: fbMatch.benefit_id,
+              id: fbMatch.benefit_id,
+              benefit_id: fbMatch.benefit_id,
+              is_free_benefit: true,
+              is_lic_plan: false,
+              name: fbMatch.name,
+              category: fbMatch.category || 'Free Benefit',
+              description: fbMatch.description || fbMatch.benefit,
+              benefit: fbMatch.benefit,
+              eligibility: fbMatch.eligibility,
+              benefit_type: fbMatch.benefit_type || 'completely_free',
+              state: fbMatch.state || 'All India',
+              level: fbMatch.level || 'National',
+              authority: 'Government of India',
+              official_url: fbMatch.application_url || fbMatch.official_source || 'https://india.gov.in',
+              last_verified_date: fbMatch.last_verified || '2026-08-30',
+              benefits: {
+                summary: fbMatch.benefit,
+                interest_rate: '100% Free / Direct Benefit',
+                tax_benefit: 'Full Subsidy'
+              },
+              financial: {
+                interest_rate: '100% Free',
+                minimum_contribution: 0
+              },
+              raw_benefit: fbMatch
+            });
+            existingIds.add(idStr);
+            return;
+          }
+
+          // 4. Clean fallback if ID was not matched
+          enriched.push({
+            scheme_id: rawId,
+            id: rawId,
+            name: String(rawId).toUpperCase().replace(/[_-]/g, ' '),
+            category: t('myPlans.tabGovt', 'Sovereign Schemes'),
+            description: t('myPlans.subtitle', 'Statutory government welfare scheme.'),
+            authority: 'Government of India',
+            official_url: 'https://www.myscheme.gov.in',
+            last_verified_date: '2026-08-30',
+            benefits: {
+              interest_rate: t('myPlans.statutoryBenefit', 'Statutory Benefit')
+            },
+            is_lic_plan: false,
+            is_free_benefit: false
+          });
+          existingIds.add(idStr);
         }
       });
 
@@ -146,7 +193,7 @@ export const MyPlansPage = () => {
       setIsLoading(false);
       setSavedSchemes([]);
     }
-  }, [isAuthenticated, token, user?.saved_plans]);
+  }, [isAuthenticated, token, savedIdsKey]);
 
   const handleRemove = async (schemeId, e) => {
     e.stopPropagation();
@@ -322,7 +369,7 @@ export const MyPlansPage = () => {
             <div className="flex items-center gap-2">
               <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-sanchay-navy-950 bg-slate-50 px-3 py-2 rounded-xl border border-slate-200 shrink-0">
                 <Bookmark className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
-                <span>{savedSchemes.length} {t('myPlans.savedTotal', 'Saved Total')}</span>
+                <span>{(savedSchemes.length > 0 ? savedSchemes.length : (savedPlanIds?.size || user?.saved_plans?.length || 0))} {t('myPlans.savedTotal', 'Saved Total')}</span>
               </div>
             </div>
           </div>

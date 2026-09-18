@@ -1,9 +1,20 @@
+export const isProductionDomain = () => {
+  return typeof window !== 'undefined' && 
+    window.location.hostname !== 'localhost' && 
+    window.location.hostname !== '127.0.0.1';
+};
+
 const getApiBaseUrl = () => {
+  const isProd = isProductionDomain();
   const envUrl = import.meta.env.VITE_API_URL;
   if (envUrl && envUrl.trim()) {
-    return envUrl.trim().replace(/\/+$/, '');
+    const trimmed = envUrl.trim().replace(/\/+$/, '');
+    if (isProd && (trimmed.includes('localhost') || trimmed.includes('127.0.0.1'))) {
+      return '';
+    }
+    return trimmed;
   }
-  if (typeof window !== 'undefined' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+  if (isProd) {
     return '';
   }
   return 'http://127.0.0.1:8000';
@@ -304,10 +315,23 @@ export async function loginWithGoogleApi(googleData) {
 
 export async function getCurrentUser(token) {
   if (!token) return null;
+  const isProd = isProductionDomain();
+  if (isProd && (!API_BASE_URL || API_BASE_URL.includes('127.0.0.1') || API_BASE_URL.includes('localhost'))) {
+    return null;
+  }
+
   try {
+    const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+    const timer = controller ? setTimeout(() => controller.abort(), 3500) : null;
+
     const res = await fetch(`${API_BASE_URL}/api/auth/me`, {
-      headers: { 'Authorization': `Bearer ${token}` }
+      headers: { 'Authorization': `Bearer ${token}` },
+      signal: controller ? controller.signal : undefined
     });
+    if (timer) clearTimeout(timer);
+    if (res.status === 401) {
+      return { unauthorized: true };
+    }
     if (!res.ok) return null;
     return await res.json();
   } catch (err) {
@@ -317,6 +341,11 @@ export async function getCurrentUser(token) {
 
 export async function uploadProfilePhotoApi(token, photoData) {
   if (!token) throw new Error('Authentication required.');
+  const isProd = isProductionDomain();
+  if (isProd && (!API_BASE_URL || API_BASE_URL.includes('127.0.0.1') || API_BASE_URL.includes('localhost'))) {
+    throw new Error('Profile photo upload requires backend connection.');
+  }
+
   const res = await fetch(`${API_BASE_URL}/api/auth/profile-photo`, {
     method: 'POST',
     headers: {
@@ -334,6 +363,11 @@ export async function uploadProfilePhotoApi(token, photoData) {
 
 export async function updateAvatarApi(token, avatarId) {
   if (!token) throw new Error('Authentication required.');
+  const isProd = isProductionDomain();
+  if (isProd && (!API_BASE_URL || API_BASE_URL.includes('127.0.0.1') || API_BASE_URL.includes('localhost'))) {
+    return { user: { avatar_id: avatarId } };
+  }
+
   const res = await fetch(`${API_BASE_URL}/api/auth/avatar`, {
     method: 'POST',
     headers: {
@@ -351,10 +385,20 @@ export async function updateAvatarApi(token, avatarId) {
 
 export async function fetchSavedPlans(token) {
   if (!token) return [];
+  const isProd = isProductionDomain();
+  if (isProd && (!API_BASE_URL || API_BASE_URL.includes('127.0.0.1') || API_BASE_URL.includes('localhost'))) {
+    return [];
+  }
+
   try {
+    const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+    const timer = controller ? setTimeout(() => controller.abort(), 3500) : null;
+
     const res = await fetch(`${API_BASE_URL}/api/auth/plans`, {
-      headers: { 'Authorization': `Bearer ${token}` }
+      headers: { 'Authorization': `Bearer ${token}` },
+      signal: controller ? controller.signal : undefined
     });
+    if (timer) clearTimeout(timer);
     if (!res.ok) return [];
     return await res.json();
   } catch (err) {
@@ -364,36 +408,66 @@ export async function fetchSavedPlans(token) {
 
 export async function addSavedPlan(schemeId, token) {
   if (!token) throw new Error('Authentication required.');
-  const res = await fetch(`${API_BASE_URL}/api/auth/plans/add`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    },
-    body: JSON.stringify({ scheme_id: schemeId })
-  });
-  const data = await res.json();
-  if (!res.ok) {
-    throw new Error(data.detail || 'Failed to save scheme.');
+  const isProd = isProductionDomain();
+  if (isProd && (!API_BASE_URL || API_BASE_URL.includes('127.0.0.1') || API_BASE_URL.includes('localhost'))) {
+    return { status: 'success', saved_plans: [schemeId] };
   }
-  return data;
+
+  const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+  const timer = controller ? setTimeout(() => controller.abort(), 3500) : null;
+
+  try {
+    const res = await fetch(`${API_BASE_URL}/api/auth/plans/add`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+      signal: controller ? controller.signal : undefined,
+      body: JSON.stringify({ scheme_id: schemeId })
+    });
+    if (timer) clearTimeout(timer);
+    const data = await res.json();
+    if (!res.ok) {
+      throw new Error(data.detail || 'Failed to save scheme.');
+    }
+    return data;
+  } catch (err) {
+    if (timer) clearTimeout(timer);
+    throw err;
+  }
 }
 
 export async function removeSavedPlan(schemeId, token) {
   if (!token) throw new Error('Authentication required.');
-  const res = await fetch(`${API_BASE_URL}/api/auth/plans/remove`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    },
-    body: JSON.stringify({ scheme_id: schemeId })
-  });
-  const data = await res.json();
-  if (!res.ok) {
-    throw new Error(data.detail || 'Failed to remove scheme.');
+  const isProd = isProductionDomain();
+  if (isProd && (!API_BASE_URL || API_BASE_URL.includes('127.0.0.1') || API_BASE_URL.includes('localhost'))) {
+    return { status: 'success', saved_plans: [] };
   }
-  return data;
+
+  const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+  const timer = controller ? setTimeout(() => controller.abort(), 3500) : null;
+
+  try {
+    const res = await fetch(`${API_BASE_URL}/api/auth/plans/remove`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+      signal: controller ? controller.signal : undefined,
+      body: JSON.stringify({ scheme_id: schemeId })
+    });
+    if (timer) clearTimeout(timer);
+    const data = await res.json();
+    if (!res.ok) {
+      throw new Error(data.detail || 'Failed to remove scheme.');
+    }
+    return data;
+  } catch (err) {
+    if (timer) clearTimeout(timer);
+    throw err;
+  }
 }
 
 // ==========================================

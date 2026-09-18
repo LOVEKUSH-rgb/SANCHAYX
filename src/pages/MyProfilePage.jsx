@@ -75,23 +75,53 @@ export const MyProfilePage = () => {
         const plans = await fetchSavedPlans(token);
         if (!isMounted) return;
         let gov = 0, lic = 0, free = 0;
-        (plans || []).forEach(p => {
-          if (p.is_free_benefit || p.benefit_id || String(p.scheme_id || '').startsWith('fb_')) {
-            free++;
-          } else if (p.is_lic_plan || String(p.category || '').toLowerCase().includes('lic') || String(p.scheme_id || '').startsWith('lic')) {
-            lic++;
-          } else {
-            gov++;
-          }
-        });
-        setPlanStats({
-          gov,
-          lic,
-          free,
-          total: plans ? plans.length : 0
-        });
+        
+        if (plans && plans.length > 0) {
+          plans.forEach(p => {
+            if (p.is_free_benefit || p.benefit_id || String(p.scheme_id || '').startsWith('fb_')) {
+              free++;
+            } else if (p.is_lic_plan || String(p.category || '').toLowerCase().includes('lic') || String(p.scheme_id || '').startsWith('lic')) {
+              lic++;
+            } else {
+              gov++;
+            }
+          });
+          setPlanStats({
+            gov,
+            lic,
+            free,
+            total: plans.length
+          });
+        } else if (savedPlanIds && savedPlanIds.size > 0) {
+          savedPlanIds.forEach(id => {
+            const idStr = String(id).toLowerCase();
+            if (idStr.startsWith('fb_') || idStr.includes('benefit')) {
+              free++;
+            } else if (idStr.includes('lic') || /^\d+$/.test(idStr)) {
+              lic++;
+            } else {
+              gov++;
+            }
+          });
+          setPlanStats({
+            gov,
+            lic,
+            free,
+            total: savedPlanIds.size
+          });
+        } else {
+          setPlanStats({ gov: 0, lic: 0, free: 0, total: 0 });
+        }
       } catch (err) {
         console.error('Failed to load plan stats:', err);
+        if (savedPlanIds && savedPlanIds.size > 0) {
+          setPlanStats({
+            gov: savedPlanIds.size,
+            lic: 0,
+            free: 0,
+            total: savedPlanIds.size
+          });
+        }
       } finally {
         if (isMounted) setLoadingPlans(false);
       }
