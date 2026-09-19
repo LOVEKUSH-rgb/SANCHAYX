@@ -9,6 +9,7 @@ import { SakhiFloatingButton } from '../components/assistant/SakhiFloatingButton
 import { SakhiChatPanel } from '../components/assistant/SakhiChatPanel';
 import { useLanguage } from '../context/LanguageContext';
 import { localizeScheme } from '../utils/contentLocalizer';
+import { MOCK_SCHEMES } from '../data/mockSchemes';
 
 export const ComparePage = () => {
   const { t, currentLang } = useLanguage();
@@ -40,14 +41,20 @@ export const ComparePage = () => {
   const [loading, setLoading] = useState(true);
   const [sakhiChatOpen, setSakhiChatOpen] = useState(false);
 
-  // Fetch full catalog for dynamic switching
+  // Fetch full catalog for dynamic switching; fall back to local MOCK_SCHEMES when API is offline
   useEffect(() => {
     let isMounted = true;
     fetchSchemes({ limit: 200 }).then(data => {
-      if (isMounted && data && data.schemes) {
+      if (!isMounted) return;
+      if (data && data.schemes && data.schemes.length > 0) {
         setCatalogList(data.schemes);
+      } else {
+        // Backend offline — use local data so names are always available
+        setCatalogList(MOCK_SCHEMES);
       }
-    }).catch(() => {});
+    }).catch(() => {
+      if (isMounted) setCatalogList(MOCK_SCHEMES);
+    });
     return () => { isMounted = false; };
   }, []);
 
@@ -183,7 +190,9 @@ export const ComparePage = () => {
                     {[s1, s2, s3].map((currentId, colIdx) => {
                       const item = displayItems[colIdx] || {};
                       const locItem = localizeScheme(item, currentLang);
-                      const displayName = locItem.displayName || (typeof item.name === 'object' ? (item.name[currentLang] || item.name.en) : (item.name || `Scheme #${colIdx + 1}`));
+                      const catalogMatch = catalogList.find(c => (c.scheme_id || c.id) === currentId);
+                      const catalogName = catalogMatch ? (typeof catalogMatch.name === 'object' ? (catalogMatch.name[currentLang] || catalogMatch.name.en) : catalogMatch.name) : null;
+                      const displayName = locItem.displayName || (typeof item.name === 'object' ? (item.name[currentLang] || item.name.en) : (item.name || catalogName || currentId || `Scheme #${colIdx + 1}`));
                       const imgData = getSchemeImage(item.scheme_id || currentId, item.category, displayName);
                       
                       return (
