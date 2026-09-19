@@ -70,7 +70,7 @@ export const PopularSchemesSection = ({ schemes = [] }) => {
                       {getLocalizedCategory(scheme.category, currentLang) || scheme.category}
                     </span>
                   </div>
-                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white">
+                  <div className="absolute bottom-5 left-3 right-3 flex items-center justify-between text-white">
                     <div className="min-w-0 pr-2">
                       <span className="text-[10px] font-mono uppercase tracking-wider text-slate-700 block drop-shadow-sm">
                         Benefit / Return

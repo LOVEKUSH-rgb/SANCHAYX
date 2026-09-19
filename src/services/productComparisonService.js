@@ -4,7 +4,7 @@
  */
 
 export const buildComparisonMatrix = (products) => {
-  if (!products || products.length === 0) return [];
+  if (!products || products.length === 0) return { products: [], rows: [] };
 
   // Define the standard rows we want to compare
   const matrixKeys = [

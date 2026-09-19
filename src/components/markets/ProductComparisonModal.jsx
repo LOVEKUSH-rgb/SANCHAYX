@@ -55,7 +55,7 @@ export const ProductComparisonModal = ({ products, onClose }) => {
                           Verified Official
                         </span>
                       )}
-                      <h4 className="text-lg font-bold text-sanchay-navy-950 mb-1 leading-tight">{p.title}</h4>
+                      <h4 className="text-lg font-bold text-sanchay-navy-950 mb-1 leading-tight">{p.title || p.details?.name || p.id}</h4>
                       <p className="text-xs text-slate-500 font-medium">{p.subtitle}</p>
                     </th>
                   ))}

@@ -32,10 +32,12 @@ export function getCalculationConfig(scheme) {
   const isOneTime = String(fin.contribution_frequency || '').toLowerCase().includes('one-time');
   const isMonthlyPaid = String(fin.interest_rate || '').toLowerCase().includes('paid monthly') || String(ben.summary || '').toLowerCase().includes('monthly interest');
   
-  const schemeId = scheme.scheme_id || '';
+  const rawId = String(scheme.scheme_id || scheme.id || '').toLowerCase();
+  // Normalize ID by safely removing _001 or similar suffixes so it matches either 'kvp' or 'kvp_001' seamlessly
+  const schemeId = rawId.replace(/_\d+$/, '');
 
   // 1. Exact Scheme Mechanisms
-  if (schemeId === 'kvp_001') {
+  if (schemeId === 'kvp') {
     return {
       type: CALCULATION_TYPES.EXACT_SCHEME,
       title: 'Kisan Vikas Patra Calculator',
@@ -57,7 +59,7 @@ export function getCalculationConfig(scheme) {
     };
   }
 
-  if (schemeId === 'ssy_001') {
+  if (schemeId === 'ssy') {
     // SSY lacks full contribution period rules in the JSON, making an accurate maturity calc impossible without assumptions.
     return {
       type: CALCULATION_TYPES.NONE,
@@ -67,7 +69,7 @@ export function getCalculationConfig(scheme) {
     };
   }
 
-  if (schemeId === 'pomis_001' || isMonthlyPaid) {
+  if (schemeId === 'pomis' || isMonthlyPaid) {
     if (!durationInYears) {
       return { type: CALCULATION_TYPES.NONE, title: 'Calculation Not Available', message: 'Maturity duration is not available in the dataset for this monthly income scheme.', inputs: [], calculate: () => null };
     }
@@ -96,7 +98,7 @@ export function getCalculationConfig(scheme) {
     };
   }
 
-  if (schemeId === 'ppf_001') {
+  if (schemeId === 'ppf') {
     return {
       type: CALCULATION_TYPES.EXACT_SCHEME,
       title: 'PPF Estimate Calculator',
