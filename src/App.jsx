@@ -16,6 +16,10 @@ import { MyPlansPage } from './pages/MyPlansPage';
 import { LICPage } from './pages/LICPage';
 import { FreeBenefitsPage } from './pages/FreeBenefitsPage';
 import { MyProfilePage } from './pages/MyProfilePage';
+import { ManualCalculatorPage } from './pages/ManualCalculatorPage';
+import { SchemesPage } from './pages/SchemesPage';
+import { MarketsPage } from './pages/MarketsPage';
+
 
 export default function App() {
   return (
@@ -39,6 +43,9 @@ export default function App() {
               <Route path="/lic-plans" element={<LICPage />} />
               <Route path="/free-benefits" element={<FreeBenefitsPage />} />
               <Route path="/benefits" element={<FreeBenefitsPage />} />
+              <Route path="/calculator" element={<ManualCalculatorPage />} />
+              <Route path="/schemes" element={<SchemesPage />} />
+              <Route path="/markets" element={<MarketsPage />} />
             </Routes>
             <AuthModal />
           </div>

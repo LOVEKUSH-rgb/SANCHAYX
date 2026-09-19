@@ -128,7 +128,7 @@ export const LICRecommendForm = ({ onViewDetails }) => {
             <span>Deterministic LIC Suitability Engine</span>
           </div>
           <h2 className="font-serif font-bold text-2xl sm:text-3xl text-sanchay-navy-950">
-            Find Your Best LIC Plan
+            Find Suitable LIC Plans
           </h2>
           <p className="text-xs sm:text-sm text-sanchay-navy-700 mt-1">
             Evaluate all 38 active LIC plans against statutory entry rules, risk coverage, and milestone savings.

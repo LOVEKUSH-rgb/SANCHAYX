@@ -22,6 +22,31 @@ export const Navbar = () => {
   const isLicActive = location.pathname === '/lic' || location.pathname === '/lic-plans';
   const isFreeActive = location.pathname === '/free-benefits' || location.pathname === '/benefits';
 
+  const searchParams = new URLSearchParams(location.search);
+  const currentCategory = searchParams.get('category');
+  
+  let profileHref = '/profile';
+  if (location.pathname === '/schemes' && currentCategory && currentCategory !== 'all') {
+    const categoryToPersona = {
+      women: 'women',
+      education: 'students',
+      agriculture: 'rural',
+      business: 'workers',
+      employment: 'workers',
+      financial_inclusion: 'workers',
+      pension: 'seniors',
+      social_security: 'workers',
+      savings: 'parents',
+      protection: 'parents',
+      health: 'parents',
+      housing: 'parents'
+    };
+    const mappedPersona = categoryToPersona[currentCategory];
+    if (mappedPersona) {
+      profileHref = `/profile?persona=${mappedPersona}`;
+    }
+  }
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -171,59 +196,69 @@ export const Navbar = () => {
               {t('nav.home', 'Home')}
             </Link>
             <Link 
-              to="/#verified-schemes" 
-              className="text-sanchay-navy-800 hover:text-sanchay-emerald-600 transition-colors py-1"
-            >
-              {t('nav.explore', 'Explore')}
-            </Link>
-            <Link 
-              to="/#how-it-works" 
-              className="hidden 2xl:inline-block text-sanchay-navy-800 hover:text-sanchay-emerald-600 transition-colors py-1"
-            >
-              {t('nav.howItWorks', 'How It Works')}
-            </Link>
-            <Link 
-              to="/sources" 
-              className={`hidden 2xl:inline-block transition-colors py-1 ${
-                location.pathname === '/sources' ? 'text-sanchay-emerald-600 font-black border-b-2 border-sanchay-emerald-600' : 'text-sanchay-navy-800 hover:text-sanchay-emerald-600'
+              to="/schemes" 
+              className={`transition-colors py-1 ${
+                location.pathname === '/schemes' ? 'text-sanchay-emerald-600 font-black border-b-2 border-sanchay-emerald-600' : 'text-sanchay-navy-800 hover:text-sanchay-emerald-600'
               }`}
             >
-              {t('nav.sources', 'Official Sources')}
+              {t('nav.schemes', 'Schemes')}
             </Link>
-            <button
-              type="button"
-              onClick={() => {
-                window.dispatchEvent(new CustomEvent('toggle-sakhi'));
-              }}
-              className={`transition-colors py-1 flex items-center gap-1.5 cursor-pointer group ${
-                isSakhiOpen
-                  ? 'text-sanchay-emerald-600 font-black border-b-2 border-sanchay-emerald-600'
-                  : 'text-sanchay-navy-800 hover:text-sanchay-emerald-600'
+            <Link 
+              to="/lic" 
+              className={`transition-colors py-1 ${
+                location.pathname === '/lic' || location.pathname === '/lic-plans' ? 'text-sanchay-emerald-600 font-black border-b-2 border-sanchay-emerald-600' : 'text-sanchay-navy-800 hover:text-sanchay-emerald-600'
               }`}
-              title={t('nav.askSakhiAssistant', 'Ask Sakhi AI Assistant')}
             >
-              <Sparkles className="w-3.5 h-3.5 text-sanchay-gold-500 group-hover:rotate-12 transition-transform" />
-              <span>{t('nav.sakhiAI', 'SAKHI')}</span>
-              <span className="px-1.5 py-0.5 rounded-full bg-sanchay-emerald-100 text-sanchay-emerald-800 text-[9px] font-mono font-extrabold uppercase tracking-wide">
-                AI
-              </span>
-            </button>
-            {isAuthenticated && (
-              <Link 
-                to="/my-plans" 
-                className={`transition-colors py-1 flex items-center gap-1.5 ${
-                  location.pathname === '/my-plans' ? 'text-sanchay-emerald-600 font-black border-b-2 border-sanchay-emerald-600' : 'text-sanchay-navy-800 hover:text-sanchay-emerald-600'
-                }`}
-              >
-                <Bookmark className="w-3.5 h-3.5 text-sanchay-emerald-600" />
-                <span>{t('nav.myPlans', 'My Plans')}</span>
-                {savedCount > 0 && (
-                  <span className="px-1.5 py-0.5 rounded-full bg-sanchay-emerald-100 text-sanchay-emerald-800 text-[9px] font-mono font-bold">
-                    {savedCount}
-                  </span>
+              {t('nav.licPlans', 'LIC Plans')}
+            </Link>
+            <Link 
+              to="/markets" 
+              className={`transition-colors py-1 ${
+                location.pathname === '/markets' ? 'text-sanchay-emerald-600 font-black border-b-2 border-sanchay-emerald-600' : 'text-sanchay-navy-800 hover:text-sanchay-emerald-600'
+              }`}
+            >
+              {t('nav.markets', 'Markets')}
+            </Link>
+            <Link 
+              to="/calculator" 
+              className={`transition-colors py-1 ${
+                location.pathname === '/calculator' ? 'text-sanchay-emerald-600 font-black border-b-2 border-sanchay-emerald-600' : 'text-sanchay-navy-800 hover:text-sanchay-emerald-600'
+              }`}
+            >
+              {t('nav.calculator', 'Calculator')}
+            </Link>
+            <div className="relative group py-1">
+              <button className="flex items-center gap-1 text-sanchay-navy-800 hover:text-sanchay-emerald-600 transition-colors cursor-pointer">
+                <span>{t('nav.explore', 'Explore')}</span>
+                <ChevronDown className="w-3 h-3 group-hover:rotate-180 transition-transform" />
+              </button>
+              <div className="absolute top-full right-0 mt-2 w-56 bg-white rounded-2xl shadow-floating border border-slate-200/90 py-2 hidden group-hover:block z-50">
+                <Link to="/free-benefits" className="block px-4 py-2 text-xs font-bold text-sanchay-navy-900 hover:bg-sanchay-emerald-50 hover:text-sanchay-emerald-700 transition-colors">
+                  <Gift className="w-3.5 h-3.5 inline-block mr-2 text-sanchay-emerald-600" />
+                  {t('nav.freeBenefits', 'Free Benefits')}
+                </Link>
+                <Link to="/compare" className="block px-4 py-2 text-xs font-bold text-sanchay-navy-900 hover:bg-sanchay-emerald-50 hover:text-sanchay-emerald-700 transition-colors">
+                  <Bookmark className="w-3.5 h-3.5 inline-block mr-2 text-sanchay-emerald-600" />
+                  {t('nav.compare', 'Compare')}
+                </Link>
+                {isAuthenticated && (
+                  <Link to="/my-plans" className="block px-4 py-2 text-xs font-bold text-sanchay-navy-900 hover:bg-sanchay-emerald-50 hover:text-sanchay-emerald-700 transition-colors">
+                    <Bookmark className="w-3.5 h-3.5 inline-block mr-2 text-sanchay-emerald-600" />
+                    {t('nav.myPlans', 'My Plans')}
+                    {savedCount > 0 && (
+                      <span className="ml-2 inline-flex items-center justify-center px-1.5 py-0.5 rounded-full bg-sanchay-emerald-100 text-sanchay-emerald-800 text-[9px] font-mono font-bold">
+                        {savedCount}
+                      </span>
+                    )}
+                  </Link>
                 )}
-              </Link>
-            )}
+                <div className="my-1 border-t border-slate-100"></div>
+                <Link to="/#how-it-works" className="block px-4 py-2 text-xs font-bold text-sanchay-navy-900 hover:bg-sanchay-emerald-50 hover:text-sanchay-emerald-700 transition-colors">
+                  <Check className="w-3.5 h-3.5 inline-block mr-2 text-slate-400" />
+                  {t('nav.howItWorks', 'How It Works')}
+                </Link>
+              </div>
+            </div>
           </nav>
 
           {/* Right Action Controls: 5-Language Selector & Find My Schemes CTA */}
@@ -265,41 +300,11 @@ export const Navbar = () => {
               )}
             </div>
 
-            {/* Featured Modules: LIC Plans & Free Benefits (Right next to Find My Schemes) */}
-            <div className="hidden lg:flex items-center gap-1.5 xl:gap-2">
-              <Link 
-                to="/lic" 
-                className={`inline-flex items-center gap-1 xl:gap-1.5 h-8 xl:h-8.5 px-2 xl:px-2.5 rounded-xl border text-[10px] xl:text-[11px] font-bold uppercase tracking-wider transition-all duration-200 shrink-0 ${
-                  isLicActive
-                    ? 'bg-blue-100 text-blue-950 border-blue-400 font-black shadow-2xs ring-1 ring-blue-300'
-                    : 'bg-blue-50/70 hover:bg-blue-100/70 text-blue-950 hover:text-blue-900 border-blue-200/80 hover:border-blue-300 shadow-2xs'
-                }`}
-              >
-                <ShieldCheck className={`w-3.5 h-3.5 shrink-0 transition-colors ${isLicActive ? 'text-blue-700' : 'text-blue-600'}`} />
-                <span>{t('nav.licPlans', 'LIC Plans')}</span>
-                <span className="px-1 py-0.5 rounded text-[8.5px] xl:text-[9px] font-mono font-black uppercase tracking-wider bg-blue-600 text-white shadow-2xs">
-                  {t('nav.insureBadge', 'INSURE')}
-                </span>
-              </Link>
-              <Link 
-                to="/free-benefits" 
-                className={`inline-flex items-center gap-1 xl:gap-1.5 h-8 xl:h-8.5 px-2 xl:px-2.5 rounded-xl border text-[10px] xl:text-[11px] font-bold uppercase tracking-wider transition-all duration-200 shrink-0 ${
-                  isFreeActive
-                    ? 'bg-emerald-100 text-emerald-950 border-emerald-400 font-black shadow-2xs ring-1 ring-emerald-300'
-                    : 'bg-emerald-50/70 hover:bg-emerald-100/70 text-emerald-950 hover:text-emerald-900 border-emerald-200/80 hover:border-emerald-300 shadow-2xs'
-                }`}
-              >
-                <Gift className={`w-3.5 h-3.5 shrink-0 transition-colors ${isFreeActive ? 'text-emerald-700' : 'text-emerald-600'}`} />
-                <span>{t('nav.freeBenefits', 'Free Benefits')}</span>
-                <span className="px-1 py-0.5 rounded text-[8.5px] xl:text-[9px] font-mono font-black uppercase tracking-wider bg-emerald-600 text-white shadow-2xs">
-                  {t('nav.freeBadge', 'FREE')}
-                </span>
-              </Link>
-            </div>
+            {/* Modules moved to nav menu */}
 
             {/* Prominent & Larger CTA: Find My Schemes */}
             <Link
-              to="/profile"
+              to={profileHref}
               className="inline-flex items-center gap-1.5 h-8 sm:h-8.5 xl:h-9 px-2.5 sm:px-3 xl:px-3.5 rounded-xl bg-sanchay-navy-900 hover:bg-sanchay-navy-850 text-white font-extrabold text-[10.5px] sm:text-[11px] xl:text-xs uppercase tracking-wider shadow-card hover:shadow-editorial hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 group border border-sanchay-navy-800 shrink-0 whitespace-nowrap"
             >
               <Sparkles className="w-3.5 h-3.5 text-sanchay-gold-400 group-hover:rotate-12 transition-transform" />
@@ -330,11 +335,49 @@ export const Navbar = () => {
               <span>{t('nav.home', 'Home')}</span>
             </Link>
             <Link 
-              to="/#verified-schemes"
+              to="/schemes"
               onClick={() => setMobileMenuOpen(false)}
               className="text-xs font-bold uppercase tracking-wider text-sanchay-navy-900 py-2 border-b border-slate-100 flex items-center justify-between"
             >
-              <span>{t('nav.explore', 'Explore')}</span>
+              <span>{t('nav.schemes', 'Schemes')}</span>
+            </Link>
+            <Link 
+              to="/lic"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-xs font-bold uppercase tracking-wider text-sanchay-navy-900 py-2 border-b border-slate-100 flex items-center justify-between"
+            >
+              <span>{t('nav.licPlans', 'LIC Plans')}</span>
+            </Link>
+            <Link 
+              to="/markets"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-xs font-bold uppercase tracking-wider text-sanchay-navy-900 py-2 border-b border-slate-100 flex items-center justify-between"
+            >
+              <span>{t('nav.markets', 'Markets')}</span>
+            </Link>
+            <Link 
+              to="/calculator" 
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-xs font-bold uppercase tracking-wider text-sanchay-navy-900 py-2 border-b border-slate-100 flex items-center justify-between"
+            >
+              <span>{t('nav.manualCalculator', 'Manual Calculator')}</span>
+            </Link>
+            <div className="pt-2 pb-1 text-[10px] font-mono font-bold tracking-widest uppercase text-slate-400">
+              {t('nav.explore', 'Explore')}
+            </div>
+            <Link 
+              to="/free-benefits"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-xs font-bold uppercase tracking-wider text-sanchay-navy-900 py-2 border-b border-slate-100 flex items-center justify-between"
+            >
+              <span>{t('nav.freeBenefits', 'Free Benefits')}</span>
+            </Link>
+            <Link 
+              to="/compare"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-xs font-bold uppercase tracking-wider text-sanchay-navy-900 py-2 border-b border-slate-100 flex items-center justify-between"
+            >
+              <span>{t('nav.compare', 'Compare')}</span>
             </Link>
             <Link 
               to="/#how-it-works"
@@ -342,47 +385,6 @@ export const Navbar = () => {
               className="text-xs font-bold uppercase tracking-wider text-sanchay-navy-900 py-2 border-b border-slate-100 flex items-center justify-between"
             >
               <span>{t('nav.howItWorks', 'How It Works')}</span>
-            </Link>
-            <Link 
-              to="/lic" 
-              onClick={() => setMobileMenuOpen(false)}
-              className={`text-xs font-bold uppercase tracking-wider py-2.5 px-3 rounded-xl border flex items-center justify-between transition-all ${
-                isLicActive 
-                  ? 'bg-blue-100 text-blue-950 border-blue-400 font-black shadow-2xs' 
-                  : 'bg-blue-50/70 hover:bg-blue-100/70 text-blue-950 border-blue-200/80'
-              }`}
-            >
-              <span className="flex items-center gap-2">
-                <ShieldCheck className={`w-4 h-4 shrink-0 ${isLicActive ? 'text-blue-700' : 'text-blue-600'}`} />
-                <span>{t('nav.licPlans', 'LIC Plans')}</span>
-              </span>
-              <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-black uppercase tracking-wide bg-blue-600 text-white shadow-2xs">
-                {t('nav.insureBadge', 'INSURE')}
-              </span>
-            </Link>
-            <Link 
-              to="/free-benefits" 
-              onClick={() => setMobileMenuOpen(false)}
-              className={`text-xs font-bold uppercase tracking-wider py-2.5 px-3 rounded-xl border flex items-center justify-between transition-all ${
-                isFreeActive 
-                  ? 'bg-emerald-100 text-emerald-950 border-emerald-400 font-black shadow-2xs' 
-                  : 'bg-emerald-50/70 hover:bg-emerald-100/70 text-emerald-950 border-emerald-200/80'
-              }`}
-            >
-              <span className="flex items-center gap-2">
-                <Gift className={`w-4 h-4 shrink-0 ${isFreeActive ? 'text-emerald-700' : 'text-emerald-600'}`} />
-                <span>{t('nav.freeBenefits', 'Free Benefits')}</span>
-              </span>
-              <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-black uppercase tracking-wide bg-emerald-600 text-white shadow-2xs">
-                {t('nav.freeBadge', 'FREE')}
-              </span>
-            </Link>
-            <Link 
-              to="/sources" 
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-xs font-bold uppercase tracking-wider text-sanchay-navy-900 py-2 border-b border-slate-100 flex items-center justify-between"
-            >
-              <span>{t('nav.sources', 'Official Sources')}</span>
             </Link>
             <button
               type="button"

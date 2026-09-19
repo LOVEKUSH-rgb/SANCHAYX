@@ -1,14 +1,46 @@
 import React from 'react';
-import { X, Check, ShieldCheck, ExternalLink, PlusCircle, ArrowLeftRight, Bookmark } from 'lucide-react';
+import { X, Check, ShieldCheck, ExternalLink, PlusCircle, ArrowLeftRight, Bookmark, Calculator } from 'lucide-react';
+import { SchemeCalculatorModal } from '../calculator/SchemeCalculatorModal';
 import { getSchemeImage } from '../../data/schemeImages';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
 import { useAuth } from '../../context/AuthContext';
 import { localizeScheme, getLocalizedCommonText, getLocalizedCategory } from '../../utils/contentLocalizer';
 
+const Accordion = ({ title, children, defaultOpen = false }) => {
+  const [isOpen, setIsOpen] = React.useState(defaultOpen);
+  return (
+    <div className="border border-slate-200/90 rounded-2xl overflow-hidden mb-3 bg-white shadow-2xs">
+      <button 
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full px-5 py-3.5 bg-white hover:bg-slate-50 flex items-center justify-between transition-colors font-bold text-sm text-sanchay-navy-950 cursor-pointer"
+      >
+        <span>{title}</span>
+        <span className={`transform transition-transform text-slate-400 ${isOpen ? 'rotate-180' : ''}`}>▼</span>
+      </button>
+      {isOpen && (
+        <div className="p-5 bg-white border-t border-slate-100">
+          {children}
+        </div>
+      )}
+    </div>
+  );
+};
+
 export const ProductDetailsModal = ({ item, onClose, onCompare }) => {
   const { t, currentLang } = useLanguage();
   const { isPlanSaved, addToMyPlans, removeFromMyPlans } = useAuth();
+  const [isCalculatorOpen, setIsCalculatorOpen] = React.useState(false);
+
+  // Close on Escape key
+  React.useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [onClose]);
+
   if (!item) return null;
 
   const locItem = localizeScheme(item, currentLang);
@@ -64,15 +96,6 @@ export const ProductDetailsModal = ({ item, onClose, onCompare }) => {
       value: item.partialWithdrawal || fin.withdrawal_rules || notSpecified,
     },
   ];
-
-  // Close on Escape key
-  React.useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === 'Escape') onClose();
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [onClose]);
 
   return (
     <div 
@@ -134,33 +157,29 @@ export const ProductDetailsModal = ({ item, onClose, onCompare }) => {
         </div>
 
         {/* Modal Scrollable Body */}
-        <div className="flex-1 p-4 sm:p-6 space-y-4 overflow-y-auto text-xs text-sanchay-navy-950">
+        <div className="flex-1 p-4 sm:p-6 overflow-y-auto bg-[#FAFAFC]">
           
-          {/* Simple Description */}
-          <p className="text-xs sm:text-sm text-sanchay-navy-700 leading-relaxed bg-[#FAFAFC] p-3.5 rounded-xl border border-slate-200/80">
-            {displayDesc}
-          </p>
+          <Accordion title="Overview" defaultOpen={true}>
+            <p className="text-xs sm:text-sm text-sanchay-navy-700 leading-relaxed">
+              {displayDesc}
+            </p>
+          </Accordion>
 
-          {/* Compact Information Cards */}
-          <div>
-            <h3 className="font-serif font-bold text-sm text-sanchay-navy-950 mb-2.5">
-              {getLocalizedCommonText('official_scheme_parameters', currentLang)}
-            </h3>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+          <Accordion title="Financial Details" defaultOpen={true}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {infoCards.map((card, idx) => (
                 <div
                   key={idx}
-                  className={`p-3 rounded-xl border transition-all ${
+                  className={`p-3.5 rounded-xl border transition-all ${
                     card.highlight
                       ? 'bg-sanchay-emerald-50/70 border-sanchay-emerald-200'
-                      : 'bg-white border-slate-200/80'
+                      : 'bg-[#FAFAFC] border-slate-200/80'
                   }`}
                 >
-                  <span className="text-[9px] font-mono font-bold text-slate-400 uppercase tracking-wider block">
+                  <span className="text-[9px] font-mono font-bold text-slate-400 uppercase tracking-wider block mb-1">
                     {card.title}
                   </span>
-                  <span className={`font-serif font-extrabold text-xs mt-0.5 block leading-snug ${
+                  <span className={`font-serif font-extrabold text-xs block leading-snug ${
                     card.highlight ? 'text-sanchay-emerald-700 text-sm' : 'text-sanchay-navy-950'
                   }`}>
                     {card.value}
@@ -168,35 +187,44 @@ export const ProductDetailsModal = ({ item, onClose, onCompare }) => {
                 </div>
               ))}
             </div>
-          </div>
+          </Accordion>
 
-          {/* Official Source Link & Authority Card */}
-          <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-            <div className="flex items-center gap-2 min-w-0">
-              <ShieldCheck className="w-4 h-4 text-sanchay-emerald-600 shrink-0" />
-              <div className="min-w-0">
-                <div className="font-serif font-bold text-xs text-sanchay-navy-950">{t('featuredSchemes.authority', 'Authority')}: {authority}</div>
-                <div className="text-[10px] text-slate-500 font-mono truncate max-w-sm">{officialUrl}</div>
+          <Accordion title="Official Source" defaultOpen={false}>
+            <div className="flex flex-col gap-2.5 text-xs">
+              <div className="flex items-center gap-2">
+                <ShieldCheck className="w-4 h-4 text-sanchay-emerald-600 shrink-0" />
+                <span className="font-bold text-sanchay-navy-950">{t('featuredSchemes.authority', 'Authority')}:</span>
+                <span className="text-sanchay-navy-700">{authority}</span>
               </div>
+              <div className="flex flex-col gap-1 text-slate-500 font-mono">
+                <span className="font-bold text-sanchay-navy-950 font-sans">URL:</span>
+                <span className="truncate max-w-full block bg-slate-50 p-2 rounded-lg border border-slate-100">{officialUrl}</span>
+              </div>
+              {officialUrl && (
+                <a
+                  href={officialUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 inline-flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-xl bg-sanchay-emerald-600 hover:bg-sanchay-emerald-700 text-white font-mono font-bold text-[10px] uppercase tracking-wider transition-colors shadow-2xs w-max"
+                >
+                  <span>{t('featuredSchemes.officialPortal', 'Visit Official Details')}</span>
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+              )}
             </div>
-
-            {officialUrl && (
-              <a
-                href={officialUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-sanchay-emerald-600 hover:bg-sanchay-emerald-700 text-white font-mono font-bold text-[10px] uppercase tracking-wider transition-colors shrink-0 shadow-2xs"
-              >
-                <span>{t('featuredSchemes.officialPortal', 'Official Details')}</span>
-                <ExternalLink className="w-3 h-3" />
-              </a>
-            )}
-          </div>
-
+          </Accordion>
         </div>
 
         {/* Modal Sticky Footer CTAs */}
         <div className="shrink-0 p-3 sm:p-4 bg-slate-50 border-t border-slate-200/80 flex flex-wrap items-center justify-end gap-2.5">
+          <button
+            onClick={() => setIsCalculatorOpen(true)}
+            className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-sanchay-emerald-50 text-sanchay-emerald-700 hover:bg-sanchay-emerald-100 font-bold text-xs uppercase tracking-wider transition-all cursor-pointer border border-sanchay-emerald-200 shadow-2xs mr-auto"
+          >
+            <Calculator className="w-3.5 h-3.5" />
+            <span>{t('calculator.buttonText', 'Calculate Benefit')}</span>
+          </button>
+
           <button
             onClick={() => isSaved ? removeFromMyPlans(schemeId) : addToMyPlans(schemeId)}
             className={`inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all cursor-pointer border ${
@@ -219,7 +247,7 @@ export const ProductDetailsModal = ({ item, onClose, onCompare }) => {
           </Link>
 
           <Link
-            to="/profile"
+            to={`/profile${schemeId ? `?schemeId=${schemeId}` : ''}`}
             onClick={onClose}
             className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-sanchay-emerald-600 hover:bg-sanchay-emerald-700 text-white font-extrabold text-xs uppercase tracking-wider shadow-card hover:shadow-editorial transition-all"
           >
@@ -229,6 +257,13 @@ export const ProductDetailsModal = ({ item, onClose, onCompare }) => {
         </div>
 
       </div>
+
+      {isCalculatorOpen && (
+        <SchemeCalculatorModal
+          scheme={item}
+          onClose={() => setIsCalculatorOpen(false)}
+        />
+      )}
     </div>
   );
 };

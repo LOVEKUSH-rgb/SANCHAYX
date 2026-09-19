@@ -7,21 +7,18 @@
     overflow-x: hidden;
     max-width: 100%;
     width: 100%;
-    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
   }
   body {
     background-color: #FAF9F5;
     color: #060B19;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
-  @media (pointer: fine) {
-    body, a, button, [role="button"], label, .card, article {
-      cursor: none !important;
-    }
-    input[type="text"], input[type="number"], input[type="email"], input[type="search"], textarea, select {
-      cursor: text !important;
-    }
-  }
+  /* Normal cursor kept usable */
 }
 
 @layer utilities {

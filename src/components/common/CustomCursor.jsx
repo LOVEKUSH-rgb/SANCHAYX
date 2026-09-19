@@ -2,18 +2,20 @@ import React, { useEffect, useState, useRef } from 'react';
 
 export const CustomCursor = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [hoverState, setHoverState] = useState('default'); // 'default' | 'button' | 'card' | 'link' | 'sakhi'
+  const [hoverState, setHoverState] = useState('default'); // 'default' | 'interactive' | 'hidden'
   const [isMouseDown, setIsMouseDown] = useState(false);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
 
+  // Use refs for the animation loop to avoid stale closures
+  const hoverStateRef = useRef('default');
+  const isVisibleRef = useRef(false);
+
   // Mouse real position
   const mousePos = useRef({ x: -100, y: -100 });
-  // Core dot position (snappy trailing)
+  // Core dot position
   const dotPos = useRef({ x: -100, y: -100 });
-  // Outer glow position (softer, 50-100ms smooth trailing float effect)
+  // Outer glow position (smooth trailing)
   const glowPos = useRef({ x: -100, y: -100 });
-  // Currently hovered link element ref for magnetic pull
-  const hoveredElementRef = useRef(null);
 
   // DOM element refs
   const dotRef = useRef(null);
@@ -22,10 +24,10 @@ export const CustomCursor = () => {
 
   useEffect(() => {
     // 1. Responsive check: Disable custom cursor on touch / coarse pointer devices
-    const touchQuery = window.matchMedia('(pointer: coarse)');
+    const touchQuery = window.matchMedia('(pointer: coarse), (hover: none)');
     const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-    if (touchQuery.matches || ('ontouchstart' in window && window.innerWidth < 768)) {
+    if (touchQuery.matches || ('ontouchstart' in window && window.innerWidth < 1024)) {
       setIsTouchDevice(true);
       return;
     }
@@ -36,11 +38,20 @@ export const CustomCursor = () => {
     // 2. Mouse movement & visibility listeners
     const onMouseMove = (e) => {
       mousePos.current = { x: e.clientX, y: e.clientY };
-      if (!isVisible) setIsVisible(true);
+      if (!isVisibleRef.current) {
+        isVisibleRef.current = true;
+        setIsVisible(true);
+      }
     };
 
-    const onMouseEnter = () => setIsVisible(true);
-    const onMouseLeave = () => setIsVisible(false);
+    const onMouseEnter = () => {
+      isVisibleRef.current = true;
+      setIsVisible(true);
+    };
+    const onMouseLeave = () => {
+      isVisibleRef.current = false;
+      setIsVisible(false);
+    };
     const onMouseDown = () => setIsMouseDown(true);
     const onMouseUp = () => setIsMouseDown(false);
 
@@ -49,26 +60,20 @@ export const CustomCursor = () => {
       const target = e.target;
       if (!target || !(target instanceof HTMLElement)) return;
 
-      const sakhiEl = target.closest('[data-cursor="sakhi"], .sakhi-avatar, [aria-label*="Sakhi"]');
-      const buttonEl = target.closest('button, .btn, [role="button"], input[type="submit"], input[type="button"], [data-cursor="button"]');
-      const linkEl = target.closest('a, nav a, [data-cursor="link"], [role="link"]');
-      const cardEl = target.closest('.card, [data-cursor="card"], article, .shadow-card, .shadow-floating, .shadow-editorial');
+      const interactiveEl = target.closest('button, a, .btn, [role="button"], [role="link"], input[type="submit"], input[type="button"], .card, article, [data-cursor="interactive"]');
+      const hiddenEl = target.closest('input:not([type="submit"]):not([type="button"]), textarea, [contenteditable="true"]');
 
-      if (sakhiEl) {
-        setHoverState('sakhi');
-        hoveredElementRef.current = sakhiEl;
-      } else if (buttonEl) {
-        setHoverState('button');
-        hoveredElementRef.current = buttonEl;
-      } else if (linkEl) {
-        setHoverState('link');
-        hoveredElementRef.current = linkEl;
-      } else if (cardEl) {
-        setHoverState('card');
-        hoveredElementRef.current = cardEl;
-      } else {
-        setHoverState('default');
-        hoveredElementRef.current = null;
+      let newState = 'default';
+      
+      if (hiddenEl) {
+        newState = 'hidden';
+      } else if (interactiveEl) {
+        newState = 'interactive';
+      }
+
+      if (hoverStateRef.current !== newState) {
+        hoverStateRef.current = newState;
+        setHoverState(newState);
       }
     };
 
@@ -79,41 +84,29 @@ export const CustomCursor = () => {
     window.addEventListener('mouseup', onMouseUp);
     document.addEventListener('mouseover', onMouseOver, { passive: true });
 
-    // 4. Animation loop with smooth 50-100ms physics & optional magnetic pull for links
+    // 4. Animation loop with smooth 50-100ms physics
     const render = () => {
       const reducedMotion = motionQuery.matches;
 
-      let targetGlowX = mousePos.current.x;
-      let targetGlowY = mousePos.current.y;
-
-      // Magnetic floating pull towards links/navigation items
-      if (hoverState === 'link' && hoveredElementRef.current) {
-        const rect = hoveredElementRef.current.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-        targetGlowX = mousePos.current.x + (centerX - mousePos.current.x) * 0.35;
-        targetGlowY = mousePos.current.y + (centerY - mousePos.current.y) * 0.35;
-      }
-
       if (reducedMotion) {
-        // Immediate position without trailing physics when reduced motion is preferred
+        // Immediate position without trailing physics
         dotPos.current = { ...mousePos.current };
-        glowPos.current = { x: targetGlowX, y: targetGlowY };
+        glowPos.current = { ...mousePos.current };
       } else {
-        // Core dot lerp factor ~0.3 (snappy 30ms response)
-        dotPos.current.x += (mousePos.current.x - dotPos.current.x) * 0.3;
-        dotPos.current.y += (mousePos.current.y - dotPos.current.y) * 0.3;
+        // Core dot lerp factor ~0.35 (snappy)
+        dotPos.current.x += (mousePos.current.x - dotPos.current.x) * 0.35;
+        dotPos.current.y += (mousePos.current.y - dotPos.current.y) * 0.35;
 
-        // Outer glow lerp factor ~0.12 (soft 50-100ms floating trailing effect)
-        glowPos.current.x += (targetGlowX - glowPos.current.x) * 0.12;
-        glowPos.current.y += (targetGlowY - glowPos.current.y) * 0.12;
+        // Outer glow lerp factor ~0.15 (soft floating trailing effect)
+        glowPos.current.x += (mousePos.current.x - glowPos.current.x) * 0.15;
+        glowPos.current.y += (mousePos.current.y - glowPos.current.y) * 0.15;
       }
 
       if (dotRef.current) {
-        dotRef.current.style.transform = `translate3d(${dotPos.current.x}px, ${dotPos.current.y}px, 0) translate(-50%, -50%)`;
+        dotRef.current.style.transform = `translate3d(${dotPos.current.x}px, ${dotPos.current.y}px, 0)`;
       }
       if (glowRef.current) {
-        glowRef.current.style.transform = `translate3d(${glowPos.current.x}px, ${glowPos.current.y}px, 0) translate(-50%, -50%)`;
+        glowRef.current.style.transform = `translate3d(${glowPos.current.x}px, ${glowPos.current.y}px, 0)`;
       }
 
       animationFrameId.current = requestAnimationFrame(render);
@@ -131,66 +124,56 @@ export const CustomCursor = () => {
       document.removeEventListener('mouseover', onMouseOver);
       if (animationFrameId.current) cancelAnimationFrame(animationFrameId.current);
     };
-  }, [isVisible, hoverState]);
+  }, []);
 
   // Don't render on mobile / touch devices
   if (isTouchDevice) return null;
 
   // Determine dynamic size & styling classes based on hoverState & mouseDown
-  let glowClasses = 'w-10 h-10 border border-[#059669]/30 bg-[#059669]/10 shadow-[0_0_20px_rgba(5,150,105,0.25)]';
-  let dotClasses = 'w-2.5 h-2.5 bg-gradient-to-tr from-[#059669] via-[#10B981] to-[#F59E0B] shadow-[0_0_8px_rgba(245,158,11,0.6)]';
+  // Normal state: ~32px (w-8 h-8)
+  let glowClasses = 'w-8 h-8 border border-sanchay-emerald-500/40 bg-sanchay-emerald-500/10 shadow-[0_0_10px_rgba(5,150,105,0.2)] opacity-100';
+  let dotClasses = 'w-1.5 h-1.5 bg-sanchay-emerald-600 shadow-[0_0_6px_rgba(5,150,105,0.5)] opacity-100';
   let glowScale = 'scale-100';
 
   if (isMouseDown) {
-    glowScale = 'scale-75 opacity-90';
-  } else {
-    switch (hoverState) {
-      case 'button':
-        glowClasses = 'w-14 h-14 border-2 border-[#F59E0B]/80 bg-gradient-to-r from-[#F59E0B]/20 to-[#059669]/15 shadow-[0_0_25px_rgba(245,158,11,0.45)]';
-        dotClasses = 'w-3 h-3 bg-[#F59E0B] shadow-[0_0_10px_rgba(245,158,11,0.9)]';
-        glowScale = 'scale-110';
-        break;
-      case 'card':
-        glowClasses = 'w-12 h-12 border-2 border-[#059669]/60 bg-[#059669]/15 shadow-[0_0_22px_rgba(5,150,105,0.35)]';
-        dotClasses = 'w-2.5 h-2.5 bg-[#059669] shadow-[0_0_8px_rgba(5,150,105,0.8)]';
-        glowScale = 'scale-105';
-        break;
-      case 'link':
-        glowClasses = 'w-11 h-11 border border-[#059669]/50 bg-[#059669]/20 shadow-[0_0_18px_rgba(5,150,105,0.3)]';
-        dotClasses = 'w-3 h-3 bg-gradient-to-tr from-[#059669] via-[#10B981] to-[#F59E0B] shadow-[0_0_10px_rgba(5,150,105,0.6)]';
-        glowScale = 'scale-110';
-        break;
-      case 'sakhi':
-        glowClasses = 'w-16 h-16 border-2 border-[#F59E0B] bg-gradient-to-tr from-[#059669]/25 via-[#F59E0B]/25 to-[#0F172A]/20 shadow-[0_0_30px_rgba(245,158,11,0.5)] animate-pulse-subtle';
-        dotClasses = 'w-3.5 h-3.5 bg-gradient-to-r from-[#F59E0B] to-[#059669] ring-2 ring-white/80 shadow-[0_0_12px_rgba(245,158,11,1)]';
-        glowScale = 'scale-125';
-        break;
-      default:
-        break;
-    }
+    glowScale = 'scale-90 opacity-80';
+  } else if (hoverState === 'interactive') {
+    // Interactive state: ~44px (w-11 h-11)
+    glowClasses = 'w-11 h-11 border-2 border-sanchay-emerald-500/60 bg-sanchay-emerald-500/20 shadow-[0_0_15px_rgba(5,150,105,0.3)] opacity-100';
+    dotClasses = 'w-1.5 h-1.5 bg-sanchay-emerald-500 shadow-[0_0_8px_rgba(5,150,105,0.8)] opacity-100';
+    glowScale = 'scale-110';
+  } else if (hoverState === 'hidden') {
+    glowClasses = 'w-8 h-8 opacity-0';
+    dotClasses = 'w-1.5 h-1.5 opacity-0';
   }
+
+  // Hide entirely if user requested reduced motion
+  const isReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   return (
     <div
       className={`fixed inset-0 pointer-events-none z-[99999] transition-opacity duration-300 ${
-        isVisible ? 'opacity-100' : 'opacity-0'
+        (isVisible && !isReduced) ? 'opacity-100' : 'opacity-0'
       }`}
       aria-hidden="true"
     >
       {/* Outer Floating Soft Glow Ring */}
       <div
         ref={glowRef}
-        className={`absolute top-0 left-0 rounded-full backdrop-blur-[1px] transition-all duration-300 ease-out transform-gpu ${glowClasses} ${glowScale}`}
+        className="absolute top-0 left-0 pointer-events-none"
         style={{ willChange: 'transform' }}
-      />
+      >
+        <div className={`-translate-x-1/2 -translate-y-1/2 rounded-full transition-all duration-300 ease-out ${glowClasses} ${glowScale}`} />
+      </div>
 
-      {/* Main Core Gradient Dot */}
+      {/* Main Core Dot */}
       <div
         ref={dotRef}
-        className={`absolute top-0 left-0 rounded-full transition-all duration-150 ease-out transform-gpu ${dotClasses}`}
+        className="absolute top-0 left-0 pointer-events-none"
         style={{ willChange: 'transform' }}
-      />
+      >
+        <div className={`-translate-x-1/2 -translate-y-1/2 rounded-full transition-all duration-150 ease-out ${dotClasses}`} />
+      </div>
     </div>
   );
 };
-

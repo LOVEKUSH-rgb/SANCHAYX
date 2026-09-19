@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { ArrowRight, Check, ShieldCheck, ExternalLink, Search, X, RefreshCw, ChevronDown, ChevronUp, Bookmark } from 'lucide-react';
 import { getSchemeImage } from '../../data/schemeImages';
 import schemeImages from '../../scheme_images.inline.json';
@@ -6,11 +7,37 @@ import { useLanguage } from '../../context/LanguageContext';
 import { useAuth } from '../../context/AuthContext';
 import { localizeScheme, getLocalizedCommonText, getLocalizedCategory } from '../../utils/contentLocalizer';
 
-export const FeaturedSchemesSection = ({ schemes = [], onSelectScheme, initialLifeStage = 'all' }) => {
+export const FeaturedSchemesSection = ({ schemes = [], onSelectScheme, initialLifeStage = 'all', initialCategory = 'all', initialSearch = '' }) => {
   const { currentLang, t } = useLanguage();
   const { isPlanSaved, addToMyPlans, removeFromMyPlans } = useAuth();
-  const [searchQuery, setSearchQuery] = useState('');
-  const [activeCategory, setActiveCategory] = useState('all');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const urlCategory = searchParams.get('category');
+  
+  const [searchQuery, setSearchQuery] = useState(initialSearch || '');
+  const [activeCategory, _setActiveCategory] = useState(urlCategory || initialCategory || 'all');
+  
+  useEffect(() => {
+    if (urlCategory) {
+      _setActiveCategory(urlCategory);
+    } else if (initialCategory && initialCategory !== 'all') {
+      _setActiveCategory(initialCategory);
+    } else {
+      _setActiveCategory('all');
+    }
+  }, [urlCategory, initialCategory]);
+
+  const setActiveCategory = (newCat) => {
+    _setActiveCategory(newCat);
+    setSearchParams(prev => {
+      if (newCat === 'all' || !newCat) {
+        prev.delete('category');
+      } else {
+        prev.set('category', newCat);
+      }
+      return prev;
+    });
+  };
+
   const [selectedGoal, setSelectedGoal] = useState('all');
   const [selectedLifeStage, setSelectedLifeStage] = useState(initialLifeStage || 'all');
   const [verifiedOnly, setVerifiedOnly] = useState(true);
@@ -126,9 +153,9 @@ export const FeaturedSchemesSection = ({ schemes = [], onSelectScheme, initialLi
         } else if (activeCategory === 'women') {
           if (!(cat.includes('women') || cat.includes('girl') || cat.includes('matru') || scheme.eligibility?.woman_specific || allText.includes('mahila'))) return false;
         } else if (activeCategory === 'agriculture') {
-          if (!(cat.includes('agri') || cat.includes('farm') || cat.includes('kisan') || goals.includes('farming'))) return false;
+          if (!(allText.includes('agri') || allText.includes('farm') || allText.includes('kisan') || allText.includes('rural'))) return false;
         } else if (activeCategory === 'health') {
-          if (!(cat.includes('health') || cat.includes('medical') || cat.includes('ayushman') || goals.includes('health') || allText.includes('swasth'))) return false;
+          if (!(allText.includes('health') || allText.includes('medical') || allText.includes('ayushman') || allText.includes('swasth') || allText.includes('maternity'))) return false;
         } else if (activeCategory === 'housing') {
           if (!(cat.includes('housing') || cat.includes('awas') || goals.includes('housing'))) return false;
         } else if (activeCategory === 'employment') {

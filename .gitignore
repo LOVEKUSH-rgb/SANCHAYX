@@ -39,3 +39,7 @@ __pycache__/
 *$py.class
 backend/venv/
 .venv/
+
+# Local backend runtime data
+backend/data/logs_store.json
+backend/data/users_store.json

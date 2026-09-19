@@ -4,14 +4,22 @@ import { MOCK_SCHEMES } from '../data/mockSchemes';
  * Deterministic Client-side Scheme Fit & Recommendation Engine
  * Acts as an instant offline/online fallback ensuring 100% platform uptime.
  */
-export function calculateLocalRecommendations(profile = {}, goal = {}, preferences = {}, categoryFilter = 'all') {
-  const userAge = Number(profile.age) || 25;
+export function calculateLocalRecommendations(profile = {}, goal = {}, preferences = {}, categoryFilter = 'all', schemeIdFilter = null) {
+  const isMinor = (profile.saving_for === 'minor' || profile.savingFor === 'minor');
+  // resolveEligibilitySubject: determines the actual age to evaluate based on the beneficiary
+  const targetAge = isMinor && profile.child_age !== undefined && profile.child_age !== null 
+    ? Number(profile.child_age) 
+    : (Number(profile.age) || 25);
+    
   const userGender = (profile.gender || 'all').toLowerCase();
   const userResidency = (profile.residency_status || profile.residency || 'resident').toLowerCase();
   const userGoal = (goal.goal || goal.id || 'wealth').toLowerCase();
   const monthlyBudget = Number(preferences.monthly_budget || preferences.monthlyBudget) || 2000;
   const horizonYears = Number(preferences.horizon_years || preferences.horizonYears) || 10;
   const taxPref = preferences.tax_preference !== undefined ? preferences.tax_preference : true;
+  
+  const userIncome = Number(profile.annual_income || profile.income) || 0;
+  const userState = String(profile.state || '').toLowerCase().trim();
 
   const eligibleSchemes = [];
   const rejectedSchemes = [];
@@ -19,6 +27,13 @@ export function calculateLocalRecommendations(profile = {}, goal = {}, preferenc
   for (const s of MOCK_SCHEMES) {
     const failedCriteria = [];
     const elig = s.eligibility || {};
+
+    // 0. Specific Scheme Filter
+    if (schemeIdFilter) {
+      if (s.id !== schemeIdFilter && s.scheme_id !== schemeIdFilter) {
+        continue;
+      }
+    }
 
     // 1. Verification check
     if (s.verified === false || s.active === false) {
@@ -34,14 +49,30 @@ export function calculateLocalRecommendations(profile = {}, goal = {}, preferenc
       failedCriteria.push('Requires Resident Indian status.');
     }
 
-    // 3. Age check
+    // 3. Age check (using resolved targetAge)
     const minAge = elig.min_age !== undefined ? elig.min_age : (s.minAge !== undefined ? s.minAge : null);
     const maxAge = elig.max_age !== undefined ? elig.max_age : (s.maxAge !== undefined ? s.maxAge : null);
-    if (minAge !== null && userAge < minAge) {
-      failedCriteria.push(`Minimum age required is ${minAge} years (Applicant is ${userAge}).`);
+    if (minAge !== null && targetAge < minAge) {
+      failedCriteria.push(`Minimum age required is ${minAge} years (Target applicant is ${targetAge}).`);
     }
-    if (maxAge !== null && userAge > maxAge) {
-      failedCriteria.push(`Maximum age limit is ${maxAge} years (Applicant is ${userAge}).`);
+    if (maxAge !== null && targetAge > maxAge) {
+      failedCriteria.push(`Maximum age limit is ${maxAge} years (Target applicant is ${targetAge}).`);
+    }
+
+    // 3.1 Income check
+    if (elig.income_limit !== null && elig.income_limit !== undefined) {
+      if (userIncome > elig.income_limit) {
+        failedCriteria.push(`Income exceeds maximum limit of ₹${elig.income_limit}.`);
+      }
+    }
+
+    // 3.2 State check
+    const sStateRaw = elig.state || elig.states;
+    const sStateArr = Array.isArray(sStateRaw) ? sStateRaw.map(st => String(st).toLowerCase().trim()) : (sStateRaw ? [String(sStateRaw).toLowerCase().trim()] : []);
+    if (sStateArr.length > 0 && userState) {
+      if (userState !== 'all' && !sStateArr.some(st => st === 'all' || st === 'any' || st === userState)) {
+        failedCriteria.push(`Scheme is restricted to residents of specific states.`);
+      }
     }
 
     // 4. Gender check
@@ -55,32 +86,19 @@ export function calculateLocalRecommendations(profile = {}, goal = {}, preferenc
     const userPersona = String(profile.persona || profile.life_stage || '').toLowerCase().trim();
     const isSalaried = ['salaried', 'private', 'employee', 'corporate', 'it', 'formal', 'banker', 'tech', 'executive', 'clerk', 'manager', 'staff'].some(w => userOcc.includes(w));
     
-    const schemeIdStr = String(s.scheme_id || s.id || '').toLowerCase().trim();
-    const shortNameStr = String(s.short_name || s.shortName || '').toLowerCase().trim();
-    const isMgnrega = schemeIdStr.includes('mgnrega') || shortNameStr.includes('mgnrega') || schemeIdStr === 'sc-emp-001';
+    const exclOccs = (elig.excluded_occupations || []).map(e => String(e).toLowerCase().trim());
+    if (exclOccs.length > 0 && exclOccs.some(e => userOcc.includes(e) || e.includes(userOcc))) {
+      failedCriteria.push(`Not eligible based on occupational criteria: Scheme explicitly excludes '${userOcc}' applicants.`);
+    }
 
-    if (isMgnrega) {
-      if (isSalaried) {
-        failedCriteria.push("Not eligible based on occupational criteria: MGNREGA provides guaranteed manual unskilled wage employment exclusively to rural households; formal salaried/private sector employees are ineligible.");
-      } else if (userOcc === 'student' || userPersona === 'students') {
-        failedCriteria.push("Additional information required: MGNREGA mandates adult membership in a rural household volunteering for unskilled manual labor.");
-      }
-    } else {
-      const exclOccs = (elig.excluded_occupations || []).map(e => String(e).toLowerCase().trim());
-      if (exclOccs.length > 0 && exclOccs.some(e => userOcc.includes(e) || e.includes(userOcc))) {
-        failedCriteria.push(`Not eligible based on occupational criteria: Scheme explicitly excludes '${userOcc}' applicants.`);
-      }
-
-      const reqOccs = (elig.occupation || []).map(o => String(o).toLowerCase().trim()).filter(o => !['any', 'all', ''].includes(o));
-      if (reqOccs.length > 0) {
-        if (reqOccs.some(r => r.includes('farmer'))) {
-          if (isSalaried) {
-            failedCriteria.push("Not eligible based on occupational criteria: Scheme is reserved for small and marginal farmers; formal salaried employees are ineligible.");
-          }
-        } else if (reqOccs.some(r => r.includes('unorganised') || r.includes('unskilled') || r.includes('informal'))) {
-          if (isSalaried) {
-            failedCriteria.push("Not eligible based on occupational criteria: Scheme is strictly for unorganised sector workers; formal salaried employees are ineligible.");
-          }
+    const reqOccs = (elig.occupation || []).map(o => String(o).toLowerCase().trim()).filter(o => !['any', 'all', ''].includes(o));
+    if (reqOccs.length > 0) {
+      if (!reqOccs.some(req => req.includes(userOcc) || userOcc.includes(req))) {
+        // If occupation is salaried but scheme is for farmer/unorganised, give a clearer message
+        if (isSalaried && (reqOccs.some(r => r.includes('farmer')) || reqOccs.some(r => r.includes('unorganised')))) {
+          failedCriteria.push("Not eligible based on occupational criteria: Scheme is reserved for specific non-salaried occupations; formal salaried employees are ineligible.");
+        } else {
+          failedCriteria.push(`Not eligible based on occupational criteria: Applicant's occupation does not match the required categories.`);
         }
       }
     }

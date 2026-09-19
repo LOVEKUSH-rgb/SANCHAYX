@@ -4,7 +4,8 @@ import { Footer } from '../components/layout/Footer';
 import { HeroHeadline } from '../components/hero/HeroHeadline';
 import { FloatingCardComposition } from '../components/hero/FloatingCardComposition';
 import { VerifiedSourcesTicker } from '../components/common/VerifiedSourcesTicker';
-import { FeaturedSchemesSection } from '../components/sections/FeaturedSchemesSection';
+import { PopularCategoriesSection } from '../components/sections/PopularCategoriesSection';
+import { PopularSchemesSection } from '../components/sections/PopularSchemesSection';
 import { LICHomeSection } from '../components/sections/LICHomeSection';
 import { FreeBenefitsHomeSection } from '../components/free_benefits/FreeBenefitsHomeSection';
 import { LatestFreeBenefitsSection } from '../components/free_benefits/LatestFreeBenefitsSection';
@@ -88,18 +89,71 @@ export const LandingPage = () => {
         {/* Verified Data Sources Ticker */}
         <VerifiedSourcesTicker />
 
-        {/* 3. FEATURED GOVERNMENT SCHEMES SECTION */}
-        <FeaturedSchemesSection
-          schemes={schemesList}
-          onSelectScheme={(scheme) => setSelectedItem(scheme)}
-          initialLifeStage={selectedLifeStage}
-        />
+        {/* FINANCIAL OPTIONS ENTRY GATE */}
+        <section className="py-16 bg-[#FAF9F5] border-y border-slate-200 relative">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-10">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-mono font-bold uppercase tracking-wider mb-4 border border-slate-200">
+                <span>Explore Your Financial Options</span>
+              </div>
+              <h2 className="font-serif font-extrabold text-3xl sm:text-4xl text-sanchay-navy-950 mb-4">
+                What type of financial options<br className="hidden sm:block" /> would you like to explore?
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              {/* Government Schemes Card */}
+              <Link 
+                to="/schemes" 
+                className="group flex flex-col bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition-all hover:border-sanchay-emerald-300"
+              >
+                <div className="w-14 h-14 rounded-xl bg-slate-50 flex items-center justify-center text-3xl mb-6 group-hover:bg-sanchay-emerald-50 transition-colors">
+                  🏛️
+                </div>
+                <h3 className="font-serif font-bold text-2xl text-sanchay-navy-950 mb-3">
+                  Government Schemes
+                </h3>
+                <p className="text-slate-600 text-base leading-relaxed mb-8 flex-1">
+                  Explore verified government savings, pension, protection and welfare schemes.
+                </p>
+                <div className="inline-flex items-center text-sm font-bold text-sanchay-emerald-600 group-hover:text-sanchay-emerald-700 uppercase tracking-wide">
+                  Explore Government Schemes <ArrowRight className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" />
+                </div>
+              </Link>
+
+              {/* Market Options Card */}
+              <Link 
+                to="/markets" 
+                className="group flex flex-col bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition-all hover:border-blue-300"
+              >
+                <div className="w-14 h-14 rounded-xl bg-slate-50 flex items-center justify-center text-3xl mb-6 group-hover:bg-blue-50 transition-colors">
+                  📈
+                </div>
+                <h3 className="font-serif font-bold text-2xl text-sanchay-navy-950 mb-3">
+                  Market & Other Financial Options
+                </h3>
+                <p className="text-slate-600 text-base leading-relaxed mb-8 flex-1">
+                  Explore mutual funds, ETFs, stocks and fixed-income products through an educational, comparison-focused experience.
+                </p>
+                <div className="inline-flex items-center text-sm font-bold text-blue-600 group-hover:text-blue-700 uppercase tracking-wide">
+                  Explore Market Options <ArrowRight className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" />
+                </div>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* POPULAR CATEGORIES */}
+        <PopularCategoriesSection />
+
+        {/* 3. POPULAR GOVERNMENT SCHEMES SECTION (Curated) */}
+        <PopularSchemesSection schemes={schemesList} />
 
         {/* 4. DEDICATED LIC PLANS & LIFE SOLUTIONS SECTION */}
-        <LICHomeSection />
+        {/* <LICHomeSection /> */}
 
         {/* 5. DEDICATED SOVEREIGN FREE BENEFITS & WELFARE DIRECT AID SECTION */}
-        <FreeBenefitsHomeSection />
+        {/* <FreeBenefitsHomeSection /> */}
 
         {/* 6. EDITORIAL FEATURE SECTION */}
         <EditorialFeatureSection

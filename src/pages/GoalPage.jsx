@@ -11,7 +11,8 @@ export const GoalPage = () => {
   const navigate = useNavigate();
   const { t } = useLanguage();
   const savedGoal = JSON.parse(sessionStorage.getItem('sanchay_goal') || '{}');
-  const [selectedGoal, setSelectedGoal] = useState(savedGoal.goal || 'education');
+  const [selectedGoal, setSelectedGoal] = useState(savedGoal.goal || '');
+  const [errorMessage, setErrorMessage] = useState('');
   const [sakhiChatOpen, setSakhiChatOpen] = useState(false);
 
   const goals = [
@@ -28,9 +29,17 @@ export const GoalPage = () => {
   ];
 
   const handleNext = () => {
+    if (!selectedGoal) {
+      setErrorMessage(t('goals.errorSelection', 'Please select a primary financial goal to continue.'));
+      return;
+    }
+    setErrorMessage('');
     sessionStorage.setItem('sanchay_goal', JSON.stringify({ goal: selectedGoal }));
     sessionStorage.removeItem('sanchay_recommendation_result');
-    navigate('/preferences');
+    
+    const searchParams = new URLSearchParams(window.location.search);
+    const schemeId = searchParams.get('schemeId');
+    navigate('/preferences' + (schemeId ? `?schemeId=${schemeId}` : ''));
   };
 
   return (
@@ -104,6 +113,13 @@ export const GoalPage = () => {
                 );
               })}
             </div>
+
+              {errorMessage && (
+                <div className="p-3.5 rounded-xl bg-red-50 text-red-700 border border-red-200 text-xs font-bold flex items-center gap-2">
+                  <Activity className="w-4 h-4 shrink-0" />
+                  <span>{errorMessage}</span>
+                </div>
+              )}
 
             {/* Bottom Actions: Back to Profile & Continue to Preferences */}
             <div className="flex items-center justify-between pt-4 border-t border-slate-100">

@@ -53,7 +53,10 @@ export const RecommendationsPage = () => {
         const goal = JSON.parse(goalRaw || '{"goal":"wealth"}');
         const preferences = JSON.parse(prefRaw || '{"monthly_budget":2000,"horizon_years":10,"liquidity_preference":"medium","tax_preference":true}');
         
-        const res = await postRecommendation(profile, goal, preferences);
+        const searchParams = new URLSearchParams(window.location.search);
+        const schemeId = searchParams.get('schemeId');
+
+        const res = await postRecommendation(profile, goal, preferences, 'all', schemeId);
         if (isMounted && res) {
           setRecommendationResult(res);
           sessionStorage.setItem('sanchay_recommendation_result', JSON.stringify(res));

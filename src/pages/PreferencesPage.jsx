@@ -58,18 +58,22 @@ export const PreferencesPage = () => {
     setTimeout(() => setLoadingStep(currentLang === 'hi' ? 'मासिक बजट और निवेश अवधि का मिलान हो रहा है...' : 'Matching your monthly budget & lock-in horizon...'), 900);
     setTimeout(() => setLoadingStep(currentLang === 'hi' ? 'Fit Score के अनुसार शीर्ष योजनाओं की रैंकिंग जारी है...' : 'Ranking top verified options by Fit Score...'), 1400);
 
+    const searchParams = new URLSearchParams(window.location.search);
+    const schemeId = searchParams.get('schemeId');
+    const dest = '/recommendations' + (schemeId ? `?schemeId=${schemeId}` : '');
+
     try {
-      const res = await postRecommendation(profile, goal, prefData);
+      const res = await postRecommendation(profile, goal, prefData, 'all', schemeId);
       sessionStorage.setItem('sanchay_recommendation_result', JSON.stringify(res));
       setTimeout(() => {
         setIsSubmitting(false);
-        navigate('/recommendations');
+        navigate(dest);
       }, 1800);
     } catch (err) {
       console.warn('API error during recommendation calculation:', err);
       setTimeout(() => {
         setIsSubmitting(false);
-        navigate('/recommendations');
+        navigate(dest);
       }, 1800);
     }
   };

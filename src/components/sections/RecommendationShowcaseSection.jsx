@@ -39,7 +39,7 @@ export const RecommendationShowcaseSection = () => {
               {/* Badge Bar */}
               <div className="flex items-center justify-between mb-6">
                 <span className="px-3.5 py-1 rounded-full bg-sanchay-emerald-600 text-white text-[10px] font-mono font-extrabold uppercase tracking-widest shadow-2xs">
-                  BEST MATCH SCHEME
+                  HIGHEST COMPATIBILITY MATCH
                 </span>
 
                 {/* Explicit Demo Data Fit Badge */}

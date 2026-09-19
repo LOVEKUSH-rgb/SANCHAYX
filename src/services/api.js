@@ -143,7 +143,7 @@ export async function checkEligibility(schemeId, profile, goal = null) {
 /**
  * Post recommendation request to Deterministic Two-Stage Engine
  */
-export async function postRecommendation(profile, goal, preferences, categoryFilter = 'all') {
+export async function postRecommendation(profile, goal, preferences, categoryFilter = 'all', schemeIdFilter = null) {
   try {
     const res = await fetch(`${API_BASE_URL}/api/recommendations`, {
       method: 'POST',
@@ -174,7 +174,8 @@ export async function postRecommendation(profile, goal, preferences, categoryFil
           liquidity_preference: preferences.liquidityNeed || preferences.liquidity_preference || 'medium',
           tax_preference: preferences.taxPriority !== undefined ? preferences.taxPriority : true
         },
-        category_filter: categoryFilter
+        category_filter: categoryFilter,
+        scheme_id_filter: schemeIdFilter
       })
     });
     if (res.ok) {
@@ -188,7 +189,7 @@ export async function postRecommendation(profile, goal, preferences, categoryFil
   }
 
   // Graceful deterministic fallback
-  return calculateLocalRecommendations(profile, goal, preferences, categoryFilter);
+  return calculateLocalRecommendations(profile, goal, preferences, categoryFilter, schemeIdFilter);
 }
 
 /**

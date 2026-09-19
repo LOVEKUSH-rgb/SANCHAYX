@@ -1,11 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
+import { ArrowRight, CheckCircle2, Search } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 
 export const HeroHeadline = () => {
   const { t } = useLanguage();
+  const navigate = useNavigate();
   const [schemeCount, setSchemeCount] = React.useState(null);
+  const [searchQuery, setSearchQuery] = React.useState('');
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/schemes?q=${encodeURIComponent(searchQuery.trim())}`);
+    }
+  };
 
   React.useEffect(() => {
     let isMounted = true;
@@ -58,14 +67,28 @@ export const HeroHeadline = () => {
 
       {/* Large Editorial Headline */}
       <h1 className="font-serif font-extrabold text-4xl sm:text-5xl lg:text-6xl text-sanchay-navy-950 leading-[1.14] tracking-tight">
-        {t('hero.headlinePrefix', 'Trusted Indian Savings & Schemes.')} <br className="hidden sm:inline" />
-        <span className="italic text-sanchay-emerald-700 font-normal">{t('hero.headlineHighlight', 'Grounded in Official Gazettes.')}</span>
+        {t('hero.headlinePrefix', 'Trusted Indian Financial Options.')}
       </h1>
 
       {/* Supporting Text */}
-      <p className="text-base sm:text-lg text-sanchay-navy-700 font-normal leading-relaxed">
-        {t('hero.heroSubtitle', 'Match your life goals with verified Government schemes, sovereign LIC insurance, and 100% free direct welfare benefits through our deterministic rule engine.')}
+      <p className="text-base sm:text-lg text-sanchay-navy-700 font-normal leading-relaxed mt-4">
+        {t('hero.heroSubtitle', 'Discover verified government schemes, free benefits, savings options and market-linked financial products — with clear eligibility, comparison and educational tools.')}
       </p>
+
+      {/* Search Bar */}
+      <form onSubmit={handleSearch} className="relative max-w-lg mt-6 w-full">
+        <Search className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
+        <input
+          type="text"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          placeholder={t('hero.searchPlaceholder', 'Search schemes, benefits, insurance...')}
+          className="w-full pl-12 pr-24 py-4 rounded-2xl bg-white border border-slate-200/90 text-sm text-sanchay-navy-950 placeholder:text-slate-400 focus:outline-none focus:border-sanchay-emerald-600 focus:ring-2 focus:ring-sanchay-emerald-500/20 transition-all shadow-card"
+        />
+        <button type="submit" className="absolute right-2 top-1/2 -translate-y-1/2 px-4 py-2 bg-sanchay-navy-950 text-white font-bold text-xs uppercase tracking-wider rounded-xl hover:bg-sanchay-navy-900 transition-colors">
+          Search
+        </button>
+      </form>
 
       {/* Dual CTAs */}
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-1">
@@ -77,17 +100,12 @@ export const HeroHeadline = () => {
           <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
         </Link>
 
-        <a
-          href="#verified-schemes"
-          onClick={(e) => {
-            e.preventDefault();
-            const el = document.getElementById('verified-schemes');
-            if (el) el.scrollIntoView({ behavior: 'smooth' });
-          }}
+        <Link
+          to="/schemes"
           className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-2xl bg-white hover:bg-slate-50 text-sanchay-navy-950 font-bold text-sm uppercase tracking-wider border border-slate-200/90 shadow-card hover:-translate-y-0.5 transition-all duration-200"
         >
           <span>{t('hero.ctaExplore', 'Explore All Schemes')}</span>
-        </a>
+        </Link>
       </div>
 
       {/* Trust Statistics for All 3 Pillars */}

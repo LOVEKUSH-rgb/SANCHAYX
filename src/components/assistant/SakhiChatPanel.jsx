@@ -78,7 +78,7 @@ const CONTEXTUAL_PROMPTS = {
   },
   Recommendations: {
     en: [
-      { label: 'Why recommended?', prompt: 'Why was this top scheme recommended for my profile?' },
+      { label: 'Why is this a match?', prompt: 'Why was this top scheme selected for my profile?' },
       { label: 'Am I 100% eligible?', prompt: 'Am I 100% eligible for my recommended schemes?' },
       { label: 'Why others rejected?', prompt: 'Why were other schemes rejected or filtered out?' },
       { label: 'Compare Top 2', prompt: 'Compare the top 2 recommended schemes for me' },
@@ -774,7 +774,7 @@ export const SakhiChatPanel = ({
       label: currentLang === 'hi' ? '🛡️ LIC Plans' : currentLang === 'mr' ? '🛡️ LIC Plans' : currentLang === 'bn' ? '🛡️ LIC Plans' : currentLang === 'te' ? '🛡️ LIC Plans' : '🛡️ LIC Plans', 
       prompt: currentLang === 'hi' ? 'मेरे लिए कौन सी LIC बीमा योजना उपयुक्त है?' : currentLang === 'mr' ? 'माझ्यासाठी कोणता LIC प्लॅन योग्य आहे?' : currentLang === 'bn' ? 'আমার জন্য কোন এলআইসি পলিসি উপযুক্ত?' : currentLang === 'te' ? 'నా కోసం ఏ ఎల్‌ఐసీ ప్లాన్ సరిపోతుంది?' : 'Which LIC plan is suitable for my profile?' 
     },
-    { label: currentLang === 'hi' ? '👧 बच्चे/बालिका योजना' : '👧 Child / SSY', prompt: currentLang === 'hi' ? 'मुझे बच्चे और बालिका के लिए सरकारी योजनाएं बताओ' : 'What are the best government schemes for children and girl child?' },
+    { label: currentLang === 'hi' ? '👧 बच्चे/बालिका योजना' : '👧 Child / SSY', prompt: currentLang === 'hi' ? 'मुझे बच्चे और बालिका के लिए सरकारी योजनाएं बताओ' : 'What are the most suitable government schemes for children and girl child?' },
     { label: currentLang === 'hi' ? '📈 उच्चतम ब्याज दर' : '📈 Highest Interest', prompt: 'Highest interest rate' },
     { label: currentLang === 'hi' ? '🌾 किसान योजनाएं' : '🌾 Farmer / PM-KISAN', prompt: currentLang === 'hi' ? 'किसानों के लिए कौन सी सरकारी योजनाएं हैं?' : 'Tell me about schemes for farmers and agriculture' },
     { label: currentLang === 'hi' ? '👵 वरिष्ठ नागरिक (60+)' : '👵 Senior Citizen', prompt: currentLang === 'hi' ? 'वरिष्ठ नागरिकों और 60+ के लिए योजनाएं बताओ' : 'What schemes are available for senior citizens (60+)?' },

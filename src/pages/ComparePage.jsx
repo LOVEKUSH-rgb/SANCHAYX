@@ -229,7 +229,7 @@ export const ComparePage = () => {
 
                             <div>
                               <span className="text-[10px] font-mono font-bold text-sanchay-emerald-700 uppercase block">
-                                {colIdx === 0 ? '★ TOP RECOMMENDATION' : `RECOMMENDED OPTION #${colIdx + 1}`}
+                                {colIdx === 0 ? '★ TOP COMPATIBILITY MATCH' : `COMPATIBLE OPTION #${colIdx + 1}`}
                               </span>
                               <h3 className="font-serif font-bold text-base text-sanchay-navy-950 mt-0.5 leading-snug">
                                 {displayName}

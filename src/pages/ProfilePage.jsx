@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { Navbar } from '../components/layout/Navbar';
 import { SakhiFloatingButton } from '../components/assistant/SakhiFloatingButton';
 import { SakhiChatPanel } from '../components/assistant/SakhiChatPanel';
 import { LIFE_STAGE_PERSONAS } from '../data/mockSchemes';
+import { useProfileConfig } from '../hooks/useProfileConfig';
 import { Users, ArrowRight, ArrowLeft, CheckCircle2, AlertCircle } from 'lucide-react';
 import { Footer } from '../components/layout/Footer';
 import { useLanguage } from '../context/LanguageContext';
@@ -12,10 +13,33 @@ export const ProfilePage = () => {
   const navigate = useNavigate();
   const { t, currentLang } = useLanguage();
 
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const urlPersona = searchParams.get('persona');
+
   const savedProfile = JSON.parse(sessionStorage.getItem('sanchay_profile') || '{}');
 
-  const [savingFor, setSavingFor] = useState(savedProfile.saving_for || savedProfile.savingFor || 'self');
-  const [selectedPersona, setSelectedPersona] = useState(savedProfile.persona || savedProfile.life_stage || 'parents');
+  // 1. URL Context > 2. Session Storage > 3. Neutral Default
+  const defaultPersona = urlPersona || savedProfile.persona || savedProfile.life_stage || 'parents';
+  
+  let defaultSavingFor = 'self';
+  if (urlPersona) {
+    // If we have a saved session for THIS EXACT persona, preserve the explicit choice (handles Back/Refresh)
+    if (savedProfile.persona === urlPersona && (savedProfile.saving_for || savedProfile.savingFor)) {
+      defaultSavingFor = savedProfile.saving_for || savedProfile.savingFor;
+    } else {
+      // New journey or different category context. Do NOT inherit stale state.
+      defaultSavingFor = (urlPersona === 'parents') ? 'minor' : 'self';
+    }
+  } else if (savedProfile.saving_for || savedProfile.savingFor) {
+    // No URL constraint, inherit any existing session
+    defaultSavingFor = savedProfile.saving_for || savedProfile.savingFor;
+  }
+
+  const profileConfig = useProfileConfig(searchParams);
+
+  const [savingFor, setSavingFor] = useState(defaultSavingFor);
+  const [selectedPersona, setSelectedPersona] = useState(defaultPersona);
   const [age, setAge] = useState(savedProfile.age !== undefined ? savedProfile.age : 25);
   const [gender, setGender] = useState(savedProfile.gender || 'all');
   const [residencyStatus, setResidencyStatus] = useState(savedProfile.residency_status || savedProfile.residencyStatus || 'resident');
@@ -62,11 +86,15 @@ export const ProfilePage = () => {
     }
 
     setErrorMessage('');
+    
+    // Normalize hidden state to prevent stale data leakage
+    const finalSavingFor = profileConfig.showSavingFor ? savingFor : 'self';
+    
     const profileData = {
       persona: selectedPersona,
       life_stage: selectedPersona,
-      saving_for: savingFor,
-      savingFor: savingFor,
+      saving_for: finalSavingFor,
+      savingFor: finalSavingFor,
       age: Number(age),
       gender,
       residency_status: residencyStatus,
@@ -78,13 +106,20 @@ export const ProfilePage = () => {
       is_student: occupation === 'student' || selectedPersona === 'student',
       is_farmer: occupation === 'farmer' || selectedPersona === 'farmers',
       is_senior: Number(age) >= 60 || selectedPersona === 'seniors',
-      has_guardian: savingFor === 'minor' ? hasGuardian : true,
-      child_age: savingFor === 'minor' ? Number(childAge) : null
+      has_guardian: finalSavingFor === 'minor' ? hasGuardian : true,
+      child_age: finalSavingFor === 'minor' ? Number(childAge) : null
     };
+
+    // If the fundamental context changed, invalidate downstream goal state
+    if (selectedPersona !== savedProfile.persona || finalSavingFor !== (savedProfile.saving_for || savedProfile.savingFor)) {
+      sessionStorage.removeItem('sanchay_goal');
+    }
 
     sessionStorage.setItem('sanchay_profile', JSON.stringify(profileData));
     sessionStorage.removeItem('sanchay_recommendation_result');
-    navigate('/goal');
+    
+    const schemeId = searchParams.get('schemeId');
+    navigate('/goal' + (schemeId ? `?schemeId=${schemeId}` : ''));
   };
 
   return (
@@ -114,14 +149,19 @@ export const ProfilePage = () => {
                 <span>{t('profile.title', 'Demographic & Statutory Profile')}</span>
               </div>
               <h1 className="font-serif font-extrabold text-3xl sm:text-4xl text-sanchay-navy-950">
-                {t('profile.savingFor', 'Who are you saving for?')}
+                {searchParams.get('schemeId') 
+                  ? t('profile.applicantProfile', 'Applicant Profile') 
+                  : t('profile.savingFor', 'Who are you saving for?')}
               </h1>
               <p className="text-xs sm:text-sm text-sanchay-navy-700 mt-2 leading-relaxed">
-                {t('profile.subtitle', 'Provide statutory details so the rule engine can evaluate mandatory eligibility criteria.')}
+                {searchParams.get('schemeId')
+                  ? t('profile.schemeSubtitle', "Provide the details required to check this scheme's eligibility.")
+                  : t('profile.subtitle', 'Provide statutory details so the rule engine can evaluate mandatory eligibility criteria.')}
               </p>
             </div>
 
             {/* Question: Saving for Self or Minor? */}
+            {profileConfig.showSavingFor && (
             <div className="p-5 rounded-2xl bg-[#F8F6F0] border border-slate-200/80">
               <label className="text-xs font-mono font-bold text-sanchay-navy-950 uppercase tracking-wider block mb-3">
                 {t('profile.savingFor', 'Account Beneficiary')}
@@ -163,6 +203,7 @@ export const ProfilePage = () => {
               {/* Child Age + Guardian Toggle if Minor */}
               {savingFor === 'minor' && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 pt-4 border-t border-slate-200">
+                  {profileConfig.showChildAge && (
                   <div>
                     <label className="text-xs font-mono font-bold text-sanchay-navy-950 uppercase tracking-wider block mb-1.5">
                       {t('profile.childAgeLabel', 'Child Age (Years)')}
@@ -176,7 +217,9 @@ export const ProfilePage = () => {
                       className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-sm font-bold text-sanchay-navy-950"
                     />
                   </div>
+                  )}
 
+                  {profileConfig.showGuardian && (
                   <div>
                     <label className="text-xs font-mono font-bold text-sanchay-navy-950 uppercase tracking-wider block mb-1.5">
                       {t('profile.guardianLabel', 'Guardian Representation')}
@@ -198,11 +241,14 @@ export const ProfilePage = () => {
                       </button>
                     </div>
                   </div>
+                  )}
                 </div>
               )}
             </div>
+            )}
 
             {/* Life Stage Persona Selection */}
+            {profileConfig.showPersona && (
             <div>
               <label className="text-xs font-mono font-bold text-sanchay-navy-950 uppercase tracking-wider block mb-3">
                 {t('profile.personaLabel', 'Select Life Stage')}
@@ -237,11 +283,13 @@ export const ProfilePage = () => {
                 })}
               </div>
             </div>
+            )}
 
             {/* Form Inputs Grid: Age, Gender, Residency, State, Income, Occupation */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-5 rounded-2xl bg-[#F8F6F0] border border-slate-200/80">
               
               {/* Age */}
+              {profileConfig.showAge && (
               <div>
                 <label className="text-xs font-mono font-bold text-sanchay-navy-950 uppercase tracking-wider block mb-1.5">
                   {t('profile.ageLabel', 'Age of Applicant *')}
@@ -259,8 +307,10 @@ export const ProfilePage = () => {
                   <span className="font-mono text-xs text-slate-500 font-bold">Yrs</span>
                 </div>
               </div>
+              )}
 
               {/* Gender */}
+              {profileConfig.showGender && (
               <div>
                 <label className="text-xs font-mono font-bold text-sanchay-navy-950 uppercase tracking-wider block mb-1.5">
                   {t('profile.genderLabel', 'Gender')}
@@ -275,8 +325,10 @@ export const ProfilePage = () => {
                   <option value="male">{t('profile.genderMale', 'Male')}</option>
                 </select>
               </div>
+              )}
 
               {/* Residency Status */}
+              {profileConfig.showResidency && (
               <div>
                 <label className="text-xs font-mono font-bold text-sanchay-navy-950 uppercase tracking-wider block mb-1.5">
                   {t('profile.residencyLabel', 'Residency Status')}
@@ -290,8 +342,10 @@ export const ProfilePage = () => {
                   <option value="nri">{t('profile.residencyNRI', 'NRI (Non-Resident Indian)')}</option>
                 </select>
               </div>
+              )}
 
               {/* State */}
+              {profileConfig.showState && (
               <div>
                 <label className="text-xs font-mono font-bold text-sanchay-navy-950 uppercase tracking-wider block mb-1.5">
                   {t('profile.stateLabel', 'State of Residence')}
@@ -306,8 +360,10 @@ export const ProfilePage = () => {
                   ))}
                 </select>
               </div>
+              )}
 
               {/* Occupation */}
+              {profileConfig.showOccupation && (
               <div>
                 <label className="text-xs font-mono font-bold text-sanchay-navy-950 uppercase tracking-wider block mb-1.5">
                   {t('profile.occLabel', 'Occupation')}
@@ -322,8 +378,10 @@ export const ProfilePage = () => {
                   ))}
                 </select>
               </div>
+              )}
 
               {/* Annual Income */}
+              {profileConfig.showIncome && (
               <div>
                 <label className="text-xs font-mono font-bold text-sanchay-navy-950 uppercase tracking-wider block mb-1.5">
                   {t('profile.incomeLabel', 'Annual Household Income (₹)')}
@@ -337,7 +395,7 @@ export const ProfilePage = () => {
                   className="w-full bg-white border border-slate-200/90 rounded-xl px-3 py-2 text-sm font-bold text-sanchay-navy-950 focus:outline-none focus:border-sanchay-emerald-600 shadow-2xs"
                 />
               </div>
-
+              )}
             </div>
 
             {/* Error banner if invalid */}
