@@ -26,7 +26,7 @@
   },
   "hero": {
     "badge": "100% Grounded in Official Gazettes",
-    "headlinePrefix": "Trusted Indian Savings & Schemes.",
+    "headlinePrefix": "Smart Budget & Financial Resilience Engine",
     "headlineHighlight": "Grounded in Official Gazettes.",
     "subheadline": "Match your life goals with verified Ministry of Finance, PFRDA, and post office schemes through our deterministic rule engine.",
     "heroSubtitle": "Match your life goals with verified Government schemes, sovereign LIC insurance, and 100% free direct welfare benefits through our deterministic rule engine.",
@@ -332,7 +332,7 @@
     "brandDesc": "SANCHAY is India's sovereign scheme guidance platform. Grounded exclusively in official gazettes and deterministic rule engines.",
     "quickLinks": "Quick Links",
     "legal": "Governance & Disclaimer",
-    "disclaimer": "Educational Guidance Disclaimer: SANCHAY is an independent educational technology platform grounded in official Government of India gazettes. SANCHAY is not a registered financial intermediary, broker, or depository. All interest rates and rules are subject to statutory government notifications.",
+    "disclaimer": "Educational guidance and planning purposes. Independent of financial intermediaries.",
     "copyright": "© 2026 SANCHAY. All rights reserved. Grounded in Official Indian Gazettes."
   },
   "lic": {
@@ -626,11 +626,11 @@
   },
   "sakhi": {
     "title": "Sakhi",
-    "badge": "VERIFIED ASSISTANT",
-    "subtitle": "Grounded in Official Gazettes",
+    "badge": "YOUR PERSONAL AI ASSISTANT",
+    "subtitle": "Here to help you make smarter decisions.",
     "provenance": "Single Source of Truth: MongoDB Master",
     "askSakhi": "Ask Sakhi",
-    "placeholder": "Ask Sakhi about verified scheme rules...",
+    "placeholder": "Ask Sakhi anything about finances, goals, or schemes...",
     "retrieving": "Retrieving from verified database...",
     "retrievingSub": "Running rule-based statutory engine & gazette cross-check",
     "contextQuestions": "Contextual Questions:",

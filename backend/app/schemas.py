@@ -506,4 +506,87 @@ class LICInformationSchema(BaseModel):
     verification_required: bool = False
 
 
+# ==========================================
+# 6. FINANCIAL JOURNEY & SMART BUDGET MODELS
+# ==========================================
+
+class FinancialProfileInput(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    monthly_income: Optional[float] = Field(default=None, ge=0.0, description="Monthly household take-home income in INR")
+    annual_income: Optional[float] = Field(default=None, ge=0.0, description="Annual household income in INR; converted to monthly if monthly_income is not provided")
+    essential_expenses: float = Field(default=0.0, ge=0.0, description="Monthly essential needs: rent, groceries, utilities, school fees in INR")
+    lifestyle_expenses: float = Field(default=0.0, ge=0.0, description="Monthly lifestyle wants: dining, shopping, entertainment in INR")
+    monthly_emi: float = Field(default=0.0, ge=0.0, description="Total monthly loan/credit obligations (EMIs) in INR")
+    liquid_savings: float = Field(default=0.0, ge=0.0, description="Liquid savings buffer in bank accounts or liquid funds in INR")
+    has_life_insurance: Optional[bool] = Field(default=None, description="Whether the user has life assurance coverage (e.g., PMJJBY, Term plan)")
+    has_health_insurance: Optional[bool] = Field(default=None, description="Whether the user has health insurance coverage (e.g., PM-JAY, mediclaim)")
+
+
+class BudgetGuideline503020(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    needs_guideline_50: float = Field(description="Recommended 50% allocation for essential living needs")
+    wants_guideline_30: float = Field(description="Recommended 30% allocation for discretionary lifestyle wants")
+    savings_guideline_20: float = Field(description="Recommended 20% minimum allocation for savings and investments")
+    actual_needs: float = Field(description="Actual monthly essential needs + mandatory EMI obligations")
+    actual_wants: float = Field(description="Actual monthly lifestyle discretionary spending")
+    actual_savings: float = Field(description="Calculated monthly unallocated surplus available for potential savings/investments")
+    potential_savings: Optional[float] = Field(default=None, description="Calculated monthly unallocated surplus available for potential savings/investments")
+    needs_percentage: float = Field(description="Actual needs as a percentage of monthly income")
+    wants_percentage: float = Field(description="Actual wants as a percentage of monthly income")
+    savings_percentage: float = Field(description="Calculated surplus as a percentage of monthly income")
+    surplus_percentage: Optional[float] = Field(default=None, description="Calculated surplus as a percentage of monthly income")
+
+
+class FinancialHealthPillars(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    savings_score: float = Field(ge=0.0, le=25.0, description="Savings & surplus rate score (0-25)")
+    savings_max: float = 25.0
+    savings_rate_pct: float = Field(description="Monthly surplus divided by income as percentage")
+    potential_savings_rate_pct: Optional[float] = Field(default=None, description="Potential savings rate based on monthly unallocated surplus")
+    surplus_rate_pct: Optional[float] = Field(default=None, description="Unallocated monthly surplus divided by income as percentage")
+    
+    emergency_score: float = Field(ge=0.0, le=25.0, description="Emergency fund cushion score (0-25)")
+    emergency_max: float = 25.0
+    emergency_runway_months: float = Field(description="Essential-expense coverage in months (liquid savings divided by essential expenses, excluding EMIs)")
+    essential_expense_runway_months: Optional[float] = Field(default=None, description="Essential-expense coverage in months (excluding EMIs)")
+    
+    emi_score: float = Field(ge=0.0, le=25.0, description="Debt burden score (0-25)")
+    emi_max: float = 25.0
+    emi_ratio_pct: float = Field(description="Total monthly EMIs divided by income as percentage")
+    
+    protection_score: float = Field(ge=0.0, le=25.0, description="Insurance protection coverage score (0-25)")
+    protection_max: float = 25.0
+    life_insurance_status: str = Field(description="CONFIRMED_COVERED | CONFIRMED_UNINSURED | UNSPECIFIED")
+    health_insurance_status: str = Field(description="CONFIRMED_COVERED | CONFIRMED_UNINSURED | UNSPECIFIED")
+    is_protection_complete: bool = Field(description="True if both life and health statuses are explicitly provided")
+
+
+class FinancialHealthResponse(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    monthly_income: float = Field(description="Effective monthly income used for calculations")
+    income_source_type: str = Field(description="explicit_monthly | derived_from_annual | zero_income")
+    total_outflow: float = Field(description="Total monthly expenses including essentials, lifestyle, and EMIs")
+    monthly_surplus: float = Field(description="Income minus total monthly outflows")
+    is_surplus_positive: bool = Field(description="True if monthly income exceeds total monthly outflows")
+    budget_50_30_20: BudgetGuideline503020
+    pillars: FinancialHealthPillars
+    total_health_score: float = Field(ge=0.0, le=100.0, description="Composite financial resilience score (0-100)")
+    score_grade: str = Field(description="EXCELLENT (>=80) | STABLE (>=60) | NEEDS_ATTENTION (>=40) | CRITICAL (<40)")
+    data_completeness: Dict[str, Any] = Field(description="Detailed flags indicating missing or provisional data fields")
+    insights: List[str] = Field(default_factory=list, description="Actionable deterministic observations and recommendations")
+    disclaimer: str = Field(
+        default="These calculations are transparent educational indicators designed to guide financial discipline and planning; they do not constitute regulated financial, legal, or investment advice."
+    )
+    calculated_at: str
+
+
+class SavedFinancialJourney(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    user_id: str
+    inputs: FinancialProfileInput
+    results: FinancialHealthResponse
+    updated_at: str
+
+
+
 

@@ -139,7 +139,7 @@ export const ComparePage = () => {
           href={item.official_url || 'https://india.gov.in'}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-1.5 text-sanchay-emerald-700 font-mono font-bold hover:underline uppercase text-[11px]"
+          className="inline-flex items-center gap-1.5 text-emerald-400 font-mono font-bold hover:underline uppercase text-[11px]"
         >
           <span>{item.authority || 'Government of India'}</span>
           <ExternalLink className="w-3 h-3" />
@@ -149,7 +149,7 @@ export const ComparePage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#FAF9F5] text-sanchay-navy-950 flex flex-col selection:bg-sanchay-emerald-600 selection:text-white">
+    <div className="min-h-screen bg-[#060b08] text-slate-100 flex flex-col selection:bg-emerald-600 selection:text-white">
       <Navbar />
 
       <main className="flex-1 py-10 sm:py-16">
@@ -158,32 +158,32 @@ export const ComparePage = () => {
           {/* Header */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
-              <Link to="/recommendations" className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-sanchay-emerald-700 uppercase tracking-wider hover:underline mb-2">
+              <Link to="/recommendations" className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-emerald-400 uppercase tracking-wider hover:underline mb-2">
                 <ArrowLeft className="w-3.5 h-3.5" />
                 <span>{t('goals.backBtn', 'Back to Recommendations')}</span>
               </Link>
-              <h1 className="font-serif font-extrabold text-3xl sm:text-4xl text-sanchay-navy-950">
+              <h1 className="font-serif font-extrabold text-3xl sm:text-4xl text-white">
                 {t('compare.title', 'Scheme Comparison Matrix')}
               </h1>
-              <p className="text-xs sm:text-sm text-sanchay-navy-700 mt-1">
+              <p className="text-xs sm:text-sm text-slate-300 mt-1">
                 {t('compare.subtitle', 'Side-by-side comparison of verified statutory terms, yields, and liquidity rules across all 184 schemes.')}
               </p>
             </div>
 
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-sanchay-emerald-50 text-sanchay-emerald-700 text-xs font-mono font-bold uppercase tracking-wider border border-sanchay-emerald-200 self-start sm:self-auto">
-              <ShieldCheck className="w-4 h-4" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-950/80 text-emerald-300 text-xs font-mono font-bold uppercase tracking-wider border border-emerald-500/30 self-start sm:self-auto">
+              <ShieldCheck className="w-4 h-4 text-emerald-400" />
               <span>{t('hero.statGazettes', 'Official Gazette Verified')}</span>
             </div>
           </div>
 
           {/* Matrix Card */}
-          <div className="bg-white rounded-3xl border border-slate-200/90 shadow-card overflow-hidden">
+          <div className="bg-[#0c1611]/90 rounded-3xl border border-emerald-500/20 shadow-2xl overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse">
                 
                 {/* Column Headers (Scheme Names + Selector Dropdowns) */}
                 <thead>
-                  <tr className="border-b border-slate-200/90 bg-[#FAFAFC]">
+                  <tr className="border-b border-emerald-500/20 bg-[#08120d]">
                     <th className="p-6 w-1/4 min-w-[200px] text-xs font-mono font-bold uppercase text-slate-400">
                       {t('compare.parameter', 'Comparison Feature')}
                     </th>
@@ -205,23 +205,23 @@ export const ComparePage = () => {
                                 <select
                                   value={item.scheme_id || currentId}
                                   onChange={(e) => handleSchemeChange(colIdx, e.target.value)}
-                                  className="w-full text-xs font-bold text-sanchay-navy-950 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl px-3 py-2 appearance-none cursor-pointer pr-8 focus:outline-none focus:ring-2 focus:ring-sanchay-emerald-600 truncate"
+                                  className="w-full text-xs font-bold text-white bg-[#060b08] hover:bg-[#0c1611] border border-emerald-500/30 rounded-xl px-3 py-2 appearance-none cursor-pointer pr-8 focus:outline-none focus:ring-2 focus:ring-emerald-500 truncate"
                                 >
                                   {catalogList.map((catItem) => {
                                     const cid = catItem.scheme_id || catItem.id;
                                     const cname = typeof catItem.name === 'object' ? (catItem.name[currentLang] || catItem.name.en) : (catItem.name || cid);
                                     return (
-                                      <option key={cid} value={cid}>
+                                      <option key={cid} value={cid} className="bg-[#0c1611] text-white">
                                         {catItem.short_name ? `${catItem.short_name} — ` : ''}{cname}
                                       </option>
                                     );
                                   })}
                                 </select>
-                                <ChevronDown className="w-3.5 h-3.5 absolute right-2.5 top-2.5 text-slate-400 pointer-events-none" />
+                                <ChevronDown className="w-3.5 h-3.5 absolute right-2.5 top-2.5 text-emerald-400 pointer-events-none" />
                               </div>
                             )}
 
-                            <div className="h-28 w-full rounded-2xl overflow-hidden bg-slate-50 relative shadow-2xs flex items-center justify-center border border-slate-100">
+                            <div className="h-28 w-full rounded-2xl overflow-hidden bg-[#08120d] relative shadow-2xs flex items-center justify-center border border-emerald-500/15">
                               <img
                                 src={imgData?.url || '/schemes/_fallback.svg'}
                                 alt={displayName}
@@ -231,16 +231,16 @@ export const ComparePage = () => {
                                 }}
                                 className="w-full h-full object-contain p-2"
                               />
-                              <div className="absolute bottom-1.5 left-2 right-2 text-sanchay-navy-950 font-mono font-bold text-[9px] uppercase truncate bg-white/90 backdrop-blur-xs px-2 py-0.5 rounded shadow-2xs">
+                              <div className="absolute bottom-1.5 left-2 right-2 text-slate-300 font-mono font-bold text-[9px] uppercase truncate bg-[#060b08]/90 backdrop-blur-xs px-2 py-0.5 rounded border border-emerald-500/20 shadow-2xs">
                                 {item.authority || 'Government of India'}
                               </div>
                             </div>
 
                             <div>
-                              <span className="text-[10px] font-mono font-bold text-sanchay-emerald-700 uppercase block">
+                              <span className="text-[10px] font-mono font-bold text-emerald-400 uppercase block">
                                 {colIdx === 0 ? '★ TOP COMPATIBILITY MATCH' : `COMPATIBLE OPTION #${colIdx + 1}`}
                               </span>
-                              <h3 className="font-serif font-bold text-base text-sanchay-navy-950 mt-0.5 leading-snug">
+                              <h3 className="font-serif font-bold text-base text-white mt-0.5 leading-snug">
                                 {displayName}
                               </h3>
                             </div>
@@ -252,10 +252,10 @@ export const ComparePage = () => {
                 </thead>
 
                 {/* Table Body Rows */}
-                <tbody className="divide-y divide-slate-100 text-xs">
+                <tbody className="divide-y divide-emerald-500/15 text-xs">
                   {rows.map((row) => (
-                    <tr key={row.key} className="hover:bg-slate-50/50 transition-colors">
-                      <td className="p-5 font-bold text-sanchay-navy-950 bg-[#FAFAFC]/70">
+                    <tr key={row.key} className="hover:bg-emerald-950/20 transition-colors">
+                      <td className="p-5 font-bold text-slate-300 bg-[#08120d]/60">
                         {row.label}
                       </td>
                       {[0, 1, 2].map((colIdx) => {
@@ -265,8 +265,8 @@ export const ComparePage = () => {
                             key={colIdx}
                             className={`p-5 leading-relaxed ${
                               row.highlight
-                                ? 'font-serif font-extrabold text-sm text-sanchay-emerald-700'
-                                : 'text-sanchay-navy-700'
+                                ? 'font-serif font-extrabold text-sm text-emerald-400'
+                                : 'text-slate-300'
                             }`}
                           >
                             {row.getValue(item)}

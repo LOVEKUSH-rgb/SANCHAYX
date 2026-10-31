@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { ArrowRight, Check } from 'lucide-react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 import { getSchemeImage } from '../../data/schemeImages';
 import { useLanguage } from '../../context/LanguageContext';
 import { localizeScheme, getLocalizedCategory } from '../../utils/contentLocalizer';
@@ -8,32 +8,34 @@ import { ProductDetailsModal } from '../common/ProductDetailsModal';
 
 export const PopularSchemesSection = ({ schemes = [] }) => {
   const { currentLang, t } = useLanguage();
-  const navigate = useNavigate();
   const [selectedScheme, setSelectedScheme] = useState(null);
 
-  // Take only the first 3 featured schemes
+  // Take the first 3 featured schemes from live data
   const featuredSchemes = schemes.slice(0, 3);
 
   if (!featuredSchemes || featuredSchemes.length === 0) return null;
 
   return (
-    <section className="py-20 bg-[#FAF9F5] border-b border-slate-200/80">
+    <section id="verified-schemes" className="py-20 bg-[#F8FAF8] border-b border-[#E7ECE8] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 mb-12">
           <div className="max-w-2xl">
-            <h2 className="font-serif font-extrabold text-3xl sm:text-4xl text-sanchay-navy-950 tracking-tight">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E7F1EB] text-[#176B50] text-xs font-semibold uppercase tracking-wider mb-3 border border-[#D5E4DC]">
+              <span>Verified Civic Master</span>
+            </div>
+            <h2 className="font-serif font-extrabold text-3xl sm:text-4xl text-[#202B26] tracking-tight">
               {t('explore.popularSchemes', 'Popular Government Schemes')}
             </h2>
-            <p className="text-base text-sanchay-navy-700 mt-3 leading-relaxed">
+            <p className="text-base text-[#66736C] mt-3 leading-relaxed">
               {t('explore.popularSubtitle', 'Handpicked verified schemes to get you started on your savings journey.')}
             </p>
           </div>
           <Link
             to="/schemes"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white border border-slate-300 text-sanchay-navy-950 font-bold text-xs uppercase tracking-wider hover:bg-slate-50 transition-colors shadow-2xs shrink-0"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white hover:bg-[#FAFAFC] border border-[#E7ECE8] hover:border-[#D5E4DC] text-[#202B26] hover:text-[#176B50] font-semibold text-xs uppercase tracking-wider transition-all shadow-xs shrink-0"
           >
             <span>{t('explore.viewAllSchemes', 'View All Schemes')}</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 text-[#176B50]" />
           </Link>
         </div>
 
@@ -54,11 +56,11 @@ export const PopularSchemesSection = ({ schemes = [] }) => {
               <div
                 key={schemeId}
                 onClick={() => setSelectedScheme(scheme)}
-                className="bg-white rounded-3xl border border-slate-200/90 shadow-card hover:shadow-editorial transition-all duration-300 flex flex-col justify-between overflow-hidden group hover:-translate-y-1.5 cursor-pointer"
+                className="bg-white rounded-3xl border border-[#E7ECE8] shadow-card hover:shadow-card-hover hover:border-[#176B50]/30 transition-all duration-300 flex flex-col justify-between overflow-hidden group hover:-translate-y-1.5 cursor-pointer"
                 role="button"
                 tabIndex={0}
               >
-                <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-50 flex items-center justify-center border-b border-slate-200/80">
+                <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-[#FAFAFC] flex items-center justify-center border-b border-[#E7ECE8]">
                   <img
                     src={imgSrc}
                     alt={schemeName}
@@ -66,34 +68,36 @@ export const PopularSchemesSection = ({ schemes = [] }) => {
                     className="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-[1.03]"
                   />
                   <div className="absolute top-3 left-3">
-                    <span className="px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-sanchay-navy-950 font-mono font-bold text-[10px] uppercase tracking-wider shadow-2xs">
+                    <span className="px-3 py-1 rounded-full bg-white/95 text-[#176B50] font-semibold text-[10px] uppercase tracking-wider border border-[#D5E4DC] shadow-2xs">
                       {getLocalizedCategory(scheme.category, currentLang) || scheme.category}
                     </span>
                   </div>
-                  <div className="absolute bottom-5 left-3 right-3 flex items-center justify-between text-white">
+                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between bg-white/95 backdrop-blur-xs border border-[#E7ECE8] rounded-xl px-3 py-1.5 shadow-2xs">
                     <div className="min-w-0 pr-2">
-                      <span className="text-[10px] font-mono uppercase tracking-wider text-slate-700 block drop-shadow-sm">
+                      <span className="text-[10px] uppercase tracking-wider text-[#66736C] font-semibold block">
                         Benefit / Return
                       </span>
-                      <span className="font-serif font-extrabold text-xl text-sanchay-emerald-700 drop-shadow-sm truncate block">
+                      <span className="font-serif font-extrabold text-base sm:text-lg text-[#176B50] truncate block">
                         {benefitDisplay}
                       </span>
                     </div>
                   </div>
                 </div>
 
-                <div className="p-6">
-                  <h3 className="font-serif font-extrabold text-xl text-sanchay-navy-950 group-hover:text-sanchay-emerald-700 transition-colors line-clamp-1">
-                    {schemeName}
-                  </h3>
-                  <p className="text-xs text-sanchay-navy-700 mt-2 leading-relaxed line-clamp-2">
-                    {cardDesc}
-                  </p>
+                <div className="p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 className="font-serif font-extrabold text-xl text-[#202B26] group-hover:text-[#176B50] transition-colors line-clamp-1">
+                      {schemeName}
+                    </h3>
+                    <p className="text-xs text-[#66736C] mt-2 leading-relaxed line-clamp-2">
+                      {cardDesc}
+                    </p>
+                  </div>
                 </div>
                 
-                <div className="px-6 py-4 border-t border-slate-100 bg-slate-50/50 flex items-center justify-between text-xs font-extrabold text-sanchay-navy-950 uppercase tracking-wider">
+                <div className="px-6 py-4 border-t border-[#E7ECE8] bg-[#FAFAFC] flex items-center justify-between text-xs font-bold text-[#176B50] group-hover:text-[#125540] uppercase tracking-wider transition-colors">
                   <span>View Details</span>
-                  <ArrowRight className="w-4 h-4 group-hover:text-sanchay-emerald-600 transition-colors" />
+                  <ArrowRight className="w-4 h-4 text-[#176B50] group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
             );

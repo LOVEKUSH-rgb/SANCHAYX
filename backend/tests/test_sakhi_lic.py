@@ -1,3 +1,4 @@
+import os
 import sys
 import pytest
 from pathlib import Path
@@ -11,6 +12,19 @@ from app.services.gemini_adapter import GeminiSakhiAdapter, sakhi_adapter
 from app.services.sakhi_lic_handler import detect_query_domain, extract_lic_user_profile
 from seed_lic import seed_lic_database
 from seed_master import seed_master_schemes
+
+
+def is_live_gemini_configured() -> bool:
+    key = os.getenv("GEMINI_API_KEY", "").strip()
+    if not key or key.startswith("AQ.") or key.startswith("mock_") or "placeholder" in key.lower():
+        return False
+    return len(key) > 20
+
+
+skip_if_no_gemini = pytest.mark.skipif(
+    not is_live_gemini_configured(),
+    reason="Requires live Gemini API credentials (currently absent or placeholder)"
+)
 
 
 @pytest.fixture(autouse=True)
@@ -116,6 +130,7 @@ def test_4_lic_broad_recommendation():
 # -------------------------------------------------------------
 # 5. LIC Child Education Query
 # -------------------------------------------------------------
+@skip_if_no_gemini
 def test_5_lic_child_education_query():
     adapter = GeminiSakhiAdapter()
     
@@ -128,6 +143,7 @@ def test_5_lic_child_education_query():
 # -------------------------------------------------------------
 # 6. LIC Retirement Query
 # -------------------------------------------------------------
+@skip_if_no_gemini
 def test_6_lic_retirement_query():
     adapter = GeminiSakhiAdapter()
     
@@ -140,6 +156,7 @@ def test_6_lic_retirement_query():
 # -------------------------------------------------------------
 # 7. LIC Protection Query
 # -------------------------------------------------------------
+@skip_if_no_gemini
 def test_7_lic_protection_query():
     adapter = GeminiSakhiAdapter()
     
@@ -197,6 +214,7 @@ def test_10_no_applicable_lic_plan():
 # -------------------------------------------------------------
 # 11. Government Scheme Safety (Untouched & Unbroken)
 # -------------------------------------------------------------
+@skip_if_no_gemini
 def test_11_government_scheme_safety():
     adapter = GeminiSakhiAdapter()
     
@@ -223,6 +241,7 @@ def test_11_government_scheme_safety():
 # -------------------------------------------------------------
 # 12. Mixed Government + LIC Question
 # -------------------------------------------------------------
+@skip_if_no_gemini
 def test_12_mixed_government_and_lic_question():
     adapter = GeminiSakhiAdapter()
     

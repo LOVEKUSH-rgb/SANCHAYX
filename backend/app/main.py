@@ -1,5 +1,5 @@
 import os
-from fastapi import FastAPI, APIRouter
+from fastapi import FastAPI, APIRouter, WebSocket
 from fastapi.middleware.cors import CORSMiddleware
 from pathlib import Path
 from dotenv import load_dotenv
@@ -16,7 +16,7 @@ load_dotenv(override=False)
 
 
 from app.database import init_db, get_schemes_collection, get_lic_plans_collection, get_free_benefits_collection
-from app.routers import schemes, recommendations, compare, sakhi, admin, eligibility, auth, lic, free_benefits, pre_deployment_test
+from app.routers import schemes, recommendations, compare, sakhi, admin, eligibility, auth, lic, free_benefits, pre_deployment_test, financial_journey
 from seed_master import seed_master_schemes, MASTER_DATA_PATH
 from seed_lic import seed_lic_database
 
@@ -117,6 +117,21 @@ def api_health():
     }
 
 
+@app.websocket("/ws/feed")
+async def ws_feed_fallback(websocket: WebSocket):
+    try:
+        await websocket.accept()
+        await websocket.send_text('{"type":"ping"}')
+    except Exception:
+        pass
+
+
+@app.get("/api/feed/status")
+@app.get("/feed/status")
+def feed_status_fallback():
+    return {"status": "ok", "service": "SANCHAY"}
+
+
 # Mount Routers under /api, /api/v1, and root prefixes for maximum frontend compatibility
 api_router = APIRouter(prefix="/api")
 api_router.include_router(schemes.router)
@@ -130,6 +145,7 @@ api_router.include_router(lic.router, prefix="/lic")
 api_router.include_router(lic.router, prefix="/v1/lic")
 api_router.include_router(free_benefits.router)
 api_router.include_router(pre_deployment_test.router)
+api_router.include_router(financial_journey.router)
 
 # Direct /api/v1 router mount
 v1_router = APIRouter(prefix="/api/v1")
@@ -149,4 +165,5 @@ app.include_router(lic.router, prefix="/lic")
 app.include_router(lic.router, prefix="/api/v1/lic")
 app.include_router(free_benefits.router)
 app.include_router(pre_deployment_test.router)
+app.include_router(financial_journey.router)
 

@@ -79,23 +79,23 @@ export const PreferencesPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF9F5] text-sanchay-navy-950 flex flex-col selection:bg-sanchay-emerald-600 selection:text-white relative">
+    <div className="min-h-screen bg-[#060b08] text-slate-100 flex flex-col selection:bg-emerald-600 selection:text-white relative">
       <Navbar />
 
       {/* Progressive Loading Overlay */}
       {isSubmitting && (
-        <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex flex-col items-center justify-center p-6 text-white text-center animate-in fade-in duration-300">
-          <div className="w-20 h-20 rounded-full bg-sanchay-emerald-600/20 border border-sanchay-emerald-500/40 flex items-center justify-center mb-6 shadow-floating animate-pulse">
-            <Sparkles className="w-10 h-10 text-sanchay-gold-400 animate-spin" style={{ animationDuration: '4s' }} />
+        <div className="fixed inset-0 z-50 bg-[#020504]/90 backdrop-blur-md flex flex-col items-center justify-center p-6 text-white text-center animate-in fade-in duration-300">
+          <div className="w-20 h-20 rounded-full bg-emerald-950/80 border border-emerald-500/40 flex items-center justify-center mb-6 shadow-2xl shadow-emerald-950/80 animate-pulse">
+            <Sparkles className="w-10 h-10 text-emerald-400 animate-spin" style={{ animationDuration: '4s' }} />
           </div>
           <h2 className="font-serif font-extrabold text-2xl sm:text-3xl text-white mb-2">
             {t('preferences.title', 'Evaluating Verified Schemes')}
           </h2>
-          <p className="font-mono text-sm text-sanchay-emerald-400 font-bold max-w-md animate-pulse">
+          <p className="font-mono text-sm text-emerald-400 font-bold max-w-md animate-pulse">
             {loadingStep}
           </p>
-          <div className="w-64 h-1.5 bg-slate-800 rounded-full overflow-hidden mt-6">
-            <div className="h-full bg-sanchay-emerald-500 rounded-full animate-indeterminate" />
+          <div className="w-64 h-1.5 bg-emerald-950 rounded-full overflow-hidden mt-6 border border-emerald-500/30">
+            <div className="h-full bg-emerald-500 rounded-full animate-indeterminate" />
           </div>
         </div>
       )}
@@ -106,26 +106,26 @@ export const PreferencesPage = () => {
           {/* Step Indicator Header */}
           <div className="mb-8">
             <div className="flex items-center justify-between text-xs font-mono font-bold text-slate-400 mb-2">
-              <span className="text-sanchay-emerald-700 uppercase tracking-widest">{t('preferences.stepIndicator', 'STEP 3 OF 3')}</span>
-              <span className="uppercase tracking-widest">{t('preferences.title', 'Savings Capacity & Preferences')}</span>
+              <span className="text-emerald-400 uppercase tracking-widest">{t('preferences.stepIndicator', 'STEP 3 OF 3')}</span>
+              <span className="uppercase tracking-widest text-slate-400">{t('preferences.title', 'Savings Capacity & Preferences')}</span>
             </div>
-            <div className="w-full h-2 bg-slate-200/80 rounded-full overflow-hidden">
-              <div className="w-full h-full bg-sanchay-emerald-600 rounded-full transition-all duration-300" />
+            <div className="w-full h-2 bg-emerald-950/60 rounded-full overflow-hidden border border-emerald-500/20">
+              <div className="w-full h-full bg-emerald-500 rounded-full transition-all duration-300" />
             </div>
           </div>
 
           {/* Page Card Container */}
-          <form onSubmit={handleSubmit} className="bg-white rounded-3xl p-6 sm:p-10 shadow-editorial border border-slate-200/90 space-y-8">
+          <form onSubmit={handleSubmit} className="bg-[#0c1611]/90 rounded-3xl p-6 sm:p-10 shadow-2xl border border-emerald-500/20 space-y-8 backdrop-blur-sm">
             
             <div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sanchay-emerald-50 text-sanchay-emerald-700 text-xs font-mono font-bold uppercase tracking-wider mb-3 border border-sanchay-emerald-200">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-950/80 text-emerald-300 text-xs font-mono font-bold uppercase tracking-wider mb-3 border border-emerald-500/30">
                 <Sliders className="w-3.5 h-3.5" />
                 <span>{t('preferences.stepIndicator', 'Step 3: Financial Capacity')}</span>
               </div>
-              <h1 className="font-serif font-extrabold text-3xl sm:text-4xl text-sanchay-navy-950">
+              <h1 className="font-serif font-extrabold text-3xl sm:text-4xl text-white">
                 {t('preferences.title', 'What are your budget and time preferences?')}
               </h1>
-              <p className="text-xs sm:text-sm text-sanchay-navy-700 mt-2 leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-400 mt-2 leading-relaxed">
                 {t('preferences.subtitle', 'Set your monthly contribution capacity, timeframe, and liquidity requirements.')}
               </p>
             </div>
@@ -133,15 +133,15 @@ export const PreferencesPage = () => {
             <div className="space-y-6">
               
               {/* Monthly Contribution Slider */}
-              <div className="p-6 rounded-2xl bg-[#F8F6F0] border border-slate-200/80">
+              <div className="p-6 rounded-2xl bg-[#08120d] border border-emerald-500/15">
                 <div className="flex items-center justify-between mb-3">
                   <div>
-                    <label className="text-xs font-mono font-bold uppercase tracking-wider text-sanchay-navy-950 block">
+                    <label className="text-xs font-mono font-bold uppercase tracking-wider text-slate-300 block">
                       {t('preferences.budgetLabel', 'Monthly Contribution Capacity')}
                     </label>
-                    <span className="text-[11px] text-slate-500">{t('preferences.budgetHint', 'Amount you can comfortably deposit each month')}</span>
+                    <span className="text-[11px] text-slate-400">{t('preferences.budgetHint', 'Amount you can comfortably deposit each month')}</span>
                   </div>
-                  <span className="font-serif font-extrabold text-sanchay-emerald-700 text-2xl">
+                  <span className="font-serif font-extrabold text-emerald-400 text-2xl font-mono">
                     ₹{Number(monthlyBudget).toLocaleString('en-IN')} / mo
                   </span>
                 </div>
@@ -152,7 +152,7 @@ export const PreferencesPage = () => {
                   step="250"
                   value={monthlyBudget}
                   onChange={(e) => setMonthlyBudget(Number(e.target.value))}
-                  className="w-full sanchay-slider cursor-pointer h-2.5 bg-slate-200 rounded-lg"
+                  className="w-full sanchay-slider cursor-pointer h-2.5 bg-emerald-950 border border-emerald-500/20 rounded-lg accent-emerald-500"
                 />
                 <div className="flex items-center justify-between text-[11px] font-mono text-slate-400 font-bold uppercase mt-2">
                   <span>Min ₹250/mo (SSY/APY)</span>
@@ -163,15 +163,15 @@ export const PreferencesPage = () => {
               </div>
 
               {/* Time Horizon Slider */}
-              <div className="p-6 rounded-2xl bg-[#F8F6F0] border border-slate-200/80">
+              <div className="p-6 rounded-2xl bg-[#08120d] border border-emerald-500/15">
                 <div className="flex items-center justify-between mb-3">
                   <div>
-                    <label className="text-xs font-mono font-bold uppercase tracking-wider text-sanchay-navy-950 block">
+                    <label className="text-xs font-mono font-bold uppercase tracking-wider text-slate-300 block">
                       {t('preferences.horizonLabel', 'Planned Time Horizon')}
                     </label>
-                    <span className="text-[11px] text-slate-500">{t('preferences.horizonHint', 'How many years can you stay invested?')}</span>
+                    <span className="text-[11px] text-slate-400">{t('preferences.horizonHint', 'How many years can you stay invested?')}</span>
                   </div>
-                  <span className="font-serif font-extrabold text-sanchay-navy-950 text-2xl">
+                  <span className="font-serif font-extrabold text-white text-2xl font-mono">
                     {horizonYears} {currentLang === 'hi' ? 'वर्ष' : currentLang === 'mr' ? 'वर्षे' : currentLang === 'bn' ? 'বছর' : currentLang === 'te' ? 'సంవత్సరాలు' : 'Years'}
                   </span>
                 </div>
@@ -182,7 +182,7 @@ export const PreferencesPage = () => {
                   step="1"
                   value={horizonYears}
                   onChange={(e) => setHorizonYears(Number(e.target.value))}
-                  className="w-full sanchay-slider cursor-pointer h-2.5 bg-slate-200 rounded-lg"
+                  className="w-full sanchay-slider cursor-pointer h-2.5 bg-emerald-950 border border-emerald-500/20 rounded-lg accent-emerald-500"
                 />
                 <div className="flex items-center justify-between text-[11px] font-mono text-slate-400 font-bold uppercase mt-2">
                   <span>1 Year</span>
@@ -196,11 +196,11 @@ export const PreferencesPage = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 
                 {/* Liquidity */}
-                <div className="p-5 rounded-2xl bg-[#F8F6F0] border border-slate-200/80">
-                  <label className="text-xs font-mono font-bold uppercase tracking-wider text-sanchay-navy-950 block mb-1.5">
+                <div className="p-5 rounded-2xl bg-[#08120d] border border-emerald-500/15">
+                  <label className="text-xs font-mono font-bold uppercase tracking-wider text-slate-300 block mb-1.5">
                     {t('preferences.liquidityLabel', 'Liquidity Preference')}
                   </label>
-                  <p className="text-[11px] text-slate-500 mb-3">Partial premature withdrawal required?</p>
+                  <p className="text-[11px] text-slate-400 mb-3">Partial premature withdrawal required?</p>
                   
                   <div className="grid grid-cols-3 gap-2">
                     {['high', 'medium', 'low'].map((mode) => {
@@ -212,8 +212,8 @@ export const PreferencesPage = () => {
                           onClick={() => setLiquidityNeed(mode)}
                           className={`py-2 rounded-xl text-xs font-bold capitalize transition-all cursor-pointer ${
                             isSelected
-                              ? 'bg-sanchay-emerald-600 text-white shadow-xs'
-                              : 'bg-white border border-slate-200 text-sanchay-navy-950 hover:bg-slate-50'
+                              ? 'bg-emerald-600 text-white shadow-xs'
+                              : 'bg-[#060b08] border border-emerald-500/25 text-slate-300 hover:border-emerald-400/50 hover:text-white'
                           }`}
                         >
                           {mode}
@@ -224,11 +224,11 @@ export const PreferencesPage = () => {
                 </div>
 
                 {/* Tax Priority */}
-                <div className="p-5 rounded-2xl bg-[#F8F6F0] border border-slate-200/80">
-                  <label className="text-xs font-mono font-bold uppercase tracking-wider text-sanchay-navy-950 block mb-1.5">
+                <div className="p-5 rounded-2xl bg-[#08120d] border border-emerald-500/15">
+                  <label className="text-xs font-mono font-bold uppercase tracking-wider text-slate-300 block mb-1.5">
                     {t('preferences.taxLabel', 'Tax Saving Priority (80C / 80CCD)')}
                   </label>
-                  <p className="text-[11px] text-slate-500 mb-3">Prioritize tax-exempt / EEE status schemes?</p>
+                  <p className="text-[11px] text-slate-400 mb-3">Prioritize tax-exempt / EEE status schemes?</p>
                   
                   <div className="grid grid-cols-2 gap-2">
                     <button
@@ -236,8 +236,8 @@ export const PreferencesPage = () => {
                       onClick={() => setTaxPriority(true)}
                       className={`py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                         taxPriority
-                          ? 'bg-sanchay-emerald-600 text-white shadow-xs'
-                          : 'bg-white border border-slate-200 text-sanchay-navy-950 hover:bg-slate-50'
+                          ? 'bg-emerald-600 text-white shadow-xs'
+                          : 'bg-[#060b08] border border-emerald-500/25 text-slate-300 hover:border-emerald-400/50 hover:text-white'
                       }`}
                     >
                       {t('preferences.taxYes', 'Yes, High Priority')}
@@ -247,8 +247,8 @@ export const PreferencesPage = () => {
                       onClick={() => setTaxPriority(false)}
                       className={`py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                         !taxPriority
-                          ? 'bg-sanchay-emerald-600 text-white shadow-xs'
-                          : 'bg-white border border-slate-200 text-sanchay-navy-950 hover:bg-slate-50'
+                          ? 'bg-emerald-600 text-white shadow-xs'
+                          : 'bg-[#060b08] border border-emerald-500/25 text-slate-300 hover:border-emerald-400/50 hover:text-white'
                       }`}
                     >
                       {t('preferences.taxNo', 'No / Not Needed')}
@@ -261,10 +261,10 @@ export const PreferencesPage = () => {
             </div>
 
             {/* Bottom Actions: Back to Goal & Submit */}
-            <div className="flex items-center justify-between pt-4 border-t border-slate-100">
+            <div className="flex items-center justify-between pt-4 border-t border-emerald-500/15">
               <Link
                 to="/goal"
-                className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-slate-500 hover:text-sanchay-navy-950 transition-colors uppercase tracking-wider"
+                className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-slate-400 hover:text-emerald-400 transition-colors uppercase tracking-wider"
               >
                 <ArrowLeft className="w-4 h-4" />
                 <span>{t('preferences.backBtn', '← Back to Goals')}</span>
@@ -273,7 +273,7 @@ export const PreferencesPage = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-sanchay-emerald-600 hover:bg-sanchay-emerald-700 text-white font-extrabold text-xs uppercase tracking-wider shadow-card hover:shadow-editorial hover:-translate-y-0.5 transition-all disabled:opacity-50 cursor-pointer"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-emerald-950/50 hover:-translate-y-0.5 transition-all disabled:opacity-50 cursor-pointer"
               >
                 <span>{t('preferences.submitBtn', 'Evaluate & Rank My Schemes →')}</span>
                 <ArrowRight className="w-4 h-4" />

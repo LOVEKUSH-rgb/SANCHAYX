@@ -95,7 +95,7 @@ export const LICPage = () => {
   });
 
   return (
-    <div className="min-h-screen bg-[#FAF9F5] text-sanchay-navy-950 flex flex-col selection:bg-sanchay-emerald-600 selection:text-white">
+    <div className="min-h-screen bg-[#F8FAF8] text-[#202B26] flex flex-col font-sans selection:bg-[#176B50] selection:text-white">
       <Navbar />
 
       <main className="flex-1 py-8 sm:py-12">
@@ -104,35 +104,35 @@ export const LICPage = () => {
           {/* Hero Banner */}
           <div className="mb-10 text-center max-w-4xl mx-auto">
             
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sanchay-emerald-50 text-sanchay-emerald-800 text-xs font-mono font-bold uppercase tracking-wider mb-4 border border-sanchay-emerald-200 shadow-2xs">
-              <ShieldCheck className="w-4 h-4 text-sanchay-emerald-600" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E7F1EB] text-[#176B50] text-xs font-mono font-bold uppercase tracking-wider mb-4 border border-[#D5E4DC] shadow-xs">
+              <ShieldCheck className="w-4 h-4 text-[#176B50]" />
               <span>{t('lic.statutoryActBadge', 'Life Insurance Corporation of India • Statutory Act 1956 • IRDAI Reg. 512')}</span>
             </div>
 
-            <h1 className="font-serif font-extrabold text-3xl sm:text-5xl text-sanchay-navy-950 tracking-tight leading-tight">
+            <h1 className="font-serif font-extrabold text-3xl sm:text-5xl text-[#202B26] tracking-tight leading-tight">
               {t('lic.pageHeadline', 'Official LIC Plans & Guidance')}
             </h1>
 
-            <p className="text-sm sm:text-base text-sanchay-navy-700 mt-3 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-sm sm:text-base text-[#66736C] mt-3 max-w-2xl mx-auto leading-relaxed">
               {t('lic.pageSubtitle', 'Explore all 38 active, verified LIC plans across Life Assurance, Pension Annuity, ULIPs, and Micro Insurance. Grounded directly in official LIC gazettes and brochures.')}
             </p>
 
             {/* Quick Stats Banner */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto mt-6 text-left">
-              <div className="p-3.5 rounded-2xl bg-white border border-slate-200/80 shadow-2xs">
-                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 block">{t('lic.totalActive', 'Total Active')}</span>
-                <span className="font-serif font-bold text-xl sm:text-2xl text-sanchay-navy-950 block mt-0.5">38 {t('lic.plans', 'Plans')}</span>
+              <div className="p-4 rounded-2xl bg-white border border-[#E7ECE8] shadow-card">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#66736C] block">{t('lic.totalActive', 'Total Active')}</span>
+                <span className="font-serif font-bold text-xl sm:text-2xl text-[#202B26] block mt-0.5">38 {t('lic.plans', 'Plans')}</span>
               </div>
-              <div className="p-3.5 rounded-2xl bg-white border border-slate-200/80 shadow-2xs">
-                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 block">{t('lic.lifeAssurance', 'Life Assurance')}</span>
-                <span className="font-serif font-bold text-xl sm:text-2xl text-emerald-700 block mt-0.5">27 {t('lic.plans', 'Plans')}</span>
+              <div className="p-4 rounded-2xl bg-white border border-[#E7ECE8] shadow-card">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#66736C] block">{t('lic.lifeAssurance', 'Life Assurance')}</span>
+                <span className="font-serif font-bold text-xl sm:text-2xl text-[#176B50] block mt-0.5">27 {t('lic.plans', 'Plans')}</span>
               </div>
-              <div className="p-3.5 rounded-2xl bg-white border border-slate-200/80 shadow-2xs">
-                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 block">{t('lic.pensionAnnuity', 'Pension / Annuity')}</span>
+              <div className="p-4 rounded-2xl bg-white border border-[#E7ECE8] shadow-card">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#66736C] block">{t('lic.pensionAnnuity', 'Pension / Annuity')}</span>
                 <span className="font-serif font-bold text-xl sm:text-2xl text-rose-700 block mt-0.5">5 {t('lic.plans', 'Plans')}</span>
               </div>
-              <div className="p-3.5 rounded-2xl bg-white border border-slate-200/80 shadow-2xs">
-                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 block">{t('lic.ulipMicro', 'ULIP & Micro')}</span>
+              <div className="p-4 rounded-2xl bg-white border border-[#E7ECE8] shadow-card">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#66736C] block">{t('lic.ulipMicro', 'ULIP & Micro')}</span>
                 <span className="font-serif font-bold text-xl sm:text-2xl text-amber-700 block mt-0.5">6 {t('lic.plans', 'Plans')}</span>
               </div>
             </div>
@@ -149,9 +149,9 @@ export const LICPage = () => {
                     }, 100);
                   }
                 }}
-                className="inline-flex items-center gap-2 h-12 px-7 rounded-2xl bg-sanchay-navy-950 hover:bg-sanchay-navy-900 text-white font-mono font-bold text-xs uppercase tracking-wider shadow-card hover:shadow-editorial transition-all cursor-pointer"
+                className="inline-flex items-center gap-2 h-12 px-7 rounded-2xl bg-[#176B50] hover:bg-[#125540] text-white font-mono font-bold text-xs uppercase tracking-wider shadow-card hover:shadow-card-hover transition-all cursor-pointer"
               >
-                <Sparkles className="w-4 h-4 text-sanchay-gold-400" />
+                <Sparkles className="w-4 h-4 text-emerald-200" />
                 <span>{showRecommendForm ? t('lic.hideMatchFinder', 'Hide Match Finder') : t('lic.findMyLicMatch', 'Find My LIC Plan Match')}</span>
               </button>
 
@@ -159,10 +159,10 @@ export const LICPage = () => {
                 href="https://www.licindia.in/"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 h-12 px-6 rounded-2xl bg-white hover:bg-slate-50 text-sanchay-navy-950 font-mono font-bold text-xs uppercase tracking-wider border border-slate-200 shadow-2xs transition-colors"
+                className="inline-flex items-center gap-2 h-12 px-6 rounded-2xl bg-white hover:bg-[#FAFAFC] text-[#202B26] font-mono font-bold text-xs uppercase tracking-wider border border-[#E7ECE8] shadow-card hover:border-[#D5E4DC] transition-colors"
               >
                 <span>{t('lic.officialLicPortal', 'Official LIC Portal')}</span>
-                <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
+                <ExternalLink className="w-3.5 h-3.5 text-[#176B50]" />
               </a>
             </div>
 
@@ -182,18 +182,18 @@ export const LICPage = () => {
             
             {/* Search Input Bar */}
             <div className="relative max-w-2xl mx-auto">
-              <Search className="w-4 h-4 text-slate-400 absolute left-4.5 top-1/2 -translate-y-1/2" />
+              <Search className="w-4 h-4 text-[#176B50] absolute left-4.5 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
                 placeholder={t('lic.searchPlaceholder', 'Search across 38 plans by Name (e.g. Jeevan Tarun), Number (e.g. 734), UIN, or Goal...')}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-11 pr-4 py-3.5 rounded-2xl bg-white border border-slate-200 shadow-2xs font-sans text-xs sm:text-sm text-sanchay-navy-950 placeholder:text-slate-400 focus:outline-hidden focus:border-sanchay-navy-900 focus:ring-1 focus:ring-sanchay-navy-900 transition-all"
+                className="w-full pl-11 pr-14 py-3.5 rounded-2xl bg-white border border-[#E7ECE8] shadow-card font-sans text-xs sm:text-sm text-[#202B26] placeholder:text-[#66736C] focus:outline-hidden focus:border-[#176B50] focus:ring-1 focus:ring-[#176B50]/20 transition-all"
               />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery('')}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-mono font-bold text-slate-400 hover:text-sanchay-navy-900"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-mono font-bold text-[#66736C] hover:text-[#202B26]"
                 >
                   {t('common.clear', 'Clear')}
                 </button>
@@ -208,8 +208,8 @@ export const LICPage = () => {
                   onClick={() => setSelectedCategory(cat.id)}
                   className={`px-3.5 py-2 rounded-xl text-xs font-mono font-bold uppercase tracking-wider transition-all whitespace-nowrap cursor-pointer shrink-0 ${
                     selectedCategory === cat.id
-                      ? 'bg-sanchay-navy-950 text-white shadow-xs'
-                      : 'bg-white hover:bg-slate-100 text-slate-600 border border-slate-200'
+                      ? 'bg-[#176B50] text-white shadow-xs'
+                      : 'bg-white hover:bg-[#FAFAFC] text-[#66736C] hover:text-[#202B26] border border-[#E7ECE8]'
                   }`}
                 >
                   <span>{cat.label}</span>
@@ -218,12 +218,12 @@ export const LICPage = () => {
             </div>
 
             {/* Results Count Bar */}
-            <div className="flex items-center justify-between text-xs font-mono text-slate-500 pt-2 border-t border-slate-200/60">
-              <span>{t('featuredSchemes.showingCount', 'Showing')} <strong>{filteredPlans.length}</strong> {t('lic.verifiedActivePlansCount', 'verified active LIC plans')}</span>
+            <div className="flex items-center justify-between text-xs font-mono text-[#66736C] pt-2 border-t border-[#E7ECE8]">
+              <span>{t('featuredSchemes.showingCount', 'Showing')} <strong className="text-[#202B26]">{filteredPlans.length}</strong> {t('lic.verifiedActivePlansCount', 'verified active LIC plans')}</span>
               {selectedCategory !== 'ALL' && (
                 <button
                   onClick={() => setSelectedCategory('ALL')}
-                  className="text-amber-800 hover:underline font-bold"
+                  className="text-[#176B50] hover:underline font-bold cursor-pointer"
                 >
                   {t('lic.resetCategoryFilter', 'Reset Category Filter')}
                 </button>
@@ -235,8 +235,8 @@ export const LICPage = () => {
           {/* Active Plans Cards Grid */}
           {loading ? (
             <div className="py-20 text-center space-y-3">
-              <RefreshCw className="w-8 h-8 text-sanchay-gold-500 animate-spin mx-auto" />
-              <p className="font-mono text-xs text-slate-500 uppercase tracking-wider">
+              <RefreshCw className="w-8 h-8 text-[#176B50] animate-spin mx-auto" />
+              <p className="font-mono text-xs text-[#66736C] uppercase tracking-wider">
                 {t('lic.loadingPlans', 'Loading verified LIC plans database...')}
               </p>
             </div>
@@ -251,17 +251,17 @@ export const LICPage = () => {
               ))}
             </div>
           ) : (
-            <div className="py-16 text-center bg-white rounded-3xl border border-slate-200 p-8 max-w-xl mx-auto space-y-3">
-              <HelpCircle className="w-10 h-10 text-slate-400 mx-auto" />
-              <h3 className="font-serif font-bold text-lg text-sanchay-navy-950">
+            <div className="py-16 text-center bg-white rounded-3xl border border-[#E7ECE8] shadow-card p-8 max-w-xl mx-auto space-y-3">
+              <HelpCircle className="w-10 h-10 text-[#66736C] mx-auto" />
+              <h3 className="font-serif font-bold text-lg text-[#202B26]">
                 {t('lic.noMatchingPlans', 'No matching LIC plans found')}
               </h3>
-              <p className="text-xs text-slate-500">
+              <p className="text-xs text-[#66736C]">
                 {t('lic.noMatchingDesc', 'We couldn\'t find any active LIC plans matching your criteria. Try searching by plan number (e.g. 715, 734) or clear your filter.')}
               </p>
               <button
                 onClick={() => { setSearchQuery(''); setSelectedCategory('ALL'); }}
-                className="px-4 py-2 rounded-xl bg-sanchay-navy-950 text-white font-mono font-bold text-xs uppercase tracking-wider mt-2 cursor-pointer"
+                className="px-4 py-2 rounded-xl bg-[#176B50] hover:bg-[#125540] text-white font-mono font-bold text-xs uppercase tracking-wider mt-2 cursor-pointer shadow-xs"
               >
                 {t('lic.showAll38Plans', 'Show All 38 Plans')}
               </button>
@@ -269,12 +269,12 @@ export const LICPage = () => {
           )}
 
           {/* Official Verification Promise Box */}
-          <div className="mt-14 p-6 sm:p-8 rounded-3xl bg-emerald-50/70 border border-emerald-200 text-xs sm:text-sm text-sanchay-navy-950 leading-relaxed flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div className="mt-14 p-6 sm:p-8 rounded-3xl bg-white border border-[#E7ECE8] text-xs sm:text-sm text-[#202B26] leading-relaxed flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-card">
             <div className="space-y-1">
-              <span className="font-serif font-bold text-emerald-900 block text-base sm:text-lg">
+              <span className="font-serif font-bold text-[#202B26] block text-base sm:text-lg">
                 {t('lic.governanceTitle', 'Official LIC Data Governance Guarantee')}
               </span>
-              <p className="text-xs sm:text-sm text-emerald-950/90">
+              <p className="text-xs sm:text-sm text-[#66736C]">
                 {t('lic.governanceDesc', 'All 38 plans, age rules, sum assured limits, and statutory benefits displayed on SANCHAY are 100% verified against official gazettes published by Life Insurance Corporation of India (LIC). No speculative or third-party calculations.')}
               </p>
             </div>
@@ -282,7 +282,7 @@ export const LICPage = () => {
               href="https://www.licindia.in/"
               target="_blank"
               rel="noreferrer"
-              className="px-5 py-2.5 rounded-2xl bg-emerald-800 hover:bg-emerald-900 text-white font-mono font-bold text-xs uppercase tracking-wider shrink-0 inline-flex items-center gap-2 transition-colors"
+              className="px-5 py-2.5 rounded-2xl bg-[#176B50] hover:bg-[#125540] text-white font-mono font-bold text-xs uppercase tracking-wider shrink-0 inline-flex items-center gap-2 transition-colors shadow-xs"
             >
               <span>{t('lic.verifyAtOfficial', 'Verify at LIC Official')}</span>
               <ExternalLink className="w-3.5 h-3.5" />

@@ -24,7 +24,7 @@ export const SakhiAvatar = ({ size = 'md', showStatus = true, className = '', is
         {!hasError ? (
           <img
             src={SAKHI_LOGO_IMAGE}
-            alt="Sakhi - Sanchay Verified Scheme Assistant"
+            alt="Sakhi - Sanchay Personal AI Assistant"
             className="w-full h-full rounded-full object-cover object-center bg-emerald-50"
             onError={() => setHasError(true)}
           />

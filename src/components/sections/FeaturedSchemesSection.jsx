@@ -100,103 +100,138 @@ export const FeaturedSchemesSection = ({ schemes = [], onSelectScheme, initialLi
     setSelectedGoal('all');
     setSelectedLifeStage('all');
     setVerifiedOnly(true);
-    setVisibleCount(10);
   };
 
   const filteredSchemes = useMemo(() => {
-    return schemes.filter(scheme => {
-      const name = (typeof scheme.name === 'object' ? (scheme.name.en || '') : (scheme.name || '')).toLowerCase();
-      const shortName = (scheme.shortName || scheme.short_name || '').toLowerCase();
-      const desc = (scheme.descriptionSimple || scheme.short_description || scheme.full_description || scheme.benefitsOverview || '').toLowerCase();
-      const authority = (scheme.authority || scheme.officialAuthority || '').toLowerCase();
-      const cat = (scheme.category || '').toLowerCase();
-      const subCat = (scheme.sub_category || '').toLowerCase();
-      const goals = (scheme.goals || []).map(g => g.toLowerCase());
-      const stages = (scheme.life_stages || scheme.targetPersonas || []).map(s => String(s).toLowerCase());
-      const targetGroups = (scheme.target_groups || []).map(tg => String(tg).toLowerCase());
-      const keywords = (scheme.search?.keywords || []).map(k => String(k).toLowerCase());
-      const allText = `${name} ${shortName} ${desc} ${cat} ${subCat} ${goals.join(' ')} ${stages.join(' ')} ${targetGroups.join(' ')} ${keywords.join(' ')}`;
-      const isInsurance = scheme.isInsurance || scheme.isDemoData || cat.includes('protection') || cat.includes('insurance');
-      const isVerified = scheme.verified !== false && scheme.verification_status !== 'unverified' && scheme.verification_status !== 'discontinued';
-
-      // 1. Verified Only Filter
-      if (verifiedOnly && !isVerified) return false;
-
-      // 2. Search Query Matching
+    return schemes.filter((scheme) => {
+      // 1. Search Query Filter
       if (searchQuery.trim()) {
-        const query = searchQuery.toLowerCase().trim();
-        const matchesQuery = (
-          name.includes(query) ||
-          shortName.includes(query) ||
-          desc.includes(query) ||
-          authority.includes(query) ||
-          cat.includes(query) ||
-          subCat.includes(query) ||
-          goals.some(g => g.includes(query)) ||
-          stages.some(s => s.includes(query)) ||
-          targetGroups.some(tg => tg.includes(query)) ||
-          keywords.some(k => k.includes(query))
-        );
-        if (!matchesQuery) return false;
+        const q = searchQuery.toLowerCase().trim();
+        const loc = localizeScheme(scheme, currentLang);
+        const nameVal = loc.displayName || (typeof scheme.name === 'object' && scheme.name !== null ? Object.values(scheme.name).join(' ') : String(scheme.name || ''));
+        const nameMatch = nameVal.toLowerCase().includes(q);
+        const descMatch = (loc.displayDescription || scheme.descriptionSimple || scheme.short_description || scheme.full_description || '').toLowerCase().includes(q);
+        const tagMatch = (scheme.tags || []).some(t => String(t).toLowerCase().includes(q));
+        const authMatch = (scheme.authority || scheme.officialAuthority || '').toLowerCase().includes(q);
+        const categoryMatch = (scheme.category || '').toLowerCase().includes(q);
+        
+        if (!nameMatch && !descMatch && !tagMatch && !authMatch && !categoryMatch) {
+          return false;
+        }
+      }
+
+      // 2. Verified Only Filter
+      if (verifiedOnly && !scheme.verified) {
+        return false;
       }
 
       // 3. Category Filter
       if (activeCategory !== 'all') {
+        const cat = (scheme.category || '').toLowerCase();
+        const subCat = (scheme.sub_category || '').toLowerCase();
+        const targetGroups = (scheme.target_groups || []).map(tg => String(tg).toLowerCase());
+        const tags = (scheme.tags || []).map(t => String(t).toLowerCase());
+
+        let matchesCategory = false;
         if (activeCategory === 'savings') {
-          if (isInsurance || !(cat.includes('savings') || cat.includes('deposit') || cat.includes('fixed') || cat.includes('growth'))) return false;
+          matchesCategory = cat === 'savings' || cat.includes('saving') || cat.includes('deposit') || subCat.includes('saving') || tags.includes('savings');
         } else if (activeCategory === 'pension') {
-          if (isInsurance || !(cat.includes('pension') || cat.includes('senior') || cat.includes('retirement'))) return false;
+          matchesCategory = cat === 'pension' || cat.includes('pension') || cat.includes('retirement') || subCat.includes('pension') || tags.includes('pension');
         } else if (activeCategory === 'protection') {
-          if (!isInsurance) return false;
+          matchesCategory = cat === 'insurance' || cat.includes('protect') || cat.includes('insurance') || subCat.includes('insurance') || tags.includes('insurance');
         } else if (activeCategory === 'education') {
-          if (!(cat.includes('education') || cat.includes('child') || cat.includes('scholarship') || goals.includes('education'))) return false;
+          matchesCategory = cat === 'education' || cat.includes('education') || cat.includes('scholarship') || subCat.includes('education') || tags.includes('education') || tags.includes('scholarship');
         } else if (activeCategory === 'women') {
-          if (!(cat.includes('women') || cat.includes('girl') || cat.includes('matru') || scheme.eligibility?.woman_specific || allText.includes('mahila'))) return false;
+          matchesCategory = cat === 'women' || cat.includes('women') || cat.includes('girl') || cat.includes('maternity') || targetGroups.some(tg => tg.includes('women') || tg.includes('girl') || tg.includes('female'));
         } else if (activeCategory === 'agriculture') {
-          if (!(allText.includes('agri') || allText.includes('farm') || allText.includes('kisan') || allText.includes('rural'))) return false;
+          matchesCategory = cat === 'agriculture' || cat.includes('agri') || cat.includes('farmer') || subCat.includes('farmer') || targetGroups.some(tg => tg.includes('farmer') || tg.includes('agri'));
         } else if (activeCategory === 'health') {
-          if (!(allText.includes('health') || allText.includes('medical') || allText.includes('ayushman') || allText.includes('swasth') || allText.includes('maternity'))) return false;
+          matchesCategory = cat === 'health' || cat.includes('health') || cat.includes('medical') || subCat.includes('health') || tags.includes('health');
         } else if (activeCategory === 'housing') {
-          if (!(cat.includes('housing') || cat.includes('awas') || goals.includes('housing'))) return false;
+          matchesCategory = cat === 'housing' || cat.includes('housing') || cat.includes('urban') || subCat.includes('housing') || tags.includes('housing');
         } else if (activeCategory === 'employment') {
-          if (!(cat.includes('employ') || cat.includes('skill') || cat.includes('kaushal') || goals.includes('skill'))) return false;
+          matchesCategory = cat === 'employment' || cat.includes('employ') || cat.includes('skill') || subCat.includes('skill') || tags.includes('employment');
         } else if (activeCategory === 'social_security') {
-          if (!(cat.includes('social') || cat.includes('maandhan') || cat.includes('security') || cat.includes('bima') || cat.includes('insurance') || goals.includes('social_security'))) return false;
+          matchesCategory = cat === 'social_security' || cat.includes('social') || subCat.includes('social') || tags.includes('social_security');
         } else if (activeCategory === 'business') {
-          if (!(cat.includes('business') || cat.includes('mudra') || cat.includes('svanidhi') || cat.includes('msme') || cat.includes('cgtmse') || cat.includes('nulm') || goals.includes('business') || goals.includes('self employment'))) return false;
+          matchesCategory = cat === 'business' || cat.includes('msme') || cat.includes('enterprise') || cat.includes('business') || subCat.includes('business');
         } else if (activeCategory === 'financial_inclusion') {
-          if (!(cat.includes('financial') || cat.includes('inclusion') || cat.includes('banking') || cat.includes('jan-dhan') || cat.includes('jandhan') || goals.includes('banking') || goals.includes('financial inclusion') || allText.includes('jandhan') || allText.includes('zero balance'))) return false;
-        } else if (!cat.includes(activeCategory) && !subCat.includes(activeCategory)) {
-          return false;
+          matchesCategory = cat === 'financial_inclusion' || cat.includes('inclusion') || cat.includes('banking') || tags.includes('banking');
+        } else {
+          matchesCategory = cat === activeCategory.toLowerCase();
         }
+
+        if (!matchesCategory) return false;
       }
 
       // 4. Goal Filter
       if (selectedGoal !== 'all') {
-        if (!goals.includes(selectedGoal) && !cat.includes(selectedGoal) && !subCat.includes(selectedGoal) && !allText.includes(selectedGoal)) {
-          return false;
+        const goals = (scheme.goals || []).map(g => String(g).toLowerCase());
+        const cat = (scheme.category || '').toLowerCase();
+        const desc = (scheme.descriptionSimple || scheme.short_description || scheme.benefitsOverview || '').toLowerCase();
+        const nameStr = (typeof scheme.name === 'object' && scheme.name !== null ? Object.values(scheme.name).join(' ') : String(scheme.name || '')).toLowerCase();
+
+        let matchesGoal = false;
+        if (selectedGoal === 'education') {
+          matchesGoal = goals.includes('education') || cat.includes('education') || desc.includes('education') || desc.includes('study') || nameStr.includes('sukanya');
+        } else if (selectedGoal === 'retirement') {
+          matchesGoal = goals.includes('retirement') || goals.includes('pension') || cat.includes('pension') || desc.includes('pension') || desc.includes('retire');
+        } else if (selectedGoal === 'emergency') {
+          matchesGoal = goals.includes('emergency') || (scheme.financial && scheme.financial.liquidity && String(scheme.financial.liquidity).includes('high')) || desc.includes('liquid') || desc.includes('emergency');
+        } else if (selectedGoal === 'tax') {
+          matchesGoal = goals.includes('tax') || (scheme.benefits && scheme.benefits.tax_benefit) || desc.includes('80c') || desc.includes('tax');
+        } else if (selectedGoal === 'wealth') {
+          matchesGoal = goals.includes('wealth') || cat.includes('saving') || desc.includes('wealth') || desc.includes('growth');
+        } else if (selectedGoal === 'marriage') {
+          matchesGoal = goals.includes('marriage') || desc.includes('marriage') || nameStr.includes('sukanya') || nameStr.includes('kanya');
+        } else if (selectedGoal === 'farming') {
+          matchesGoal = goals.includes('farming') || cat.includes('agri') || desc.includes('kisan') || desc.includes('farmer');
+        } else if (selectedGoal === 'health') {
+          matchesGoal = goals.includes('health') || cat.includes('health') || desc.includes('health') || desc.includes('medical');
+        } else if (selectedGoal === 'housing') {
+          matchesGoal = goals.includes('housing') || cat.includes('housing') || desc.includes('house') || desc.includes('home');
+        } else if (selectedGoal === 'business') {
+          matchesGoal = goals.includes('business') || cat.includes('business') || desc.includes('mudra') || desc.includes('business') || desc.includes('enterprise');
+        } else {
+          matchesGoal = goals.includes(selectedGoal.toLowerCase());
         }
+
+        if (!matchesGoal) return false;
       }
 
       // 5. Life Stage Filter
       if (selectedLifeStage !== 'all') {
+        const stages = (scheme.life_stages || []).map(s => String(s).toLowerCase());
+        const targetGroups = (scheme.target_groups || []).map(tg => String(tg).toLowerCase());
+        const cat = (scheme.category || '').toLowerCase();
+        const subCat = (scheme.sub_category || '').toLowerCase();
+        const goals = (scheme.goals || []).map(g => String(g).toLowerCase());
+        const allText = [
+          typeof scheme.name === 'object' && scheme.name !== null ? Object.values(scheme.name).join(' ') : String(scheme.name || ''),
+          scheme.descriptionSimple || '',
+          scheme.short_description || '',
+          scheme.benefitsOverview || '',
+          ...(scheme.tags || [])
+        ].join(' ').toLowerCase();
+
         let matchesStage = false;
-        
-        if (selectedLifeStage === 'student') {
+        if (selectedLifeStage === 'student' || selectedLifeStage === 'students') {
           matchesStage = (
             stages.some(s => s.includes('student') || s.includes('youth') || s.includes('child')) ||
-            targetGroups.some(tg => tg.includes('student') || tg.includes('youth') || tg.includes('child') || tg.includes('education')) ||
-            cat.includes('education') || subCat.includes('scholarship') || subCat.includes('student') || goals.includes('education') ||
-            allText.includes('scholarship') || allText.includes('fellowship') || allText.includes('student') || allText.includes('education') ||
-            (scheme.eligibility?.max_age && scheme.eligibility.max_age <= 25)
+            targetGroups.some(tg => tg.includes('student') || tg.includes('youth') || tg.includes('children') || tg.includes('scholar')) ||
+            cat.includes('education') || subCat.includes('scholarship') || subCat.includes('education') ||
+            goals.includes('education') ||
+            allText.includes('student') || allText.includes('scholarship') || allText.includes('education') || allText.includes('matric') || allText.includes('vidya') ||
+            (scheme.eligibility?.max_age && scheme.eligibility.max_age <= 30)
           );
-        } else if (selectedLifeStage === 'young_professional' || selectedLifeStage === 'first_job') {
+        } else if (selectedLifeStage === 'young_professional' || selectedLifeStage === 'professional') {
           matchesStage = (
-            stages.some(s => s.includes('professional') || s.includes('youth') || s.includes('early')) ||
-            targetGroups.some(tg => tg.includes('professional') || tg.includes('youth') || tg.includes('worker') || tg.includes('employee')) ||
-            cat.includes('savings') || cat.includes('employment') || cat.includes('business') ||
+            stages.some(s => s.includes('professional') || s.includes('employed') || s.includes('worker') || s.includes('adult') || s.includes('young')) ||
+            targetGroups.some(tg => tg.includes('salaried') || tg.includes('employed') || tg.includes('professional') || tg.includes('worker') || tg.includes('citizen')) ||
+            cat.includes('saving') || cat.includes('pension') || cat.includes('insurance') ||
             goals.includes('tax') || goals.includes('wealth') || goals.includes('emergency') ||
-            allText.includes('80c') || allText.includes('tax') || allText.includes('wealth') || allText.includes('provident') || allText.includes('nps') || allText.includes('ppf')
+            allText.includes('salaried') || allText.includes('professional') || allText.includes('income') || allText.includes('tax') || allText.includes('80c') ||
+            ((!scheme.eligibility?.min_age || scheme.eligibility.min_age <= 25) && (!scheme.eligibility?.max_age || scheme.eligibility.max_age >= 40))
           );
         } else if (selectedLifeStage === 'parents' || selectedLifeStage === 'parent') {
           matchesStage = (
@@ -254,48 +289,48 @@ export const FeaturedSchemesSection = ({ schemes = [], onSelectScheme, initialLi
   }, [filteredSchemes, visibleCount]);
 
   return (
-    <section id="verified-schemes" className="py-20 sm:py-28 bg-[#FAF9F5] border-b border-slate-200/80">
+    <section id="verified-schemes" className="py-12 sm:py-16 bg-[#F8FAF8] border-b border-[#E7ECE8]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header: Multi-Category Verified Catalog */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sanchay-navy-950 text-white text-[11px] font-mono font-bold uppercase tracking-[0.2em] mb-4 shadow-xs">
-              <span className="text-sanchay-gold-500">02</span>
-              <span className="text-slate-500">/</span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E7F1EB] text-[#176B50] text-[11px] font-semibold uppercase tracking-[0.2em] mb-4 border border-[#D5E4DC]">
+              <span className="text-[#176B50]">02</span>
+              <span className="text-[#D5E4DC]">/</span>
               <span>{t('explore.badge', 'VERIFIED STATUTORY CATALOG')}</span>
             </div>
-            <h2 className="font-serif font-extrabold text-3xl sm:text-4xl lg:text-5xl text-sanchay-navy-950 tracking-tight leading-tight">
+            <h1 className="font-serif font-extrabold text-3xl sm:text-4xl lg:text-5xl text-[#202B26] tracking-tight leading-tight">
               {t('explore.title', 'Explore Government Schemes')}
-            </h2>
-            <p className="text-base sm:text-lg text-sanchay-navy-700 mt-3 leading-relaxed">
+            </h1>
+            <p className="text-base sm:text-lg text-[#66736C] mt-3 leading-relaxed">
               {t('explore.subtitle', 'Browse verified Central and State savings, pension, and protection schemes.')}
             </p>
           </div>
 
-          <div className="text-xs font-mono font-bold text-slate-500">
-            {t('featuredSchemes.showingCount', 'Showing')} <span className="text-sanchay-emerald-700 font-extrabold text-sm">{displayedSchemes.length}</span> {t('featuredSchemes.of', 'of')} <span className="text-sanchay-navy-950 font-bold">{filteredSchemes.length}</span> {t('featuredSchemes.schemes', 'Schemes')}
+          <div className="text-xs font-semibold text-[#66736C]">
+            {t('featuredSchemes.showingCount', 'Showing')} <span className="text-[#176B50] font-extrabold text-sm">{displayedSchemes.length}</span> {t('featuredSchemes.of', 'of')} <span className="text-[#202B26] font-bold">{filteredSchemes.length}</span> {t('featuredSchemes.schemes', 'Schemes')}
           </div>
         </div>
 
         {/* SEARCH & ADVANCED FILTERS BAR */}
-        <div className="bg-white p-4 sm:p-6 rounded-3xl border border-slate-200/90 shadow-card mb-8 space-y-4">
+        <div className="bg-white p-4 sm:p-6 rounded-3xl border border-[#E7ECE8] shadow-card mb-8 space-y-4">
           
           {/* Main Search Input */}
           <div className="relative">
-            <Search className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
+            <Search className="w-5 h-5 text-[#176B50] absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
             <input
               type="text"
               id="scheme-search-input"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder={t('featuredSchemes.searchPlaceholder', 'Search schemes by name, keyword, or benefits...')}
-              className="w-full pl-12 pr-10 py-3.5 rounded-2xl bg-[#FAFAFC] border border-slate-200/90 text-sm text-sanchay-navy-950 placeholder:text-slate-400 focus:outline-none focus:border-sanchay-emerald-600 transition-colors"
+              className="w-full pl-12 pr-10 py-3.5 rounded-2xl bg-[#FAFAFC] border border-[#E7ECE8] text-sm text-[#202B26] placeholder:text-[#66736C] focus:outline-none focus:border-[#176B50] focus:ring-3 focus:ring-[#176B50]/12 transition-all font-medium"
             />
             {searchQuery && (
               <button
                 onClick={() => setSearchQuery('')}
-                className="absolute right-4 top-1/2 -translate-y-1/2 p-1 rounded-full text-slate-400 hover:text-sanchay-navy-950"
+                className="absolute right-4 top-1/2 -translate-y-1/2 p-1.5 rounded-full text-[#66736C] hover:text-[#202B26] transition-colors cursor-pointer"
                 aria-label="Clear search"
               >
                 <X className="w-4 h-4" />
@@ -303,108 +338,106 @@ export const FeaturedSchemesSection = ({ schemes = [], onSelectScheme, initialLi
             )}
           </div>
 
+          {/* Category Chips Bar */}
+          <div className="flex items-center gap-2 overflow-x-auto pb-2 pt-1 scrollbar-none">
+            {categories.map((cat) => {
+              const isSelected = activeCategory === cat.id;
+              return (
+                <button
+                  key={cat.id}
+                  onClick={() => setActiveCategory(cat.id)}
+                  className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap cursor-pointer ${
+                    isSelected
+                      ? 'bg-[#176B50] text-white border border-[#176B50] shadow-xs'
+                      : 'bg-[#FAFAFC] hover:bg-[#F8FAF8] border border-[#E7ECE8] text-[#66736C] hover:text-[#202B26]'
+                  }`}
+                >
+                  {cat.label}
+                </button>
+              );
+            })}
+          </div>
+
           {/* Filter Dropdowns & Toggle Row */}
-          <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-slate-100 text-xs">
+          <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-[#E7ECE8] text-xs">
             
             <div className="flex flex-wrap items-center gap-3">
               {/* Goal Filter */}
               <div className="flex items-center gap-1.5">
-                <span className="font-mono font-bold text-slate-400 uppercase text-[10px]">{t('featuredSchemes.goalLabel', 'Goal:')}</span>
+                <span className="font-bold text-[#66736C] uppercase text-[10px] tracking-wider">{t('featuredSchemes.goalLabel', 'Goal:')}</span>
                 <select
                   value={selectedGoal}
                   onChange={(e) => setSelectedGoal(e.target.value)}
-                  className="bg-[#FAFAFC] border border-slate-200/90 rounded-xl px-3 py-1.5 font-bold text-sanchay-navy-950 focus:outline-none focus:border-sanchay-emerald-600 cursor-pointer"
+                  className="bg-[#FAFAFC] border border-[#E7ECE8] rounded-xl px-3 py-1.5 font-semibold text-xs text-[#202B26] focus:outline-none focus:border-[#176B50] cursor-pointer"
                 >
                   {goalsList.map(g => (
-                    <option key={g.id} value={g.id}>{g.label}</option>
+                    <option key={g.id} value={g.id} className="bg-white text-[#202B26]">{g.label}</option>
                   ))}
                 </select>
               </div>
 
               {/* Life Stage Filter */}
               <div className="flex items-center gap-1.5">
-                <span className="font-mono font-bold text-slate-400 uppercase text-[10px]">{t('featuredSchemes.lifeStageLabel', 'Life Stage:')}</span>
+                <span className="font-bold text-[#66736C] uppercase text-[10px] tracking-wider">{t('featuredSchemes.lifeStageLabel', 'Life Stage:')}</span>
                 <select
                   value={selectedLifeStage}
                   onChange={(e) => setSelectedLifeStage(e.target.value)}
-                  className="bg-[#FAFAFC] border border-slate-200/90 rounded-xl px-3 py-1.5 font-bold text-sanchay-navy-950 focus:outline-none focus:border-sanchay-emerald-600 cursor-pointer"
+                  className="bg-[#FAFAFC] border border-[#E7ECE8] rounded-xl px-3 py-1.5 font-semibold text-xs text-[#202B26] focus:outline-none focus:border-[#176B50] cursor-pointer"
                 >
                   {lifeStagesList.map(s => (
-                    <option key={s.id} value={s.id}>{s.label}</option>
+                    <option key={s.id} value={s.id} className="bg-white text-[#202B26]">{s.label}</option>
                   ))}
                 </select>
               </div>
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-4">
               {/* Verified Only Toggle */}
               <label className="flex items-center gap-2 cursor-pointer select-none">
                 <input
                   type="checkbox"
                   checked={verifiedOnly}
                   onChange={(e) => setVerifiedOnly(e.target.checked)}
-                  className="w-4 h-4 text-sanchay-emerald-600 rounded border-slate-300 focus:ring-sanchay-emerald-500"
+                  className="w-4 h-4 text-[#176B50] rounded border-[#D5E4DC] focus:ring-[#176B50]"
                 />
-                <span className="font-mono font-bold text-sanchay-emerald-800 uppercase text-[11px] flex items-center gap-1">
-                  <ShieldCheck className="w-3.5 h-3.5" />
+                <span className="font-semibold text-[#176B50] text-xs flex items-center gap-1">
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#176B50]" />
                   {t('featuredSchemes.verifiedOnly', 'Verified Only')}
                 </span>
               </label>
 
-              {/* Reset Button if any filter active */}
+              {/* Reset Filters Link */}
               {(searchQuery || activeCategory !== 'all' || selectedGoal !== 'all' || selectedLifeStage !== 'all' || !verifiedOnly) && (
                 <button
                   onClick={resetFilters}
-                  className="inline-flex items-center gap-1 text-[11px] font-mono font-bold text-slate-500 hover:text-sanchay-emerald-700 underline"
+                  className="inline-flex items-center gap-1 text-xs font-semibold text-[#66736C] hover:text-[#176B50] transition-colors cursor-pointer"
                 >
                   <RefreshCw className="w-3 h-3" />
-                  <span>{t('featuredSchemes.reset', 'Reset')}</span>
+                  <span>{t('featuredSchemes.resetAllFilters', 'Reset')}</span>
                 </button>
               )}
             </div>
 
           </div>
+
         </div>
 
-        {/* 12-Category Dynamic Navigation with Numbering */}
-        <div className="flex flex-wrap items-center gap-2 sm:gap-3 border-b border-slate-200/80 pb-4 mb-10 overflow-x-auto no-scrollbar">
-          {categories.map((cat) => {
-            const isActive = activeCategory === cat.id;
-            return (
-              <button
-                key={cat.id}
-                onClick={() => setActiveCategory(cat.id)}
-                className={`relative px-3.5 py-2 rounded-xl font-mono text-[11px] font-bold tracking-wider uppercase transition-all duration-200 flex items-center gap-1.5 shrink-0 ${
-                  isActive
-                    ? 'text-sanchay-emerald-800 bg-sanchay-emerald-50 border border-sanchay-emerald-200/80 shadow-2xs'
-                    : 'text-sanchay-navy-700 hover:text-sanchay-navy-950 hover:bg-slate-100/80'
-                }`}
-              >
-                <span className={isActive ? 'text-sanchay-emerald-600' : 'text-slate-400'}>{cat.num}</span>
-                <span>{cat.label}</span>
-                {isActive && (
-                  <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-sanchay-emerald-600 rounded-full" />
-                )}
-              </button>
-            );
-          })}
-        </div>
-
-        {/* EMPTY STATE IF NO MATCH */}
-        {filteredSchemes.length === 0 ? (
-          <div className="text-center py-16 px-4 bg-white rounded-3xl border border-slate-200/90 shadow-card max-w-2xl mx-auto my-6 space-y-4">
-            <div className="w-16 h-16 rounded-full bg-sanchay-emerald-50 text-sanchay-emerald-600 border border-sanchay-emerald-200/80 flex items-center justify-center mx-auto text-2xl">
-              🔍
+        {/* Catalog Scheme Results Grid */}
+        {displayedSchemes.length === 0 ? (
+          /* Clean Light Empty State */
+          <div className="text-center py-16 px-4 bg-white rounded-3xl border border-[#E7ECE8] shadow-card">
+            <div className="w-16 h-16 rounded-2xl bg-[#E7F1EB] border border-[#D5E4DC] flex items-center justify-center text-3xl mx-auto mb-4">
+              🏛️
             </div>
-            <h3 className="font-serif font-extrabold text-2xl text-sanchay-navy-950">
+            <h3 className="font-serif font-extrabold text-2xl text-[#202B26] mb-2">
               {t('explore.noSchemesFound', 'No verified schemes found')}
             </h3>
-            <p className="text-sm text-sanchay-navy-700 max-w-md mx-auto leading-relaxed">
+            <p className="text-sm text-[#66736C] max-w-md mx-auto leading-relaxed mb-6 font-normal">
               {t('explore.tryDifferentSearch', 'Try changing your search keywords or adjusting your category and life stage filters.')}
             </p>
             <button
               onClick={resetFilters}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-sanchay-navy-950 text-white font-bold text-xs uppercase tracking-wider hover:bg-sanchay-navy-900 transition-colors shadow-xs"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#176B50] hover:bg-[#125540] text-white font-semibold text-xs uppercase tracking-wider transition-colors shadow-xs cursor-pointer"
             >
               <RefreshCw className="w-4 h-4" />
               <span>{t('featuredSchemes.resetAllFilters', 'Reset All Filters')}</span>
@@ -439,7 +472,7 @@ export const FeaturedSchemesSection = ({ schemes = [], onSelectScheme, initialLi
                 return (
                   <div
                     key={scheme.id || scheme.scheme_id}
-                    className="bg-white rounded-3xl border border-slate-200/90 shadow-card hover:shadow-editorial transition-all duration-300 flex flex-col justify-between overflow-hidden group hover:-translate-y-1.5"
+                    className="bg-white rounded-3xl border border-[#E7ECE8] shadow-card hover:shadow-card-hover hover:border-[#176B50]/30 transition-all duration-300 flex flex-col justify-between overflow-hidden group hover:-translate-y-1.5"
                   >
                     <div 
                       onClick={() => onSelectScheme(scheme)}
@@ -449,7 +482,7 @@ export const FeaturedSchemesSection = ({ schemes = [], onSelectScheme, initialLi
                       aria-label={`View details for ${schemeName}`}
                     >
                       {/* Large SVG Vector Artwork at Top */}
-                      <div className="card-thumb-wrap relative h-56 sm:h-64 lg:h-72 w-full overflow-hidden bg-slate-50 flex items-center justify-center border-b border-slate-200/80">
+                      <div className="card-thumb-wrap relative h-56 sm:h-64 lg:h-72 w-full overflow-hidden bg-[#FAFAFC] flex items-center justify-center border-b border-[#E7ECE8]">
                         <img
                           src={imgSrc}
                           alt={schemeName}
@@ -457,38 +490,38 @@ export const FeaturedSchemesSection = ({ schemes = [], onSelectScheme, initialLi
                             e.target.onerror = null;
                             e.target.src = '/schemes/_fallback.svg';
                           }}
-                          className="w-full h-full object-contain p-1.5 transition-transform duration-500 group-hover:scale-[1.03]"
+                          className="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-[1.03]"
                         />
                         
                         <div className="overlay absolute inset-0 pointer-events-none">
                           {/* Category Pill over image */}
                           <div className="absolute top-3 left-3">
-                            <span className="px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-sanchay-navy-950 font-mono font-bold text-[10px] uppercase tracking-wider shadow-2xs">
+                            <span className="px-3 py-1 rounded-full bg-white/95 text-[#176B50] border border-[#D5E4DC] font-semibold text-[10px] uppercase tracking-wider shadow-2xs">
                               {getLocalizedCategory(scheme.category, currentLang) || scheme.category || 'Government Scheme'}
                             </span>
                           </div>
 
                           {/* Verified Official Source Badge */}
                           <div className="absolute top-3 right-3">
-                            <span className="px-2.5 py-1 rounded-full bg-sanchay-emerald-600 text-white font-mono font-bold text-[9px] uppercase tracking-wider flex items-center gap-1 shadow-2xs">
+                            <span className="px-2.5 py-1 rounded-full bg-[#176B50] text-white font-semibold text-[9px] uppercase tracking-wider flex items-center gap-1 shadow-2xs">
                               <Check className="w-3 h-3 stroke-[3]" />
                               <span>{t('featuredSchemes.verifiedSource', 'VERIFIED SOURCE')}</span>
                             </span>
                           </div>
 
                           {/* Return Rate / Key Highlight banner at bottom of image */}
-                          <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white">
+                          <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between bg-white/95 backdrop-blur-xs border border-[#E7ECE8] rounded-xl px-3.5 py-2 shadow-2xs">
                             <div className="min-w-0 pr-2">
-                              <span className="text-[10px] font-mono uppercase tracking-wider text-slate-300 block">
+                              <span className="text-[10px] uppercase tracking-wider text-[#66736C] font-semibold block">
                                 {t('featuredSchemes.benefitReturn', 'Benefit / Return')}
                               </span>
-                              <span className="font-serif font-extrabold text-xl text-sanchay-gold-400 drop-shadow-xs truncate block max-w-[200px]">
+                              <span className="font-serif font-extrabold text-base sm:text-lg text-[#176B50] truncate block max-w-[200px]">
                                 {benefitDisplay}
                               </span>
                             </div>
 
                             {/* Safety Indicator */}
-                            <span className="shrink-0 px-2.5 py-1 rounded-lg bg-slate-900/80 backdrop-blur-xs text-[10px] font-mono text-sanchay-emerald-400 font-bold border border-sanchay-emerald-500/30">
+                            <span className="shrink-0 px-2.5 py-1 rounded-lg bg-[#E7F1EB] text-[#176B50] text-[10px] font-bold border border-[#D5E4DC]">
                               {isInsurance ? t('featuredSchemes.licProtection', 'LIC Protection') : t('featuredSchemes.sovereignSafe', 'Sovereign Safe')}
                             </span>
                           </div>
@@ -497,37 +530,37 @@ export const FeaturedSchemesSection = ({ schemes = [], onSelectScheme, initialLi
 
                       {/* Card Content Body */}
                       <div className="p-6">
-                        <h3 className="font-serif font-extrabold text-xl text-sanchay-navy-950 group-hover:text-sanchay-emerald-700 transition-colors">
+                        <h3 className="font-serif font-extrabold text-xl text-[#202B26] group-hover:text-[#176B50] transition-colors line-clamp-1">
                           {schemeName}
                         </h3>
 
-                        <p className="text-xs text-sanchay-navy-700 mt-2.5 leading-relaxed line-clamp-2">
+                        <p className="text-xs text-[#66736C] mt-2.5 leading-relaxed line-clamp-2">
                           {cardDesc}
                         </p>
 
                         {/* Trust Metadata */}
-                        <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px]">
+                        <div className="mt-4 pt-3 border-t border-[#E7ECE8] flex items-center justify-between text-[11px]">
                           <div>
-                            <span className="text-[9px] font-mono text-slate-400 uppercase block">{t('featuredSchemes.authority', 'Authority')}</span>
-                            <span className="font-bold text-sanchay-navy-900 truncate block max-w-[170px]">{authority}</span>
+                            <span className="text-[9px] font-bold text-[#66736C] uppercase block">{t('featuredSchemes.authority', 'Authority')}</span>
+                            <span className="font-bold text-[#202B26] truncate block max-w-[170px]">{authority}</span>
                           </div>
                           <div className="text-right">
-                            <span className="text-[9px] font-mono text-slate-400 uppercase block">{t('featuredSchemes.verifiedDate', 'Verified Date')}</span>
-                            <span className="font-mono text-[10px] text-sanchay-emerald-700 font-bold">{lastVerified}</span>
+                            <span className="text-[9px] font-bold text-[#66736C] uppercase block">{t('featuredSchemes.verifiedDate', 'Verified Date')}</span>
+                            <span className="font-semibold text-[11px] text-[#176B50]">{lastVerified}</span>
                           </div>
                         </div>
                       </div>
                     </div>
 
                     {/* Footer Action: View Details & View Official Details Button */}
-                    <div className="px-6 py-4 border-t border-slate-100 bg-slate-50/50 flex items-center justify-between gap-2">
+                    <div className="px-6 py-4 border-t border-[#E7ECE8] bg-[#FAFAFC] flex items-center justify-between gap-2">
                       <div className="flex items-center gap-3">
                         <button
                           onClick={() => onSelectScheme(scheme)}
-                          className="inline-flex items-center gap-1.5 text-xs font-extrabold text-sanchay-navy-950 hover:text-sanchay-emerald-700 uppercase tracking-wider transition-colors cursor-pointer"
+                          className="inline-flex items-center gap-1.5 text-xs font-bold text-[#176B50] hover:text-[#125540] uppercase tracking-wider transition-colors cursor-pointer"
                         >
                           <span>{t('explore.viewDetails', 'View Details')}</span>
-                          <ArrowRight className="w-3.5 h-3.5" />
+                          <ArrowRight className="w-3.5 h-3.5 text-[#176B50]" />
                         </button>
                       </div>
 
@@ -545,11 +578,11 @@ export const FeaturedSchemesSection = ({ schemes = [], onSelectScheme, initialLi
                               title={isSaved ? t('myPlans.saved', 'Saved in My Plans') : t('myPlans.addToMyPlans', 'Add to My Plans')}
                               className={`p-2 rounded-xl border transition-all cursor-pointer ${
                                 isSaved
-                                  ? 'bg-emerald-50 text-emerald-700 border-emerald-300'
-                                  : 'bg-white hover:bg-slate-100 text-slate-400 hover:text-sanchay-navy-950 border-slate-200'
+                                  ? 'bg-[#E7F1EB] text-[#176B50] border-[#D5E4DC]'
+                                  : 'bg-white hover:bg-[#F8FAF8] text-[#66736C] hover:text-[#202B26] border-[#E7ECE8]'
                               }`}
                             >
-                              <Bookmark className={`w-3.5 h-3.5 ${isSaved ? 'text-emerald-600 fill-emerald-600' : ''}`} />
+                              <Bookmark className={`w-3.5 h-3.5 ${isSaved ? 'text-[#176B50] fill-[#176B50]' : ''}`} />
                             </button>
                           );
                         })()}
@@ -559,10 +592,10 @@ export const FeaturedSchemesSection = ({ schemes = [], onSelectScheme, initialLi
                             href={officialUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-sanchay-emerald-50 hover:bg-sanchay-emerald-100 text-sanchay-emerald-800 font-bold text-[11px] uppercase tracking-wider border border-sanchay-emerald-200 transition-colors"
+                            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-white hover:bg-[#F8FAF8] text-[#202B26] hover:text-[#176B50] font-semibold text-[11px] uppercase tracking-wider border border-[#E7ECE8] transition-colors shadow-2xs"
                           >
                             <span>{t('featuredSchemes.officialPortal', 'Official Portal')}</span>
-                            <ExternalLink className="w-3 h-3" />
+                            <ExternalLink className="w-3 h-3 text-[#176B50]" />
                           </a>
                         )}
                       </div>
@@ -579,10 +612,10 @@ export const FeaturedSchemesSection = ({ schemes = [], onSelectScheme, initialLi
                   {visibleCount < filteredSchemes.length && (
                     <button
                       onClick={() => setVisibleCount(prev => prev + 10)}
-                      className="group inline-flex items-center gap-2.5 px-8 py-3.5 rounded-2xl bg-sanchay-navy-950 hover:bg-sanchay-navy-900 text-white font-extrabold text-xs uppercase tracking-wider shadow-card hover:shadow-editorial hover:scale-[1.02] transition-all cursor-pointer border border-sanchay-navy-800"
+                      className="group inline-flex items-center gap-2 px-8 py-3.5 rounded-2xl bg-[#176B50] hover:bg-[#125540] text-white font-semibold text-xs uppercase tracking-wider shadow-xs hover:shadow-sm hover:scale-[1.01] transition-all cursor-pointer"
                     >
                       <span>{t('featuredSchemes.showMore', 'Show More Schemes (+10)')}</span>
-                      <ChevronDown className="w-4 h-4 text-sanchay-gold-400 group-hover:translate-y-0.5 transition-transform" />
+                      <ChevronDown className="w-4 h-4 text-white group-hover:translate-y-0.5 transition-transform" />
                     </button>
                   )}
 
@@ -595,15 +628,15 @@ export const FeaturedSchemesSection = ({ schemes = [], onSelectScheme, initialLi
                           el.scrollIntoView({ behavior: 'smooth', block: 'start' });
                         }
                       }}
-                      className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl bg-white hover:bg-slate-100 text-sanchay-navy-950 font-extrabold text-xs uppercase tracking-wider shadow-card hover:shadow-editorial hover:scale-[1.02] transition-all cursor-pointer border border-slate-300"
+                      className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl bg-white hover:bg-[#FAFAFC] text-[#202B26] font-semibold text-xs uppercase tracking-wider shadow-xs hover:scale-[1.01] transition-all cursor-pointer border border-[#E7ECE8]"
                     >
-                      <ChevronUp className="w-4 h-4 text-sanchay-navy-700 group-hover:-translate-y-0.5 transition-transform" />
+                      <ChevronUp className="w-4 h-4 text-[#66736C] group-hover:-translate-y-0.5 transition-transform" />
                       <span>{t('featuredSchemes.showLess', 'Show Less')}</span>
                     </button>
                   )}
                 </div>
 
-                <span className="text-[11px] font-mono text-slate-500">
+                <span className="text-[11px] font-semibold text-[#66736C]">
                   {t('featuredSchemes.showingCount', 'Showing')} {displayedSchemes.length} {t('featuredSchemes.of', 'of')} {filteredSchemes.length} {t('featuredSchemes.verifiedSchemes', 'verified schemes')}
                 </span>
               </div>

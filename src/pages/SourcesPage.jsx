@@ -68,39 +68,39 @@ export const SourcesPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#FAF9F5] text-sanchay-navy-950 flex flex-col selection:bg-sanchay-emerald-600 selection:text-white">
+    <div className="min-h-screen bg-[#060b08] text-slate-100 flex flex-col selection:bg-emerald-600 selection:text-white">
       <Navbar />
 
       <main className="flex-1 py-10 sm:py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="mb-10 text-center">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sanchay-emerald-50 text-sanchay-emerald-700 text-xs font-mono font-bold uppercase tracking-wider mb-3 border border-sanchay-emerald-200">
-              <ShieldCheck className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-950/80 text-emerald-300 text-xs font-mono font-bold uppercase tracking-wider mb-3 border border-emerald-500/30">
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
               <span>{t('trust.badge', 'Data Governance & Verification')}</span>
             </div>
-            <h1 className="font-serif font-extrabold text-3xl sm:text-4xl text-sanchay-navy-950">
+            <h1 className="font-serif font-extrabold text-3xl sm:text-4xl text-white">
               {t('sources.title', 'Official Data Sources & Transparency')}
             </h1>
-            <p className="text-xs sm:text-sm text-sanchay-navy-700 mt-2">
+            <p className="text-xs sm:text-sm text-slate-400 mt-2">
               {t('sources.subtitle', 'Every scheme displayed in SANCHAY is traced directly to official government gazettes.')}
             </p>
           </div>
 
           <div className="space-y-4 mb-10">
             {sourcesList.map((src, idx) => (
-              <div key={idx} className="p-6 rounded-3xl bg-white shadow-card hover:shadow-editorial border border-slate-200/90 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all">
+              <div key={idx} className="p-6 rounded-3xl bg-[#0c1611]/90 shadow-2xl hover:shadow-emerald-950/50 hover:border-emerald-400/60 hover:bg-[#101e17] border border-emerald-500/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all backdrop-blur-sm">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
-                    <CheckCircle2 className="w-4 h-4 text-sanchay-emerald-600" />
-                    <h3 className="font-serif font-bold text-lg text-sanchay-navy-950">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                    <h3 className="font-serif font-bold text-lg text-white">
                       {src.authority}
                     </h3>
                   </div>
-                  <p className="text-xs text-sanchay-navy-700 mt-1">
+                  <p className="text-xs text-slate-400 mt-1">
                     {src.scope}
                   </p>
-                  <span className="inline-block mt-2 text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider">
+                  <span className="inline-block mt-2 text-[10px] font-mono font-bold text-slate-500 uppercase tracking-wider">
                     {t('sources.updateFrequency', 'Update Frequency')}: {src.frequency}
                   </span>
                 </div>
@@ -109,17 +109,17 @@ export const SourcesPage = () => {
                   href={src.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="px-5 py-2.5 rounded-2xl bg-sanchay-navy-950 hover:bg-sanchay-navy-900 text-white font-mono font-bold text-xs uppercase tracking-wider shrink-0 inline-flex items-center gap-2 transition-colors"
+                  className="px-5 py-2.5 rounded-2xl bg-emerald-950/80 hover:bg-emerald-900/80 border border-emerald-500/30 text-emerald-300 font-mono font-bold text-xs uppercase tracking-wider shrink-0 inline-flex items-center gap-2 transition-colors"
                 >
                   <span>{t('sources.officialPortal', 'Official Portal →')}</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
+                  <ExternalLink className="w-3.5 h-3.5 text-emerald-400" />
                 </a>
               </div>
             ))}
           </div>
 
-          <div className="p-6 rounded-3xl bg-sanchay-emerald-50 border border-sanchay-emerald-200 text-xs text-sanchay-navy-950 leading-relaxed">
-            <span className="font-serif font-bold text-sanchay-emerald-700 block text-base mb-1">Strict Governance Promise:</span>
+          <div className="p-6 rounded-3xl bg-[#08120d] border border-emerald-500/30 text-xs text-slate-300 leading-relaxed shadow-xl">
+            <span className="font-serif font-bold text-emerald-400 block text-base mb-1">Strict Governance Promise:</span>
             {t('sources.governancePromise', 'Every scheme record in SANCHAY must include an official source link, effective date, and last verification date. Zero unverified commercial schemes are permitted.')}
           </div>
 

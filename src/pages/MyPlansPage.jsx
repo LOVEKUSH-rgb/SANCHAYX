@@ -295,7 +295,7 @@ export const MyPlansPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF9F5] flex flex-col font-sans">
+    <div className="min-h-screen bg-[#060b08] text-slate-100 flex flex-col font-sans selection:bg-emerald-600 selection:text-white">
       <Navbar />
 
       <main className="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
@@ -303,18 +303,18 @@ export const MyPlansPage = () => {
         {/* Page Header */}
         <div className="mb-8">
           <div className="flex items-center gap-2 mb-2">
-            <span className="px-3 py-1 rounded-full bg-sanchay-emerald-50 text-sanchay-emerald-800 text-[11px] font-mono font-bold uppercase tracking-wider flex items-center gap-1.5 border border-sanchay-emerald-200 shadow-2xs">
-              <Bookmark className="w-3.5 h-3.5 text-sanchay-emerald-600 fill-sanchay-emerald-600" />
+            <span className="px-3 py-1 rounded-full bg-emerald-950/80 text-emerald-300 text-[11px] font-mono font-bold uppercase tracking-wider flex items-center gap-1.5 border border-emerald-500/30 shadow-2xs">
+              <Bookmark className="w-3.5 h-3.5 text-emerald-400 fill-emerald-400" />
               <span>{t('myPlans.portfolioTag', 'My Sovereign & LIC Portfolio')}</span>
             </span>
           </div>
 
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
-              <h1 className="text-2xl sm:text-4xl font-serif font-black text-sanchay-navy-950 tracking-tight">
+              <h1 className="text-2xl sm:text-4xl font-serif font-black text-white tracking-tight">
                 {t('myPlans.title', 'My Saved Plans')}
               </h1>
-              <p className="text-sm text-slate-600 mt-1 max-w-2xl font-sans leading-relaxed">
+              <p className="text-sm text-slate-400 mt-1 max-w-2xl font-sans leading-relaxed">
                 {t('myPlans.subtitle', 'Your shortlisted statutory government schemes and verified LIC plans are saved securely to your portfolio.')}
               </p>
             </div>
@@ -323,17 +323,17 @@ export const MyPlansPage = () => {
               <div className="flex items-center gap-2.5 flex-wrap">
                 <Link
                   to="/lic"
-                  className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-white hover:bg-slate-50 text-sanchay-navy-950 text-xs font-bold uppercase tracking-wider border border-slate-200 shadow-2xs transition-all"
+                  className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#08120d] hover:bg-[#101e17] text-white text-xs font-bold uppercase tracking-wider border border-emerald-500/25 hover:border-emerald-400/50 shadow-2xs transition-all"
                 >
-                  <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                  <ShieldCheck className="w-4 h-4 text-emerald-400" />
                   <span>{t('myPlans.exploreLic', 'Explore LIC Plans')}</span>
                 </Link>
 
                 <Link
                   to="/profile"
-                  className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-sanchay-navy-950 hover:bg-sanchay-navy-900 text-white text-xs font-bold uppercase tracking-wider shadow-card transition-all"
+                  className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold uppercase tracking-wider shadow-lg shadow-emerald-950/50 transition-all"
                 >
-                  <PlusCircle className="w-4 h-4 text-sanchay-gold-400" />
+                  <PlusCircle className="w-4 h-4 text-white" />
                   <span>{t('myPlans.findMore', 'Find More Schemes')}</span>
                 </Link>
               </div>
@@ -343,20 +343,20 @@ export const MyPlansPage = () => {
 
         {/* User Profile Summary Card (if logged in) */}
         {isAuthenticated && user && (
-          <div className="mb-8 p-5 rounded-3xl bg-white border border-slate-200/90 shadow-card flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="mb-8 p-5 rounded-3xl bg-[#0c1611]/90 border border-emerald-500/20 shadow-2xl backdrop-blur-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="flex items-center gap-3.5">
               <UserAvatar user={user} size="lg" className="shadow-xs" />
               <div>
-                <div className="font-serif font-bold text-base text-sanchay-navy-950 flex items-center gap-2">
+                <div className="font-serif font-bold text-base text-white flex items-center gap-2">
                   <span>{user.full_name || t('myPlans.citizen', 'Citizen')}</span>
                   {user.is_verified && (
-                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 text-[10px] font-mono font-bold border border-emerald-200">
-                      <ShieldCheck className="w-3 h-3 text-emerald-600" />
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-emerald-950/80 text-emerald-300 text-[10px] font-mono font-bold border border-emerald-500/30">
+                      <ShieldCheck className="w-3 h-3 text-emerald-400" />
                       {t('myPlans.verified', 'Verified')}
                     </span>
                   )}
                 </div>
-                <div className="text-xs text-slate-500 font-mono flex flex-wrap items-center gap-x-3 gap-y-1 mt-0.5">
+                <div className="text-xs text-slate-400 font-mono flex flex-wrap items-center gap-x-3 gap-y-1 mt-0.5">
                   <span>{user.email}</span>
                   {user.mobile && <span>• {user.mobile}</span>}
                   {user.profession && <span className="capitalize">• {getProfessionDisplay(user.profession)}</span>}
@@ -367,8 +367,8 @@ export const MyPlansPage = () => {
 
             {/* Saved Badges */}
             <div className="flex items-center gap-2">
-              <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-sanchay-navy-950 bg-slate-50 px-3 py-2 rounded-xl border border-slate-200 shrink-0">
-                <Bookmark className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
+              <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-white bg-[#060b08] px-3 py-2 rounded-xl border border-emerald-500/20 shrink-0">
+                <Bookmark className="w-3.5 h-3.5 text-emerald-400 fill-emerald-400" />
                 <span>{(savedSchemes.length > 0 ? savedSchemes.length : (savedPlanIds?.size || user?.saved_plans?.length || 0))} {t('myPlans.savedTotal', 'Saved Total')}</span>
               </div>
             </div>
@@ -377,13 +377,13 @@ export const MyPlansPage = () => {
 
         {/* Filter Category Tabs (All / Government / LIC / Free) */}
         {isAuthenticated && savedSchemes.length > 0 && (
-          <div className="flex items-center gap-2 mb-6 border-b border-slate-200 pb-3 overflow-x-auto">
+          <div className="flex items-center gap-2 mb-6 border-b border-emerald-500/15 pb-3 overflow-x-auto">
             <button
               onClick={() => setActiveTab('ALL')}
               className={`px-4 py-2 rounded-xl text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap ${
                 activeTab === 'ALL'
-                  ? 'bg-sanchay-navy-950 text-white shadow-xs'
-                  : 'bg-white hover:bg-slate-100 text-slate-600 border border-slate-200'
+                  ? 'bg-emerald-600 text-white shadow-xs'
+                  : 'bg-[#08120d] hover:bg-[#101e17] text-slate-400 hover:text-white border border-emerald-500/20'
               }`}
             >
               <span>{t('myPlans.tabAll', 'All Saved')} ({savedSchemes.length})</span>
@@ -393,8 +393,8 @@ export const MyPlansPage = () => {
               onClick={() => setActiveTab('GOV')}
               className={`px-4 py-2 rounded-xl text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap ${
                 activeTab === 'GOV'
-                  ? 'bg-sanchay-navy-950 text-white shadow-xs'
-                  : 'bg-white hover:bg-slate-100 text-slate-600 border border-slate-200'
+                  ? 'bg-emerald-600 text-white shadow-xs'
+                  : 'bg-[#08120d] hover:bg-[#101e17] text-slate-400 hover:text-white border border-emerald-500/20'
               }`}
             >
               <span>{t('myPlans.tabGovt', 'Sovereign Schemes')} ({govCount})</span>
@@ -404,8 +404,8 @@ export const MyPlansPage = () => {
               onClick={() => setActiveTab('LIC')}
               className={`px-4 py-2 rounded-xl text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap ${
                 activeTab === 'LIC'
-                  ? 'bg-sanchay-navy-950 text-white shadow-xs'
-                  : 'bg-white hover:bg-slate-100 text-slate-600 border border-slate-200'
+                  ? 'bg-emerald-600 text-white shadow-xs'
+                  : 'bg-[#08120d] hover:bg-[#101e17] text-slate-400 hover:text-white border border-emerald-500/20'
               }`}
             >
               <span>{t('myPlans.tabLic', 'LIC Plans')} ({licCount})</span>
@@ -415,8 +415,8 @@ export const MyPlansPage = () => {
               onClick={() => setActiveTab('FREE')}
               className={`px-4 py-2 rounded-xl text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap ${
                 activeTab === 'FREE'
-                  ? 'bg-emerald-700 text-white shadow-xs'
-                  : 'bg-white hover:bg-slate-100 text-slate-600 border border-slate-200'
+                  ? 'bg-emerald-600 text-white shadow-xs'
+                  : 'bg-[#08120d] hover:bg-[#101e17] text-slate-400 hover:text-white border border-emerald-500/20'
               }`}
             >
               <span>{t('myPlans.tabFree', 'Free Benefits')} ({freeCount})</span>
@@ -426,26 +426,26 @@ export const MyPlansPage = () => {
 
         {/* Not Logged In State */}
         {!isAuthenticated && (
-          <div className="p-8 sm:p-12 rounded-3xl bg-white border border-slate-200 shadow-card text-center max-w-xl mx-auto my-8">
-            <div className="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 mx-auto flex items-center justify-center mb-4 border border-emerald-100">
+          <div className="p-8 sm:p-12 rounded-3xl bg-[#0c1611]/90 border border-emerald-500/20 shadow-2xl text-center max-w-xl mx-auto my-8 backdrop-blur-sm">
+            <div className="w-14 h-14 rounded-2xl bg-emerald-950/80 text-emerald-400 mx-auto flex items-center justify-center mb-4 border border-emerald-500/30">
               <Bookmark className="w-7 h-7" />
             </div>
-            <h2 className="text-xl font-serif font-bold text-sanchay-navy-950 mb-2">
+            <h2 className="text-xl font-serif font-bold text-white mb-2">
               {t('myPlans.loginRequiredTitle', 'Login to View Your Saved Plans')}
             </h2>
-            <p className="text-xs text-slate-600 font-sans mb-6 leading-relaxed">
+            <p className="text-xs text-slate-400 font-sans mb-6 leading-relaxed">
               {t('myPlans.loginRequiredDesc', 'Sign in to access your saved sovereign schemes and LIC plans, track interest rates, and manage your financial discovery portfolio.')}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <button
                 onClick={() => openAuthModal('login')}
-                className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-sanchay-navy-950 hover:bg-sanchay-navy-900 text-white text-xs font-extrabold uppercase tracking-wider shadow-card transition-all cursor-pointer"
+                className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-extrabold uppercase tracking-wider shadow-lg shadow-emerald-950/50 transition-all cursor-pointer"
               >
                 {t('myPlans.citizenLogin', 'Citizen Login')}
               </button>
               <button
                 onClick={() => openAuthModal('register')}
-                className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-extrabold uppercase tracking-wider shadow-card transition-all cursor-pointer"
+                className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-emerald-950/80 hover:bg-emerald-900/80 text-emerald-300 border border-emerald-500/30 text-xs font-extrabold uppercase tracking-wider shadow-sm transition-all cursor-pointer"
               >
                 {t('myPlans.createAccount', 'Create Free Account')}
               </button>
@@ -465,20 +465,20 @@ export const MyPlansPage = () => {
 
         {/* Empty Saved Plans State */}
         {isAuthenticated && !isLoading && savedSchemes.length === 0 && (
-          <div className="p-8 sm:p-12 rounded-3xl bg-white border border-slate-200 shadow-card text-center max-w-lg mx-auto my-8 space-y-4">
-            <div className="w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 mx-auto flex items-center justify-center mb-2 border border-amber-200">
+          <div className="p-8 sm:p-12 rounded-3xl bg-[#0c1611]/90 border border-emerald-500/20 shadow-2xl text-center max-w-lg mx-auto my-8 space-y-4 backdrop-blur-sm">
+            <div className="w-14 h-14 rounded-2xl bg-amber-950/60 text-amber-400 mx-auto flex items-center justify-center mb-2 border border-amber-500/30">
               <Bookmark className="w-7 h-7" />
             </div>
-            <h3 className="text-lg font-serif font-bold text-sanchay-navy-950">
+            <h3 className="text-lg font-serif font-bold text-white">
               {t('myPlans.emptyTitle', 'No Saved Schemes or LIC Plans Yet')}
             </h3>
-            <p className="text-xs text-slate-600 font-sans leading-relaxed">
+            <p className="text-xs text-slate-400 font-sans leading-relaxed">
               {t('myPlans.emptyDesc', 'Click the Bookmark icon on any verified Government scheme or official LIC plan to save it to your portfolio.')}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
               <Link
                 to="/#verified-schemes"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-sanchay-navy-950 hover:bg-sanchay-navy-900 text-white text-xs font-bold uppercase tracking-wider shadow-card transition-all"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold uppercase tracking-wider shadow-lg shadow-emerald-950/50 transition-all"
               >
                 <span>{t('myPlans.exploreCatalog', 'Explore Catalog')}</span>
                 <ArrowRight className="w-4 h-4" />
@@ -486,7 +486,7 @@ export const MyPlansPage = () => {
 
               <Link
                 to="/lic"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-slate-50 text-sanchay-navy-950 text-xs font-bold uppercase tracking-wider border border-slate-200 shadow-2xs transition-all"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#08120d] hover:bg-[#101e17] text-white text-xs font-bold uppercase tracking-wider border border-emerald-500/25 hover:border-emerald-400/50 shadow-2xs transition-all"
               >
                 <span>{t('myPlans.officialLic', 'Official LIC Plans')}</span>
                 <ArrowRight className="w-4 h-4" />
@@ -497,14 +497,14 @@ export const MyPlansPage = () => {
 
         {/* Empty Filter Tab State */}
         {isAuthenticated && !isLoading && savedSchemes.length > 0 && filteredList.length === 0 && (
-          <div className="py-12 text-center bg-white rounded-3xl border border-slate-200 p-6 max-w-md mx-auto space-y-3">
+          <div className="py-12 text-center bg-[#0c1611]/90 rounded-3xl border border-emerald-500/20 p-6 max-w-md mx-auto space-y-3 backdrop-blur-sm">
             <Info className="w-8 h-8 text-slate-400 mx-auto" />
-            <p className="text-xs text-slate-600 font-mono">
+            <p className="text-xs text-slate-400 font-mono">
               {t('myPlans.noFilteredItems', 'No saved items under this filter.')}
             </p>
             <button
               onClick={() => setActiveTab('ALL')}
-              className="text-xs font-mono font-bold text-emerald-700 underline cursor-pointer"
+              className="text-xs font-mono font-bold text-emerald-400 hover:text-emerald-300 underline cursor-pointer"
             >
               {t('myPlans.showAllPlans', 'Show All Saved Plans')} ({savedSchemes.length})
             </button>
@@ -547,15 +547,15 @@ export const MyPlansPage = () => {
                 <div
                   key={schemeId}
                   onClick={() => handleCardClick(scheme)}
-                  className="bg-white rounded-3xl border border-slate-200/90 shadow-card hover:shadow-editorial hover:border-emerald-500 transition-all duration-300 overflow-hidden flex flex-col justify-between cursor-pointer group relative"
+                  className="bg-[#0c1611]/90 rounded-3xl border border-emerald-500/20 shadow-2xl hover:shadow-emerald-950/50 hover:border-emerald-400/60 hover:bg-[#101e17] transition-all duration-300 overflow-hidden flex flex-col justify-between cursor-pointer group relative backdrop-blur-sm"
                 >
                   {/* Card Banner Header */}
-                  <div className={`p-4 flex flex-col justify-between relative overflow-hidden ${
+                  <div className={`p-4 flex flex-col justify-between relative overflow-hidden border-b border-emerald-500/15 ${
                     isFree
-                      ? 'bg-gradient-to-br from-emerald-950 via-teal-900 to-emerald-950'
+                      ? 'bg-gradient-to-br from-emerald-950 via-[#060b08] to-emerald-950'
                       : isLic 
-                        ? 'bg-gradient-to-br from-slate-900 via-amber-950 to-slate-900' 
-                        : 'bg-gradient-to-br from-sanchay-navy-950 to-sanchay-navy-900'
+                        ? 'bg-gradient-to-br from-[#0c1611] via-amber-950/40 to-[#0c1611]' 
+                        : 'bg-gradient-to-br from-[#060b08] to-[#0c1611]'
                   }`}>
                     <div className="flex items-center justify-between z-10 mb-2">
                       <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider ${
@@ -563,7 +563,7 @@ export const MyPlansPage = () => {
                           ? 'bg-emerald-400/20 text-emerald-200 border border-emerald-300/30'
                           : isLic 
                             ? 'bg-amber-400/20 text-amber-200 border border-amber-300/30' 
-                            : 'bg-white/10 text-white'
+                            : 'bg-emerald-950/80 text-emerald-300 border border-emerald-500/30'
                       }`}>
                         {cardCategory}
                       </span>
@@ -573,10 +573,10 @@ export const MyPlansPage = () => {
                         onClick={(e) => handleRemove(schemeId, e)}
                         disabled={isRemoving}
                         title={t('myPlans.removePlan', 'Remove from My Plans')}
-                        className="p-1.5 rounded-full bg-white/20 hover:bg-red-500 text-white transition-all cursor-pointer shadow-xs"
+                        className="p-1.5 rounded-full bg-[#060b08] hover:bg-red-600 text-slate-300 hover:text-white border border-emerald-500/20 transition-all cursor-pointer shadow-xs"
                       >
                         {isRemoving ? (
-                          <RefreshCw className="w-3.5 h-3.5 animate-spin" />
+                          <RefreshCw className="w-3.5 h-3.5 animate-spin text-emerald-400" />
                         ) : (
                           <Trash2 className="w-3.5 h-3.5" />
                         )}
@@ -584,10 +584,10 @@ export const MyPlansPage = () => {
                     </div>
 
                     <div className="z-10">
-                      <h3 className="font-serif font-bold text-base text-white line-clamp-1 group-hover:text-amber-300 transition-colors">
+                      <h3 className="font-serif font-bold text-base text-white line-clamp-1 group-hover:text-emerald-400 transition-colors">
                         {cardTitle}
                       </h3>
-                      <p className="text-[10px] text-slate-300 font-mono truncate mt-0.5">
+                      <p className="text-[10px] text-slate-400 font-mono truncate mt-0.5">
                         {displayAuthority}
                       </p>
                     </div>
@@ -595,30 +595,30 @@ export const MyPlansPage = () => {
 
                   {/* Card Body Content */}
                   <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
-                    <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">
+                    <p className="text-xs text-slate-400 line-clamp-2 leading-relaxed">
                       {cardDesc}
                     </p>
 
                     {/* Highlight Box */}
-                    <div className="p-3 rounded-2xl bg-emerald-50/70 border border-emerald-200/80 flex items-center justify-between">
-                      <span className="text-[10px] font-mono font-bold uppercase text-emerald-800">
+                    <div className="p-3 rounded-2xl bg-[#060b08] border border-emerald-500/20 flex items-center justify-between">
+                      <span className="text-[10px] font-mono font-bold uppercase text-emerald-400">
                         {isFree ? t('myPlans.welfareBenefit', 'Welfare Benefit') : isLic ? t('myPlans.sumAssured', 'Sum Assured / Benefit') : t('myPlans.interestBenefit', 'Interest / Benefit')}
                       </span>
-                      <span className="font-serif font-black text-xs sm:text-sm text-emerald-800 text-right truncate max-w-[150px]">
+                      <span className="font-serif font-black text-xs sm:text-sm text-emerald-300 font-mono text-right truncate max-w-[150px]">
                         {getBenefitValueDisplay(scheme, isFree, isLic)}
                       </span>
                     </div>
 
                     {/* Action Footer */}
-                    <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
-                      <span className="font-bold text-sanchay-navy-900 group-hover:text-emerald-700 transition-colors flex items-center gap-1">
+                    <div className="pt-3 border-t border-emerald-500/15 flex items-center justify-between text-xs">
+                      <span className="font-bold text-slate-300 group-hover:text-emerald-400 transition-colors flex items-center gap-1">
                         <span>{isFree ? t('myPlans.viewFreeDetails', 'View Free Benefit Details') : isLic ? t('myPlans.viewLicDetails', 'View LIC Plan Details') : t('myPlans.viewSchemeDetails', 'View Scheme Details')}</span>
                         <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                       </span>
                       
                       <button
                         onClick={(e) => handleRemove(schemeId, e)}
-                        className="text-red-600 hover:text-red-700 font-bold text-[11px] flex items-center gap-1 cursor-pointer"
+                        className="text-red-400 hover:text-red-300 font-bold text-[11px] flex items-center gap-1 cursor-pointer"
                       >
                         <Trash2 className="w-3 h-3" />
                         <span>{t('myPlans.remove', 'Remove')}</span>

@@ -14,12 +14,12 @@ cross-language multi-turn memory support, and localization dictionary for Sakhi 
 import re
 from typing import Dict, Any, Optional, List, Tuple
 
-SUPPORTED_LANGUAGES = ["en", "hi", "mr", "bn", "te"]
+SUPPORTED_LANGUAGES = ["en", "hi", "hinglish", "mr", "bn", "te"]
 
 # Unicode character block ranges
-RE_TELUGU = re.compile(r'[\u0C00-\u0C7F]')
-RE_BENGALI = re.compile(r'[\u0980-\u09FF]')
-RE_DEVANAGARI = re.compile(r'[\u0900-\u097F]')
+RE_TELUGU = re.compile(r'[ఀ-౿]')
+RE_BENGALI = re.compile(r'[ঀ-৿]')
+RE_DEVANAGARI = re.compile(r'[ऀ-ॿ]')
 
 # Marathi lexical & morphological markers in Devanagari
 MARATHI_DEVANAGARI_MARKERS = [
@@ -37,7 +37,7 @@ MARATHI_DEVANAGARI_MARKERS = [
     "शेतकरी", "शेतकऱ्यांसाठी", "शेतकऱ्यांना", "मुले", "मुलगी", "मुलीसाठी", "मुलांसाठी",
     "उत्पन्न", "उत्पन्नाची", "वय", "वर्षे", "शासकीय", "प्रकल्प", "योजनेसाठी",
     "योजनांची", "भांडवल", "अनुदान", "मोफत", "विनामूल्य", "शिष्यवृत्ती", "तपासण्यासाठी",
-    "निवृत्ती", "पेन्शन", "विमा", "एलआयसी", "कर्ज", "बचत", "लाभ", "काय", "कशासाठी"
+    "निवृत्ती", "पेन्शन", "विमा", "एलआयसी", "कर्ज", "बचत", "लाभ", "काय", "कशासाठी", "होईल", "मी", "गुंतवले", "गुंतवणूक", "वर्षांसाठी", "दरमहा", "वाचवायचे"
 ]
 
 # Hindi lexical & morphological markers in Devanagari
@@ -53,7 +53,7 @@ HINDI_DEVANAGARI_MARKERS = [
     # Nouns / keywords
     "किसान", "किसानों", "बच्चे", "बेटी", "बेटा", "परिवार", "पारिवारिक", "आय",
     "उम्र", "साल", "वर्ष", "योजनाएं", "योजनाएँ", "योजनाओं", "मुफ्त", "मुफ़्त",
-    "छूट", "सब्सिडी", "छात्रवृत्ति", "पेंशन", "बीमा", "एलआईसी", "ऋण", "लोन", "क्या"
+    "छूट", "सब्सिडी", "छात्रवृत्ति", "पेंशन", "बीमा", "एलआईसी", "ऋण", "लोन", "क्या", "अब", "पैसे", "बचाने", "चाहिए"
 ]
 
 # Romanized / Transliterated markers
@@ -75,25 +75,51 @@ ROMANIZED_MARATHI_WORDS = [
     "mofat", "anudan"
 ]
 
-ROMANIZED_HINDI_WORDS = [
-    "mere", "meri", "mera", "mujhe", "batao", "bataiye", "konsi", "kaunsi", "kaun sa",
-    "kaun si", "chahiye", "kisan", "kisanon", "yojana hai", "yojna hai", "karna", "kaise",
-    "milega", "kya", "bachche", "bacche", "beti", "ke liye", "kaha", "kitna", "aamdani",
-    "kamai", "umra", "umar"
+ROMANIZED_HINGLISH_PHRASES = [
+    r'\bbacha sakta hu\b', r'\bbacha sakta hoon\b', r'\bbacha sakti hu\b', r'\bbacha sakte hain\b',
+    r'\bbacha sakte ho\b', r'\bkaise bacha\b', r'\bkaise bachaye\b', r'\bkaise bachau\b',
+    r'\bkarna hai\b', r'\bkarein\b', r'\bsamjha do\b', r'\bbata do\b', r'\bho jaye\b',
+    r'\bho jayega\b', r'\bkamaata hu\b', r'\bkamata hu\b', r'\bkamata hoon\b',
+    r'\bkaha se\b', r'\bkitne paise\b', r'\bkitna paisa\b', r'\bshuru karu\b', r'\bshuru karein\b',
+    r'\bpaise bachane\b', r'\bpaise kaise\b', r'\bsip samjhao\b', r'\bkaise manage\b'
+]
+
+ROMANIZED_HINGLISH_WORDS = [
+    "mujhe", "mujhko", "mera", "meri", "mere", "mein", "main", "hum", "humara", "humari", "humare",
+    "aap", "aapka", "aapki", "aapke", "tum", "tumhara", "tumhari", "tumhare",
+    "kaise", "kya", "kaun", "kaunsa", "kaunsi", "kaunse", "kitna", "kitne", "kitni", "kab", "kaha", "kahan", "kyun", "kyu",
+    "chahiye", "chahie", "sakta", "sakti", "sakte", "hu", "hoon", "hai", "hain", "ho", "hoga", "hogi", "honge",
+    "karo", "karna", "karein", "karu", "karun", "kare", "batao", "bataiye", "batayein", "samjhao", "samjhaiye", "samjhana",
+    "bacha", "bachana", "bachaye", "bachau", "bachane", "bachat", "kamaata", "kamata",
+    "kharch", "kharcha", "kharche", "milega", "milegi", "milenge",
+    "aur", "agar", "toh", "bhi", "nahi", "nahin", "mat", "se", "pe", "par", "ko", "ke", "ki", "ka",
+    "liye", "baad", "pehle", "zaroori", "zaruri", "zarurat", "shuru", "shuruaat",
+    "paise", "paisa", "rupaye", "rupay", "byaj", "nivesh", "yojna", "yojana", "ab"
+]
+
+ENGLISH_MARKERS = [
+    "how", "what", "which", "who", "when", "why", "where",
+    "can", "could", "should", "would", "will", "shall", "may", "might",
+    "i", "you", "he", "she", "it", "we", "they", "my", "your", "his", "her", "our", "their",
+    "save", "saving", "savings", "invest", "investing", "investment",
+    "budget", "budgeting", "income", "salary", "expense", "expenses",
+    "earn", "earning", "manage", "managing", "plan", "planning",
+    "bike", "car", "trip", "travel", "vacation", "america", "usa",
+    "explain", "tell", "compound", "interest", "rate", "money",
+    "government", "scheme", "schemes", "benefit", "benefits", "free",
+    "best", "need", "want", "help", "please", "details", "compare"
 ]
 
 
 def detect_user_language(message: str, fallback_lang: str = "en") -> str:
     """
     Intelligently detects user language from message text:
-    - Telugu (te) if Telugu script or Romanized Telugu is present
-    - Bengali (bn) if Bengali script or Romanized Bengali is present
-    - Marathi (mr) or Hindi (hi) if Devanagari script is present:
-        Distinguishes Marathi vs Hindi using morphological/lexical features
-    - Romanized Hinglish -> Hindi (hi)
-    - Romanized Minglish -> Marathi (mr)
-    - Romanized Bengali -> Bengali (bn)
-    - Romanized Telugu -> Telugu (te)
+    - English (en)
+    - Hindi (hi) in Devanagari script
+    - Hinglish (hinglish) - Hindi written in Roman / Latin script
+    - Marathi (mr) in Devanagari script (or Romanized Marathi)
+    - Bengali (bn) in Bengali script (or Romanized Bengali)
+    - Telugu (te) in Telugu script (or Romanized Telugu)
     - Falls back to fallback_lang if neutral/undetermined (e.g. acronym like 'PPF' or plan number '715')
     """
     if not message or not message.strip():
@@ -102,7 +128,19 @@ def detect_user_language(message: str, fallback_lang: str = "en") -> str:
     msg = message.strip()
     msg_lower = msg.lower()
 
-    # 1. Script-based detection
+    # 1. Explicit Directives (e.g. "Now explain it in English.")
+    if re.search(r'\b(in english|explain (?:it )?in english|speak in english|tell me in english|now explain (?:it )?in english|in pure english)\b', msg_lower):
+        return "en"
+    if re.search(r'\b(in hindi|shuddh hindi|shuddha hindi)\b', msg_lower):
+        return "hi"
+    if re.search(r'\b(in marathi|marathi madhye)\b', msg_lower):
+        return "mr"
+    if re.search(r'\b(in bengali|bangla te)\b', msg_lower):
+        return "bn"
+    if re.search(r'\b(in telugu|telugu lo)\b', msg_lower):
+        return "te"
+
+    # 2. Script-based detection
     # A. Telugu Script
     if RE_TELUGU.search(msg):
         return "te"
@@ -113,57 +151,55 @@ def detect_user_language(message: str, fallback_lang: str = "en") -> str:
 
     # C. Devanagari Script (Marathi vs Hindi)
     if RE_DEVANAGARI.search(msg):
-        # 1. Look for unique Marathi letter 'ळ'
         if "ळ" in msg:
             return "mr"
 
-        mr_score = 0
-        hi_score = 0
-
-        for marker in MARATHI_DEVANAGARI_MARKERS:
-            # Word boundary or containment for Devanagari tokens
-            if marker in msg:
-                mr_score += 2 if len(marker) > 3 else 1
-
-        for marker in HINDI_DEVANAGARI_MARKERS:
-            if marker in msg:
-                hi_score += 2 if len(marker) > 3 else 1
+        mr_score = sum(2 if len(m) > 3 else 1 for m in MARATHI_DEVANAGARI_MARKERS if m in msg)
+        hi_score = sum(2 if len(m) > 3 else 1 for m in HINDI_DEVANAGARI_MARKERS if m in msg)
 
         if mr_score > hi_score:
             return "mr"
         elif hi_score > mr_score:
             return "hi"
         else:
-            # If ambiguous Devanagari (e.g. "योजना" which exists in both), honor fallback if it's mr or hi
-            if fallback_lang == "mr":
-                return "mr"
-            return "hi"
+            return "mr" if fallback_lang == "mr" else "hi"
 
-    # 2. Romanized / Transliterated Lexical Detection
-    te_rom_score = sum(1 for w in ROMANIZED_TELUGU_WORDS if re.search(r'\b' + re.escape(w) + r'\b', msg_lower))
-    bn_rom_score = sum(1 for w in ROMANIZED_BENGALI_WORDS if re.search(r'\b' + re.escape(w) + r'\b', msg_lower))
-    mr_rom_score = sum(1 for w in ROMANIZED_MARATHI_WORDS if re.search(r'\b' + re.escape(w) + r'\b', msg_lower))
-    hi_rom_score = sum(1 for w in ROMANIZED_HINDI_WORDS if re.search(r'\b' + re.escape(w) + r'\b', msg_lower))
+    # 3. Romanized non-Hindi Indian languages
+    te_rom = sum(1 for w in ROMANIZED_TELUGU_WORDS if re.search(r'\b' + re.escape(w) + r'\b', msg_lower))
+    bn_rom = sum(1 for w in ROMANIZED_BENGALI_WORDS if re.search(r'\b' + re.escape(w) + r'\b', msg_lower))
+    mr_rom = sum(1 for w in ROMANIZED_MARATHI_WORDS if re.search(r'\b' + re.escape(w) + r'\b', msg_lower))
 
-    scores = [
-        (te_rom_score, "te"),
-        (bn_rom_score, "bn"),
-        (mr_rom_score, "mr"),
-        (hi_rom_score, "hi")
-    ]
-    scores.sort(key=lambda x: x[0], reverse=True)
-    if scores[0][0] > 0:
-        return scores[0][1]
+    if te_rom > 0 and te_rom >= bn_rom and te_rom >= mr_rom:
+        return "te"
+    if bn_rom > 0 and bn_rom >= mr_rom:
+        return "bn"
+    if mr_rom > 0:
+        return "mr"
 
-    # 3. Pure English check or Neutral Entity (e.g. "PPF", "Plan 715", "SSY")
-    # If standard English question words or phrases are present:
-    en_markers = ["what", "which", "how", "who", "when", "why", "tell me", "available", "eligible", "schemes", "scheme", "plan", "details", "compare", "apply", "benefit"]
-    if any(re.search(r'\b' + re.escape(w) + r'\b', msg_lower) for w in en_markers):
+    # 4. Hinglish Detection (Romanized Hindi)
+    hinglish_score = 0
+    # Match multi-word Hinglish phrases (weight 3 each)
+    for p in ROMANIZED_HINGLISH_PHRASES:
+        if re.search(p, msg_lower):
+            hinglish_score += 3
+
+    # Match individual Hinglish words (weight 1 each)
+    tokens = re.findall(r'\b[a-z]+\b', msg_lower)
+    for tok in tokens:
+        if tok in ROMANIZED_HINGLISH_WORDS:
+            hinglish_score += 1
+
+    # Match English words
+    english_score = sum(1 for tok in tokens if tok in ENGLISH_MARKERS)
+
+    if hinglish_score > 0:
+        return "hinglish"
+
+    if english_score > 0:
         return "en"
 
-    # Neutral fallback
+    # 5. Neutral / Numeric Fallback
     return fallback_lang if fallback_lang in SUPPORTED_LANGUAGES else "en"
-
 
 # =====================================================================
 # MULTILINGUAL DICTIONARY FOR SAKHI CORE PHRASES & DETERMINISTIC REPLIES

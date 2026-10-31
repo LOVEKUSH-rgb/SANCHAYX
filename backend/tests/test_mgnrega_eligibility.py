@@ -150,7 +150,8 @@ def test_case_e_unrelated_schemes_salaried_age_25(schemes):
 
     apy = get_scheme(schemes, "apy_001")
     res_apy = evaluate_eligibility(apy, profile)
-    assert res_apy.status == "ELIGIBLE", f"APY expected ELIGIBLE, got {res_apy.status}"
+    assert res_apy.status == "INELIGIBLE", f"APY expected INELIGIBLE for salaried worker earning 7.5L, got {res_apy.status}"
+    assert any("unorganised" in fc.lower() or "salaried" in fc.lower() for fc in res_apy.failed_criteria)
 
     scss = get_scheme(schemes, "scss_001")
     res_scss = evaluate_eligibility(scss, profile)

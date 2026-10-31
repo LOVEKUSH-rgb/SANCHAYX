@@ -14,34 +14,39 @@ import { resolveLocalSakhiAnswer } from '../../services/sakhiLocalResponder';
 const CONTEXTUAL_PROMPTS = {
   Landing: {
     en: [
-      { label: 'What is PPF?', prompt: 'What is Public Provident Fund (PPF)?' },
-      { label: 'Sukanya Scheme', prompt: 'Tell me about Sukanya Samriddhi Yojana (SSY)' },
-      { label: 'Pension Schemes', prompt: 'What pension schemes are available (APY / NPS)?' },
-      { label: 'Official Sources', prompt: 'What are the official verified sources for Sanchay?' },
+      { label: 'Manage ₹30k Salary', prompt: 'How should I manage my ₹30,000 salary?' },
+      { label: 'USA Trip Budget', prompt: 'How much money do I need for a USA trip?' },
+      { label: 'Buy a Bike Next Year', prompt: 'Can I buy a bike next year?' },
+      { label: 'Compound Interest', prompt: 'Explain compound interest in simple words.' },
+      { label: 'Savings Schemes', prompt: 'Which government savings schemes are available?' },
     ],
     hi: [
-      { label: 'PPF क्या है?', prompt: 'पब्लिक प्रोविडेंट फंड (PPF) क्या है?' },
-      { label: 'सुकन्या योजना', prompt: 'सुकन्या समृद्धि योजना (SSY) के बारे में बताएं' },
-      { label: 'पेंशन योजनाएं', prompt: 'कौन सी पेंशन योजनाएं उपलब्ध हैं (APY / NPS)?' },
-      { label: 'आधिकारिक स्रोत', prompt: 'संचय के आधिकारिक सत्यापित स्रोत कौन से हैं?' },
+      { label: '₹30k वेतन प्रबंधन', prompt: 'How should I manage my ₹30,000 salary?' },
+      { label: 'USA यात्रा का बजट', prompt: 'How much money do I need for a USA trip?' },
+      { label: 'अगले साल बाइक', prompt: 'Can I buy a bike next year?' },
+      { label: 'चक्रवृद्धि ब्याज', prompt: 'Explain compound interest in simple words.' },
+      { label: 'सरकारी बचत योजनाएं', prompt: 'Which government savings schemes are available?' },
     ],
     mr: [
-      { label: 'PPF काय आहे?', prompt: 'पब्लिक प्रॉव्हिडंट फंड (PPF) काय आहे?' },
-      { label: 'सुकन्या योजना', prompt: 'सुकन्या समृद्धी योजना (SSY) बद्दल सांगा' },
-      { label: 'पेन्शन योजना', prompt: 'कोणत्या पेन्शन योजना उपलब्ध आहेत (APY / NPS)?' },
-      { label: 'अधिकृत स्रोत', prompt: 'संचयचे अधिकृत सत्यापित स्रोत कोणते आहेत?' },
+      { label: '₹30k पगार नियोजन', prompt: 'How should I manage my ₹30,000 salary?' },
+      { label: 'USA सहल खर्च', prompt: 'How much money do I need for a USA trip?' },
+      { label: 'बाईक खरेदी', prompt: 'Can I buy a bike next year?' },
+      { label: 'चक्रवाढ व्याज', prompt: 'Explain compound interest in simple words.' },
+      { label: 'बचत योजना', prompt: 'Which government savings schemes are available?' },
     ],
     bn: [
-      { label: 'PPF কী?', prompt: 'পাবলিক প্রভিডেন্ট ফান্ড (PPF) কী?' },
-      { label: 'সুকন্যা যোজনা', prompt: 'সুকন্যা সমৃদ্ধি যোজনা (SSY) সম্পর্কে জানান' },
-      { label: 'পেনশন স্কিম', prompt: 'কোন কোন পেনশন স্কিম উপলব্ধ (APY / NPS)?' },
-      { label: 'অফিসিয়াল উৎস', prompt: 'সঞ্চয়ের যাচাইকৃত অফিসিয়াল সোর্স কোনগুলো?' },
+      { label: '₹৩০k বেতন ব্যবস্থাপনা', prompt: 'How should I manage my ₹30,000 salary?' },
+      { label: 'USA ভ্রমণ বাজেট', prompt: 'How much money do I need for a USA trip?' },
+      { label: 'বাইক কেনা', prompt: 'Can I buy a bike next year?' },
+      { label: 'চক্রবৃদ্ধি সুদ', prompt: 'Explain compound interest in simple words.' },
+      { label: 'সরকারি স্কিম', prompt: 'Which government savings schemes are available?' },
     ],
     te: [
-      { label: 'PPF అంటే ఏమిటి?', prompt: 'పబ్లిక్ ప్రావిడెంట్ ఫండ్ (PPF) అంటే ఏమిటి?' },
-      { label: 'సుకున్య యోజన', prompt: 'సుకున్య సమృద్ధి యోజన (SSY) గురించి చెప్పండి' },
-      { label: 'పెన్షన్ పథకాలు', prompt: 'ఏ పెన్షన్ పథకాలు అందుబాటులో ఉన్నాయి (APY / NPS)?' },
-      { label: 'అధికారిక వనరులు', prompt: 'సంచయ్ యొక్క ధృవీకరించబడిన అధికారిక వనరులు ఏమిటి?' },
+      { label: '₹30k జీతం ప్రణాళిక', prompt: 'How should I manage my ₹30,000 salary?' },
+      { label: 'USA ట్రిప్ బడ్జెట్', prompt: 'How much money do I need for a USA trip?' },
+      { label: 'బైక్ కొనడం', prompt: 'Can I buy a bike next year?' },
+      { label: 'చక్రవడ్డీ', prompt: 'Explain compound interest in simple words.' },
+      { label: 'ప్రభుత్వ పథకాలు', prompt: 'Which government savings schemes are available?' },
     ]
   },
   Profile: {
@@ -138,6 +143,70 @@ const CONTEXTUAL_PROMPTS = {
       { label: 'APY vs NPS పోలిక', prompt: 'రిటైర్మెంట్ కోసం APY మరియు NPS ని పోల్చండి' },
       { label: 'అత్యధిక వడ్డీ రేటు', prompt: 'ఏ ప్రభుత్వ పథకంలో అత్యధిక వడ్డీ రేటు లభిస్తుంది?' },
       { label: 'విత్‌డ్రా నిబంధనలు', prompt: 'ఈ పథకాల ముందస్తు విత్‌డ్రా నిబంధనలు ఏమిటి?' },
+    ]
+  },
+  FinancialHealth: {
+    en: [
+      { label: '50/30/20 Rule', prompt: 'Explain the 50/30/20 budget rule for savings' },
+      { label: 'Emergency Fund', prompt: 'Why is an emergency fund important before investing?' },
+      { label: 'Improve Health Score', prompt: 'How can I improve my financial health resilience score?' },
+      { label: 'Schemes for Budget', prompt: 'What verified government schemes fit my monthly savings capacity?' },
+    ],
+    hi: [
+      { label: '50/30/20 नियम', prompt: 'बचत के लिए 50/30/20 बजट नियम क्या है?' },
+      { label: 'इमरजेंसी फंड', prompt: 'निवेश से पहले आपातकालीन निधि (इमरजेंसी फंड) क्यों जरूरी है?' },
+      { label: 'हेल्थ स्कोर सुधारें', prompt: 'मैं अपना वित्तीय स्वास्थ्य स्कोर कैसे सुधार सकता हूँ?' },
+      { label: 'बजट के अनुसार योजनाएं', prompt: 'मेरी मासिक बचत क्षमता के अनुसार कौन सी सरकारी योजनाएं उपयुक्त हैं?' },
+    ],
+    mr: [
+      { label: '50/30/20 नियम', prompt: 'बचतीसाठी 50/30/20 बजेट नियम काय आहे?' },
+      { label: 'आपत्कालीन निधी', prompt: 'गुंतवणुकीपूर्वी आपत्कालीन निधी का महत्त्वाचा आहे?' },
+      { label: 'हेल्थ स्कोअर सुधारा', prompt: 'मी माझा आर्थिक आरोग्य स्कोअर कसा सुधारू शकतो?' },
+      { label: 'बजेटनुसार योजना', prompt: 'माझ्या मासिक बचतीनुसार कोणत्या सरकारी योजना योग्य आहेत?' },
+    ],
+    bn: [
+      { label: '৫০/৩০/২০ নিয়ম', prompt: 'সঞ্চয়ের জন্য ৫০/৩০/২০ বাজেট নিয়ম কী?' },
+      { label: 'জরুরি তহবিল', prompt: 'বিনিয়োগের আগে জরুরি তহবিল কেন গুরুত্বপূর্ণ?' },
+      { label: 'স্বাস্থ্য স্কোর বৃদ্ধি', prompt: 'আমি কীভাবে আমার আর্থিক রেজিলিয়েন্স স্কোর উন্নত করতে পারি?' },
+      { label: 'বাজেট অনুযায়ী স্কিম', prompt: 'আমার মাসিক সঞ্চয় ক্ষমতা অনুযায়ী কোন সরকারি স্কিমগুলি উপযুক্ত?' },
+    ],
+    te: [
+      { label: '50/30/20 నియమం', prompt: 'పొదుపు కోసం 50/30/20 బడ్జెట్ నియమం ఏమిటి?' },
+      { label: 'ఎమర్జెన్సీ ఫండ్', prompt: 'పెట్టుబడి పెట్టే ముందు అత్యవసర నిధి ఎందుకు ముఖ్యమైనది?' },
+      { label: 'హెల్త్ స్కోర్ మెరుగుదల', prompt: 'నేను నా ఆర్థిక స్థితి స్కోర్‌ను ఎలా మెరుగుపరచుకోవచ్చు?' },
+      { label: 'బడ్జెట్ పథకాలు', prompt: 'నా నెలవారీ పొదుపు సామర్థ్యానికి ఏ ప్రభుత్వ పథకాలు సరిపోతాయి?' },
+    ]
+  },
+  Goal: {
+    en: [
+      { label: 'Schemes for My Goal', prompt: 'Which verified schemes are best for my financial goal?' },
+      { label: 'How Compounding Works', prompt: 'How does compound interest help grow my savings corpus?' },
+      { label: 'Target Feasibility', prompt: 'How do I know if my financial goal is achievable?' },
+      { label: 'Safe Savings Options', prompt: 'What are the safest government-backed options for my milestone?' },
+    ],
+    hi: [
+      { label: 'लक्ष्य के लिए योजनाएं', prompt: 'मेरे वित्तीय लक्ष्य के लिए कौन सी सरकारी योजनाएं सबसे अच्छी हैं?' },
+      { label: 'चक्रवृद्धि ब्याज', prompt: 'चक्रवृद्धि ब्याज मेरे बचत कोष को बढ़ाने में कैसे मदद करता है?' },
+      { label: 'लक्ष्य की संभावना', prompt: 'मुझे कैसे पता चलेगा कि मेरा वित्तीय लक्ष्य प्राप्त करने योग्य है?' },
+      { label: 'सुरक्षित विकल्प', prompt: 'मेरे लक्ष्य के लिए सबसे सुरक्षित सरकारी गारंटीकृत विकल्प कौन से हैं?' },
+    ],
+    mr: [
+      { label: 'ध्येयासाठी योजना', prompt: 'माझ्या आर्थिक ध्येयासाठी कोणत्या सरकारी योजना सर्वोत्तम आहेत?' },
+      { label: 'चक्रवाढ व्याज', prompt: 'चक्रवाढ व्याज माझी बचत वाढवण्यासाठी कशी मदत करते?' },
+      { label: 'ध्येय साध्यता', prompt: 'माझे आर्थिक ध्येय साध्य करण्यायोग्य आहे हे कसे समजेल?' },
+      { label: 'सुरक्षित पर्याय', prompt: 'माझ्या ध्येयासाठी सर्वात सुरक्षित सरकारी पर्याय कोणते आहेत?' },
+    ],
+    bn: [
+      { label: 'লক্ষ্যের জন্য স্কিম', prompt: 'আমার আর্থিক লক্ষ্যের জন্য সেরা সরকারি স্কিম কোনগুলি?' },
+      { label: 'চক্রবৃদ্ধি সুদ', prompt: 'চক্রবৃদ্ধি সুদ কীভাবে আমার সঞ্চয় তহবিল বৃদ্ধিতে সাহায্য করে?' },
+      { label: 'লক্ষ্য সম্ভাব্যতা', prompt: 'আমার আর্থিক লক্ষ্য অর্জনযোগ্য কিনা তা কীভাবে বুঝব?' },
+      { label: 'নিরাপদ সঞ্চয়', prompt: 'আমার লক্ষ্যের জন্য সবচেয়ে নিরাপদ সরকারি বিকল্প কী?' },
+    ],
+    te: [
+      { label: 'లక్ష్యానికి పథకాలు', prompt: 'నా ఆర్థిక లక్ష్యానికి ఏ ప్రభుత్వ పథకాలు ఉత్తమమైనవి?' },
+      { label: 'చక్రవడ్డీ విధానం', prompt: 'చక్రవడ్డీ నా పొదుపును పెంచడంలో ఎలా సహాయపడుతుంది?' },
+      { label: 'లక్ష్య సాధ్యత', prompt: 'నా ఆర్థిక లక్ష్యం సాధించదగినదా అని ఎలా తెలుసుకోవాలి?' },
+      { label: 'సురక్షిత ఎంపికలు', prompt: 'నా లక్ష్యం కోసం అత్యంత సురక్షితమైన ప్రభుత్వ ఎంపికలు ఏమిటి?' },
     ]
   }
 };
@@ -617,11 +686,11 @@ export const SakhiChatPanel = ({
   useEffect(() => {
     if (messages.length === 0) {
       const greetings = {
-        hi: "नमस्ते! मैं **सखी (Sakhi)** हूँ — संचय की सत्यापित सरकारी योजना सहायक।\n\nमैं केवल आधिकारिक भारत सरकार के राजपत्रों द्वारा सत्यापित योजनाओं (जैसे **PPF, SSY, SCSS, APY, NPS**) की जानकारी देती हूँ।\n\nआप किसी भी योजना की ब्याज दर, पात्रता, या लॉक-इन नियमों के बारे में पूछ सकते हैं।",
-        mr: "नमस्कार! मी **सखी (Sakhi)** आहे — संचयची अधिकृत सरकारी योजना सहाय्यक.\n\nमी केवळ भारत सरकारच्या राजपत्रांद्वारे सत्यापित योजनांची (उदा. **PPF, SSY, SCSS, APY, NPS**) माहिती देते.\n\nतुम्ही पात्रता, व्याजदर आणि पैसे काढण्याच्या नियमांबद्दल विचारू शकता.",
-        bn: "নমস্কার! আমি **সখী (Sakhi)** — সঞ্চয়ের যাচাইকৃত সরকারি স্কিম সহায়ক।\n\nআমি শুধুমাত্র ভারত সরকারের অনুমোদিত স্কিম (যেমন **PPF, SSY, SCSS, APY, NPS**) ব্যাখ্যা করি।\n\nআপনি যেকোনো স্কিমের সুদের হার, যোগ্যতা বা নিয়মাবলী সম্পর্কে জিজ্ঞাসা করতে পারেন।",
-        te: "నమస్కారం! నేను **సఖి (Sakhi)** — సంచయ్ యొక్క ధృవీకరించబడిన ప్రభుత్వ పథకాల సహాయకురాలిని.\n\nనేను భారత ప్రభుత్వ అధికారిక గెజిట్‌ల ద్వారా ధృవీకరించబడిన పథకాల (ఉదా. **PPF, SSY, SCSS, APY, NPS**) పై మాత్రమే సమాచారం అందిస్తాను.\n\nమీరు అర్హత, వడ్డీ రేట్లు లేదా విత్‌డ్రా నిబంధనల గురించి అడగవచ్చు.",
-        en: "Hello! I am **Sakhi** — Sanchay's Verified Scheme Assistant.\n\nI provide grounded explanations strictly based on official Government of India gazettes for schemes like **PPF, SSY, SCSS, APY, and NPS**.\n\nHow can I help you understand verified government savings rules today?"
+        en: "Hello! I'm Sakhi 👋\n\nI can help you manage your money, plan your goals, understand government schemes, explore savings and investments, and answer everyday questions.\n\nYou can ask me naturally in English, Hindi or Hinglish. No special format is needed.\n\nWhat would you like help with today?",
+        hi: "नमस्ते! मैं सखी हूँ 👋\n\nमैं आपको अपने पैसों का प्रबंधन करने, अपने लक्ष्यों की योजना बनाने, सरकारी योजनाओं को समझने, बचत व निवेश तलाशने और रोज़मर्रा के सवालों के जवाब देने में मदद कर सकती हूँ।\n\nआप मुझसे हिंदी, हिंग्लिश या अंग्रेज़ी में स्वाभाविक रूप से पूछ सकते हैं। किसी खास प्रारूप की आवश्यकता नहीं है।\n\nआज आप किस विषय में सहायता चाहते हैं?",
+        mr: "नमस्कार! मी सखी आहे 👋\n\nमी तुम्हाला तुमचे पैसे व्यवस्थापित करण्यात, उद्दिष्टांचे नियोजन करण्यात, सरकारी योजना समजून घेण्यात, बचत व गुंतवणूक शोधण्यात आणि दैनंदिन प्रश्नांची उत्तरे मिळवण्यात मदत करू शकते।\n\nतुम्ही मला मराठी, इंग्रजी किंवा हिंदीमध्ये सहजपणे विचारू शकता. कोणत्याही विशेष स्वरूपाची आवश्यकता नाही।\n\nआज तुम्हाला कोणत्या मदतीची आवश्यकता आहे?",
+        bn: "নমস্কার! আমি সখী 👋\n\nআমি আপনাকে আপনার অর্থ পরিচালনা করতে, লক্ষ্য পরিকল্পনা করতে, সরকারি প্রকল্পগুলি বুঝতে, সঞ্চয় ও বিনিয়োগ অন্বেষণ করতে এবং দৈনন্দিন প্রশ্নের উত্তর দিতে সাহায্য করতে পারি।\n\nআপনি আমাকে বাংলা, ইংরেজি বা হিন্দিতে স্বাভাবিকভাবে জিজ্ঞাসা করতে পারেন। কোনো নির্দিষ্ট ফরম্যাটের প্রয়োজন নেই।\n\nআজ আপনি কী বিষয়ে সাহায্য চান?",
+        te: "నమస్కారం! నేను సఖిని 👋\n\nమీ డబ్బును నిర్వహించడంలో, మీ లక్ష్యాలను ప్లాన్ చేయడంలో, ప్రభుత్వ పథకాలను అర్థం చేసుకోవడంలో, పొదుపు మరియు పెట్టుబడులను అన్వేషించడంలో మరియు రోజువారీ ప్రశ్నలకు సమాధానాలు ఇవ్వడంలో నేను మీకు సహాయపడగలను.\n\nమీరు నన్ను తెలుగు, ఇంగ్లీష్ లేదా హిందీలో సహజంగా అడగవచ్చు. ప్రత్యేక ఫార్మాట్ ఏదీ అవసరం లేదు.\n\nఈరోజు మీకు ఏ విషయంలో సహాయం కావాలి?"
       };
 
       setMessages([
@@ -630,14 +699,13 @@ export const SakhiChatPanel = ({
           sender: 'sakhi',
           text: greetings[currentLang] || greetings.en,
           intent: 'WELCOME',
-          sources: [
-            {
-              scheme_name: 'National Small Savings & Central Gazettes',
-              source_authority: 'Ministry of Finance & PFRDA',
-              official_url: 'https://india.gov.in',
-              last_verified: '2026-08-28',
-              verification_status: 'VERIFIED'
-            }
+          sources: [],
+          suggestedPrompts: [
+            'How should I manage my ₹30,000 salary?',
+            'How much money do I need for a USA trip?',
+            'Can I buy a bike next year?',
+            'Explain compound interest in simple words.',
+            'Which government savings schemes are available?'
           ],
           timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
         }
@@ -694,6 +762,7 @@ export const SakhiChatPanel = ({
         message: textToSend.trim(),
         language: currentLang,
         context: {
+          ...context,
           page: activePage,
           scheme_id: context.scheme_id,
           recommendation_id: context.recommendation_id,
@@ -805,13 +874,13 @@ export const SakhiChatPanel = ({
                 <h3 className="font-serif font-extrabold text-base text-white">
                   {t('sakhi.title', 'Sakhi')}
                 </h3>
-                <span className="px-2 py-0.5 rounded-full bg-sanchay-emerald-600/90 text-white font-mono font-bold text-[9px] uppercase tracking-wider flex items-center gap-1 border border-sanchay-emerald-400/30">
-                  <CheckCircle2 className="w-2.5 h-2.5" />
-                  <span>{t('sakhi.badge', 'VERIFIED ASSISTANT')}</span>
+                <span className="px-2.5 py-0.5 rounded-full bg-sanchay-emerald-600/90 text-white font-mono font-bold text-[9px] uppercase tracking-wider flex items-center gap-1 border border-sanchay-emerald-400/30">
+                  <Sparkles className="w-2.5 h-2.5 text-sanchay-gold-400" />
+                  <span>{t('sakhi.badge', 'YOUR PERSONAL AI ASSISTANT')}</span>
                 </span>
               </div>
               <p className="text-[10px] text-slate-400 font-mono mt-0.5">
-                {t('sakhi.subtitle', 'Grounded in Official Gazettes')}
+                {t('sakhi.subtitle', 'Here to help you make smarter decisions.')}
               </p>
             </div>
           </div>
@@ -858,52 +927,6 @@ export const SakhiChatPanel = ({
             </button>
           </div>
 
-        </div>
-
-        {/* Dedicated 3 Categories Quick Options Bar */}
-        <div className="px-4 py-2.5 bg-slate-900 border-b border-sanchay-navy-800 flex items-center justify-between gap-1.5 shrink-0 text-[11px]">
-          <button
-            type="button"
-            onClick={() => handleSendMessage(
-              currentLang === 'hi' ? 'मुझे प्रमुख सरकारी योजनाओं के बारे में बताओ' :
-              currentLang === 'mr' ? 'मला महत्त्वाच्या सरकारी योजनांबद्दल सांगा' :
-              currentLang === 'bn' ? 'আমাকে প্রধান সরকারি স্কিমগুলি সম্পর্কে জানান' :
-              currentLang === 'te' ? 'నాకు ప్రధాన ప్రభుత్వ పథకాల గురించి చెప్పండి' :
-              'Tell me about major Government Schemes available on Sanchay'
-            )}
-            className="flex-1 py-1.5 px-2 rounded-xl bg-sanchay-navy-800/90 hover:bg-sanchay-navy-700 text-slate-200 hover:text-white font-medium text-center transition-all cursor-pointer border border-sanchay-navy-700/60 truncate"
-          >
-            🏛️ {t('sakhi.govtSchemesOption', 'Government Schemes')}
-          </button>
-
-          <button
-            type="button"
-            onClick={() => handleSendMessage(
-              currentLang === 'hi' ? 'मुझे प्रमुख एलआईसी बीमा योजनाओं (LIC Plans) के बारे में बताओ' :
-              currentLang === 'mr' ? 'मला प्रमुख एलआयसी विमा योजनांबद्दल (LIC Plans) सांगा' :
-              currentLang === 'bn' ? 'আমাকে প্রধান এলআইসি পলিসিগুলি (LIC Plans) সম্পর্কে জানান' :
-              currentLang === 'te' ? 'నాకు ప్రధాన ఎల్‌ఐసీ పాలసీల (LIC Plans) గురించి చెప్పండి' :
-              'Tell me about verified LIC Plans and life insurance solutions'
-            )}
-            className="flex-1 py-1.5 px-2 rounded-xl bg-sanchay-navy-800/90 hover:bg-sanchay-navy-700 text-slate-200 hover:text-white font-medium text-center transition-all cursor-pointer border border-sanchay-navy-700/60 truncate"
-          >
-            🛡️ {t('sakhi.licPlansOption', 'LIC Plans')}
-          </button>
-
-          <button
-            type="button"
-            onClick={() => handleSendMessage(
-              currentLang === 'hi' ? 'मुझे मुफ्त सरकारी लाभ और योजनाओं (Free Plans) के बारे में बताओ' :
-              currentLang === 'mr' ? 'मला मोफत सरकारी लाभ आणि योजनांबद्दल (Free Plans) सांगा' :
-              currentLang === 'bn' ? 'আমাকে বিনামূল্যে সরকারি সুবিধা ও স্কিমগুলি (Free Plans) সম্পর্কে জানান' :
-              currentLang === 'te' ? 'నాకు ఉచిత ప్రభుత్వ ప్రయోజనాలు మరియు పథకాల (Free Plans) గురించి చెప్పండి' :
-              'Tell me about available Free Plans, 100% free benefits and training assistance'
-            )}
-            className="flex-1 py-1.5 px-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-center transition-all cursor-pointer border border-emerald-400/40 shadow-xs truncate"
-            title="Explore 100% Free Sovereign Benefits"
-          >
-            🎁 {t('sakhi.freePlansOption', 'Free Plans')}
-          </button>
         </div>
 
         {/* Message Thread */}
@@ -967,11 +990,32 @@ export const SakhiChatPanel = ({
                   <span>REVIEW REQUIRED</span>
                 </div>
               );
+            } else if (msg.id === 'welcome' || msg.intent === 'WELCOME') {
+              verdictBadge = (
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-900 border border-emerald-300 font-mono font-bold text-[10px] uppercase tracking-wider mb-2">
+                  <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
+                  <span>YOUR PERSONAL AI ASSISTANT</span>
+                </div>
+              );
+            } else if (msg.intent === 'GENERAL_CONVERSATION') {
+              verdictBadge = (
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-sky-50 text-sky-900 border border-sky-300 font-mono font-bold text-[10px] uppercase tracking-wider mb-2">
+                  <Sparkles className="w-3.5 h-3.5 text-sky-600" />
+                  <span>AI ASSISTANT</span>
+                </div>
+              );
+            } else if (msg.intent === 'FINANCIAL_COACH') {
+              verdictBadge = (
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-900 border border-emerald-300 font-mono font-bold text-[10px] uppercase tracking-wider mb-2">
+                  <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
+                  <span>FINANCIAL COACH</span>
+                </div>
+              );
             } else if (msg.intent === 'OUT_OF_SCOPE') {
               verdictBadge = (
-                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-100 text-slate-800 border border-slate-300 font-mono font-bold text-[10px] uppercase tracking-wider mb-2">
-                  <ShieldCheck className="w-3.5 h-3.5 text-sanchay-navy-950" />
-                  <span>OFFICIAL SCHEMES ONLY</span>
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber-50 text-amber-900 border border-amber-300 font-mono font-bold text-[10px] uppercase tracking-wider mb-2">
+                  <ShieldCheck className="w-3.5 h-3.5 text-amber-700" />
+                  <span>FINANCIAL RISK NOTICE</span>
                 </div>
               );
             } else if (msg.intent === 'COMPARE_SCHEMES') {
@@ -1039,6 +1083,41 @@ export const SakhiChatPanel = ({
                     {renderMarkdown(msg.text)}
                   </div>
 
+                  {/* Interactive Conversational Suggested Questions on Welcome Card */}
+                  {msg.id === 'welcome' && (
+                    <div className="mt-3.5 pt-3 border-t border-slate-100 space-y-2">
+                      <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 font-bold block">
+                        {currentLang === 'hi' ? 'सुझाए गए प्रश्न (क्लिक करें):' :
+                         currentLang === 'mr' ? 'सुचवलेले प्रश्न (क्लिक करा):' :
+                         currentLang === 'bn' ? 'প্রস্তাবিত প্রশ্নাবলী (ক্লিক করুন):' :
+                         currentLang === 'te' ? 'సూచించబడిన ప్రశ్నలు (క్లిక్ చేయండి):' :
+                         'Suggested Questions:'}
+                      </span>
+                      <div className="grid grid-cols-1 gap-1.5">
+                        {[
+                          { label: 'How should I manage my ₹30,000 salary?', icon: '💰' },
+                          { label: 'How much money do I need for a USA trip?', icon: '✈️' },
+                          { label: 'Can I buy a bike next year?', icon: '🏍️' },
+                          { label: 'Explain compound interest in simple words.', icon: '📈' },
+                          { label: 'Which government savings schemes are available?', icon: '🏛️' }
+                        ].map((sq, sIdx) => (
+                          <button
+                            key={sIdx}
+                            type="button"
+                            onClick={() => handleSendMessage(sq.label)}
+                            className="text-left px-3 py-2 rounded-xl bg-slate-50 hover:bg-emerald-50 hover:border-emerald-300 border border-slate-200/80 text-sanchay-navy-950 hover:text-emerald-900 text-xs font-medium transition-all shadow-2xs flex items-center justify-between group cursor-pointer"
+                          >
+                            <span className="flex items-center gap-2">
+                              <span className="text-sm shrink-0">{sq.icon}</span>
+                              <span className="leading-snug">{sq.label}</span>
+                            </span>
+                            <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-emerald-600 transition-transform group-hover:translate-x-0.5 shrink-0" />
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
                   {/* Source Chips with Direct Links */}
                   {msg.sources && msg.sources.length > 0 && (
                     <div className="mt-3 pt-3 border-t border-slate-100 space-y-1.5">
@@ -1085,7 +1164,13 @@ export const SakhiChatPanel = ({
                   )}
 
                   <div className="flex items-center justify-between text-[9px] font-mono text-slate-400 pt-1">
-                    <span>Single Source of Truth: MongoDB Master</span>
+                    <span>
+                      {msg.sources && msg.sources.length > 0 
+                        ? 'Single Source of Truth: Verified Gazette Master' 
+                        : (msg.id === 'welcome' 
+                            ? "Namaste! I'm Sakhi. What would you like help with today?" 
+                            : 'AI Assistant • Sanchay')}
+                    </span>
                     <span>{msg.timestamp}</span>
                   </div>
 
@@ -1094,7 +1179,7 @@ export const SakhiChatPanel = ({
                 {/* Suggested Prompts Pill Row */}
                 {msg.suggestedPrompts && msg.suggestedPrompts.length > 0 && (
                   <div className="flex flex-wrap gap-1.5 pl-2">
-                    {msg.suggestedPrompts.slice(0, 3).map((prompt, pIdx) => (
+                    {msg.suggestedPrompts.map((prompt, pIdx) => (
                       <button
                         key={pIdx}
                         onClick={() => handleSendMessage(prompt)}
@@ -1237,7 +1322,7 @@ export const SakhiChatPanel = ({
                 currentLang === 'bn' ? 'বলুন, সখী শুনছে...' :
                 currentLang === 'te' ? 'మాట్లాడండి, సఖి వింటోంది...' :
                 'Listening... Speak now'
-              ) : t('sakhi.placeholder', 'Ask Sakhi about verified scheme rules...')}
+              ) : t('sakhi.placeholder', 'Ask Sakhi anything about finances, goals, or schemes...')}
               disabled={isLoading}
               className={`flex-1 bg-[#FAFAFC] border rounded-2xl px-4 py-2.5 text-xs text-sanchay-navy-950 placeholder:text-slate-400 focus:outline-none transition-all disabled:opacity-50 font-medium ${
                 isListening
@@ -1277,8 +1362,8 @@ export const SakhiChatPanel = ({
             </button>
           </form>
 
-          <p className="text-[9px] font-mono text-slate-400 text-center mt-2">
-            {t('footer.disclaimer', 'Educational guidance grounded in Government of India gazettes.')}
+          <p className="text-[9.5px] font-mono text-slate-400 text-center mt-2 leading-tight">
+            {t('footer.disclaimer', 'Educational guidance and planning purposes. Independent of financial intermediaries.')}
           </p>
         </div>
 

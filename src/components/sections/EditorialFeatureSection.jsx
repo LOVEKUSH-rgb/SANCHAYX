@@ -38,34 +38,34 @@ export const EditorialFeatureSection = ({ onSelectGoal }) => {
   ];
 
   return (
-    <section className="py-20 sm:py-28 bg-white border-b border-slate-200/80">
+    <section className="py-20 sm:py-28 bg-[#F8FAF8] border-b border-[#E7ECE8]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Editorial Section Label & Heading */}
         <div className="max-w-3xl mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sanchay-navy-950 text-white text-[11px] font-mono font-bold uppercase tracking-[0.2em] mb-4 shadow-xs">
-            <span className="text-sanchay-gold-500">03</span>
-            <span className="text-slate-500">/</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E7F1EB] border border-[#D5E4DC] text-[#176B50] text-[11px] font-semibold uppercase tracking-[0.2em] mb-4 shadow-2xs">
+            <span className="text-[#92400E] font-bold">03</span>
+            <span className="text-[#D5E4DC]">/</span>
             <span>{t('goals.title', 'GOAL DISCOVERY')}</span>
           </div>
-          <h2 className="font-serif font-extrabold text-3xl sm:text-4xl lg:text-5xl text-sanchay-navy-950 tracking-tight leading-tight">
+          <h2 className="font-serif font-extrabold text-3xl sm:text-4xl lg:text-5xl text-[#202B26] tracking-tight leading-tight">
             {t('goals.subtitle', 'Which scheme is right for your goal?')}
           </h2>
-          <p className="text-base sm:text-lg text-sanchay-navy-700 mt-3 leading-relaxed">
+          <p className="text-base sm:text-lg text-[#66736C] mt-3 leading-relaxed">
             {t('goals.objectiveSubtitle', 'Select your primary objective to explore officially verified financial pathways tailored to your timeline.')}
           </p>
         </div>
 
-        {/* Bento Magazine Grid: Large Card Left (55% Image) + 4 Smaller Cards Right */}
+        {/* Bento Magazine Grid: Large Card Left + 4 Smaller Cards Right */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
           {/* Large Featured Card (Left Column, Span 7) */}
           <div
             onClick={() => onSelectGoal && onSelectGoal('wealth')}
-            className="lg:col-span-7 bg-white rounded-3xl border border-slate-200/90 shadow-card hover:shadow-editorial transition-all duration-300 overflow-hidden flex flex-col justify-between group cursor-pointer"
+            className="lg:col-span-7 bg-white rounded-3xl border border-[#E7ECE8] shadow-card hover:shadow-card-hover hover:border-[#176B50]/30 transition-all duration-300 overflow-hidden flex flex-col justify-between group cursor-pointer"
           >
-            {/* Image covering ~55% height */}
-            <div className="relative h-72 sm:h-80 w-full overflow-hidden bg-slate-100 flex items-center justify-center">
+            {/* Image covering top half */}
+            <div className="relative h-72 sm:h-80 w-full overflow-hidden bg-[#FAFAFC] flex items-center justify-center border-b border-[#E7ECE8]">
               <img
                 src={EDITORIAL_FEATURE_IMAGES.wealth.url}
                 alt="Long-term wealth & retirement"
@@ -76,46 +76,46 @@ export const EditorialFeatureSection = ({ onSelectGoal }) => {
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
               
-              <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-sanchay-navy-950/80 backdrop-blur-xs text-white font-mono font-bold text-xs uppercase tracking-wider shadow-sm">
+              <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-white/95 border border-[#D5E4DC] text-[#176B50] font-semibold text-xs uppercase tracking-wider shadow-2xs">
                 {t('editorial.featuredGuidance', 'FEATURED EDITORIAL GUIDANCE')}
               </div>
             </div>
 
-            {/* Content Text Overlay/Adjacent */}
+            {/* Content Text */}
             <div className="p-8 bg-white flex-1 flex flex-col justify-between">
               <div>
-                <span className="text-xs font-mono font-bold text-sanchay-emerald-700 uppercase tracking-widest block mb-2">
+                <span className="text-xs font-bold text-[#176B50] uppercase tracking-widest block mb-2">
                   {t('editorial.primaryWealthObjective', '01 / PRIMARY WEALTH OBJECTIVE')}
                 </span>
-                <h3 className="font-serif font-extrabold text-2xl sm:text-3xl text-sanchay-navy-950 group-hover:text-sanchay-emerald-700 transition-colors">
+                <h3 className="font-serif font-extrabold text-2xl sm:text-3xl text-[#202B26] group-hover:text-[#176B50] transition-colors">
                   {t('goals.wealth', 'Long-term wealth & retirement')}
                 </h3>
-                <p className="text-sm text-sanchay-navy-700 mt-3 leading-relaxed">
+                <p className="text-sm text-[#66736C] mt-3 leading-relaxed">
                   {t('goals.wealthDesc', 'Discover schemes designed for disciplined long-term saving. Harness compound interest with 100% sovereign guarantees and zero market risk.')}
                 </p>
               </div>
 
-              <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
-                <span className="text-xs font-bold font-mono text-slate-500 uppercase">
+              <div className="pt-6 mt-6 border-t border-[#E7ECE8] flex items-center justify-between">
+                <span className="text-xs font-semibold text-[#66736C] uppercase">
                   {t('editorial.includesPPFNPS', 'Includes PPF, NPS & Sovereign Gold Bonds')}
                 </span>
-                <span className="inline-flex items-center gap-2 text-xs font-extrabold text-sanchay-emerald-700 group-hover:translate-x-1 transition-transform uppercase tracking-wider">
-                  <span>{t('editorial.explorePathway', 'Explore Pathway')}</span>
-                  <ArrowRight className="w-4 h-4" />
+                <span className="inline-flex items-center gap-1.5 text-xs font-bold text-[#176B50] group-hover:text-[#125540] uppercase tracking-wider group-hover:translate-x-1 transition-transform">
+                  <span>{t('goals.exploreGoal', 'Explore Pathways')}</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </span>
               </div>
             </div>
           </div>
 
-          {/* 4 Smaller Complementary Goal Cards (Right Column, Span 5) */}
+          {/* 4 Smaller Goal Cards (Right Column, Span 5) */}
           <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
             {smallCards.map((card) => (
               <div
                 key={card.id}
                 onClick={() => onSelectGoal && onSelectGoal(card.id)}
-                className="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-card hover:shadow-editorial hover:border-sanchay-emerald-500/40 transition-all duration-300 flex items-center gap-4 group cursor-pointer"
+                className="bg-white rounded-2xl p-4 sm:p-5 border border-[#E7ECE8] shadow-card hover:shadow-card-hover hover:border-[#176B50]/30 transition-all duration-300 flex items-center gap-4 group cursor-pointer hover:-translate-y-0.5"
               >
-                <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden bg-slate-100 shrink-0 relative flex items-center justify-center">
+                <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden bg-[#FAFAFC] shrink-0 border border-[#E7ECE8]">
                   <img
                     src={card.image}
                     alt={card.title}
@@ -125,22 +125,22 @@ export const EditorialFeatureSection = ({ onSelectGoal }) => {
                     }}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-slate-900/80 text-[8px] font-mono font-bold text-white uppercase">
-                    {card.badge}
-                  </div>
                 </div>
 
-                <div className="flex-1 min-w-0">
-                  <h4 className="font-serif font-bold text-base text-sanchay-navy-950 group-hover:text-sanchay-emerald-700 transition-colors leading-snug truncate">
+                <div className="min-w-0 flex-1">
+                  <span className="text-[10px] font-bold text-[#176B50] uppercase tracking-wider block mb-1">
+                    {card.badge}
+                  </span>
+                  <h4 className="font-serif font-extrabold text-sm sm:text-base text-[#202B26] group-hover:text-[#176B50] transition-colors line-clamp-1">
                     {card.title}
                   </h4>
-                  <p className="text-xs text-sanchay-navy-700 mt-1 line-clamp-2 leading-relaxed">
+                  <p className="text-xs text-[#66736C] mt-1 line-clamp-2 leading-relaxed">
                     {card.desc}
                   </p>
-                  <span className="inline-flex items-center gap-1 text-[11px] font-bold text-sanchay-emerald-700 uppercase tracking-wider mt-2 group-hover:translate-x-0.5 transition-transform">
-                    <span>{t('editorial.exploreGoal', 'Explore Goal')}</span>
-                    <ArrowRight className="w-3 h-3" />
-                  </span>
+                </div>
+
+                <div className="w-8 h-8 rounded-full bg-[#E7F1EB] border border-[#D5E4DC] flex items-center justify-center text-[#176B50] shrink-0 group-hover:bg-[#176B50] group-hover:text-white transition-colors">
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                 </div>
               </div>
             ))}

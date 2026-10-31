@@ -60,10 +60,10 @@ def test_frontend_lic_integration_endpoints():
             categories["Child Plans"] += 1
 
     print(f"2. Frontend Category Breakdown: {categories}")
-    assert categories["Endowment"] == 9
+    assert categories["Endowment"] == 11
     assert categories["Term Assurance"] == 8
-    assert categories["Whole Life"] == 2
-    assert categories["Money Back"] == 4
+    assert categories["Whole Life"] == 3
+    assert categories["Money Back"] == 5
     assert categories["Pension"] == 5
     assert categories["Unit Linked"] == 4
     assert categories["Micro Insurance"] == 2

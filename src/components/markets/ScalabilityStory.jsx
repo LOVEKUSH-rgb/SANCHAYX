@@ -3,75 +3,75 @@ import { Network, ArrowRight, ShieldCheck, Banknote, CandlestickChart, Landmark,
 
 export const ScalabilityStory = () => {
   return (
-    <section className="py-20 bg-slate-50 border-y border-slate-200">
+    <section className="py-20 bg-[#060b08] border-y border-emerald-500/15 text-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-200 text-slate-700 text-[10px] font-mono font-bold uppercase tracking-wider mb-4">
-            <Network className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/80 text-emerald-300 border border-emerald-500/30 text-[10px] font-mono font-bold uppercase tracking-wider mb-4">
+            <Network className="w-3.5 h-3.5 text-emerald-400" />
             <span>Future Business Model</span>
           </div>
-          <h2 className="font-serif font-extrabold text-3xl sm:text-4xl text-sanchay-navy-950 mb-4">
+          <h2 className="font-serif font-extrabold text-3xl sm:text-4xl text-white mb-4">
             Why SANCHAY can scale
           </h2>
-          <p className="text-slate-600 text-lg">
+          <p className="text-slate-400 text-lg">
             Evolving from government scheme discovery into a comprehensive infrastructure for personal financial discovery.
           </p>
         </div>
 
         {/* Funnel Expansion */}
         <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-16">
-          <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 text-center flex flex-col items-center">
-            <Landmark className="w-8 h-8 text-slate-400 mb-3" />
-            <span className="font-bold text-sm text-sanchay-navy-900">Government Schemes</span>
+          <div className="bg-[#0c1611]/90 p-6 rounded-2xl shadow-2xl border border-emerald-500/20 text-center flex flex-col items-center">
+            <Landmark className="w-8 h-8 text-emerald-400 mb-3" />
+            <span className="font-bold text-sm text-white">Government Schemes</span>
           </div>
-          <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 text-center flex flex-col items-center relative md:translate-y-4">
-            <Banknote className="w-8 h-8 text-blue-400 mb-3" />
-            <span className="font-bold text-sm text-sanchay-navy-900">Fixed Income</span>
+          <div className="bg-[#0c1611]/90 p-6 rounded-2xl shadow-2xl border border-emerald-500/20 text-center flex flex-col items-center relative md:translate-y-4">
+            <Banknote className="w-8 h-8 text-sky-400 mb-3" />
+            <span className="font-bold text-sm text-white">Fixed Income</span>
           </div>
-          <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 text-center flex flex-col items-center relative md:translate-y-8">
+          <div className="bg-[#0c1611]/90 p-6 rounded-2xl shadow-2xl border border-emerald-500/20 text-center flex flex-col items-center relative md:translate-y-8">
             <Globe className="w-8 h-8 text-emerald-400 mb-3" />
-            <span className="font-bold text-sm text-sanchay-navy-900">Mutual Funds</span>
+            <span className="font-bold text-sm text-white">Mutual Funds</span>
           </div>
-          <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 text-center flex flex-col items-center relative md:translate-y-12">
+          <div className="bg-[#0c1611]/90 p-6 rounded-2xl shadow-2xl border border-emerald-500/20 text-center flex flex-col items-center relative md:translate-y-12">
             <Building2 className="w-8 h-8 text-purple-400 mb-3" />
-            <span className="font-bold text-sm text-sanchay-navy-900">ETFs</span>
+            <span className="font-bold text-sm text-white">ETFs</span>
           </div>
-          <div className="bg-sanchay-navy-950 p-6 rounded-2xl shadow-card border border-sanchay-navy-800 text-center flex flex-col items-center relative md:translate-y-16">
-            <CandlestickChart className="w-8 h-8 text-sanchay-gold-400 mb-3" />
+          <div className="bg-emerald-950/80 p-6 rounded-2xl shadow-2xl border border-emerald-500/40 text-center flex flex-col items-center relative md:translate-y-16">
+            <CandlestickChart className="w-8 h-8 text-emerald-300 mb-3" />
             <span className="font-bold text-sm text-white">Personal Financial Discovery</span>
           </div>
         </div>
 
         {/* Discovery Flow */}
-        <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-card border border-slate-200 mb-16">
+        <div className="bg-[#0c1611]/90 rounded-3xl p-8 sm:p-12 shadow-2xl border border-emerald-500/20 mb-16">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
             
-            <div className="flex-1 w-full bg-slate-50 rounded-2xl p-6 border border-slate-100">
-              <h3 className="font-bold text-sanchay-navy-900 mb-4 text-center">User Inputs</h3>
+            <div className="flex-1 w-full bg-[#08120d] rounded-2xl p-6 border border-emerald-500/15">
+              <h3 className="font-bold text-white mb-4 text-center">User Inputs</h3>
               <div className="flex flex-wrap justify-center gap-2">
-                <span className="px-3 py-1.5 bg-white shadow-2xs rounded-lg text-xs font-bold text-slate-700">Goal</span>
-                <span className="px-3 py-1.5 bg-white shadow-2xs rounded-lg text-xs font-bold text-slate-700">Amount</span>
-                <span className="px-3 py-1.5 bg-white shadow-2xs rounded-lg text-xs font-bold text-slate-700">Horizon</span>
-                <span className="px-3 py-1.5 bg-white shadow-2xs rounded-lg text-xs font-bold text-slate-700">Risk Pref</span>
+                <span className="px-3 py-1.5 bg-[#0c1611] border border-emerald-500/20 rounded-lg text-xs font-bold text-slate-300">Goal</span>
+                <span className="px-3 py-1.5 bg-[#0c1611] border border-emerald-500/20 rounded-lg text-xs font-bold text-slate-300">Amount</span>
+                <span className="px-3 py-1.5 bg-[#0c1611] border border-emerald-500/20 rounded-lg text-xs font-bold text-slate-300">Horizon</span>
+                <span className="px-3 py-1.5 bg-[#0c1611] border border-emerald-500/20 rounded-lg text-xs font-bold text-slate-300">Risk Pref</span>
               </div>
             </div>
 
-            <ArrowRight className="w-8 h-8 text-slate-300 hidden lg:block rotate-90 lg:rotate-0" />
+            <ArrowRight className="w-8 h-8 text-emerald-500/40 hidden lg:block rotate-90 lg:rotate-0" />
 
-            <div className="flex-1 w-full bg-sanchay-emerald-50 rounded-2xl p-6 border border-sanchay-emerald-100">
-              <h3 className="font-bold text-sanchay-emerald-900 mb-4 text-center">SANCHAY Platform</h3>
-              <div className="text-center font-bold text-sm text-sanchay-emerald-700">
+            <div className="flex-1 w-full bg-emerald-950/60 rounded-2xl p-6 border border-emerald-500/30">
+              <h3 className="font-bold text-emerald-300 mb-4 text-center">SANCHAY Platform</h3>
+              <div className="text-center font-bold text-sm text-emerald-200">
                 Comparison & Education
               </div>
             </div>
 
-            <ArrowRight className="w-8 h-8 text-slate-300 hidden lg:block rotate-90 lg:rotate-0" />
+            <ArrowRight className="w-8 h-8 text-emerald-500/40 hidden lg:block rotate-90 lg:rotate-0" />
 
-            <div className="flex-1 w-full bg-blue-50 rounded-2xl p-6 border border-blue-100">
-              <h3 className="font-bold text-blue-900 mb-4 text-center">Destination</h3>
-              <div className="text-center font-bold text-sm text-blue-700 flex items-center justify-center gap-2">
-                <ShieldCheck className="w-4 h-4" />
+            <div className="flex-1 w-full bg-sky-950/40 rounded-2xl p-6 border border-sky-500/30">
+              <h3 className="font-bold text-sky-200 mb-4 text-center">Destination</h3>
+              <div className="text-center font-bold text-sm text-sky-300 flex items-center justify-center gap-2">
+                <ShieldCheck className="w-4 h-4 text-sky-400" />
                 Official / Regulated Product
               </div>
             </div>
@@ -81,7 +81,7 @@ export const ScalabilityStory = () => {
 
         {/* Future Business Models */}
         <div className="max-w-4xl mx-auto">
-          <h3 className="font-bold text-center text-slate-500 uppercase tracking-widest text-xs mb-8">
+          <h3 className="font-bold text-center text-slate-400 uppercase tracking-widest text-xs mb-8">
             Potential Revenue & Scalability Vectors
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -92,9 +92,9 @@ export const ScalabilityStory = () => {
               'Premium Financial Planning Tools',
               'API / White-label Financial Discovery'
             ].map((item, idx) => (
-              <div key={idx} className="bg-white px-5 py-4 rounded-xl shadow-2xs border border-slate-100 flex items-start gap-3">
-                <TrendingUp className="w-5 h-5 text-sanchay-emerald-500 shrink-0 mt-0.5" />
-                <span className="text-sm font-bold text-sanchay-navy-900 leading-tight">{item}</span>
+              <div key={idx} className="bg-[#0c1611]/90 px-5 py-4 rounded-xl border border-emerald-500/20 flex items-start gap-3">
+                <TrendingUp className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+                <span className="text-sm font-bold text-slate-200 leading-tight">{item}</span>
               </div>
             ))}
           </div>

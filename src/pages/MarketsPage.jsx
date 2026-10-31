@@ -22,7 +22,7 @@ export const MarketsPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF9F5] text-sanchay-navy-950 flex flex-col selection:bg-sanchay-emerald-600 selection:text-white">
+    <div className="min-h-screen bg-[#060b08] text-slate-100 flex flex-col selection:bg-emerald-600 selection:text-white">
       <Navbar />
       
       <main className="flex-1">

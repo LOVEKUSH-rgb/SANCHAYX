@@ -40,7 +40,7 @@ export const SchemesPage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#FAF9F5] text-sanchay-navy-950 flex flex-col selection:bg-sanchay-emerald-600 selection:text-white">
+    <div className="min-h-screen bg-[#F8FAF8] text-[#202B26] flex flex-col font-sans">
       <Navbar />
       <main className="flex-1 pt-4 sm:pt-6">
         <FeaturedSchemesSection

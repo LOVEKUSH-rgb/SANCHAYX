@@ -19,6 +19,7 @@ import { MyProfilePage } from './pages/MyProfilePage';
 import { ManualCalculatorPage } from './pages/ManualCalculatorPage';
 import { SchemesPage } from './pages/SchemesPage';
 import { MarketsPage } from './pages/MarketsPage';
+import { FinancialHealthPage } from './pages/FinancialHealthPage';
 
 
 export default function App() {
@@ -28,7 +29,7 @@ export default function App() {
         <Router>
           <ScrollToTop />
           <CustomCursor />
-          <div className="min-h-screen bg-sanchay-light text-sanchay-navy-900 font-sans overflow-x-hidden w-full relative">
+          <div className="min-h-screen bg-[#F8FAF8] text-[#202B26] font-sans overflow-x-hidden w-full relative">
             <Routes>
               <Route path="/" element={<LandingPage />} />
               <Route path="/profile" element={<ProfilePage />} />
@@ -44,6 +45,9 @@ export default function App() {
               <Route path="/free-benefits" element={<FreeBenefitsPage />} />
               <Route path="/benefits" element={<FreeBenefitsPage />} />
               <Route path="/calculator" element={<ManualCalculatorPage />} />
+              <Route path="/financial-health" element={<FinancialHealthPage />} />
+              <Route path="/smart-budget" element={<FinancialHealthPage />} />
+              <Route path="/budget" element={<FinancialHealthPage />} />
               <Route path="/schemes" element={<SchemesPage />} />
               <Route path="/markets" element={<MarketsPage />} />
             </Routes>

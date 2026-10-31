@@ -123,7 +123,7 @@ export const ProfilePage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF9F5] text-sanchay-navy-950 flex flex-col selection:bg-sanchay-emerald-600 selection:text-white">
+    <div className="min-h-screen bg-[#060b08] text-slate-100 flex flex-col selection:bg-emerald-600 selection:text-white">
       <Navbar />
 
       <main className="flex-1 py-10 sm:py-16">
@@ -132,28 +132,28 @@ export const ProfilePage = () => {
           {/* Step Progress Bar */}
           <div className="mb-8">
             <div className="flex items-center justify-between text-xs font-mono font-bold text-slate-400 mb-2">
-              <span className="text-sanchay-emerald-700 uppercase tracking-widest">{t('profile.stepIndicator', 'STEP 1 OF 3')}</span>
-              <span className="uppercase tracking-widest">{t('profile.personaLabel', 'Profile & Hard Eligibility Parameters')}</span>
+              <span className="text-emerald-400 uppercase tracking-widest">{t('profile.stepIndicator', 'STEP 1 OF 3')}</span>
+              <span className="uppercase tracking-widest text-slate-400">{t('profile.personaLabel', 'Profile & Hard Eligibility Parameters')}</span>
             </div>
-            <div className="w-full h-2 bg-slate-200/80 rounded-full overflow-hidden">
-              <div className="w-1/3 h-full bg-sanchay-emerald-600 rounded-full transition-all duration-300" />
+            <div className="w-full h-2 bg-emerald-950/60 rounded-full overflow-hidden border border-emerald-500/20">
+              <div className="w-1/3 h-full bg-emerald-500 rounded-full transition-all duration-300" />
             </div>
           </div>
 
           {/* Page Card Container */}
-          <form onSubmit={handleNext} className="bg-white rounded-3xl p-6 sm:p-10 shadow-editorial border border-slate-200/90 space-y-8">
+          <form onSubmit={handleNext} className="bg-[#0c1611]/90 rounded-3xl p-6 sm:p-10 shadow-2xl border border-emerald-500/20 space-y-8 backdrop-blur-sm">
             
             <div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sanchay-emerald-50 text-sanchay-emerald-700 text-xs font-mono font-bold uppercase tracking-wider mb-3 border border-sanchay-emerald-200">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-950/80 text-emerald-300 text-xs font-mono font-bold uppercase tracking-wider mb-3 border border-emerald-500/30">
                 <Users className="w-3.5 h-3.5" />
                 <span>{t('profile.title', 'Demographic & Statutory Profile')}</span>
               </div>
-              <h1 className="font-serif font-extrabold text-3xl sm:text-4xl text-sanchay-navy-950">
+              <h1 className="font-serif font-extrabold text-3xl sm:text-4xl text-white">
                 {searchParams.get('schemeId') 
                   ? t('profile.applicantProfile', 'Applicant Profile') 
                   : t('profile.savingFor', 'Who are you saving for?')}
               </h1>
-              <p className="text-xs sm:text-sm text-sanchay-navy-700 mt-2 leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-400 mt-2 leading-relaxed">
                 {searchParams.get('schemeId')
                   ? t('profile.schemeSubtitle', "Provide the details required to check this scheme's eligibility.")
                   : t('profile.subtitle', 'Provide statutory details so the rule engine can evaluate mandatory eligibility criteria.')}
@@ -162,8 +162,8 @@ export const ProfilePage = () => {
 
             {/* Question: Saving for Self or Minor? */}
             {profileConfig.showSavingFor && (
-            <div className="p-5 rounded-2xl bg-[#F8F6F0] border border-slate-200/80">
-              <label className="text-xs font-mono font-bold text-sanchay-navy-950 uppercase tracking-wider block mb-3">
+            <div className="p-5 rounded-2xl bg-[#08120d] border border-emerald-500/15">
+              <label className="text-xs font-mono font-bold text-slate-300 uppercase tracking-wider block mb-3">
                 {t('profile.savingFor', 'Account Beneficiary')}
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -172,15 +172,15 @@ export const ProfilePage = () => {
                   onClick={() => setSavingFor('self')}
                   className={`p-4 rounded-xl border text-left font-bold text-sm transition-all flex items-center justify-between cursor-pointer ${
                     savingFor === 'self'
-                      ? 'bg-white border-sanchay-emerald-600 text-sanchay-navy-950 shadow-xs ring-2 ring-sanchay-emerald-500/20'
-                      : 'bg-white/50 border-slate-200 text-slate-600 hover:bg-white'
+                      ? 'bg-emerald-950/80 border-emerald-500 text-white shadow-xs ring-2 ring-emerald-500/20'
+                      : 'bg-[#060b08] border-emerald-500/20 text-slate-400 hover:border-emerald-500/40 hover:text-slate-200'
                   }`}
                 >
                   <div>
-                    <span className="block text-sanchay-navy-950 font-serif">{t('profile.forSelf', 'Saving for Myself / Family')}</span>
-                    <span className="text-[11px] text-slate-500 font-normal">Adult applicant (PPF, APY, SCSS, NSC, KVP)</span>
+                    <span className="block text-white font-serif">{t('profile.forSelf', 'Saving for Myself / Family')}</span>
+                    <span className="text-[11px] text-slate-400 font-normal">Adult applicant (PPF, APY, SCSS, NSC, KVP)</span>
                   </div>
-                  {savingFor === 'self' && <CheckCircle2 className="w-5 h-5 text-sanchay-emerald-600 shrink-0" />}
+                  {savingFor === 'self' && <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />}
                 </button>
 
                 <button
@@ -188,24 +188,24 @@ export const ProfilePage = () => {
                   onClick={() => setSavingFor('minor')}
                   className={`p-4 rounded-xl border text-left font-bold text-sm transition-all flex items-center justify-between cursor-pointer ${
                     savingFor === 'minor'
-                      ? 'bg-white border-sanchay-emerald-600 text-sanchay-navy-950 shadow-xs ring-2 ring-sanchay-emerald-500/20'
-                      : 'bg-white/50 border-slate-200 text-slate-600 hover:bg-white'
+                      ? 'bg-emerald-950/80 border-emerald-500 text-white shadow-xs ring-2 ring-emerald-500/20'
+                      : 'bg-[#060b08] border-emerald-500/20 text-slate-400 hover:border-emerald-500/40 hover:text-slate-200'
                   }`}
                 >
                   <div>
-                    <span className="block text-sanchay-navy-950 font-serif">{t('profile.forMinor', 'Saving for Minor / Child')}</span>
-                    <span className="text-[11px] text-slate-500 font-normal">Operated by Natural/Legal Guardian (SSY, PPF Minor)</span>
+                    <span className="block text-white font-serif">{t('profile.forMinor', 'Saving for Minor / Child')}</span>
+                    <span className="text-[11px] text-slate-400 font-normal">Operated by Natural/Legal Guardian (SSY, PPF Minor)</span>
                   </div>
-                  {savingFor === 'minor' && <CheckCircle2 className="w-5 h-5 text-sanchay-emerald-600 shrink-0" />}
+                  {savingFor === 'minor' && <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />}
                 </button>
               </div>
 
               {/* Child Age + Guardian Toggle if Minor */}
               {savingFor === 'minor' && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 pt-4 border-t border-slate-200">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 pt-4 border-t border-emerald-500/15">
                   {profileConfig.showChildAge && (
                   <div>
-                    <label className="text-xs font-mono font-bold text-sanchay-navy-950 uppercase tracking-wider block mb-1.5">
+                    <label className="text-xs font-mono font-bold text-slate-300 uppercase tracking-wider block mb-1.5">
                       {t('profile.childAgeLabel', 'Child Age (Years)')}
                     </label>
                     <input
@@ -214,28 +214,28 @@ export const ProfilePage = () => {
                       max="17"
                       value={childAge}
                       onChange={(e) => setChildAge(Number(e.target.value))}
-                      className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-sm font-bold text-sanchay-navy-950"
+                      className="w-full bg-[#060b08] border border-emerald-500/25 rounded-xl px-3 py-2 text-sm font-bold text-white focus:outline-none focus:border-emerald-400"
                     />
                   </div>
                   )}
 
                   {profileConfig.showGuardian && (
                   <div>
-                    <label className="text-xs font-mono font-bold text-sanchay-navy-950 uppercase tracking-wider block mb-1.5">
+                    <label className="text-xs font-mono font-bold text-slate-300 uppercase tracking-wider block mb-1.5">
                       {t('profile.guardianLabel', 'Guardian Representation')}
                     </label>
                     <div className="flex gap-2">
                       <button
                         type="button"
                         onClick={() => setHasGuardian(true)}
-                        className={`px-3 py-2 rounded-xl text-xs font-bold ${hasGuardian ? 'bg-sanchay-emerald-600 text-white' : 'bg-white border border-slate-200'}`}
+                        className={`px-3 py-2 rounded-xl text-xs font-bold cursor-pointer ${hasGuardian ? 'bg-emerald-600 text-white' : 'bg-[#060b08] text-slate-300 border border-emerald-500/25'}`}
                       >
                         {t('profile.guardianYes', 'Guardian Available')}
                       </button>
                       <button
                         type="button"
                         onClick={() => setHasGuardian(false)}
-                        className={`px-3 py-2 rounded-xl text-xs font-bold ${!hasGuardian ? 'bg-red-600 text-white' : 'bg-white border border-slate-200'}`}
+                        className={`px-3 py-2 rounded-xl text-xs font-bold cursor-pointer ${!hasGuardian ? 'bg-red-600 text-white' : 'bg-[#060b08] text-slate-300 border border-emerald-500/25'}`}
                       >
                         {t('profile.guardianNo', 'No Guardian')}
                       </button>
@@ -250,7 +250,7 @@ export const ProfilePage = () => {
             {/* Life Stage Persona Selection */}
             {profileConfig.showPersona && (
             <div>
-              <label className="text-xs font-mono font-bold text-sanchay-navy-950 uppercase tracking-wider block mb-3">
+              <label className="text-xs font-mono font-bold text-slate-300 uppercase tracking-wider block mb-3">
                 {t('profile.personaLabel', 'Select Life Stage')}
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
@@ -263,18 +263,18 @@ export const ProfilePage = () => {
                       onClick={() => setSelectedPersona(p.id)}
                       className={`p-4 rounded-2xl text-left border transition-all duration-200 flex flex-col justify-between cursor-pointer ${
                         isSelected
-                          ? 'border-sanchay-emerald-600 bg-sanchay-emerald-50/50 shadow-xs ring-2 ring-sanchay-emerald-500/20'
-                          : 'border-slate-200/90 hover:border-slate-300 hover:bg-[#F8F6F0]'
+                          ? 'border-emerald-500 bg-emerald-950/60 shadow-xs ring-2 ring-emerald-500/20'
+                          : 'border-emerald-500/20 bg-[#08120d] hover:border-emerald-400/50 hover:bg-[#101e17]'
                       }`}
                     >
                       <div>
                         <div className="flex items-center justify-between mb-1.5">
-                          <span className="font-serif font-bold text-sm text-sanchay-navy-950">
+                          <span className="font-serif font-bold text-sm text-white">
                             {p.title}
                           </span>
-                          {isSelected && <CheckCircle2 className="w-4 h-4 text-sanchay-emerald-600 shrink-0" />}
+                          {isSelected && <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />}
                         </div>
-                        <p className="text-[11px] text-sanchay-navy-700 leading-snug">
+                        <p className="text-[11px] text-slate-400 leading-snug">
                           {p.subtitle}
                         </p>
                       </div>
@@ -286,12 +286,12 @@ export const ProfilePage = () => {
             )}
 
             {/* Form Inputs Grid: Age, Gender, Residency, State, Income, Occupation */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-5 rounded-2xl bg-[#F8F6F0] border border-slate-200/80">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-5 rounded-2xl bg-[#08120d] border border-emerald-500/15">
               
               {/* Age */}
               {profileConfig.showAge && (
               <div>
-                <label className="text-xs font-mono font-bold text-sanchay-navy-950 uppercase tracking-wider block mb-1.5">
+                <label className="text-xs font-mono font-bold text-slate-300 uppercase tracking-wider block mb-1.5">
                   {t('profile.ageLabel', 'Age of Applicant *')}
                 </label>
                 <div className="flex items-center gap-2">
@@ -302,9 +302,9 @@ export const ProfilePage = () => {
                     value={age}
                     onChange={(e) => setAge(e.target.value === '' ? '' : Number(e.target.value))}
                     required
-                    className="w-full bg-white border border-slate-200/90 rounded-xl px-3 py-2 text-sm font-bold text-sanchay-navy-950 focus:outline-none focus:border-sanchay-emerald-600 shadow-2xs"
+                    className="w-full bg-[#060b08] border border-emerald-500/25 rounded-xl px-3 py-2 text-sm font-bold text-white focus:outline-none focus:border-emerald-400 shadow-2xs"
                   />
-                  <span className="font-mono text-xs text-slate-500 font-bold">Yrs</span>
+                  <span className="font-mono text-xs text-slate-400 font-bold">Yrs</span>
                 </div>
               </div>
               )}
@@ -312,13 +312,13 @@ export const ProfilePage = () => {
               {/* Gender */}
               {profileConfig.showGender && (
               <div>
-                <label className="text-xs font-mono font-bold text-sanchay-navy-950 uppercase tracking-wider block mb-1.5">
+                <label className="text-xs font-mono font-bold text-slate-300 uppercase tracking-wider block mb-1.5">
                   {t('profile.genderLabel', 'Gender')}
                 </label>
                 <select
                   value={gender}
                   onChange={(e) => setGender(e.target.value)}
-                  className="w-full bg-white border border-slate-200/90 rounded-xl px-3 py-2 text-xs font-semibold text-sanchay-navy-950 focus:outline-none focus:border-sanchay-emerald-600 shadow-2xs cursor-pointer"
+                  className="w-full bg-[#060b08] border border-emerald-500/25 rounded-xl px-3 py-2 text-xs font-semibold text-white focus:outline-none focus:border-emerald-400 shadow-2xs cursor-pointer"
                 >
                   <option value="all">{t('profile.genderAll', 'All / Any')}</option>
                   <option value="female">{t('profile.genderFemale', 'Female')}</option>
@@ -330,13 +330,13 @@ export const ProfilePage = () => {
               {/* Residency Status */}
               {profileConfig.showResidency && (
               <div>
-                <label className="text-xs font-mono font-bold text-sanchay-navy-950 uppercase tracking-wider block mb-1.5">
+                <label className="text-xs font-mono font-bold text-slate-300 uppercase tracking-wider block mb-1.5">
                   {t('profile.residencyLabel', 'Residency Status')}
                 </label>
                 <select
                   value={residencyStatus}
                   onChange={(e) => setResidencyStatus(e.target.value)}
-                  className="w-full bg-white border border-slate-200/90 rounded-xl px-3 py-2 text-xs font-semibold text-sanchay-navy-950 focus:outline-none focus:border-sanchay-emerald-600 shadow-2xs cursor-pointer"
+                  className="w-full bg-[#060b08] border border-emerald-500/25 rounded-xl px-3 py-2 text-xs font-semibold text-white focus:outline-none focus:border-emerald-400 shadow-2xs cursor-pointer"
                 >
                   <option value="resident">{t('profile.residencyResident', 'Resident Indian')}</option>
                   <option value="nri">{t('profile.residencyNRI', 'NRI (Non-Resident Indian)')}</option>
@@ -347,13 +347,13 @@ export const ProfilePage = () => {
               {/* State */}
               {profileConfig.showState && (
               <div>
-                <label className="text-xs font-mono font-bold text-sanchay-navy-950 uppercase tracking-wider block mb-1.5">
+                <label className="text-xs font-mono font-bold text-slate-300 uppercase tracking-wider block mb-1.5">
                   {t('profile.stateLabel', 'State of Residence')}
                 </label>
                 <select
                   value={state}
                   onChange={(e) => setState(e.target.value)}
-                  className="w-full bg-white border border-slate-200/90 rounded-xl px-3 py-2 text-xs font-semibold text-sanchay-navy-950 focus:outline-none focus:border-sanchay-emerald-600 shadow-2xs cursor-pointer"
+                  className="w-full bg-[#060b08] border border-emerald-500/25 rounded-xl px-3 py-2 text-xs font-semibold text-white focus:outline-none focus:border-emerald-400 shadow-2xs cursor-pointer"
                 >
                   {statesList.map(st => (
                     <option key={st} value={st}>{st}</option>
@@ -365,13 +365,13 @@ export const ProfilePage = () => {
               {/* Occupation */}
               {profileConfig.showOccupation && (
               <div>
-                <label className="text-xs font-mono font-bold text-sanchay-navy-950 uppercase tracking-wider block mb-1.5">
+                <label className="text-xs font-mono font-bold text-slate-300 uppercase tracking-wider block mb-1.5">
                   {t('profile.occLabel', 'Occupation')}
                 </label>
                 <select
                   value={occupation}
                   onChange={(e) => setOccupation(e.target.value)}
-                  className="w-full bg-white border border-slate-200/90 rounded-xl px-3 py-2 text-xs font-semibold text-sanchay-navy-950 focus:outline-none focus:border-sanchay-emerald-600 shadow-2xs cursor-pointer"
+                  className="w-full bg-[#060b08] border border-emerald-500/25 rounded-xl px-3 py-2 text-xs font-semibold text-white focus:outline-none focus:border-emerald-400 shadow-2xs cursor-pointer"
                 >
                   {occupationsList.map(o => (
                     <option key={o.id} value={o.id}>{o.label}</option>
@@ -383,7 +383,7 @@ export const ProfilePage = () => {
               {/* Annual Income */}
               {profileConfig.showIncome && (
               <div>
-                <label className="text-xs font-mono font-bold text-sanchay-navy-950 uppercase tracking-wider block mb-1.5">
+                <label className="text-xs font-mono font-bold text-slate-300 uppercase tracking-wider block mb-1.5">
                   {t('profile.incomeLabel', 'Annual Household Income (₹)')}
                 </label>
                 <input
@@ -392,7 +392,7 @@ export const ProfilePage = () => {
                   step="25000"
                   value={annualIncome}
                   onChange={(e) => setAnnualIncome(Number(e.target.value))}
-                  className="w-full bg-white border border-slate-200/90 rounded-xl px-3 py-2 text-sm font-bold text-sanchay-navy-950 focus:outline-none focus:border-sanchay-emerald-600 shadow-2xs"
+                  className="w-full bg-[#060b08] border border-emerald-500/25 rounded-xl px-3 py-2 text-sm font-bold text-white focus:outline-none focus:border-emerald-400 shadow-2xs"
                 />
               </div>
               )}
@@ -400,17 +400,17 @@ export const ProfilePage = () => {
 
             {/* Error banner if invalid */}
             {errorMessage && (
-              <div className="p-3.5 rounded-xl bg-red-50 text-red-700 border border-red-200 text-xs font-bold flex items-center gap-2">
-                <AlertCircle className="w-4 h-4 shrink-0" />
+              <div className="p-3.5 rounded-xl bg-red-950/60 text-red-300 border border-red-500/40 text-xs font-bold flex items-center gap-2">
+                <AlertCircle className="w-4 h-4 shrink-0 text-red-400" />
                 <span>{errorMessage}</span>
               </div>
             )}
 
             {/* Footer Navigation Actions */}
-            <div className="flex items-center justify-between pt-4 border-t border-slate-100">
+            <div className="flex items-center justify-between pt-4 border-t border-emerald-500/15">
               <Link
                 to="/"
-                className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-slate-500 hover:text-sanchay-navy-950 transition-colors uppercase tracking-wider"
+                className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-slate-400 hover:text-emerald-400 transition-colors uppercase tracking-wider"
               >
                 <ArrowLeft className="w-4 h-4" />
                 <span>{t('profile.backBtn', 'Back to Home')}</span>
@@ -418,7 +418,7 @@ export const ProfilePage = () => {
 
               <button
                 type="submit"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-sanchay-emerald-600 hover:bg-sanchay-emerald-700 text-white font-extrabold text-xs uppercase tracking-wider shadow-card hover:shadow-editorial hover:-translate-y-0.5 transition-all cursor-pointer"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-emerald-950/50 hover:-translate-y-0.5 transition-all cursor-pointer"
               >
                 <span>{t('profile.continueBtn', 'Continue to Goal Selection →')}</span>
                 <ArrowRight className="w-4 h-4" />

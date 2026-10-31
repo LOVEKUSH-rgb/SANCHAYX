@@ -15,23 +15,23 @@ export const VerifiedSourcesTicker = () => {
   ];
 
   return (
-    <div className="w-full bg-[#FAFAFC] border-y border-slate-200/80 py-8">
+    <div className="w-full bg-white border-y border-[#E7ECE8] py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           
           {/* Left Editorial Header */}
           <div className="flex items-center gap-3 shrink-0">
-            <div className="w-9 h-9 rounded-xl bg-sanchay-navy-900 text-white flex items-center justify-center shadow-xs">
-              <ShieldCheck className="w-4.5 h-4.5 text-sanchay-gold-500" />
+            <div className="w-9 h-9 rounded-xl bg-[#E7F1EB] border border-[#D5E4DC] text-[#176B50] flex items-center justify-center shadow-2xs">
+              <ShieldCheck className="w-5 h-5 text-[#176B50]" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="text-[10px] font-mono font-bold text-sanchay-emerald-600 uppercase tracking-widest">
+                <span className="text-[10px] font-semibold text-[#176B50] uppercase tracking-widest">
                   {t('ticker.trustFramework', 'TRUST FRAMEWORK')}
                 </span>
               </div>
-              <span className="text-xs font-extrabold text-sanchay-navy-900 uppercase tracking-wider block mt-0.5">
+              <span className="text-xs font-bold text-[#202B26] uppercase tracking-wider block mt-0.5">
                 {t('ticker.verifiedOfficialSources', 'Verified Official Sources')}
               </span>
             </div>
@@ -42,12 +42,12 @@ export const VerifiedSourcesTicker = () => {
             {sources.map((src, idx) => (
               <div 
                 key={idx}
-                className="flex items-center gap-2.5 px-4 py-3 rounded-2xl bg-white border border-slate-200/90 shadow-card text-xs hover:border-sanchay-emerald-500/40 hover:shadow-card-hover transition-all duration-200"
+                className="flex items-center gap-2.5 px-4 py-3 rounded-2xl bg-[#FAFAFC] border border-[#E7ECE8] shadow-2xs text-xs hover:border-[#176B50]/30 hover:bg-white hover:shadow-card transition-all duration-200"
               >
-                <CheckCircle2 className="w-4 h-4 text-sanchay-emerald-600 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-[#176B50] shrink-0" />
                 <div>
-                  <div className="font-extrabold text-sanchay-navy-900 leading-tight">{src.name}</div>
-                  <div className="text-[10px] text-slate-400 font-mono font-medium truncate mt-0.5">{src.detail}</div>
+                  <div className="font-bold text-[#202B26] leading-tight">{src.name}</div>
+                  <div className="text-[10px] text-[#66736C] font-normal truncate mt-0.5">{src.detail}</div>
                 </div>
               </div>
             ))}
@@ -59,4 +59,3 @@ export const VerifiedSourcesTicker = () => {
     </div>
   );
 };
-

@@ -214,37 +214,37 @@ export const MyProfilePage = () => {
         : (userGender === 'female' ? FEMALE_AVATARS : MALE_AVATARS);
 
   return (
-    <div className="min-h-screen bg-[#FAF9F5] flex flex-col font-sans">
+    <div className="min-h-screen bg-[#060b08] text-slate-100 flex flex-col font-sans selection:bg-emerald-600 selection:text-white">
       <Navbar />
 
       <main className="flex-1 max-w-5xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         
         {/* Page Breadcrumb / Pill */}
         <div className="flex items-center gap-2 mb-3">
-          <span className="px-3 py-1 rounded-full bg-sanchay-emerald-50 text-sanchay-emerald-800 text-[11px] font-mono font-bold uppercase tracking-wider flex items-center gap-1.5 border border-sanchay-emerald-200 shadow-2xs">
-            <User className="w-3.5 h-3.5 text-sanchay-emerald-600" />
+          <span className="px-3 py-1 rounded-full bg-emerald-950/80 text-emerald-300 text-[11px] font-mono font-bold uppercase tracking-wider flex items-center gap-1.5 border border-emerald-500/30 shadow-2xs">
+            <User className="w-3.5 h-3.5 text-emerald-400" />
             <span>{currentLang === 'hi' ? 'नागरिक खाता' : 'Citizen Account'}</span>
           </span>
         </div>
 
         {/* Feedback Alert Banner */}
         {feedbackMsg && (
-          <div className="mb-6 p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold flex items-center gap-2 animate-in fade-in slide-in-from-top-2 duration-200 shadow-2xs">
-            <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+          <div className="mb-6 p-4 rounded-2xl bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 text-xs font-semibold flex items-center gap-2 animate-in fade-in slide-in-from-top-2 duration-200 shadow-2xs">
+            <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
             <span>{feedbackMsg}</span>
           </div>
         )}
 
         {/* Not Logged In State */}
         {!isAuthenticated ? (
-          <div className="p-8 sm:p-12 rounded-3xl bg-white border border-slate-200 shadow-card text-center max-w-lg mx-auto my-12">
-            <div className="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 mx-auto flex items-center justify-center mb-4 border border-emerald-100">
+          <div className="p-8 sm:p-12 rounded-3xl bg-[#0c1611]/90 border border-emerald-500/20 shadow-2xl text-center max-w-lg mx-auto my-12 backdrop-blur-sm">
+            <div className="w-14 h-14 rounded-2xl bg-emerald-950/80 text-emerald-400 mx-auto flex items-center justify-center mb-4 border border-emerald-500/30">
               <User className="w-7 h-7" />
             </div>
-            <h2 className="text-xl font-serif font-bold text-sanchay-navy-950 mb-2">
+            <h2 className="text-xl font-serif font-bold text-white mb-2">
               {currentLang === 'hi' ? 'अपनी प्रोफाइल देखने के लिए लॉगिन करें' : 'Sign in to View Your Profile'}
             </h2>
-            <p className="text-xs text-slate-600 font-sans mb-6 leading-relaxed">
+            <p className="text-xs text-slate-400 font-sans mb-6 leading-relaxed">
               {currentLang === 'hi'
                 ? 'अपने पंजीकृत विवरण, सुरक्षित योजनाओं और व्यक्तिगत सिफारिशों तक पहुँचने के लिए कृपया लॉगिन करें।'
                 : 'Access your verified registered details, demographic data, and saved multi-category plan portfolio.'}
@@ -252,13 +252,13 @@ export const MyProfilePage = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <button
                 onClick={() => openAuthModal('login')}
-                className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-sanchay-navy-950 hover:bg-sanchay-navy-900 text-white text-xs font-extrabold uppercase tracking-wider shadow-card transition-all cursor-pointer"
+                className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-extrabold uppercase tracking-wider shadow-lg shadow-emerald-950/50 transition-all cursor-pointer"
               >
                 {currentLang === 'hi' ? 'लॉगिन करें' : 'Citizen Login'}
               </button>
               <button
                 onClick={() => openAuthModal('register')}
-                className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-extrabold uppercase tracking-wider shadow-card transition-all cursor-pointer"
+                className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-emerald-950/80 hover:bg-emerald-900/80 text-emerald-300 border border-emerald-500/30 text-xs font-extrabold uppercase tracking-wider shadow-sm transition-all cursor-pointer"
               >
                 {currentLang === 'hi' ? 'नया खाता बनाएं' : 'Create Account'}
               </button>
@@ -268,7 +268,7 @@ export const MyProfilePage = () => {
           <div className="space-y-8">
             
             {/* Header Hero Card with Integrated Avatar & Photo Controls */}
-            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-card relative overflow-hidden">
+            <div className="p-6 sm:p-8 rounded-3xl bg-[#0c1611]/90 border border-emerald-500/20 shadow-2xl relative overflow-hidden backdrop-blur-sm">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 relative z-10">
                 
                 <div className="flex flex-col sm:flex-row sm:items-center gap-5">
@@ -278,7 +278,7 @@ export const MyProfilePage = () => {
                       user={user}
                       size="xl"
                       showBadge={true}
-                      className="shadow-md ring-4 ring-slate-100"
+                      className="shadow-md ring-4 ring-emerald-500/30"
                     />
 
                     {/* Camera Badge to trigger file select */}
@@ -287,10 +287,10 @@ export const MyProfilePage = () => {
                       onClick={() => fileInputRef.current?.click()}
                       disabled={isUploadingPhoto}
                       title={currentLang === 'hi' ? 'फ़ोटो बदलें' : 'Upload or change profile photo'}
-                      className="absolute bottom-0 right-0 p-2 rounded-full bg-sanchay-navy-950 hover:bg-sanchay-emerald-600 text-white shadow-md border-2 border-white transition-all cursor-pointer hover:scale-110 active:scale-95"
+                      className="absolute bottom-0 right-0 p-2 rounded-full bg-[#060b08] hover:bg-emerald-600 text-white shadow-md border-2 border-[#0c1611] transition-all cursor-pointer hover:scale-110 active:scale-95"
                     >
                       {isUploadingPhoto ? (
-                        <RefreshCw className="w-3.5 h-3.5 animate-spin text-sanchay-gold-400" />
+                        <RefreshCw className="w-3.5 h-3.5 animate-spin text-emerald-400" />
                       ) : (
                         <Camera className="w-3.5 h-3.5" />
                       )}
@@ -308,26 +308,26 @@ export const MyProfilePage = () => {
                   {/* Citizen Details & Actions */}
                   <div>
                     <div className="flex items-center gap-2 flex-wrap">
-                      <h1 className="text-xl sm:text-2xl font-serif font-bold text-sanchay-navy-950">
+                      <h1 className="text-xl sm:text-2xl font-serif font-bold text-white">
                         {user?.full_name || 'Citizen'}
                       </h1>
                       {user?.is_verified ? (
-                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-[11px] font-mono font-bold border border-emerald-200">
-                          <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-950/80 text-emerald-300 text-[11px] font-mono font-bold border border-emerald-500/30">
+                          <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
                           <span>{currentLang === 'hi' ? 'सत्यापित नागरिक' : 'Verified Sovereign Citizen'}</span>
                         </span>
                       ) : (
-                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-800 text-[11px] font-mono font-bold border border-amber-200">
+                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-amber-950/80 text-amber-300 text-[11px] font-mono font-bold border border-amber-500/30">
                           <span>{currentLang === 'hi' ? 'सक्रिय खाता' : 'Active Account'}</span>
                         </span>
                       )}
                     </div>
                     
-                    <p className="text-xs font-mono text-slate-500 mt-1">
+                    <p className="text-xs font-mono text-slate-400 mt-1">
                       {user?.email}
                     </p>
-                    <p className="text-[11px] text-slate-400 font-mono mt-0.5 flex items-center gap-1">
-                      <Clock className="w-3 h-3" />
+                    <p className="text-[11px] text-slate-500 font-mono mt-0.5 flex items-center gap-1">
+                      <Clock className="w-3 h-3 text-slate-500" />
                       <span>{currentLang === 'hi' ? 'खाता निर्माण' : 'Account Created'}: {formatDate(user?.created_at)}</span>
                     </p>
 
@@ -337,9 +337,9 @@ export const MyProfilePage = () => {
                         type="button"
                         onClick={() => fileInputRef.current?.click()}
                         disabled={isUploadingPhoto}
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sanchay-navy-950 text-[11px] font-mono font-bold tracking-wide transition-colors cursor-pointer border border-slate-200/80"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#08120d] hover:bg-[#101e17] text-white text-[11px] font-mono font-bold tracking-wide transition-colors cursor-pointer border border-emerald-500/25"
                       >
-                        <Camera className="w-3.5 h-3.5 text-slate-600" />
+                        <Camera className="w-3.5 h-3.5 text-emerald-400" />
                         <span>{user?.profile_photo ? (currentLang === 'hi' ? 'फ़ोटो बदलें' : 'Change Photo') : (currentLang === 'hi' ? 'फ़ोटो अपलोड करें' : 'Upload Photo')}</span>
                       </button>
 
@@ -348,10 +348,10 @@ export const MyProfilePage = () => {
                           type="button"
                           onClick={handleRemovePhoto}
                           disabled={isUploadingPhoto}
-                          className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-red-50 hover:bg-red-100 text-red-600 text-[11px] font-mono font-bold transition-colors cursor-pointer border border-red-200/80"
+                          className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-red-950/60 hover:bg-red-900/80 text-red-300 text-[11px] font-mono font-bold transition-colors cursor-pointer border border-red-500/40"
                           title="Remove custom photo and return to gender avatar"
                         >
-                          <Trash2 className="w-3 h-3 text-red-500" />
+                          <Trash2 className="w-3 h-3 text-red-400" />
                           <span>{currentLang === 'hi' ? 'फ़ोटो हटाएं' : 'Remove Photo'}</span>
                         </button>
                       )}
@@ -359,9 +359,9 @@ export const MyProfilePage = () => {
                       <button
                         type="button"
                         onClick={() => setAvatarModalOpen(true)}
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-sanchay-emerald-50 hover:bg-sanchay-emerald-100 text-sanchay-emerald-800 text-[11px] font-mono font-bold tracking-wide transition-colors cursor-pointer border border-sanchay-emerald-200/80"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-950/80 hover:bg-emerald-900/80 text-emerald-300 text-[11px] font-mono font-bold tracking-wide transition-colors cursor-pointer border border-emerald-500/30"
                       >
-                        <Smile className="w-3.5 h-3.5 text-sanchay-emerald-600" />
+                        <Smile className="w-3.5 h-3.5 text-emerald-400" />
                         <span>{currentLang === 'hi' ? 'अवतार चुनें' : 'Choose Avatar'}</span>
                       </button>
                     </div>
@@ -373,17 +373,17 @@ export const MyProfilePage = () => {
                 <div className="flex items-center gap-2 self-start sm:self-auto shrink-0 pt-2 sm:pt-0">
                   <Link
                     to="/my-plans"
-                    className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-sanchay-navy-950 hover:bg-sanchay-navy-900 text-white text-xs font-bold uppercase tracking-wider shadow-card transition-all cursor-pointer"
+                    className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold uppercase tracking-wider shadow-lg shadow-emerald-950/50 transition-all cursor-pointer"
                   >
-                    <Bookmark className="w-3.5 h-3.5 text-sanchay-gold-400" />
+                    <Bookmark className="w-3.5 h-3.5 text-white" />
                     <span>{currentLang === 'hi' ? 'मेरे प्लान देखें' : 'View My Plans'}</span>
                   </Link>
                   <button
                     onClick={logout}
-                    className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-red-50 hover:bg-red-100 text-red-600 text-xs font-bold transition-colors cursor-pointer border border-red-200"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-red-950/60 hover:bg-red-900/80 text-red-300 text-xs font-bold transition-colors cursor-pointer border border-red-500/40"
                     title="Sign Out"
                   >
-                    <LogOut className="w-3.5 h-3.5 text-red-500" />
+                    <LogOut className="w-3.5 h-3.5 text-red-400" />
                     <span className="hidden sm:inline">{currentLang === 'hi' ? 'लॉगआउट' : 'Sign Out'}</span>
                   </button>
                 </div>
@@ -391,109 +391,109 @@ export const MyProfilePage = () => {
             </div>
 
             {/* Registered Citizen Profile Details Card */}
-            <div className="bg-white rounded-3xl border border-slate-200/90 shadow-card p-6 sm:p-8">
-              <div className="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
+            <div className="bg-[#0c1611]/90 rounded-3xl border border-emerald-500/20 shadow-2xl backdrop-blur-sm p-6 sm:p-8 text-white">
+              <div className="flex items-center justify-between border-b border-emerald-500/15 pb-4 mb-6">
                 <div>
-                  <h2 className="text-lg font-serif font-bold text-sanchay-navy-950">
+                  <h2 className="text-lg font-serif font-bold text-white">
                     {currentLang === 'hi' ? 'पंजीकृत नागरिक विवरण' : 'Registered Citizen Profile'}
                   </h2>
-                  <p className="text-xs text-slate-500 font-sans mt-0.5">
+                  <p className="text-xs text-slate-400 font-sans mt-0.5">
                     {currentLang === 'hi'
                       ? 'यह जानकारी आपके सुरक्षित खाते से जुड़ी है और पात्रता जांच के लिए उपयोग की जाती है।'
                       : 'These details are permanently associated with your account and used for accurate eligibility matching.'}
                   </p>
                 </div>
-                <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-[10px] font-mono font-bold uppercase tracking-wider">
+                <span className="px-3 py-1 rounded-full bg-[#060b08] text-emerald-400/90 border border-emerald-500/20 text-[10px] font-mono font-bold uppercase tracking-wider">
                   Private & Encrypted
                 </span>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                 {/* 1. Full Name */}
-                <div className="p-4 rounded-2xl bg-slate-50/70 border border-slate-200/80 space-y-1">
+                <div className="p-4 rounded-2xl bg-[#08120d] border border-emerald-500/15 space-y-1">
                   <div className="flex items-center gap-1.5 text-slate-400 text-[11px] font-mono font-bold uppercase tracking-wider">
-                    <User className="w-3.5 h-3.5 text-sanchay-emerald-600" />
+                    <User className="w-3.5 h-3.5 text-emerald-400" />
                     <span>{currentLang === 'hi' ? 'पूरा नाम' : 'Full Name'}</span>
                   </div>
-                  <div className="font-serif font-bold text-sm text-sanchay-navy-950 truncate">
+                  <div className="font-serif font-bold text-sm text-white truncate">
                     {user?.full_name || 'Not Specified'}
                   </div>
                 </div>
 
                 {/* 2. Email */}
-                <div className="p-4 rounded-2xl bg-slate-50/70 border border-slate-200/80 space-y-1">
+                <div className="p-4 rounded-2xl bg-[#08120d] border border-emerald-500/15 space-y-1">
                   <div className="flex items-center gap-1.5 text-slate-400 text-[11px] font-mono font-bold uppercase tracking-wider">
-                    <Mail className="w-3.5 h-3.5 text-sanchay-emerald-600" />
+                    <Mail className="w-3.5 h-3.5 text-emerald-400" />
                     <span>{currentLang === 'hi' ? 'ईमेल आईडी' : 'Email Address'}</span>
                   </div>
-                  <div className="font-mono text-xs text-sanchay-navy-950 truncate font-semibold">
+                  <div className="font-mono text-xs text-slate-200 truncate font-semibold">
                     {user?.email || 'Not Specified'}
                   </div>
                 </div>
 
                 {/* 3. Mobile */}
-                <div className="p-4 rounded-2xl bg-slate-50/70 border border-slate-200/80 space-y-1">
+                <div className="p-4 rounded-2xl bg-[#08120d] border border-emerald-500/15 space-y-1">
                   <div className="flex items-center gap-1.5 text-slate-400 text-[11px] font-mono font-bold uppercase tracking-wider">
-                    <Phone className="w-3.5 h-3.5 text-sanchay-emerald-600" />
+                    <Phone className="w-3.5 h-3.5 text-emerald-400" />
                     <span>{currentLang === 'hi' ? 'मोबाइल नंबर' : 'Mobile Number'}</span>
                   </div>
-                  <div className="font-mono text-sm text-sanchay-navy-950 font-semibold">
+                  <div className="font-mono text-sm text-slate-200 font-semibold">
                     {user?.mobile ? `+91 ${user.mobile}` : '—'}
                   </div>
                 </div>
 
                 {/* 4. Age */}
-                <div className="p-4 rounded-2xl bg-slate-50/70 border border-slate-200/80 space-y-1">
+                <div className="p-4 rounded-2xl bg-[#08120d] border border-emerald-500/15 space-y-1">
                   <div className="flex items-center gap-1.5 text-slate-400 text-[11px] font-mono font-bold uppercase tracking-wider">
-                    <Calendar className="w-3.5 h-3.5 text-sanchay-emerald-600" />
+                    <Calendar className="w-3.5 h-3.5 text-emerald-400" />
                     <span>{currentLang === 'hi' ? 'आयु (वर्ष)' : 'Age'}</span>
                   </div>
-                  <div className="font-serif font-bold text-sm text-sanchay-navy-950">
+                  <div className="font-serif font-bold text-sm text-white">
                     {user?.age ? `${user.age} Years` : '—'}
                   </div>
                 </div>
 
                 {/* 5. Gender */}
-                <div className="p-4 rounded-2xl bg-slate-50/70 border border-slate-200/80 space-y-1">
+                <div className="p-4 rounded-2xl bg-[#08120d] border border-emerald-500/15 space-y-1">
                   <div className="flex items-center gap-1.5 text-slate-400 text-[11px] font-mono font-bold uppercase tracking-wider">
-                    <Users className="w-3.5 h-3.5 text-sanchay-emerald-600" />
+                    <Users className="w-3.5 h-3.5 text-emerald-400" />
                     <span>{currentLang === 'hi' ? 'लिंग' : 'Gender'}</span>
                   </div>
-                  <div className="font-serif font-bold text-sm text-sanchay-navy-950 capitalize">
+                  <div className="font-serif font-bold text-sm text-white capitalize">
                     {user?.gender || '—'}
                   </div>
                 </div>
 
                 {/* 6. Profession */}
-                <div className="p-4 rounded-2xl bg-slate-50/70 border border-slate-200/80 space-y-1">
+                <div className="p-4 rounded-2xl bg-[#08120d] border border-emerald-500/15 space-y-1">
                   <div className="flex items-center gap-1.5 text-slate-400 text-[11px] font-mono font-bold uppercase tracking-wider">
-                    <Briefcase className="w-3.5 h-3.5 text-sanchay-emerald-600" />
+                    <Briefcase className="w-3.5 h-3.5 text-emerald-400" />
                     <span>{currentLang === 'hi' ? 'पेशा / व्यवसाय' : 'Profession'}</span>
                   </div>
-                  <div className="font-serif font-bold text-sm text-sanchay-navy-950 capitalize truncate">
+                  <div className="font-serif font-bold text-sm text-white capitalize truncate">
                     {user?.profession || 'General Citizen'}
                   </div>
                 </div>
 
                 {/* 7. Verification Status */}
-                <div className="p-4 rounded-2xl bg-slate-50/70 border border-slate-200/80 space-y-1">
+                <div className="p-4 rounded-2xl bg-[#08120d] border border-emerald-500/15 space-y-1">
                   <div className="flex items-center gap-1.5 text-slate-400 text-[11px] font-mono font-bold uppercase tracking-wider">
-                    <ShieldCheck className="w-3.5 h-3.5 text-sanchay-emerald-600" />
+                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
                     <span>{currentLang === 'hi' ? 'सत्यापन स्थिति' : 'Verification Status'}</span>
                   </div>
-                  <div className="text-xs font-mono font-bold flex items-center gap-1 text-emerald-700">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                  <div className="text-xs font-mono font-bold flex items-center gap-1 text-emerald-400">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
                     <span>{user?.is_verified ? 'Verified Citizen' : 'Active Account'}</span>
                   </div>
                 </div>
 
                 {/* 8. Account Created Date */}
-                <div className="p-4 rounded-2xl bg-slate-50/70 border border-slate-200/80 space-y-1 sm:col-span-2">
+                <div className="p-4 rounded-2xl bg-[#08120d] border border-emerald-500/15 space-y-1 sm:col-span-2">
                   <div className="flex items-center gap-1.5 text-slate-400 text-[11px] font-mono font-bold uppercase tracking-wider">
-                    <Clock className="w-3.5 h-3.5 text-sanchay-emerald-600" />
+                    <Clock className="w-3.5 h-3.5 text-emerald-400" />
                     <span>{currentLang === 'hi' ? 'खाता निर्माण तिथि' : 'Account Created Date'}</span>
                   </div>
-                  <div className="font-mono text-xs text-sanchay-navy-950 font-semibold">
+                  <div className="font-mono text-xs text-slate-300 font-semibold">
                     {formatDate(user?.created_at)}
                   </div>
                 </div>
@@ -501,14 +501,14 @@ export const MyProfilePage = () => {
             </div>
 
             {/* Saved Plans Portfolio Summary Card */}
-            <div className="bg-white rounded-3xl border border-slate-200/90 shadow-card p-6 sm:p-8">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-4 mb-6">
+            <div className="bg-[#0c1611]/90 rounded-3xl border border-emerald-500/20 shadow-2xl backdrop-blur-sm p-6 sm:p-8 text-white">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-emerald-500/15 pb-4 mb-6">
                 <div>
-                  <h2 className="text-lg font-serif font-bold text-sanchay-navy-950 flex items-center gap-2">
-                    <Bookmark className="w-4 h-4 text-sanchay-emerald-600 fill-sanchay-emerald-600" />
+                  <h2 className="text-lg font-serif font-bold text-white flex items-center gap-2">
+                    <Bookmark className="w-4 h-4 text-emerald-400 fill-emerald-400" />
                     <span>{currentLang === 'hi' ? 'सहेजी गई योजनाएं और पोर्टफोलियो' : 'Saved Portfolio Breakdown'}</span>
                   </h2>
-                  <p className="text-xs text-slate-500 font-sans mt-0.5">
+                  <p className="text-xs text-slate-400 font-sans mt-0.5">
                     {currentLang === 'hi'
                       ? 'आपके खाते में सुरक्षित सरकारी योजनाएं, एलआईसी प्लान और मुफ्त कल्याणकारी लाभ।'
                       : 'All 3 categories of saved plans are securely isolated to your citizen identity.'}
@@ -516,7 +516,7 @@ export const MyProfilePage = () => {
                 </div>
                 <Link
                   to="/my-plans"
-                  className="text-xs font-bold text-sanchay-emerald-700 hover:text-sanchay-emerald-800 flex items-center gap-1"
+                  className="text-xs font-bold text-emerald-400 hover:text-emerald-300 flex items-center gap-1 transition-colors"
                 >
                   <span>{currentLang === 'hi' ? 'सभी देखें' : 'Manage All in My Plans'}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -527,12 +527,12 @@ export const MyProfilePage = () => {
                 {/* Government Schemes */}
                 <Link
                   to="/my-plans"
-                  className="p-4 rounded-2xl bg-gradient-to-br from-slate-50 to-slate-100/50 border border-slate-200/90 hover:border-sanchay-emerald-400 hover:shadow-xs transition-all group"
+                  className="p-4 rounded-2xl bg-[#08120d] border border-emerald-500/20 hover:border-emerald-400/50 hover:bg-[#101e17] transition-all group"
                 >
-                  <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-500 mb-1">
+                  <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 mb-1">
                     {currentLang === 'hi' ? 'सरकारी योजनाएं' : 'Sovereign Schemes'}
                   </div>
-                  <div className="text-2xl font-serif font-black text-sanchay-navy-950 group-hover:text-sanchay-emerald-700 transition-colors">
+                  <div className="text-2xl font-serif font-black text-emerald-400 group-hover:text-emerald-300 transition-colors">
                     {planStats.gov}
                   </div>
                   <div className="text-[11px] text-slate-400 font-mono mt-1">
@@ -543,15 +543,15 @@ export const MyProfilePage = () => {
                 {/* LIC Plans */}
                 <Link
                   to="/my-plans"
-                  className="p-4 rounded-2xl bg-gradient-to-br from-amber-50/50 to-slate-50 border border-amber-200/80 hover:border-amber-400 hover:shadow-xs transition-all group"
+                  className="p-4 rounded-2xl bg-[#08120d] border border-amber-500/20 hover:border-amber-400/50 hover:bg-[#101e17] transition-all group"
                 >
-                  <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-amber-800 mb-1">
+                  <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-amber-400 mb-1">
                     {currentLang === 'hi' ? 'एलआईसी प्लान' : 'LIC Plans'}
                   </div>
-                  <div className="text-2xl font-serif font-black text-sanchay-navy-950 group-hover:text-amber-800 transition-colors">
+                  <div className="text-2xl font-serif font-black text-amber-300 group-hover:text-amber-200 transition-colors">
                     {planStats.lic}
                   </div>
-                  <div className="text-[11px] text-amber-700/70 font-mono mt-1">
+                  <div className="text-[11px] text-amber-300/70 font-mono mt-1">
                     Verified Life & Pension
                   </div>
                 </Link>
@@ -559,15 +559,15 @@ export const MyProfilePage = () => {
                 {/* Free Benefits */}
                 <Link
                   to="/my-plans"
-                  className="p-4 rounded-2xl bg-gradient-to-br from-emerald-50/50 to-slate-50 border border-emerald-200/80 hover:border-emerald-400 hover:shadow-xs transition-all group"
+                  className="p-4 rounded-2xl bg-[#08120d] border border-teal-500/20 hover:border-teal-400/50 hover:bg-[#101e17] transition-all group"
                 >
-                  <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-800 mb-1">
+                  <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-teal-400 mb-1">
                     {currentLang === 'hi' ? 'मुफ्त कल्याणकारी लाभ' : 'Free Benefits'}
                   </div>
-                  <div className="text-2xl font-serif font-black text-sanchay-navy-950 group-hover:text-emerald-700 transition-colors">
+                  <div className="text-2xl font-serif font-black text-teal-300 group-hover:text-teal-200 transition-colors">
                     {planStats.free}
                   </div>
-                  <div className="text-[11px] text-emerald-700/70 font-mono mt-1">
+                  <div className="text-[11px] text-teal-300/70 font-mono mt-1">
                     100% Free & Subsidies
                   </div>
                 </Link>
@@ -581,37 +581,37 @@ export const MyProfilePage = () => {
 
       {/* Gender Avatar Selector Modal */}
       {avatarModalOpen && (
-        <div className="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200">
+        <div className="fixed inset-0 z-50 bg-[#020504]/80 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-200">
           <div 
-            className="w-full max-w-md bg-white rounded-3xl shadow-floating border border-slate-200 p-6 overflow-hidden animate-in zoom-in-95 duration-200"
+            className="w-full max-w-md bg-[#0c1611] rounded-3xl shadow-2xl border border-emerald-500/25 p-6 overflow-hidden animate-in zoom-in-95 duration-200 text-slate-100"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
+            <div className="flex items-center justify-between border-b border-emerald-500/15 pb-3 mb-4">
               <div>
-                <h3 className="font-serif font-bold text-lg text-sanchay-navy-950">
+                <h3 className="font-serif font-bold text-lg text-white">
                   {currentLang === 'hi' ? 'अपना अवतार चुनें' : 'Choose Your Avatar'}
                 </h3>
-                <p className="text-xs text-slate-500 font-sans">
+                <p className="text-xs text-slate-400 font-sans">
                   {currentLang === 'hi' ? 'पसंदीदा आधिकारिक नागरिक अवतार चुनें' : 'Select a professional citizen avatar'}
                 </p>
               </div>
               <button
                 onClick={() => setAvatarModalOpen(false)}
-                className="p-1.5 rounded-full hover:bg-slate-100 text-slate-400 hover:text-slate-700 transition-colors cursor-pointer"
+                className="p-1.5 rounded-full hover:bg-emerald-950/60 text-slate-400 hover:text-white transition-colors cursor-pointer border border-transparent hover:border-emerald-500/30"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             {/* Gender Filter Tabs */}
-            <div className="flex items-center gap-1 bg-slate-100 p-1 rounded-xl mb-4 text-xs font-bold font-mono">
+            <div className="flex items-center gap-1 bg-[#060b08] border border-emerald-500/15 p-1 rounded-xl mb-4 text-xs font-bold font-mono">
               <button
                 type="button"
                 onClick={() => setAvatarCategoryFilter(userGender === 'female' ? 'female' : 'male')}
                 className={`flex-1 py-1.5 rounded-lg transition-all ${
                   avatarCategoryFilter === 'auto' || avatarCategoryFilter === userGender
-                    ? 'bg-white text-sanchay-navy-950 shadow-xs'
-                    : 'text-slate-600 hover:text-sanchay-navy-950'
+                    ? 'bg-emerald-600 text-white shadow-xs'
+                    : 'text-slate-400 hover:text-white'
                 }`}
               >
                 {userGender === 'female' ? (currentLang === 'hi' ? 'महिला अवतार' : 'Female (Recommended)') : (currentLang === 'hi' ? 'पुरुष अवतार' : 'Male (Recommended)')}
@@ -621,8 +621,8 @@ export const MyProfilePage = () => {
                 onClick={() => setAvatarCategoryFilter(userGender === 'female' ? 'male' : 'female')}
                 className={`flex-1 py-1.5 rounded-lg transition-all ${
                   (userGender === 'female' && avatarCategoryFilter === 'male') || (userGender !== 'female' && avatarCategoryFilter === 'female')
-                    ? 'bg-white text-sanchay-navy-950 shadow-xs'
-                    : 'text-slate-600 hover:text-sanchay-navy-950'
+                    ? 'bg-emerald-600 text-white shadow-xs'
+                    : 'text-slate-400 hover:text-white'
                 }`}
               >
                 {userGender === 'female' ? (currentLang === 'hi' ? 'पुरुष अवतार' : 'Male Avatars') : (currentLang === 'hi' ? 'महिला अवतार' : 'Female Avatars')}
@@ -632,8 +632,8 @@ export const MyProfilePage = () => {
                 onClick={() => setAvatarCategoryFilter('all')}
                 className={`px-3 py-1.5 rounded-lg transition-all ${
                   avatarCategoryFilter === 'all'
-                    ? 'bg-white text-sanchay-navy-950 shadow-xs'
-                    : 'text-slate-600 hover:text-sanchay-navy-950'
+                    ? 'bg-emerald-600 text-white shadow-xs'
+                    : 'text-slate-400 hover:text-white'
                 }`}
               >
                 {currentLang === 'hi' ? 'सभी' : 'All'}
@@ -651,17 +651,17 @@ export const MyProfilePage = () => {
                     onClick={() => handleSelectPresetAvatar(preset.id)}
                     className={`p-3 rounded-2xl border flex flex-col items-center gap-2 transition-all cursor-pointer group ${
                       isSelected
-                        ? 'border-sanchay-emerald-600 bg-sanchay-emerald-50/50 shadow-xs ring-2 ring-sanchay-emerald-500/20'
-                        : 'border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50'
+                        ? 'border-emerald-500 bg-emerald-950/60 shadow-xs ring-2 ring-emerald-500/30'
+                        : 'border-emerald-500/15 bg-[#08120d] hover:border-emerald-400/40 hover:bg-[#101e17]'
                     }`}
                   >
-                    <div className="w-16 h-16 rounded-full overflow-hidden shadow-xs group-hover:scale-105 transition-transform">
+                    <div className="w-16 h-16 rounded-full overflow-hidden shadow-xs group-hover:scale-105 transition-transform bg-[#060b08]">
                       {preset.render('100%')}
                     </div>
                     <div className="text-center">
-                      <div className="font-bold text-xs text-sanchay-navy-950 flex items-center justify-center gap-1">
+                      <div className="font-bold text-xs text-white flex items-center justify-center gap-1">
                         <span>{preset.label}</span>
-                        {isSelected && <Check className="w-3.5 h-3.5 text-sanchay-emerald-600" />}
+                        {isSelected && <Check className="w-3.5 h-3.5 text-emerald-400" />}
                       </div>
                       <div className="text-[10px] text-slate-400 font-mono">{preset.title}</div>
                     </div>
@@ -670,12 +670,12 @@ export const MyProfilePage = () => {
               })}
             </div>
 
-            <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-mono">
+            <div className="mt-4 pt-3 border-t border-emerald-500/15 flex items-center justify-between text-[11px] text-slate-400 font-mono">
               <span>{relevantAvatars.length} avatar options available</span>
               <button
                 type="button"
                 onClick={() => setAvatarModalOpen(false)}
-                className="font-bold text-sanchay-navy-950 hover:underline"
+                className="font-bold text-emerald-400 hover:text-emerald-300 hover:underline cursor-pointer"
               >
                 Close
               </button>

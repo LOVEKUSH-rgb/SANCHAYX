@@ -149,33 +149,33 @@ export const RecommendationsPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#FAF9F5] text-sanchay-navy-950 flex flex-col selection:bg-sanchay-emerald-600 selection:text-white">
+    <div className="min-h-screen bg-[#060b08] text-slate-100 flex flex-col selection:bg-emerald-600 selection:text-white">
       <Navbar />
 
       <main className="flex-1 py-10 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Header Bar */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 pb-6 border-b border-slate-200/80">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 pb-6 border-b border-emerald-500/15">
             <div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sanchay-emerald-50 text-sanchay-emerald-700 text-xs font-mono font-bold uppercase tracking-wider mb-3 border border-sanchay-emerald-200">
-                <Sparkles className="w-3.5 h-3.5 text-sanchay-gold-500" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-950/80 text-emerald-300 text-xs font-mono font-bold uppercase tracking-wider mb-3 border border-emerald-500/30">
+                <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
                 <span>Deterministic Recommendation Engine</span>
               </div>
-              <h1 className="font-serif font-extrabold text-3xl sm:text-4xl lg:text-5xl text-sanchay-navy-950 tracking-tight">
+              <h1 className="font-serif font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight">
                 {t('recommendations.title', 'Your Verified Financial Guidance')}
               </h1>
-              <p className="text-sm sm:text-base text-sanchay-navy-700 mt-2">
-                Matched for Age {profile.age}, {profile.residency_status === 'nri' ? 'NRI' : 'Indian Resident'}, Goal: <strong className="capitalize text-sanchay-navy-950">{goal.goal}</strong>, Budget: <strong>₹{(preferences.monthly_budget || preferences.monthlyBudget || 2000).toLocaleString('en-IN')}/mo</strong>.
+              <p className="text-sm sm:text-base text-slate-400 mt-2">
+                Matched for Age {profile.age}, {profile.residency_status === 'nri' ? 'NRI' : 'Indian Resident'}, Goal: <strong className="capitalize text-emerald-400">{goal.goal}</strong>, Budget: <strong className="text-emerald-400 font-mono">₹{(preferences.monthly_budget || preferences.monthlyBudget || 2000).toLocaleString('en-IN')}/mo</strong>.
               </p>
             </div>
 
             <div className="flex items-center gap-3">
               <Link
                 to="/preferences"
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-slate-200 hover:bg-slate-50 text-xs font-mono font-bold uppercase text-sanchay-navy-950 shadow-2xs"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#08120d] border border-emerald-500/25 hover:border-emerald-400/50 hover:bg-[#101e17] text-xs font-mono font-bold uppercase text-slate-300 hover:text-white transition-colors shadow-2xs"
               >
-                <RefreshCw className="w-3.5 h-3.5 text-sanchay-emerald-600" />
+                <RefreshCw className="w-3.5 h-3.5 text-emerald-400" />
                 <span>{t('recommendations.recalculate', 'Adjust Parameters')}</span>
               </Link>
             </div>
@@ -183,32 +183,32 @@ export const RecommendationsPage = () => {
 
           {/* Loading State */}
           {loading && (
-            <div className="text-center py-20 bg-white rounded-3xl border border-slate-200/90 shadow-card">
-              <div className="w-14 h-14 rounded-full bg-sanchay-emerald-50 text-sanchay-emerald-600 flex items-center justify-center mx-auto mb-4 animate-pulse">
+            <div className="text-center py-20 bg-[#0c1611]/90 rounded-3xl border border-emerald-500/20 shadow-2xl backdrop-blur-sm">
+              <div className="w-14 h-14 rounded-full bg-emerald-950/80 text-emerald-400 border border-emerald-500/30 flex items-center justify-center mx-auto mb-4 animate-pulse">
                 <Sparkles className="w-7 h-7" />
               </div>
-              <h3 className="font-serif font-bold text-xl text-sanchay-navy-950">{t('common.loading', 'Calculating Eligibility & Fit Scores...')}</h3>
-              <p className="text-xs text-slate-500 mt-1">Applying statutory rules from official gazettes</p>
+              <h3 className="font-serif font-bold text-xl text-white">{t('common.loading', 'Calculating Eligibility & Fit Scores...')}</h3>
+              <p className="text-xs text-slate-400 mt-1">Applying statutory rules from official gazettes</p>
             </div>
           )}
 
           {/* ZERO MATCH FLOW */}
           {!loading && isNoMatch && (
-            <div className="bg-white rounded-3xl p-8 sm:p-12 border border-amber-200 shadow-card mb-12 space-y-6">
+            <div className="bg-[#0c1611]/90 rounded-3xl p-8 sm:p-12 border border-amber-500/30 shadow-2xl mb-12 space-y-6 backdrop-blur-sm">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-700 border border-amber-200 flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-2xl bg-amber-950/60 text-amber-400 border border-amber-500/30 flex items-center justify-center shrink-0">
                   <AlertTriangle className="w-6 h-6" />
                 </div>
                 <div className="space-y-2">
-                  <h2 className="font-serif font-extrabold text-2xl sm:text-3xl text-sanchay-navy-950">
+                  <h2 className="font-serif font-extrabold text-2xl sm:text-3xl text-white">
                     {t('recommendations.noMatchTitle', 'No Exact Match Found')}
                   </h2>
-                  <p className="text-sm text-sanchay-navy-700 leading-relaxed">
+                  <p className="text-sm text-slate-300 leading-relaxed">
                     {t('recommendations.noMatchDesc', 'Based on your input parameters, no active statutory scheme satisfies 100% of the mandatory criteria:')}
                   </p>
                   
                   {recommendationResult.failed_reasons && recommendationResult.failed_reasons.length > 0 && (
-                    <ul className="list-disc list-inside text-xs text-amber-900 font-mono space-y-1 pt-2">
+                    <ul className="list-disc list-inside text-xs text-amber-300 font-mono space-y-1 pt-2">
                       {recommendationResult.failed_reasons.map((r, idx) => (
                         <li key={idx}>{r}</li>
                       ))}
@@ -219,25 +219,25 @@ export const RecommendationsPage = () => {
 
               {/* Closest Eligible Options */}
               {closestFits.length > 0 && (
-                <div className="pt-6 border-t border-slate-100">
-                  <h3 className="font-serif font-bold text-lg text-sanchay-navy-950 mb-4">
+                <div className="pt-6 border-t border-emerald-500/15">
+                  <h3 className="font-serif font-bold text-lg text-white mb-4">
                     {t('recommendations.closestMatches', 'Closest Eligible Options — Review Required')}
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     {closestFits.map((item) => {
                       const loc = localizeScheme(item, currentLang);
                       return (
-                        <div key={item.scheme_id} className="p-5 rounded-2xl bg-[#F8F6F0] border border-slate-200 flex flex-col justify-between">
+                        <div key={item.scheme_id} className="p-5 rounded-2xl bg-[#08120d] border border-emerald-500/20 flex flex-col justify-between">
                           <div>
                             <span className="text-[10px] font-mono font-bold uppercase text-slate-400 block mb-1">
                               {loc.displayCategory || getLocalizedCategory(item.category, currentLang)}
                             </span>
-                            <h4 className="font-serif font-bold text-base text-sanchay-navy-950">{loc.displayName || item.name}</h4>
-                            <p className="text-xs text-slate-600 mt-2">{loc.displayDescription || item.short_description}</p>
+                            <h4 className="font-serif font-bold text-base text-white">{loc.displayName || item.name}</h4>
+                            <p className="text-xs text-slate-400 mt-2">{loc.displayDescription || item.short_description}</p>
                           </div>
                           <button
                             onClick={() => setSelectedItem(item)}
-                            className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-sanchay-emerald-700 uppercase cursor-pointer"
+                            className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-emerald-400 hover:text-emerald-300 uppercase cursor-pointer"
                           >
                             <span>{t('recommendations.viewDetails', 'Review Scheme')}</span>
                             <ArrowRight className="w-3.5 h-3.5" />
@@ -259,11 +259,11 @@ export const RecommendationsPage = () => {
             const topCategory = locTop.displayCategory || getLocalizedCategory(topMatch.category, currentLang);
 
             return (
-              <div className="bg-white rounded-3xl border border-slate-200/90 shadow-card hover:shadow-editorial transition-all overflow-hidden mb-12">
+              <div className="bg-[#0c1611]/95 rounded-3xl border border-emerald-500/40 shadow-2xl backdrop-blur-sm overflow-hidden mb-12">
                 <div className="grid grid-cols-1 lg:grid-cols-12">
                   
                   {/* Left: Large Photo Banner */}
-                  <div className="lg:col-span-5 relative h-72 lg:h-auto min-h-[320px] bg-slate-100 overflow-hidden flex items-center justify-center">
+                  <div className="lg:col-span-5 relative h-72 lg:h-auto min-h-[320px] bg-[#060b08] overflow-hidden flex items-center justify-center border-b lg:border-b-0 lg:border-r border-emerald-500/20">
                     <img
                       src={getSchemeImage(topMatch.id || topMatch.shortName, topMatch.category, topMatch.name)?.url || '/schemes/_fallback.svg'}
                       alt={topTitle}
@@ -271,20 +271,20 @@ export const RecommendationsPage = () => {
                         e.target.onerror = null;
                         e.target.src = '/schemes/_fallback.svg';
                       }}
-                      className="w-full h-full object-contain p-4"
+                      className="w-full h-full object-contain p-6"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-sanchay-navy-950 via-sanchay-navy-950/40 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#060b08] via-transparent to-transparent pointer-events-none" />
                     
                     {/* Top Badges */}
                     <div className="absolute top-4 left-4 flex items-center gap-2">
-                      <span className="px-3 py-1 rounded-full bg-sanchay-gold-500 text-sanchay-navy-950 font-mono font-extrabold text-[10px] uppercase tracking-wider shadow-xs">
+                      <span className="px-3 py-1 rounded-full bg-emerald-500 text-black font-mono font-extrabold text-[10px] uppercase tracking-wider shadow-md">
                         ★ TOP MATCH ({topMatch.fitScore}% FIT)
                       </span>
                     </div>
 
                     <div className="absolute bottom-4 left-6 right-6 text-white">
-                      <span className="text-[10px] font-mono text-sanchay-emerald-400 uppercase tracking-widest block font-bold">Verified Statutory Yield</span>
-                      <span className="font-serif font-extrabold text-2xl text-sanchay-gold-400">{topMatch.currentInterestRate}</span>
+                      <span className="text-[10px] font-mono text-emerald-400 uppercase tracking-widest block font-bold">Verified Statutory Yield</span>
+                      <span className="font-serif font-extrabold text-2xl text-emerald-300 font-mono">{topMatch.currentInterestRate}</span>
                     </div>
                   </div>
 
@@ -292,7 +292,7 @@ export const RecommendationsPage = () => {
                   <div className="lg:col-span-7 p-6 sm:p-10 flex flex-col justify-between space-y-6">
                     <div>
                       <div className="flex items-center justify-between gap-4 mb-2">
-                        <span className="text-xs font-mono font-bold uppercase tracking-wider text-sanchay-emerald-700 bg-sanchay-emerald-50 px-3 py-1 rounded-full border border-sanchay-emerald-200">
+                        <span className="text-xs font-mono font-bold uppercase tracking-wider text-emerald-300 bg-emerald-950/80 px-3 py-1 rounded-full border border-emerald-500/30">
                           {topCategory}
                         </span>
                         <span className="text-xs font-mono font-bold text-slate-400">
@@ -300,39 +300,39 @@ export const RecommendationsPage = () => {
                         </span>
                       </div>
 
-                      <h2 className="font-serif font-extrabold text-2xl sm:text-3xl text-sanchay-navy-950">
+                      <h2 className="font-serif font-extrabold text-2xl sm:text-3xl text-white">
                         {topTitle}
                       </h2>
-                      <p className="text-xs sm:text-sm text-sanchay-navy-700 mt-2 leading-relaxed">
+                      <p className="text-xs sm:text-sm text-slate-400 mt-2 leading-relaxed">
                         {topDesc}
                       </p>
 
                       {/* Breakdown Reasons */}
                       <div className="mt-6 space-y-3">
-                        <h3 className="font-serif font-bold text-sm text-sanchay-navy-950 flex items-center gap-1.5">
-                          <Sparkles className="w-4 h-4 text-sanchay-gold-500" />
+                        <h3 className="font-serif font-bold text-sm text-white flex items-center gap-1.5">
+                          <Sparkles className="w-4 h-4 text-emerald-400" />
                           <span>{t('recommendations.whyThisFits', 'Why this fits your profile')}</span>
                         </h3>
                         {topMatch.whyItFitsReasons.map((reason, idx) => (
                           <div key={idx} className="space-y-1">
                             <div className="flex items-center justify-between text-xs font-bold">
-                              <span className="text-sanchay-navy-950">{reason.label}</span>
-                              <span className="font-mono text-sanchay-emerald-700">{reason.score}%</span>
+                              <span className="text-slate-200">{reason.label}</span>
+                              <span className="font-mono text-emerald-400">{reason.score}%</span>
                             </div>
-                            <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
-                              <div className="h-full bg-sanchay-emerald-600 rounded-full" style={{ width: `${reason.score}%` }} />
+                            <div className="h-1.5 w-full bg-emerald-950/60 rounded-full overflow-hidden border border-emerald-500/20">
+                              <div className="h-full bg-emerald-500 rounded-full" style={{ width: `${reason.score}%` }} />
                             </div>
-                            <p className="text-[11px] text-slate-600">{reason.text}</p>
+                            <p className="text-[11px] text-slate-400">{reason.text}</p>
                           </div>
                         ))}
                       </div>
                     </div>
 
                     {/* CTAs */}
-                    <div className="pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
+                    <div className="pt-4 border-t border-emerald-500/15 flex flex-wrap items-center justify-between gap-3">
                       <button
                         onClick={() => setSelectedItem(topMatch)}
-                        className="px-6 py-3 rounded-xl bg-sanchay-emerald-600 hover:bg-sanchay-emerald-700 text-white font-extrabold text-xs uppercase tracking-wider shadow-card transition-all cursor-pointer"
+                        className="px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-emerald-950/50 transition-all cursor-pointer"
                       >
                         {t('recommendations.viewDetails', 'View Full Details')}
                       </button>
@@ -340,9 +340,9 @@ export const RecommendationsPage = () => {
                       <div className="flex items-center gap-2">
                         <Link
                           to={`/compare?scheme1=${topMatch.id || topMatch.scheme_id || ''}&scheme2=${otherMatches[0]?.id || otherMatches[0]?.scheme_id || ''}&scheme3=${otherMatches[1]?.id || otherMatches[1]?.scheme_id || ''}`}
-                          className="px-4 py-2.5 rounded-xl bg-white border border-slate-200 text-sanchay-navy-950 text-xs font-bold uppercase tracking-wider hover:bg-slate-50 flex items-center gap-1.5"
+                          className="px-4 py-2.5 rounded-xl bg-[#08120d] border border-emerald-500/25 text-white text-xs font-bold uppercase tracking-wider hover:border-emerald-400/60 hover:bg-[#101e17] flex items-center gap-1.5 transition-colors"
                         >
-                          <ArrowLeftRight className="w-3.5 h-3.5 text-sanchay-emerald-600" />
+                          <ArrowLeftRight className="w-3.5 h-3.5 text-emerald-400" />
                           <span>{t('nav.compare', 'Compare Recommendations')}</span>
                         </Link>
 
@@ -351,7 +351,7 @@ export const RecommendationsPage = () => {
                             href={topMatch.officialSourceUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="px-4 py-2.5 rounded-xl bg-sanchay-navy-950 text-white text-xs font-bold uppercase tracking-wider hover:bg-sanchay-navy-900 flex items-center gap-1.5"
+                            className="px-4 py-2.5 rounded-xl bg-emerald-950/80 border border-emerald-500/30 text-emerald-300 text-xs font-bold uppercase tracking-wider hover:bg-emerald-900/80 flex items-center gap-1.5 transition-colors"
                           >
                             <span>{t('recommendations.officialPortal', 'Official Portal →')}</span>
                             <ExternalLink className="w-3.5 h-3.5" />
@@ -370,7 +370,7 @@ export const RecommendationsPage = () => {
           {/* OTHER ELIGIBLE MATCHES */}
           {!loading && otherMatches.length > 0 && (
             <div>
-              <h3 className="font-serif font-extrabold text-2xl text-sanchay-navy-950 mb-6">
+              <h3 className="font-serif font-extrabold text-2xl text-white mb-6">
                 {t('recommendations.topMatches', 'Other Matching Eligible Schemes')}
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -383,32 +383,32 @@ export const RecommendationsPage = () => {
                   return (
                     <div
                       key={scheme.id}
-                      className="bg-white rounded-2xl border border-slate-200/90 shadow-card hover:shadow-editorial transition-all p-6 flex flex-col justify-between space-y-4"
+                      className="bg-[#0c1611]/90 rounded-2xl border border-emerald-500/20 shadow-lg hover:shadow-emerald-950/50 hover:border-emerald-400/60 hover:bg-[#101e17] transition-all p-6 flex flex-col justify-between space-y-4"
                     >
                       <div>
                         <div className="flex items-center justify-between text-xs font-mono font-bold text-slate-400 mb-2">
-                          <span className="uppercase text-sanchay-emerald-700 bg-sanchay-emerald-50 px-2.5 py-0.5 rounded-full">{sCategory}</span>
-                          <span className="text-sanchay-gold-600 font-extrabold">{scheme.fitScore}% Fit</span>
+                          <span className="uppercase text-emerald-300 bg-emerald-950/80 border border-emerald-500/30 px-2.5 py-0.5 rounded-full">{sCategory}</span>
+                          <span className="text-emerald-400 font-extrabold font-mono">{scheme.fitScore}% Fit</span>
                         </div>
-                        <h4 className="font-serif font-extrabold text-lg text-sanchay-navy-950">{sTitle}</h4>
-                        <p className="text-xs text-slate-600 mt-2 line-clamp-2">{sDesc}</p>
+                        <h4 className="font-serif font-extrabold text-lg text-white">{sTitle}</h4>
+                        <p className="text-xs text-slate-400 mt-2 line-clamp-2">{sDesc}</p>
                         
-                        <div className="mt-3 p-2.5 rounded-xl bg-[#F8F6F0] border border-slate-100 flex items-center justify-between text-xs">
-                          <span className="text-slate-500 font-mono">Yield/Benefit:</span>
-                          <span className="font-bold text-sanchay-emerald-700">{scheme.currentInterestRate}</span>
+                        <div className="mt-3 p-2.5 rounded-xl bg-[#060b08] border border-emerald-500/15 flex items-center justify-between text-xs">
+                          <span className="text-slate-400 font-mono">Yield/Benefit:</span>
+                          <span className="font-bold text-emerald-400 font-mono">{scheme.currentInterestRate}</span>
                         </div>
                       </div>
 
-                      <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                      <div className="pt-3 border-t border-emerald-500/15 flex items-center justify-between">
                         <button
                           onClick={() => setSelectedItem(scheme)}
-                          className="text-xs font-bold text-sanchay-navy-950 hover:text-sanchay-emerald-700 uppercase cursor-pointer"
+                          className="text-xs font-bold text-slate-300 hover:text-emerald-400 uppercase cursor-pointer"
                         >
                           {t('recommendations.viewDetails', 'View Details →')}
                         </button>
                         <Link
                           to={`/compare?scheme1=${topMatch?.id || 'ppf'}&scheme2=${scheme.id}`}
-                          className="text-xs font-mono font-bold text-sanchay-emerald-700 uppercase hover:underline flex items-center gap-1"
+                          className="text-xs font-mono font-bold text-emerald-400 hover:text-emerald-300 uppercase flex items-center gap-1"
                         >
                           <ArrowLeftRight className="w-3 h-3" />
                           <span>{t('nav.compare', 'Compare')}</span>
@@ -423,12 +423,12 @@ export const RecommendationsPage = () => {
 
           {/* RECALCULATE / EMPTY FALLBACK */}
           {!loading && !topMatch && !isNoMatch && (
-            <div className="bg-white rounded-3xl p-10 text-center border border-slate-200 shadow-card my-6">
-              <div className="w-16 h-16 rounded-2xl bg-sanchay-emerald-50 text-sanchay-emerald-700 flex items-center justify-center mx-auto mb-4 border border-sanchay-emerald-200">
-                <Sparkles className="w-8 h-8 text-sanchay-gold-500" />
+            <div className="bg-[#0c1611]/90 rounded-3xl p-10 text-center border border-emerald-500/20 shadow-2xl my-6 backdrop-blur-sm">
+              <div className="w-16 h-16 rounded-2xl bg-emerald-950/80 text-emerald-400 border border-emerald-500/30 flex items-center justify-center mx-auto mb-4">
+                <Sparkles className="w-8 h-8 text-emerald-400" />
               </div>
-              <h3 className="font-serif font-bold text-2xl text-sanchay-navy-950">Ready to Match Verified Schemes</h3>
-              <p className="text-sm text-slate-600 max-w-md mx-auto mt-2">
+              <h3 className="font-serif font-bold text-2xl text-white">Ready to Match Verified Schemes</h3>
+              <p className="text-sm text-slate-400 max-w-md mx-auto mt-2">
                 Click below to calculate and view the highest-matching verified sovereign schemes for your profile.
               </p>
               <div className="flex items-center justify-center gap-4 mt-6">
@@ -437,13 +437,13 @@ export const RecommendationsPage = () => {
                     sessionStorage.removeItem('sanchay_recommendation_result');
                     window.location.reload();
                   }}
-                  className="px-6 py-3 rounded-xl bg-sanchay-emerald-600 hover:bg-sanchay-emerald-700 text-white text-xs font-bold uppercase tracking-wider shadow-card cursor-pointer"
+                  className="px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold uppercase tracking-wider shadow-lg shadow-emerald-950/50 cursor-pointer"
                 >
                   Calculate Recommendations
                 </button>
                 <Link
                   to="/schemes"
-                  className="px-6 py-3 rounded-xl bg-white border border-slate-200 hover:bg-slate-50 text-sanchay-navy-950 text-xs font-bold uppercase tracking-wider"
+                  className="px-6 py-3 rounded-xl bg-[#08120d] border border-emerald-500/25 hover:border-emerald-400/50 hover:bg-[#101e17] text-white text-xs font-bold uppercase tracking-wider"
                 >
                   Explore All Schemes
                 </Link>

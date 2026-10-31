@@ -17,12 +17,13 @@ const getApiBaseUrl = () => {
   if (isProd) {
     return '';
   }
-  return 'http://127.0.0.1:8000';
+  return 'http://127.0.0.1:8005';
 };
 
 export const API_BASE_URL = getApiBaseUrl();
 import { calculateLocalRecommendations } from './clientEngine';
 import { FALLBACK_FREE_BENEFITS, filterLocalFreeBenefits } from '../data/freeBenefitsFallback';
+import { calculateFinancialHealth as calculateLocalFinancialHealth } from './financialCalculations';
 
 /**
  * Health check to verify backend connectivity
@@ -604,3 +605,81 @@ export async function evaluateFreeBenefitEligibility(payload) {
     return null;
   }
 }
+
+// -------------------------------------------------------------
+// Financial Journey & Smart Budget API
+// -------------------------------------------------------------
+
+/**
+ * Calculate 50/30/20 budget allocations, disposable surplus, and 100-point Health Score.
+ * Accessible to public guest visitors without requiring authentication.
+ */
+export async function calculateFinancialHealth(input) {
+  try {
+    const res = await fetch(`${API_BASE_URL}/api/financial/calculate`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(input)
+    });
+    if (!res.ok) {
+      const errData = await res.json().catch(() => ({}));
+      throw new Error(errData.detail || `Financial calculation error: ${res.statusText}`);
+    }
+    return await res.json();
+  } catch (err) {
+    console.warn('Backend financial calculation API unavailable, using verified local engine:', err);
+    return calculateLocalFinancialHealth(input);
+  }
+}
+
+/**
+ * Save or update the authenticated user's financial profile and health calculation.
+ * Strictly isolated by the authenticated user's session token.
+ */
+export async function saveFinancialProfile(input, token) {
+  const authToken = token || (typeof localStorage !== 'undefined' ? localStorage.getItem('sanchay_auth_token') : null);
+  if (!authToken) {
+    throw new Error('Authentication required to save financial profile.');
+  }
+
+  const res = await fetch(`${API_BASE_URL}/api/financial/my-health`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${authToken}`
+    },
+    body: JSON.stringify(input)
+  });
+
+  const data = await res.json();
+  if (!res.ok) {
+    throw new Error(data.detail || 'Failed to save financial profile.');
+  }
+  return data;
+}
+
+/**
+ * Retrieve the authenticated user's saved financial journey.
+ * Strictly isolated by the authenticated user's session token.
+ */
+export async function fetchFinancialHealth(token) {
+  const authToken = token || (typeof localStorage !== 'undefined' ? localStorage.getItem('sanchay_auth_token') : null);
+  if (!authToken) {
+    return { status: 'unauthenticated', has_data: false, financial_journey: null };
+  }
+
+  try {
+    const res = await fetch(`${API_BASE_URL}/api/financial/my-health`, {
+      headers: { 'Authorization': `Bearer ${authToken}` }
+    });
+    if (!res.ok) {
+      if (res.status === 401) return { unauthorized: true, has_data: false, financial_journey: null };
+      return null;
+    }
+    return await res.json();
+  } catch (err) {
+    console.warn('Could not fetch saved financial health:', err);
+    return null;
+  }
+}
+

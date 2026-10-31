@@ -1,3 +1,4 @@
+import re
 from typing import Dict, Any, List, Tuple, Optional
 from app.schemas import (
     UserProfile, UserGoal, UserPreferences,
@@ -261,7 +262,15 @@ def evaluate_eligibility(
     user_occ = str(profile.occupation or "").lower().strip()
     user_persona = str(profile.persona or profile.life_stage or "").lower().strip()
 
-    is_salaried = any(w in user_occ for w in ["salaried", "private", "employee", "corporate", "it", "formal", "banker", "tech", "executive", "clerk", "manager", "staff"])
+    # Safe token-based / word-boundary matching for salaried employment categories.
+    # Prevents false substring matches (e.g., 'it' matching inside 'senior_citizen')
+    # while preserving legitimate matches for IT professionals and other salaried roles.
+    occ_tokens = set(re.findall(r"[a-zA-Z0-9]+", user_occ))
+    salaried_tokens = {
+        "salaried", "private", "employee", "corporate", "it",
+        "formal", "banker", "tech", "executive", "clerk", "manager", "staff"
+    }
+    is_salaried = bool(occ_tokens & salaried_tokens) or "i.t." in user_occ
 
     # 8A. MGNREGA / Rural Manual Wage Employment Special Statutory Rule
     is_mgnrega = (

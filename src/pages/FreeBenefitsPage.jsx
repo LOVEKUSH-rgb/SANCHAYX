@@ -77,7 +77,7 @@ export const FreeBenefitsPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF9F5] text-sanchay-navy-950 flex flex-col selection:bg-sanchay-emerald-600 selection:text-white">
+    <div className="min-h-screen bg-[#060b08] text-slate-100 flex flex-col selection:bg-emerald-600 selection:text-white">
       {/* Sticky Sanchay Header / Navbar Banner */}
       <Navbar />
 
@@ -85,21 +85,21 @@ export const FreeBenefitsPage = () => {
         
         {/* Page Hero Header */}
         <div className="mb-10 text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sanchay-emerald-50 text-sanchay-emerald-800 text-xs font-mono font-bold uppercase tracking-wider mb-4 border border-sanchay-emerald-200 shadow-2xs">
-            <Gift className="w-4 h-4 text-sanchay-emerald-600" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-950/80 text-emerald-300 text-xs font-mono font-bold uppercase tracking-wider mb-4 border border-emerald-500/30 shadow-2xs">
+            <Gift className="w-4 h-4 text-emerald-400" />
             <span>Verified Sovereign Free Benefits & Assistance</span>
           </div>
           
-          <h1 className="font-serif font-extrabold text-3xl sm:text-5xl text-sanchay-navy-950 tracking-tight leading-tight">
+          <h1 className="font-serif font-extrabold text-3xl sm:text-5xl text-white tracking-tight leading-tight">
             Free Benefits & Direct Assistance
           </h1>
-          <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed">
+          <p className="mt-3 text-sm sm:text-base text-slate-300 leading-relaxed">
             Discover 100% free food grains, zero-cost skill development with stipends, and state educational scholarships without middleman commissions.
           </p>
         </div>
 
         {/* Filter Controls Bar */}
-        <div className="bg-white rounded-3xl p-6 shadow-card border border-slate-200/90 mb-10">
+        <div className="bg-[#0c1611]/90 rounded-3xl p-6 shadow-2xl border border-emerald-500/20 mb-10">
           <form onSubmit={handleSearchSubmit} className="space-y-4">
             
             {/* Search row */}
@@ -111,13 +111,13 @@ export const FreeBenefitsPage = () => {
                   placeholder="Search by benefit name, free coaching, PMGKAY, state, or keywords..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-11 pr-4 py-3 rounded-2xl bg-slate-50 border border-slate-200 text-xs sm:text-sm font-medium text-sanchay-navy-950 focus:bg-white focus:border-sanchay-navy-900 focus:outline-hidden transition-colors"
+                  className="w-full pl-11 pr-4 py-3 rounded-2xl bg-[#060b08] border border-emerald-500/25 text-xs sm:text-sm font-medium text-white placeholder:text-slate-500 focus:border-emerald-400 focus:outline-hidden transition-colors"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full sm:w-auto px-6 py-3 rounded-2xl bg-sanchay-navy-950 hover:bg-sanchay-navy-900 text-white font-mono font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer shadow-xs"
+                className="w-full sm:w-auto px-6 py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-mono font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer shadow-xs"
               >
                 Search Benefits
               </button>
@@ -125,7 +125,7 @@ export const FreeBenefitsPage = () => {
               <button
                 type="button"
                 onClick={handleResetFilters}
-                className="w-full sm:w-auto px-4 py-3 rounded-2xl bg-slate-100 hover:bg-slate-200 text-sanchay-navy-950 font-mono font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer"
+                className="w-full sm:w-auto px-4 py-3 rounded-2xl bg-[#060b08] hover:bg-[#12221a] text-slate-300 border border-emerald-500/20 font-mono font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer"
               >
                 Reset
               </button>
@@ -136,96 +136,96 @@ export const FreeBenefitsPage = () => {
               
               {/* 1. Level / Authority */}
               <div>
-                <label className="block font-mono font-bold uppercase tracking-wider text-slate-500 mb-1">
+                <label className="block font-mono font-bold uppercase tracking-wider text-slate-400 mb-1">
                   Jurisdiction / Level
                 </label>
                 <select
                   value={selectedLevel}
                   onChange={(e) => setSelectedLevel(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 font-bold text-sanchay-navy-950 focus:bg-white focus:outline-hidden"
+                  className="w-full px-3 py-2 rounded-xl bg-[#060b08] border border-emerald-500/25 font-bold text-white focus:border-emerald-400 focus:outline-hidden"
                 >
-                  <option value="all">All Levels (Central + State + UT)</option>
-                  <option value="central">Central Government Only</option>
-                  <option value="state">State Governments Only</option>
-                  <option value="ut">Union Territories (UT) Only</option>
+                  <option value="all" className="bg-[#0c1611] text-white">All Levels (Central + State + UT)</option>
+                  <option value="central" className="bg-[#0c1611] text-white">Central Government Only</option>
+                  <option value="state" className="bg-[#0c1611] text-white">State Governments Only</option>
+                  <option value="ut" className="bg-[#0c1611] text-white">Union Territories (UT) Only</option>
                 </select>
               </div>
 
               {/* 2. State */}
               <div>
-                <label className="block font-mono font-bold uppercase tracking-wider text-slate-500 mb-1">
+                <label className="block font-mono font-bold uppercase tracking-wider text-slate-400 mb-1">
                   State / UT
                 </label>
                 <select
                   value={selectedState}
                   onChange={(e) => setSelectedState(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 font-bold text-sanchay-navy-950 focus:bg-white focus:outline-hidden"
+                  className="w-full px-3 py-2 rounded-xl bg-[#060b08] border border-emerald-500/25 font-bold text-white focus:border-emerald-400 focus:outline-hidden"
                 >
-                  <option value="all">All States & All India</option>
-                  <option value="All India">All India (Central Schemes)</option>
-                  <option value="Assam">Assam</option>
-                  <option value="Delhi">Delhi</option>
-                  <option value="Gujarat">Gujarat</option>
-                  <option value="Haryana">Haryana</option>
-                  <option value="Maharashtra">Maharashtra</option>
-                  <option value="Nagaland">Nagaland</option>
-                  <option value="Puducherry">Puducherry</option>
-                  <option value="Rajasthan">Rajasthan</option>
+                  <option value="all" className="bg-[#0c1611] text-white">All States & All India</option>
+                  <option value="All India" className="bg-[#0c1611] text-white">All India (Central Schemes)</option>
+                  <option value="Assam" className="bg-[#0c1611] text-white">Assam</option>
+                  <option value="Delhi" className="bg-[#0c1611] text-white">Delhi</option>
+                  <option value="Gujarat" className="bg-[#0c1611] text-white">Gujarat</option>
+                  <option value="Haryana" className="bg-[#0c1611] text-white">Haryana</option>
+                  <option value="Maharashtra" className="bg-[#0c1611] text-white">Maharashtra</option>
+                  <option value="Nagaland" className="bg-[#0c1611] text-white">Nagaland</option>
+                  <option value="Puducherry" className="bg-[#0c1611] text-white">Puducherry</option>
+                  <option value="Rajasthan" className="bg-[#0c1611] text-white">Rajasthan</option>
                 </select>
               </div>
 
               {/* 3. Category */}
               <div>
-                <label className="block font-mono font-bold uppercase tracking-wider text-slate-500 mb-1">
+                <label className="block font-mono font-bold uppercase tracking-wider text-slate-400 mb-1">
                   Category
                 </label>
                 <select
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 font-bold text-sanchay-navy-950 focus:bg-white focus:outline-hidden"
+                  className="w-full px-3 py-2 rounded-xl bg-[#060b08] border border-emerald-500/25 font-bold text-white focus:border-emerald-400 focus:outline-hidden"
                 >
-                  <option value="all">All Categories</option>
-                  <option value="food">Food & Essential Rations</option>
-                  <option value="education">Education & Scholarships</option>
-                  <option value="skill_employment">Skill & Employment</option>
-                  <option value="health">Health & Healthcare</option>
-                  <option value="energy_utility">Energy & Utility</option>
+                  <option value="all" className="bg-[#0c1611] text-white">All Categories</option>
+                  <option value="food" className="bg-[#0c1611] text-white">Food & Essential Rations</option>
+                  <option value="education" className="bg-[#0c1611] text-white">Education & Scholarships</option>
+                  <option value="skill_employment" className="bg-[#0c1611] text-white">Skill & Employment</option>
+                  <option value="health" className="bg-[#0c1611] text-white">Health & Healthcare</option>
+                  <option value="energy_utility" className="bg-[#0c1611] text-white">Energy & Utility</option>
                 </select>
               </div>
 
               {/* 4. Benefit Type */}
               <div>
-                <label className="block font-mono font-bold uppercase tracking-wider text-slate-500 mb-1">
+                <label className="block font-mono font-bold uppercase tracking-wider text-slate-400 mb-1">
                   Benefit Type
                 </label>
                 <select
                   value={selectedBenefitType}
                   onChange={(e) => setSelectedBenefitType(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 font-bold text-sanchay-navy-950 focus:bg-white focus:outline-hidden"
+                  className="w-full px-3 py-2 rounded-xl bg-[#060b08] border border-emerald-500/25 font-bold text-white focus:border-emerald-400 focus:outline-hidden"
                 >
-                  <option value="all">All Benefit Types</option>
-                  <option value="completely_free">Completely Free (100% Free)</option>
-                  <option value="free_training">Free Training & Stipend</option>
-                  <option value="free_coaching">Free Coaching</option>
-                  <option value="scholarship">Scholarship & Allowance</option>
-                  <option value="tuition_fee_assistance">Tuition Fee Assistance</option>
-                  <option value="financial_assistance">Financial Incentive</option>
-                  <option value="subsidy">Direct Subsidy & Financial Assistance</option>
+                  <option value="all" className="bg-[#0c1611] text-white">All Benefit Types</option>
+                  <option value="completely_free" className="bg-[#0c1611] text-white">Completely Free (100% Free)</option>
+                  <option value="free_training" className="bg-[#0c1611] text-white">Free Training & Stipend</option>
+                  <option value="free_coaching" className="bg-[#0c1611] text-white">Free Coaching</option>
+                  <option value="scholarship" className="bg-[#0c1611] text-white">Scholarship & Allowance</option>
+                  <option value="tuition_fee_assistance" className="bg-[#0c1611] text-white">Tuition Fee Assistance</option>
+                  <option value="financial_assistance" className="bg-[#0c1611] text-white">Financial Incentive</option>
+                  <option value="subsidy" className="bg-[#0c1611] text-white">Direct Subsidy & Financial Assistance</option>
                 </select>
               </div>
 
             </div>
 
             {/* Active Only Switch */}
-            <div className="pt-2 flex items-center justify-between border-t border-slate-100">
-              <label className="inline-flex items-center gap-2 cursor-pointer text-xs font-semibold text-slate-700">
+            <div className="pt-2 flex items-center justify-between border-t border-emerald-500/15">
+              <label className="inline-flex items-center gap-2 cursor-pointer text-xs font-semibold text-slate-300">
                 <input
                   type="checkbox"
                   checked={activeOnly}
                   onChange={(e) => setActiveOnly(e.target.checked)}
-                  className="w-4 h-4 rounded text-emerald-600 focus:ring-emerald-500"
+                  className="w-4 h-4 rounded text-emerald-600 border-emerald-500/30 bg-[#060b08] focus:ring-emerald-500"
                 />
-                <span>Show Only Active & Verified Listed Benefits</span>
+                <span className="text-emerald-300">Show Only Active & Verified Listed Benefits</span>
               </label>
 
               <span className="text-xs font-mono font-bold text-slate-400">
@@ -239,19 +239,19 @@ export const FreeBenefitsPage = () => {
         {/* Benefits Grid */}
         {loading ? (
           <div className="py-20 text-center space-y-3">
-            <RefreshCw className="w-8 h-8 text-emerald-600 animate-spin mx-auto" />
-            <p className="font-mono text-xs font-bold text-slate-500 uppercase">Loading verified Free Benefits...</p>
+            <RefreshCw className="w-8 h-8 text-emerald-400 animate-spin mx-auto" />
+            <p className="font-mono text-xs font-bold text-slate-400 uppercase">Loading verified Free Benefits...</p>
           </div>
         ) : benefits.length === 0 ? (
-          <div className="bg-white rounded-3xl p-12 text-center border border-slate-200 shadow-card">
-            <Gift className="w-12 h-12 text-slate-300 mx-auto mb-3" />
-            <h3 className="font-serif font-bold text-xl text-sanchay-navy-950">No matching Free Benefits found</h3>
-            <p className="text-xs text-slate-500 mt-1 max-w-md mx-auto">
+          <div className="bg-[#0c1611] rounded-3xl p-12 text-center border border-emerald-500/20 shadow-2xl">
+            <Gift className="w-12 h-12 text-slate-500 mx-auto mb-3" />
+            <h3 className="font-serif font-bold text-xl text-white">No matching Free Benefits found</h3>
+            <p className="text-xs text-slate-300 mt-1 max-w-md mx-auto">
               Try adjusting your filter criteria or clear the search keyword to browse all active verified schemes.
             </p>
             <button
               onClick={handleResetFilters}
-              className="mt-5 px-5 py-2.5 rounded-xl bg-sanchay-navy-950 text-white font-mono font-bold text-xs uppercase cursor-pointer"
+              className="mt-5 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-mono font-bold text-xs uppercase cursor-pointer"
             >
               Reset All Filters
             </button>
@@ -269,23 +269,23 @@ export const FreeBenefitsPage = () => {
               return (
                 <div
                   key={item.benefit_id}
-                  className="bg-white rounded-3xl border border-slate-200/90 shadow-card hover:shadow-editorial transition-all p-6 flex flex-col justify-between space-y-4"
+                  className="bg-[#0c1611]/90 rounded-3xl border border-emerald-500/20 shadow-card hover:shadow-[0_0_24px_rgba(16,185,129,0.2)] hover:border-emerald-400/50 hover:bg-[#101e17] transition-all p-6 flex flex-col justify-between space-y-4"
                 >
                   <div>
                     {/* Top Badges */}
                     <div className="flex items-center justify-between gap-2 mb-3">
                       {isCompletelyFree ? (
-                        <span className="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-900 text-[10.5px] font-mono font-bold uppercase tracking-wider border border-emerald-200">
+                        <span className="px-2.5 py-1 rounded-full bg-emerald-950/90 text-emerald-300 text-[10.5px] font-mono font-bold uppercase tracking-wider border border-emerald-500/30">
                           ★ 100% FREE
                         </span>
                       ) : (
-                        <span className="px-2.5 py-1 rounded-full bg-amber-100 text-amber-900 border border-amber-200 text-[10.5px] font-mono font-bold uppercase">
+                        <span className="px-2.5 py-1 rounded-full bg-amber-950/90 text-amber-300 border border-amber-500/30 text-[10.5px] font-mono font-bold uppercase">
                           {displayType}
                         </span>
                       )}
 
                       <div className="flex items-center gap-1.5">
-                        <span className="px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 text-[10.5px] font-mono font-bold">
+                        <span className="px-2.5 py-1 rounded-full bg-[#060b08] text-slate-300 border border-emerald-500/20 text-[10.5px] font-mono font-bold">
                           {item.state === 'All India' ? getLocalizedCommonText('central_govt', currentLang) : item.state}
                         </span>
                         <button
@@ -306,26 +306,26 @@ export const FreeBenefitsPage = () => {
                           title={savedPlanIds?.has(item.benefit_id) ? "Remove from My Plans" : "Save to My Plans"}
                           className={`p-1.5 rounded-full border transition-all cursor-pointer ${
                             savedPlanIds?.has(item.benefit_id)
-                              ? 'bg-emerald-50 border-emerald-300 text-emerald-700 shadow-2xs'
-                              : 'bg-white border-slate-200 text-slate-400 hover:text-emerald-600 hover:border-emerald-200'
+                              ? 'bg-emerald-950/80 border-emerald-500/40 text-emerald-400 shadow-2xs'
+                              : 'bg-[#060b08] border-emerald-500/20 text-slate-400 hover:text-emerald-300 hover:border-emerald-500/40'
                           }`}
                         >
-                          <Bookmark className={`w-3.5 h-3.5 ${savedPlanIds?.has(item.benefit_id) ? 'fill-emerald-600 text-emerald-600' : ''}`} />
+                          <Bookmark className={`w-3.5 h-3.5 ${savedPlanIds?.has(item.benefit_id) ? 'fill-emerald-400 text-emerald-400' : ''}`} />
                         </button>
                       </div>
                     </div>
 
                     {/* Title */}
-                    <h3 className="font-serif font-extrabold text-xl text-sanchay-navy-950 leading-snug">
+                    <h3 className="font-serif font-extrabold text-xl text-white leading-snug">
                       {displayName}
                     </h3>
-                    <span className="text-[11px] font-mono text-slate-400 block mt-1">
+                    <span className="text-[11px] font-mono text-slate-500 block mt-1">
                       ID: {item.benefit_id}
                     </span>
 
                     {/* Benefit summary box */}
-                    <div className="mt-3 p-3 rounded-2xl bg-emerald-50/50 border border-emerald-100 text-xs text-emerald-950">
-                      <strong className="font-mono text-[10px] uppercase text-emerald-800 block mb-0.5">
+                    <div className="mt-3 p-3 rounded-2xl bg-[#08120d] border border-emerald-500/20 text-xs text-slate-300">
+                      <strong className="font-mono text-[10px] uppercase text-emerald-400 block mb-0.5">
                         {getLocalizedCommonText('what_you_get', currentLang)}:
                       </strong>
                       <p className="leading-relaxed line-clamp-3 font-medium">
@@ -334,26 +334,26 @@ export const FreeBenefitsPage = () => {
                     </div>
 
                     {/* Who can apply */}
-                    <div className="mt-3 text-xs text-slate-600 line-clamp-2">
-                      <strong className="text-sanchay-navy-900">{getLocalizedCommonText('who_can_apply', currentLang)}: </strong>
+                    <div className="mt-3 text-xs text-slate-300 line-clamp-2">
+                      <strong className="text-white">{getLocalizedCommonText('who_can_apply', currentLang)}: </strong>
                       <span>{displayElig}</span>
                     </div>
                   </div>
 
                   {/* Actions Footer */}
-                  <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-2">
+                  <div className="pt-4 border-t border-emerald-500/15 flex items-center justify-between gap-2">
                     <button
                       onClick={() => setEligibilityBenefit(item)}
-                      className="px-3.5 py-2 rounded-xl bg-sanchay-gold-50 hover:bg-sanchay-gold-100 text-sanchay-gold-800 border border-sanchay-gold-300 font-mono font-bold text-xs uppercase tracking-wider transition-colors inline-flex items-center gap-1 cursor-pointer"
+                      className="px-3.5 py-2 rounded-xl bg-emerald-950/60 hover:bg-emerald-900/80 text-emerald-300 border border-emerald-500/30 font-mono font-bold text-xs uppercase tracking-wider transition-colors inline-flex items-center gap-1 cursor-pointer"
                     >
-                      <Sparkles className="w-3.5 h-3.5 text-sanchay-gold-600" />
+                      <Sparkles className="w-3.5 h-3.5 text-amber-400" />
                       <span>Eligibility</span>
                     </button>
 
                     <div className="flex items-center gap-1.5">
                       <button
                         onClick={() => setSelectedBenefit(item)}
-                        className="px-4 py-2 rounded-xl bg-sanchay-navy-950 hover:bg-sanchay-navy-900 text-white font-mono font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer inline-flex items-center gap-1"
+                        className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-mono font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer inline-flex items-center gap-1"
                       >
                         <span>Details</span>
                         <ArrowRight className="w-3.5 h-3.5" />
@@ -365,14 +365,13 @@ export const FreeBenefitsPage = () => {
                           target="_blank"
                           rel="noreferrer"
                           title="Apply on Official Government Portal"
-                          className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-sanchay-navy-950 border border-slate-200 transition-colors inline-flex items-center justify-center cursor-pointer"
+                          className="p-2 rounded-xl bg-[#060b08] hover:bg-[#12221a] text-slate-300 border border-emerald-500/20 transition-colors inline-flex items-center justify-center cursor-pointer"
                         >
-                          <ExternalLink className="w-3.5 h-3.5" />
+                          <ExternalLink className="w-3.5 h-3.5 text-emerald-400" />
                         </a>
                       )}
                     </div>
                   </div>
-
                 </div>
               );
             })}
